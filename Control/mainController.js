@@ -87,7 +87,7 @@ mainApp.directive('header', function () {
   return {
       restrict: 'A',
       replace: true,
-      templateUrl: "Views/headerView.html",
+      templateUrl: "View/headerView.html",
       controller: 'MainController'
   }
 });
@@ -96,7 +96,7 @@ mainApp.directive('footer', function () {
   return {
       restrict: 'A',
       replace: true,
-      templateUrl: "Views/footerView.html",
+      templateUrl: "View/footerView.html",
       controller: 'MainController'
   }
 });
