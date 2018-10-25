@@ -1,0 +1,65 @@
+<div class="row col-12 justify-content-md-center p-0 m-0 whiteBox"
+        ng-app="mainApp" 
+        ng-controller="FlashCardController">
+        {{testData}}
+        <div class="blueBox row col-10 justify-content-md-center shadow">
+                <div class="mr-auto justify-content-md-center ">
+                        <img src="Assets/images/Placeholder.png" width="50px;" alt="">
+                        <span class="title-text1 align-bottom pl-3">My Flash Cards</span>
+
+                </div>
+                <div class="justify-content-md-center title-text1">
+                        <button class="btn btn-sm btn-primary align-bottom"
+                        ng-click="getTestData()" type="button">My Flagged</button>
+                        <img src="Assets/images/Placeholder.png" width="50px;" alt="">
+                </div>
+        </div>
+
+        <!-- Flash cards -->
+        
+        
+        <div class="col-10 blueBox blueCard shadow align-left" >
+                <div class="row">
+                        <div class="col-2 m-0 p-0">
+                                <img src="Assets/images/Placeholder.png" width="100px;"/>
+                        </div>
+                        <div class="col-10 p=3">
+                                <span class="row title-text1">Question :</span>
+                                <p class="row flashCardText">
+                                        {{flashCards[currentFlashcardQuestion].question}}
+                                </p>
+                                <span class="row title-text1 mt-5">Answers :</span>
+
+                                <div ng-repeat="answer in flashCards[currentFlashcardQuestion].answers"
+                                        ng-click="FlashCardSelected(thierAnswer)">
+                                        <div class="form-check" id="flashCardAnswers">
+                                                <input class="form-check-input" 
+                                                        ng-model="thierAnswer"
+                                                        ng-value="$index+1"
+                                                        type="radio" 
+                                                        name="answerRadios" 
+                                                        id="answerRadios" 
+                                                        value="option">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                        {{answer}}
+                                                </label>
+                                        </div>
+                                </div>  
+                                <button class="btn btn-sm btn-primary m-3" 
+                                type="button"
+                                ng-click="SubmitFlashCard(flashCards[currentFlashcardQuestion].correctAnswer)">Submit</button>
+                                <div class="row">
+                                                {{flashCards.selectionResponse}}
+                                </div>
+                                <button class="btn btn-sm btn-primary m-3" 
+                                type="button"
+                                ng-click="NextFlashCard(-1)">Prev</button>
+                                <button class="btn btn-sm btn-primary m-3" 
+                                type="button"
+                                ng-click="NextFlashCard(1)">Next</button>
+                                                               
+                        </div>
+                        
+                </div>
+        </div>
+</div>

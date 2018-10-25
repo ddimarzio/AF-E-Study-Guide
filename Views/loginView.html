@@ -1,0 +1,56 @@
+<div class="row col-12 w-100">
+    <div class="row col-12 w-100 justify-content-md-center">
+        <div class="row col-12 justify-content-md-center">
+            <img src="Assets/images/af-logo.png"/>
+        </div>
+        <div class="row col-12 justify-content-md-center pb-4">
+            <span class="title-text1">U.S. AIR FORCE</span>
+        </div>
+        <div class="row col-12 justify-content-md-center">
+                <span class="title-text2">Pursue your greatness</span>
+        </div>
+        <div class="row col-12 justify-content-md-center p-3">
+                <span class="title-text3">The airman handbook</span>
+        </div>
+        <div class="row col-12 justify-content-md-center">
+        <form class="form-signin">
+                <label for="inputEmail" class="sr-only" >Email address</label>
+                <input type="email" 
+                    id="inputEmail" 
+                    class="form-control" 
+                    ng-model="thisUser.userEmail"
+                    placeholder="Email address" 
+                    required 
+                    autofocus>
+                <label for="inputUsername" class="sr-only">Password</label>
+                <input type="text" 
+                    ng-model="thisUser.userName"
+                    id="inputUsername" 
+                    class="form-control" 
+                    placeholder="User Name" required>
+                <label for="inputUsername" class="sr-only">User Name</label>
+                <input type="password" 
+                    ng-model="thisUser.userPassword"
+                    id="inputPassword" 
+                    class="form-control" 
+                    placeholder="Password" required>
+                
+                <!-- <div class="checkbox mb-3">
+                    <label>
+                    <input type="checkbox" checked value="remember-me"> Remember me
+                    </label>
+                </div> -->
+                
+                <div class="row">
+                    <div class="col-6">
+                        <button class="btn btn-lg btn-primary btn-block" 
+                            type="submit"
+                            ng-click="authenticateUser(thisUser)">Sign in</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-lg btn btn-secondary btn-block">Register</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+
+<div class="p-1 sticky-top">
+
+    <div ng-if="user.userLoggedIn">
+        <div class="row col-12 w-100 justify-content-md-center">
+            <div class="row col-12">
+                <div class="mr-auto">
+                    <img src="Assets/images/master-sergeant.png" width="50px;" alt="Rank Icon">
+                    <a href="" ng-click="navigateToView('home')" class="title-text1 align-bottom pl-3">My Dashboard - {{user.userName}}</a>
+                </div>
+           
+                <!-- <div class="ml-auto mt-auto btn-group" role="group" >
+                    <div class="row ">
+                        <button class="btn btn-sm btn-secondary m-1" 
+                                type="button"
+                                ng-click="">Nav 1</button>
+                        <button class="btn btn-sm btn-secondary m-1" 
+                                type="button"
+                                ng-click="">Nav 2</button>
+                        <button class="btn btn-sm btn-secondary m-1" 
+                                type="button"
+                                ng-click="">Nav 3</button>
+                    </div>
+                </div> -->
+
+
+                <div class="ml-auto mt-auto">
+                    <img src="Assets/images/af-logo.png" alt="Clock Icon" width="70px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="!user.userLoggedIn">
+    </div>
+</div>
