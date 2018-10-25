@@ -44,7 +44,7 @@ li {
   text-align: center;
   position: relative;
   width: 100%;
-  background: url('../Assets/images/AFbackground.jpg');
+  background: url('../Assets/images/background.png');
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
@@ -75,8 +75,8 @@ li {
   padding: 0;
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 22px;
-  font-family: 'OrbitronRegular', sans-serif;
+  font-size: 75px;
+  font-family: 'agencyBold', sans-serif;
 }
 
 .title-text2 {
@@ -86,22 +86,11 @@ li {
   padding: 0;
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 56px;
-  font-family: 'OrbitronBlack', sans-serif;
+  font-size: 42px;
+  font-family: 'agencyBold', sans-serif;
 }
 
-.title-text3 {
-  color: #e8e8e8;
-  line-height: 1.1;
-  margin: 10px 0 0;
-  padding: 0;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 32px;
-  font-family: 'OrbitronBlack', sans-serif;
-}
-
-.flashCardText {
+.flashCard-text {
   color: #e8e8e8;
   line-height: 1.1;
   margin: 10px 0 0;
@@ -112,7 +101,30 @@ li {
   font-family: sans-serif;
 }
 
-.basicText {
+a, a:hover, .bold-link-text {
+  color: #e8e8e8;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bold-text {
+  color: #e8e8e8;
+  line-height: 2;
+  margin: 10px 0 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.phone-number-text {
+  color: rgb(86, 166, 221);
+}
+
+.basic-text {
   color: #e8e8e8;
   line-height: 1.1;
   margin: 10px 0 0;
@@ -120,17 +132,19 @@ li {
   text-align: bottom;
   font-weight: 300;
   font-size: 12px;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* FORMS */
 .form-control
 {
   color: #000000;
   line-height: 1.1;
   margin: 10px 0 0;
   padding: 5px;
-  font-weight: 900;
-  font-size: 20px;
-  font-family: 'OrbitronBlack', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: 'agencyBold', sans-serif;
 }
 
 .form-check {
@@ -149,13 +163,7 @@ li {
 .form-signin .checkbox {
   font-weight: 400;
 }
-.form-signin .form-control {
-  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
-}
+
 .form-signin .form-control:focus {
   z-index: 2;
 }
@@ -170,18 +178,42 @@ li {
   border-top-right-radius: 0;
 }
 
+/* BUTTONS */
+.button-submit-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/submitIcon_03.png");
+  
+}
+.button-submit-image:hover {
+  transform: scale(1.1);
+}
+
+
+/* FONTS */
 @font-face {
-  font-family: OrbitronBlack;
-  src: url('../Assets/fonts/Orbitron-Black.ttf');
+  font-family: MyriadPro;
+  src: url('../Assets/fonts/MyriadPro-Regular.otf');
   font-weight: bold;
 }
 @font-face {
-  font-family: OrbitronBold;
-  src: url('../Assets/fonts/Orbitron-Bold.ttf');
+  font-family: arialn;
+  src: url('../Assets/fonts/ARIALN.TTF');
   font-weight: bold;
 }
 @font-face {
-  font-family: OrbitronRegular;
-  src: url('../Assets/fonts/Orbitron-Regular.ttf');
+  font-family: agencyBold;
+  src: url('../Assets/fonts/AGENCYB.TTF');
+  font-weight: bold;
+}
+@font-face {
+  font-family: agencyReg;
+  src: url('../Assets/fonts/AGENCYR.TTF');
   font-weight: bold;
 }

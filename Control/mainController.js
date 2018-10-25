@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-  $scope.version = "Alpha 0.05";
+  $scope.version = "Version 0.05";
   
   $scope.navigateToView = function(viewPage)
   {
@@ -21,7 +21,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
 
   $scope.authenticateUser = function(thisUser)
   {
-    if ( thisUser.userEmail == 'don@don.com' )
+    if ( thisUser.userEmail == 'email@email.com' )
     {
       $scope.user.userName = thisUser.userName;
       $scope.user.userLoggedIn = true;
