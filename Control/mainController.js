@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-
+  $scope.version = "Alpha 0.04";
   
   $scope.navigateToView = function(viewPage)
   {
