@@ -111,6 +111,17 @@ li {
   font-size: 16px;
   font-family: sans-serif;
 }
+
+.basicText {
+  color: #e8e8e8;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 0;
+  text-align: bottom;
+  font-weight: 300;
+  font-size: 12px;
+  font-family: sans-serif;
+}
 .form-control
 {
   color: #000000;
