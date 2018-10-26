@@ -14,8 +14,9 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
 
   $scope.logout = function()
   {
-    $scope.user.userLoggedIn = false;
-    $localstorage.setObject('user', null);
+    $scope.user = mainModel.resetUser();
+    $localstorage.setObject('user', $scope.user);
+    console.log("Logout User : " + JSON.stringify($scope.user, null, 4)); // debug
     $scope.navigateToView('login');
   }
 
@@ -47,8 +48,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
 
       if ( $localstorage.getObject('user') != null)
       {
-        console.log("User : " + JSON.stringify($localstorage.getObject('user'), null, 4)); // debug
         $scope.user = $localstorage.getObject('user');
+        console.log("User : " + JSON.stringify($scope.user, null, 4)); // debug
         if ( $scope.user.userLoggedIn )
         {
           $scope.navigateToView($scope.user.userLastView);
