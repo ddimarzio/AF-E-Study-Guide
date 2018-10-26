@@ -1,32 +1,24 @@
 
-<div class="p-1 sticky-top">
-
+<div class="sticky-top m-0 p-0">
     <div ng-if="user.userLoggedIn">
-        <div class="row col-12 w-100 justify-content-md-center">
-            <div class="row col-12">
-                <div class="mr-auto">
-                    <img src="Assets/images/master-sergeant.png" width="50px;" alt="Rank Icon">
-                    <a href="" ng-click="navigateToView('home')" class="title-text1 align-bottom pl-3">My Dashboard - {{user.userName}}</a>
+        <div class="row m-0 p-0">
+            <div class="row col-10 m-0 p-0">
+                <div class="blueBackground">
+                    <button class="btn button-menu-image m-2" 
+                    type="submit"
+                    alt="Menu"
+                    ng-click=""></button>
                 </div>
-           
-                <!-- <div class="ml-auto mt-auto btn-group" role="group" >
-                    <div class="row ">
-                        <button class="btn btn-sm btn-secondary m-1" 
-                                type="button"
-                                ng-click="">Nav 1</button>
-                        <button class="btn btn-sm btn-secondary m-1" 
-                                type="button"
-                                ng-click="">Nav 2</button>
-                        <button class="btn btn-sm btn-secondary m-1" 
-                                type="button"
-                                ng-click="">Nav 3</button>
-                    </div>
-                </div> -->
-
-
-                <div class="ml-auto mt-auto">
-                    <img src="Assets/images/af-logo.png" alt="Clock Icon" width="70px;">
+                <div class="">
+                        
+                    <img src="/Assets/images/{{ranks[user.userRankID].iconFile}}" alt="Rank Icon">
+                    <span class="title-text3 align-middle pl-3">MY DASHBOARD - {{user.userName}}</span>
                 </div>
+            </div>
+        
+    
+            <div class="col-2 pt-1">
+                <img src="/Assets/images/af-logo-text.png" height="90px" class="">
             </div>
         </div>
     </div>

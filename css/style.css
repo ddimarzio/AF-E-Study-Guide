@@ -8,10 +8,10 @@ header {
   z-index: 1;
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: 105px;
   padding-left: 100px;
   padding-right: 100px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
 }
 ul {
   list-style-image: url('../Assets/images/playIcon.png');
@@ -52,7 +52,7 @@ li {
 
 .inner {
   min-height: 600px;
-  padding-top: 100px;
+  padding-top: 105px;
   padding-left: 100px;
   padding-right: 100px;
   position: relative;
@@ -87,6 +87,17 @@ li {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 42px;
+  font-family: 'agencyBold', sans-serif;
+}
+
+.title-text3 {
+  color: #e8e8e8;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 25px;
   font-family: 'agencyBold', sans-serif;
 }
 
@@ -178,7 +189,31 @@ a, a:hover, .bold-link-text {
   border-top-right-radius: 0;
 }
 
+.blueBackground
+{
+  display: inline-block;
+  width: 105px;
+  height: 105px;
+  background-color: rgb(14,24,45,1);
+}
+
 /* BUTTONS */
+.button-menu-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 90px;
+  height: 90px;
+  display: inline-block;
+  background-color: transparent;
+   /* rgb(14,24,45); */
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/menuIcon.png");
+}
+.button-menu-image:hover {
+  transform: scale(1.1);
+}
+
 .button-submit-image {
   transition: all 0.1s ease-in-out;
   content: "";
@@ -195,6 +230,21 @@ a, a:hover, .bold-link-text {
   transform: scale(1.1);
 }
 
+.button-submit-small-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/submitIcon_small.png");
+  
+}
+.button-submit-small-image:hover {
+  transform: scale(1.1);
+}
 
 /* FONTS */
 @font-face {

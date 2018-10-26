@@ -15,14 +15,25 @@ mainApp.factory('mainModel',function()
     {
         return user;
     }
+    valObjects.resetUser = function()
+    {
+        user.userID = 0;
+        user.userLoggedIn = false;
+        user.userName = "anon";
+        user.userRankID = 0;
+        user.userRole = 0;
+        user.userLastView = "login";
+
+        return user;
+    }
 
     // Ranks
     var ranks = [
-        {rankID:0,rankAbrv:'SSgt',rankName:'Staff Sergeant'},
-        {rankID:1,rankAbrv:'TSgt',rankName:'Technical Sergeant'},
-        {rankID:2,rankAbrv:'MSgt',rankName:'Master Sergeant'},
-        {rankID:3,rankAbrv:'SMSgt',rankName:'Senior Master Sergeant'},
-        {rankID:4,rankAbrv:'CMSgt',rankName:'Chief Master Sergeant'}
+        {rankID:0,rankAbrv:'SSgt',rankName:'Staff Sergeant',iconFile:'rankIcon-ssgt.png'},
+        {rankID:1,rankAbrv:'TSgt',rankName:'Technical Sergeant',iconFile:'rankIcon-tsgt.png'},
+        {rankID:2,rankAbrv:'MSgt',rankName:'Master Sergeant',iconFile:'rankIcon-msgt.png'},
+        {rankID:3,rankAbrv:'SMSgt',rankName:'Senior Master Sergeant',iconFile:'rankIcon-smsgt.png'},
+        {rankID:4,rankAbrv:'CMSgt',rankName:'Chief Master Sergeant',iconFile:'rankIcon-cmsgt.png'}
         ];
     valObjects.getRanks = function()
     {
