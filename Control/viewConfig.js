@@ -1,5 +1,5 @@
 // View config
-mainApp.config(['$routeProvider', function($routeProvider) {
+mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     $routeProvider
       .when('/home', {
        templateUrl: 'View/homeView.html', controller: 'MainController'

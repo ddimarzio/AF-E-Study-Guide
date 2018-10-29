@@ -73,6 +73,10 @@ a, a:hover, a:visited, li {
   background-color:rgba(255, 255, 255, 0.6);
 }
 
+.contentWhiteBox {
+  background-color:rgba(255, 255, 255, 0.6);
+}
+
 .blueCard
 {
   min-height:350px;
@@ -153,6 +157,16 @@ a, a:hover, a:visited, li {
   font-size: 25px;
   font-family: 'agencyBold', sans-serif;
 }
+.title-black-text3 {
+  color: #000000;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'agencyBold', sans-serif;
+}
 
 .title-text4 {
   color: #e8e8e8;
@@ -174,7 +188,7 @@ a, a:hover, a:visited, li {
 }
 
 .flashCard-text {
-  color: #e8e8e8;
+  color: #000000;
   line-height: 1.1;
   margin: 10px 0 0;
   padding: 0;

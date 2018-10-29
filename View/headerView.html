@@ -10,9 +10,9 @@
                     ng-click="navigateToView('home')"></button>
                 </div>
                 <div class="">
-                        
                     <img src="/Assets/images/{{ranks[user.userRankID].iconFile}}" alt="Rank Icon" height="100px;">
-                    <span class="title-text3 align-middle pl-3">MY DASHBOARD - {{user.userName}}</span>
+                    <span class="title-text3 align-middle pl-3">{{currentViewTitle}} - {{user.userName}}</span>
+                    <!-- <button ng-click="navigateToView('flashcards')">Test</button> -->
                 </div>
             </div>
         

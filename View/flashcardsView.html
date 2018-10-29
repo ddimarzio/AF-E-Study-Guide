@@ -1,34 +1,20 @@
 <div class="row col-12 justify-content-md-center p-0 m-0 whiteBox"
         ng-app="mainApp" 
         ng-controller="FlashCardController">
-        {{testData}}
-        <div class="blueBox row col-10 justify-content-md-center shadow">
-                <div class="mr-auto justify-content-md-center ">
-                        <img src="Assets/images/Placeholder.png" width="50px;" alt="">
-                        <span class="title-text1 align-bottom pl-3">My Flash Cards</span>
-
-                </div>
-                <div class="justify-content-md-center title-text1">
-                        <button class="btn btn-sm btn-primary align-bottom"
-                        ng-click="getTestData()" type="button">My Flagged</button>
-                        <img src="Assets/images/Placeholder.png" width="50px;" alt="">
-                </div>
-        </div>
 
         <!-- Flash cards -->
-        
-        
-        <div class="col-10 blueBox blueCard shadow align-left" >
+                
+        <div class="col-10 m-3 align-left contentWhiteBox shadow" >
                 <div class="row">
                         <div class="col-2 m-0 p-0">
-                                <img src="Assets/images/Placeholder.png" width="100px;"/>
+                                <img src="Assets/images/flashcardsIcon-black.png" width="100px;"/>
                         </div>
                         <div class="col-10 p=3">
-                                <span class="row title-text1">Question :</span>
-                                <p class="row flashCardText">
+                                <span class="row title-black-text3">Question :</span>
+                                <p class="row flashCard-text">
                                         {{flashCards[currentFlashcardQuestion].question}}
                                 </p>
-                                <span class="row title-text1 mt-5">Answers :</span>
+                                <span class="row title-black-text3 mt-5">Answers :</span>
 
                                 <div ng-repeat="answer in flashCards[currentFlashcardQuestion].answers"
                                         ng-click="FlashCardSelected(thierAnswer)">
