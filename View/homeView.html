@@ -1,16 +1,16 @@
 <div class="row col-12 justify-content-md-center p-0 m-0 whiteBox">
-
-        <div class="blueBox row col-10 p-0 justify-content-md-center shadow">
-                <div class="mr-auto justify-content-md-center">
+        <div class="blueBox row col-10 p-0 shadow">
+                <div class="col-3 mr-auto text-nowrap">
                         <img src="/Assets/images/planeIcon.png" alt="">
-                        <span class="title-text3">My Progress</span>
+                        <span class="title-text4">My Progress</span>
+                        <span class="title-text4"><span style="color:green"> ||||||</span>||| {{user.userProgress}}%</span>
                 </div>
-                <div class="justify-content-md-center mt-auto mb-auto title-text3 p-3">
+                <div class="col-5 justify-content-md-center ml-auto mt-auto mb-auto title-text4 text-nowrap">
                         AFH1 - continue where you left off
                         <button class="btn button-submit-small-image ml-2" 
-                            type="submit"
-                            alt="Continue"
-                            ng-click=""></button>
+                        type="submit"
+                        alt="Continue"
+                        ng-click=""></button>
                 </div>
         </div>
 
@@ -18,15 +18,16 @@
                 <div class="col blueBox blueCard shadow" >
                         <div class="col">
                                 <div class="row-0">
-                                        <img src="Assets/images/Placeholder.png" width="100"/>
+                                        <img src="/Assets/images/learningToolsIcon.png" width="100"/>
                                 </div>
-                                <div class="row-0 box-title-text">
-                                        Tools</div>
-                                <div class="row title-text1 justify-content-md-center">
+                                <div class="row-0 box-title-text">Learning Tools</div>
+                                <div class="row justify-content-md-center pt-3">
                                         <ul>
-                                                <li><a href="" ng-click="navigateToView('flashcards')">Flash Cards</a></li>
-                                                <li>Test</li>
-                                                <li>Game</li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Study Guide</a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Audio Book</a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('flashcards')">Flashcards</a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Practice Test</a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Game</a></li>
                                         </ul>
                                 </div>
                         </div>
@@ -34,15 +35,16 @@
                 <div class="col blueBox blueCard shadow" >
                         <div class="col">
                                 <div class="row-0">
-                                        <img src="Assets/images/Placeholder.png" width="100"/>
+                                        <img src="/Assets/images/savedContentIcon.png" width="100"/>
                                 </div>
                                 <div class="row-0 box-title-text">
                                         Saved Content</div>
-                                <div class="row title-text1 justify-content-md-center">
+                                <div class="row justify-content-md-center pt-3">
                                         <ul>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Bookmarks</a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Notes</a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Flashcards</a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Practice Test Questions</a></li>
                                         </ul>
                                 </div>
                         </div>
@@ -50,15 +52,15 @@
                 <div class="col blueBox blueCard shadow" >
                         <div class="col">
                                 <div class="row-0">
-                                        <img src="Assets/images/Placeholder.png" width="100"/>
+                                        <img src="/Assets/images/researchIcon.png" width="100"/>
                                 </div>
                                 <div class="row-0 box-title-text">
                                         Resources</div>
-                                <div class="row title-text1 justify-content-md-center">
+                                <div class="row justify-content-md-center pt-3">
                                         <ul>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">The Airman Handbook (AHF1)</a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Air Force Culture, Air Force Standards (AF1 1-1) The Little Blue Book </a></li>
+                                                <li><a class="listItem-Button" href="" ng-click="navigateToView('')">Personnel, The Enlisted Force Structure (AF1 36-2618) The Little Brown Book</a></li>
                                         </ul>
                                 </div>
                         </div>
