@@ -10,6 +10,9 @@ mainApp.config(['$routeProvider', function($routeProvider) {
     .when('/flashcards', {
       templateUrl: 'View/flashcardsView.html', controller: 'MainController'
     })
+    .when('/rankselection', {
+      templateUrl: 'View/rankSelectionView.html', controller: 'MainController'
+    })
       .otherwise({
        redirectTo: '/login'
     });

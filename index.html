@@ -19,16 +19,22 @@
 
   <div class="container-fluid" ng-app="mainApp" ng-controller="MainController">
     <div ng-if="user.userLoggedIn">
-      <header>
-          <div header class="page-header"></div>
-      </header>
+      <div ng-if="user.userLastView != 'rankselection'">
+        <header>
+            <div header class="page-header"></div>
+        </header>
+      </div>
+      <footer>
+          <div footer class="page-footer"></div>
+      </footer>
     </div>
+
     <div class="mainContent">
       <div class="inner">
           <div ng-view></div>
-      <div footer class="page-footer"></div>
       </div>
     </div>
+
   </div>
 
 <!-- JS libraries -->
