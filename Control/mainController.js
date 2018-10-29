@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-  $scope.version = "Version 0.07";
+  $scope.version = "Version 0.09";
   
   $scope.navigateToView = function(viewPage)
   {
@@ -29,7 +29,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     {
       $scope.user.userName = thisUser.userName;
       $scope.user.userLoggedIn = true;
-      $scope.navigateToView('home');
+      $scope.navigateToView('rankselection');
     }
     else
     {
@@ -38,6 +38,14 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     };
 
     $localstorage.setObject('user', $scope.user);
+  }
+
+  $scope.selectRank = function(rankid)
+  {
+    console.log("selected : " + rankid); // debug
+    $scope.user.userRankID = rankid;
+    $localstorage.setObject('user', $scope.user);
+    $scope.navigateToView('home');
   }
 
   // Init

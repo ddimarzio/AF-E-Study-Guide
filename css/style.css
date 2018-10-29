@@ -18,9 +18,39 @@ header {
   background-position: top center;
   background-attachment: fixed;
 }
-ul {
-  /* list-style-image: url('../Assets/images/playIcon.png'); */
+
+footer {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  bottom: 0;
+  padding-left: 100px;
+  padding-right: 100px;
+  background: rgba(0, 0, 0, 0.8);
 }
+
+.mainContent {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-right: 0%;
+  background: url('../Assets/images/background.png');
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+}
+
+.inner {
+  min-height: 600px;
+  padding-top: 105px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
 a, a:hover, a:visited, li {
   color: rgb(199,165,103);
   text-align: left;
@@ -47,35 +77,28 @@ a, a:hover, a:visited, li {
 {
   min-height:350px;
 }
+
+.rankTitle-box {
+  min-height: 100px;
+}
 .blueBox {
   background-color: rgba(13, 31, 53,1);
-  margin-left: 100px;
-  margin-right: 100px;
+  /* margin-left: 100px;
+  margin-right: 100px; */
   margin : 20px;
-  padding: 20px;
+  padding: 10px;
   color: #ffffff;
   font-size: 16px;
   font-family: 'Orbitron', sans-serif;
   border: 0px solid rgb(199, 165, 102);
   border-left-width: 8px;
 }
-
-.mainContent {
-  text-align: center;
-  position: relative;
-  width: 100%;
-  background: url('../Assets/images/background.png');
-  background-size: cover;
-  background-position: top center;
-  background-attachment: fixed;
-}
-
-.inner {
-  min-height: 600px;
-  padding-top: 105px;
-  padding-left: 100px;
-  padding-right: 100px;
-  position: relative;
+.blueBackground
+{
+  display: inline-block;
+  width: 105px;
+  height: 105px;
+  background-color: rgb(14,24,45,1);
 }
 
 .box-title-text {
@@ -86,6 +109,16 @@ a, a:hover, a:visited, li {
   /* text-transform: uppercase; */
   font-size: 26px;
   font-family: 'agencyBold', sans-serif;
+}
+.box-title-text-cap {
+  color: #e8e8e8;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 0;
+  font-size: 26px;
+  font-family: 'agencyBold', sans-serif;
+  text-transform: uppercase;
+
 }
 
 .title-text1 {
@@ -131,6 +164,15 @@ a, a:hover, a:visited, li {
   font-family: 'agencyBold', sans-serif;
 }
 
+.footer-text {
+  color: #e8e8e8;
+  margin: 10px 0 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'agencyBold', sans-serif;
+}
+
 .flashCard-text {
   color: #e8e8e8;
   line-height: 1.1;
@@ -142,13 +184,14 @@ a, a:hover, a:visited, li {
   font-family: sans-serif;
 }
 
-a, a:hover, .bold-link-text {
-  color: #e8e8e8;
-  line-height: 1.1;
+.bold-link-text, .bold-link-text:hover, .bold-link-text:visited  {
+  color: #d1d1d1;
   margin: 10px 0 0;
   padding: 0;
+  text-align: center;
   font-weight: bold;
   font-size: 18px;
+  text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -219,13 +262,7 @@ a, a:hover, .bold-link-text {
   border-top-right-radius: 0;
 }
 
-.blueBackground
-{
-  display: inline-block;
-  width: 105px;
-  height: 105px;
-  background-color: rgb(14,24,45,1);
-}
+
 
 /* BUTTONS */
 .button-menu-image {
@@ -273,6 +310,22 @@ a, a:hover, .bold-link-text {
   
 }
 .button-submit-small-image:hover {
+  transform: scale(1.1);
+}
+
+.button-submit-tiny-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/submitIcon_small.png");
+  
+}
+.button-submit-tiny-image:hover {
   transform: scale(1.1);
 }
 
