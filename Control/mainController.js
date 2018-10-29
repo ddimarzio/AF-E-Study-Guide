@@ -2,14 +2,17 @@ var mainApp = angular.module('mainApp', ['ngRoute'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-  $scope.version = "Version 0.05";
+  $scope.version = "Version 0.07";
   
   $scope.navigateToView = function(viewPage)
   {
-    $scope.user.userLastView = viewPage;
-    $localstorage.setObject('user', $scope.user);
-    $location.path(viewPage);
-    console.log("View Page = " + viewPage); // debug
+    if ( viewPage != "")
+    {
+      $scope.user.userLastView = viewPage;
+      $localstorage.setObject('user', $scope.user);
+      $location.path(viewPage);
+      console.log("View Page = " + viewPage); // debug
+    }
   }
 
   $scope.logout = function()

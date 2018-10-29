@@ -9,6 +9,7 @@ mainApp.factory('mainModel',function()
         userName:'Anon',
         userRankID:0,
         userRole:0,
+        userProgress:75,
         userLastView:'login'
         };
     valObjects.getUser = function()
@@ -22,6 +23,7 @@ mainApp.factory('mainModel',function()
         user.userName = "anon";
         user.userRankID = 0;
         user.userRole = 0;
+        user.userProgress = 75;
         user.userLastView = "login";
 
         return user;

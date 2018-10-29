@@ -12,12 +12,32 @@ header {
   padding-left: 100px;
   padding-right: 100px;
   background: rgba(0, 0, 0, 0.6);
+  background: url('../Assets/images/background.png') ;
+  opacity: 1;
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
 }
 ul {
-  list-style-image: url('../Assets/images/playIcon.png');
+  /* list-style-image: url('../Assets/images/playIcon.png'); */
 }
-li {
+a, a:hover, a:visited, li {
+  color: rgb(199,165,103);
   text-align: left;
+  text-decoration: none;
+}
+
+.listItem-Button,.listItem-Button:hover
+{  
+  color: rgb(199,165,103);
+  line-height: 1;
+  /* margin: 10px 0 0; */
+  /* padding: 0; */
+  font-weight: bold;
+  font-size: 21px;
+  text-decoration: none;
+  text-align: left;
+  font-family: 'agencyBold', sans-serif;
 }
 .whiteBox {
   background-color:rgba(255, 255, 255, 0.6);
@@ -25,7 +45,7 @@ li {
 
 .blueCard
 {
-  min-height:400px;
+  min-height:350px;
 }
 .blueBox {
   background-color: rgba(13, 31, 53,1);
@@ -63,9 +83,9 @@ li {
   line-height: 1.1;
   margin: 10px 0 0;
   padding: 0;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-size: 26px;
-  font-family: 'OrbitronBold', sans-serif;
+  font-family: 'agencyBold', sans-serif;
 }
 
 .title-text1 {
@@ -96,6 +116,16 @@ li {
   margin: 10px 0 0;
   padding: 0;
   text-transform: uppercase;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'agencyBold', sans-serif;
+}
+
+.title-text4 {
+  color: #e8e8e8;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 0;
   font-weight: bold;
   font-size: 25px;
   font-family: 'agencyBold', sans-serif;
