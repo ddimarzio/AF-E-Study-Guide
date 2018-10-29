@@ -3,15 +3,16 @@ var mainApp = angular.module('mainApp', ['ngRoute'] );
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
   $scope.version = "Version 0.09";
-  
+
   $scope.navigateToView = function(viewPage)
   {
     if ( viewPage != "")
     {
       $scope.user.userLastView = viewPage;
+      $scope.currentViewTitle = $scope.viewTitles[viewPage];
       $localstorage.setObject('user', $scope.user);
       $location.path(viewPage);
-      console.log("View Page = " + viewPage); // debug
+      console.log("View Page = " + $scope.currentViewTitle); // debug
     }
   }
 
@@ -56,6 +57,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       // Value Objects
       $scope.user = mainModel.getUser();
       $scope.ranks = mainModel.getRanks();
+      $scope.viewTitles = mainModel.getViewtitles();
 
       if ( $localstorage.getObject('user') != null)
       {

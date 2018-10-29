@@ -42,6 +42,18 @@ mainApp.factory('mainModel',function()
         return ranks;
     }
     
+    // View titles  // TODO:  header title is not working as dynamic
+    var viewtitles = {
+            login:'My Dashboard', 
+            home:'My Dashboard',
+            flashcards:'My Flashcards',
+            rankselection:'Rank Selection'
+    };
+    valObjects.getViewtitles = function()
+    {
+        return viewtitles;
+    }
+
     // Test Flash Cards
     var flashCards = [
         {
