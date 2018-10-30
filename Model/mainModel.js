@@ -47,7 +47,8 @@ mainApp.factory('mainModel',function()
             login:'My Dashboard', 
             home:'My Dashboard',
             flashcards:'My Flashcards',
-            rankselection:'Rank Selection'
+            rankselection:'Rank Selection',
+            learningtools:'Learning Tools'
     };
     valObjects.getViewtitles = function()
     {

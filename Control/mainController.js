@@ -2,17 +2,22 @@ var mainApp = angular.module('mainApp', ['ngRoute'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-  $scope.version = "Version 0.10";
+  $scope.version = "Version 0.11";
 
   $scope.navigateToView = function(viewPage)
   {
     if ( viewPage != "")
     {
       $scope.user.userLastView = viewPage;
-      $scope.currentViewTitle = $scope.viewTitles[viewPage];
+      // $scope.currentViewTitle = $scope.viewTitles[viewPage];
       $localstorage.setObject('user', $scope.user);
       $location.path(viewPage);
-      console.log("View Page = " + $scope.currentViewTitle); // debug
+
+      // Forcing an update on an element. TODO:  Create a seperate method to updated needed elements
+      var viewTitleSpan = angular.element( document.querySelector( '#viewTitleSpan' ) );
+      viewTitleSpan.text($scope.viewTitles[viewPage] + " - " + $scope.user.userName);
+
+      console.log("View Page = " + viewPage); // debug
     }
   }
 
@@ -100,7 +105,9 @@ mainApp.factory('$localstorage', ['$window', function($window) {
 mainApp.directive('header', function () {
   return {
       restrict: 'A',
-      replace: true,
+      transclude: true,
+      scope: {},
+      // replace: true,
       templateUrl: "View/headerView.html",
       controller: 'MainController'
   }
