@@ -48,7 +48,9 @@ mainApp.factory('mainModel',function()
             home:'My Dashboard',
             flashcards:'My Flashcards',
             rankselection:'Rank Selection',
-            learningtools:'Learning Tools'
+            learningtools:'Learning Tools',
+            resources:'Resources',
+            handbook:'The Airman Handbook 1'
     };
     valObjects.getViewtitles = function()
     {
