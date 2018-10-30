@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-  $scope.version = "Version 0.11";
+  $scope.version = "Version 0.14";
 
   $scope.navigateToView = function(viewPage)
   {
@@ -24,9 +24,10 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   $scope.logout = function()
   {
     $scope.user = mainModel.resetUser();
+    $scope.user.userLoggedIn = false;
     $localstorage.setObject('user', $scope.user);
     console.log("Logout User : " + JSON.stringify($scope.user, null, 4)); // debug
-    $scope.navigateToView('login');
+    $window.location.reload();
   }
 
   $scope.authenticateUser = function(thisUser)
