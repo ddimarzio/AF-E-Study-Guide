@@ -13,6 +13,9 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/rankselection', {
       templateUrl: 'View/rankSelectionView.html', controller: 'MainController'
     })
+    .when('/learningtools', {
+      templateUrl: 'View/learningToolsView.html', controller: 'MainController'
+    })
       .otherwise({
        redirectTo: '/login'
     });
