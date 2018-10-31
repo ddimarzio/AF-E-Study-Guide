@@ -17,7 +17,7 @@
 
 <body>
 
-  <div class="container-fluid" ng-app="mainApp" ng-controller="MainController">
+  <div class="container-fluid m-0 p-0" ng-app="mainApp" ng-controller="MainController">
     <div ng-if="user.userLoggedIn">
       <div ng-if="user.userLastView != 'rankselection'">
         <header>
@@ -29,7 +29,7 @@
       </footer>
     </div>
 
-    <div class="mainContent">
+    <div class="mainContent ">
       <div class="inner">
           <div ng-view></div>
       </div>
