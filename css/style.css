@@ -126,6 +126,7 @@ a, a:hover, a:visited, li {
   line-height: 1;
   margin: 10px 0 0;
   padding: 0;
+  padding-right: 10px;
   font-size: 32px;
   font-family: 'agencyReg', sans-serif;
 }
@@ -166,6 +167,36 @@ a, a:hover, a:visited, li {
   width: 20px;
   height: 20px;
   background-color: rgb(199, 165, 103)
+}
+.button-nav-right-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/handbook/hb-pageRightIcon.png");
+  
+}
+.button-nav-right-image:hover {
+  transform: scale(1.1);
+}
+.button-nav-left-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/handbook/hb-pageLeftIcon.png");
+  
+}
+.button-nav-left-image:hover {
+  transform: scale(1.1);
 }
 /* ................ */
 

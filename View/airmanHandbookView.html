@@ -1,18 +1,25 @@
-<div class="row col-12 justify-content-md-center m-0 contentWhiteBox innerWithHeader">
+<div class="row col-12 justify-content-md-center m-0 contentWhiteBox innerWithHeader"
+        ng-app="mainApp" 
+        ng-controller="HandbookController">
         <div class="row ml-auto p-3">
-                <span class="hb-pageNumber">3 of 25</span>
+                <span class="hb-pageNumber">{{currentPage+1}} of {{currentMaxPages}} </span>
                 <img src="/Assets/images/handbook/hb-bookmarkIcon.png">
                 <img src="/Assets/images/handbook/hb-notesIcon.png">
                 <img src="/Assets/images/handbook/hb-highlightIcon.png">
         </div>
         <div class="row">
                 <div class="col-1 mt-auto mb-auto">
-                        <img src="/Assets/images/handbook/hb-pageLeftIcon.png">
+                        <button class="btn button-nav-left-image" ng-if="currentPage > 0" 
+                        type="submit"
+                        alt="logout"
+                        ng-click="navToPage(currentPage-1)"></button>
                 </div>
-                <div class="col-10" ng-bind-html="currentPageContent">
-                </div>
+                <div class="col-10" ng-bind-html="currentPageContent"></div>
                 <div class="col-1 mt-auto mb-auto">
-                        <img src="/Assets/images/handbook/hb-pageRightIcon.png">
+                        <button class="btn button-nav-right-image"  ng-if="currentPage < (currentMaxPages-1)" 
+                        type="submit"
+                        alt="logout"
+                        ng-click="navToPage(currentPage+1)"></button>
                 </div>
         </div>
 </div>
