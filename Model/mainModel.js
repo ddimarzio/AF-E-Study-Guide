@@ -50,15 +50,16 @@ mainApp.factory('mainModel',function()
             rankselection:'Rank Selection',
             learningtools:'Learning Tools',
             resources:'Resources',
-            handbook:'The Airman Handbook 1'
+            handbook:'The Airman Handbook 1',
+            practicetest:'Practice Test'
     };
     valObjects.getViewtitles = function()
     {
         return viewtitles;
     }
 
-    // Test Flash Cards
-    var flashCards = [
+    // Test Questions
+    var testQuestions = [
         {
             question:"This is the first question : Lorem ipsum dolor sit amet, laoreet etiam convallis metus,tristique sed placerat consequat, purus vestibulum at magna pede vivamus,  mauris pellentesque, pellentesque eget tortor. Aliquam pharetra, et sed ultricies mauris  adipiscing amet. Nulla nunc feugiat ornare sit eu nulla. Ac vestibulum enim fermentum a 4quisque feugiat, volutpat amet ultricies dictum ipsum vel, feugiat scelerisque, arcu nullam.",
             answers:['Answer 1-1','Answer 1-2','Answer 1-3 - correct','Answer 1-4'],
@@ -75,9 +76,9 @@ mainApp.factory('mainModel',function()
             correctAnswer:4
         }
       ];
-    valObjects.getFlashCards = function()
+    valObjects.getTestQuestions = function()
     {
-        return flashCards;
+        return testQuestions;
     }
 
     var handbook = {
@@ -87,6 +88,7 @@ mainApp.factory('mainModel',function()
     {
         return handbook.maxPages;
     };
+
     // Test handbook pages
     var hbPages = [
         {
@@ -113,7 +115,31 @@ mainApp.factory('mainModel',function()
     valObjects.handbookGetHBPage = function(num)
     {
         return hbPages[num].content;
-    }
+    };
+
+    // Flash Cards
+    var flashCards = [
+        {
+            question:"This is flash card question number one 11111 This is flasThis is flash card question number one 11111 This is flasThis is flash card question number oneThis is flash card question number one 11111 This is flasThis is flash card question number one 11111 This is flasThis is flash card question number one 11111 This is flas 11111 This is flasThis is flash card question number one 11111 This is flash card question number one 11111 This is flash card question number one 11111 This is flash card question number one 11111",
+            answer:"This is the answer to flash card number one 1111"
+        },
+        {
+            question:"This is flash card question number two 22222",
+            answer:"This is the answer to flash card number two 22222"
+        },
+        {
+            question:"This is flash card question number three 33333",
+            answer:"This is the answer to flash card number three 33333"
+        },
+        {
+            question:"This is flash card question number four 44444",
+            answer:"This is the answer to flash card number four 44444"
+        }
+    ];
+    valObjects.getFlashCards = function()
+    {
+        return flashCards;
+    };
 
   return valObjects;
 })

@@ -1,51 +1,63 @@
-<div class="row col-12 justify-content-md-center m-0 whiteBox innerWithHeader"
+<div class="row col-12 justify-content-md-center m-0 contentWhiteBox innerWithHeader"
         ng-app="mainApp" 
         ng-controller="FlashCardController">
 
         <!-- Flash cards -->
                 
-        <div class="col-10 m-3 align-left contentWhiteBox shadow" >
-                <div class="row">
+        <!-- <div class="col-10 m-3 align-left contentWhiteBox shadow" > -->
+                <div class="row col-12 p-3">
                         <div class="col-2 m-0 p-0">
                                 <img src="Assets/images/flashcardsIcon-black.png" width="100px;"/>
                         </div>
-                        <div class="col-10 p=3">
-                                <span class="row title-black-text3">Question :</span>
-                                <p class="row flashCard-text">
-                                        {{flashCards[currentFlashcardQuestion].question}}
-                                </p>
-                                <span class="row title-black-text3 mt-5">Answers :</span>
 
-                                <div ng-repeat="answer in flashCards[currentFlashcardQuestion].answers"
-                                        ng-click="FlashCardSelected(thierAnswer)">
-                                        <div class="form-check" id="flashCardAnswers">
-                                                <input class="form-check-input" 
-                                                        ng-model="thierAnswer"
-                                                        ng-value="$index+1"
-                                                        type="radio" 
-                                                        name="answerRadios" 
-                                                        id="answerRadios" 
-                                                        value="option">
-                                                <label class="form-check-label" for="exampleRadios1">
-                                                        {{answer}}
-                                                </label>
-                                        </div>
-                                </div>  
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="SubmitFlashCard(flashCards[currentFlashcardQuestion].correctAnswer)">Submit</button>
-                                <div class="row">
-                                                {{flashCards.selectionResponse}}
+                        <div class="row col-10">
+                                <div class="col-1 mt-auto mb-auto">
+                                        <button class="btn button-nav-left-image" 
+                                        type="submit"
+                                        alt="prev"
+                                        ng-disabled="currentFlashcard <= 0"
+                                        ng-click="nextCard(-1)"></button>
                                 </div>
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="NextFlashCard(-1)">Prev</button>
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="NextFlashCard(1)">Next</button>
-                                                               
+                                
+                                <div class="col-10">
+                                        <div class="flip col-10">
+                                                <div class="card" ng-class="{'flipped':flashCardisFlipped}">
+                                                        <div class="face front flash-card-box shadow p-3">
+                                                                <span class="row title-black-text3">Question :</span>
+                                                                <p class="row flashCard-text">
+                                                                        {{flashCards[currentFlashcard].question}}
+                                                                </p>
+                                                        </div>
+                                                        <div class="face back flash-card-box shadow p-3">
+                                                                <span class="row title-black-text3">Answer :</span>
+                                                                <p class="row flashCard-text">
+                                                                        {{flashCards[currentFlashcard].answer}}
+                                                                </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <div class="row justify-content-md-center p-3">
+                                                <div class="title-black-text3 text-nowrap">
+                                                        Check Your Knowledge
+                                                        <button class="btn button-nav-right-image ml-2" 
+                                                        type="submit"
+                                                        alt="check knowlege"
+                                                        ng-click="flipCard()"></button>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="col-1 mt-auto mb-auto">
+                                        <button class="btn button-nav-right-image" 
+                                        type="submit"
+                                        ng-disabled="currentFlashcard >= (maxFlashCards-1)"
+                                        alt="next"
+                                        ng-click="nextCard(1)"></button>
+                                </div>
                         </div>
                         
+                        
                 </div>
-        </div>
+                
+        <!-- </div> -->
 </div>

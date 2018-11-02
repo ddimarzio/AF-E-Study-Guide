@@ -10,6 +10,9 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/flashcards', {
       templateUrl: 'View/flashcardsView.html', controller: 'MainController'
     })
+    .when('/practicetest', {
+      templateUrl: 'View/practiceTestView.html', controller: 'MainController'
+    })
     .when('/rankselection', {
       templateUrl: 'View/rankSelectionView.html', controller: 'MainController'
     })
