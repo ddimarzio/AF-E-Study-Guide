@@ -1,8 +1,8 @@
-var mainApp = angular.module('mainApp', ['ngRoute'] );
+var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-  $scope.version = "Version 0.18";
+  $scope.version = "Version 0.19";
 
   $scope.navigateToView = function(viewPage)
   {
@@ -59,7 +59,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   if ( !$scope.intialized )
     {
       $scope.testData = "blah";
-
+      $scope.flashCardisFlipped = false;
       // Value Objects
       $scope.user = mainModel.getUser();
       $scope.ranks = mainModel.getRanks();
