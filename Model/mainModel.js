@@ -120,20 +120,20 @@ mainApp.factory('mainModel',function()
     // Flash Cards
     var flashCards = [
         {
-            question:"This is flash card question number one 11111 This is flasThis is flash card question number one 11111 This is flasThis is flash card question number oneThis is flash card question number one 11111 This is flasThis is flash card question number one 11111 This is flasThis is flash card question number one 11111 This is flas 11111 This is flasThis is flash card question number one 11111 This is flash card question number one 11111 This is flash card question number one 11111 This is flash card question number one 11111",
-            answer:"This is the answer to flash card number one 1111"
+            question:"What was the name of the World War II American volunteer group organized by former Air Corps Tactical School Instructor Claire Lee Chennault, who aided Nationalist China against Japanese invaders, and what were they famous for?",
+            answer:"The Flying Tigers were famous for shark mouths painted on their Curtis P-40 Warhawks."
         },
         {
-            question:"This is flash card question number two 22222",
-            answer:"This is the answer to flash card number two 22222"
+            question:"The primary United States Army Air Forces contribution to the Pacific counterattack was made by the _____, attached to the Southwest Pacific Theater under _____’s command.",
+            answer:"Fifth Air Force; General Douglas MacArthur"
         },
         {
-            question:"This is flash card question number three 33333 This is flash card question number three 33333This is flash card question number three 33333This is flash card question number three 33333",
-            answer:"This is the answer to flash card number three 33333"
+            question:"Which Act, signed by Harry S. Truman on 26 July 1947, provided for a separate Department of the Air Force?",
+            answer:"The National Security Act of 1947"
         },
         {
-            question:"This is flash card question number four 44444",
-            answer:"This is the answer to flash card number four 44444"
+            question:"During the Berlin Crisis in which the Soviet Union kept France, Britain, and the United States from their sectors of Berlin, what operation utilized nonviolent airpower to defuse a potentially disastrous confrontation?",
+            answer:"Operation VITTLES"
         }
     ];
     valObjects.getFlashCards = function()
