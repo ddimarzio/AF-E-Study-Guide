@@ -128,7 +128,7 @@ mainApp.factory('mainModel',function()
             answer:"This is the answer to flash card number two 22222"
         },
         {
-            question:"This is flash card question number three 33333",
+            question:"This is flash card question number three 33333 This is flash card question number three 33333This is flash card question number three 33333This is flash card question number three 33333",
             answer:"This is the answer to flash card number three 33333"
         },
         {

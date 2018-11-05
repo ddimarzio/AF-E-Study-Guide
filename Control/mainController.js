@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-  $scope.version = "Version 0.20";
+  $scope.version = "Version 0.23";
 
   $scope.navigateToView = function(viewPage)
   {
