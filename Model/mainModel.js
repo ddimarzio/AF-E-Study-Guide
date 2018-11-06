@@ -120,20 +120,45 @@ mainApp.factory('mainModel',function()
     // Flash Cards
     var flashCards = [
         {
+            ID:"1D_1",
+            chapter:1,
+            paragraph:'1.11.1',
             question:"What was the name of the World War II American volunteer group organized by former Air Corps Tactical School Instructor Claire Lee Chennault, who aided Nationalist China against Japanese invaders, and what were they famous for?",
-            answer:"The Flying Tigers were famous for shark mouths painted on their Curtis P-40 Warhawks."
+            answer:"The Flying Tigers were famous for shark mouths painted on their Curtis P-40 Warhawks.",
+            level:'A',
+            importance:'3',
+            category:'A'
+        
         },
         {
+            ID:"1D_2",
+            chapter:1,
+            paragraph:'1.11.5',
             question:"The primary United States Army Air Forces contribution to the Pacific counterattack was made by the _____, attached to the Southwest Pacific Theater under _____’s command.",
-            answer:"Fifth Air Force; General Douglas MacArthur"
+            answer:"Fifth Air Force; General Douglas MacArthur",
+            level:'A',
+            importance:'3',
+            category:'A'
         },
         {
+            ID:"1D_3",
+            chapter:1,
+            paragraph:'1.12.1',
             question:"Which Act, signed by Harry S. Truman on 26 July 1947, provided for a separate Department of the Air Force?",
-            answer:"The National Security Act of 1947"
+            answer:"The National Security Act of 1947",
+            level:'A',
+            importance:'3',
+            category:'A'
         },
         {
+            ID:"1D_4",
+            chapter:1,
+            paragraph:'1.12.4',
             question:"During the Berlin Crisis in which the Soviet Union kept France, Britain, and the United States from their sectors of Berlin, what operation utilized nonviolent airpower to defuse a potentially disastrous confrontation?",
-            answer:"Operation VITTLES"
+            answer:"Operation VITTLES",
+            level:'A',
+            importance:'3',
+            category:'A'
         }
     ];
     valObjects.getFlashCards = function()
