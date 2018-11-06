@@ -22,10 +22,11 @@
                                 <div class="flip col-10">
                                         <div class="card" ng-class="{'flipped':flashCardisFlipped}">
                                                 <div class="face front flash-card-box shadow p-3">
-                                                        <span class="row title-black-text3">Question :</span>
+                                                        <span class="row title-black-text3">Question {{flashCards[currentFlashcard].paragraph}}:</span>
                                                         <p class="row flashCard-text">
                                                                 {{flashCards[currentFlashcard].question}}
                                                         </p>
+                                                        <span class="row m-3 pl-5">Level : {{flashCards[currentFlashcard].level}}</span>
                                                 </div>
                                                 <div class="face back flash-card-box shadow p-3">
                                                         <span class="row title-black-text3">Answer :</span>
@@ -37,12 +38,12 @@
                                 </div>
 
                                 <div class="row justify-content-md-center p-3">
-                                        <div class="title-black-text3 text-nowrap">
+                                        <div class="title-black-text3 text-nowrap clickBox" ng-click="flipCard()">
                                                 Check Your Knowledge
                                                 <button class="btn button-nav-right-image ml-2" 
                                                 type="submit"
                                                 alt="check knowlege"
-                                                ng-click="flipCard()"></button>
+                                                ></button>
                                         </div>
                                 </div>
                         </div>
@@ -54,7 +55,5 @@
                                 ng-click="nextCard(1)"></button>
                         </div>
                 </div>
-                
-                
         </div>
 </div>
