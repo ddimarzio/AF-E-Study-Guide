@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
  
-  $scope.version = "Version 0.25";
+  $scope.version = "Version 0.26";
 
   $scope.navigateToView = function(viewPage)
   {
@@ -44,7 +44,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.user.userLoggedIn = false;
     };
 
-    $localstorage.setObject('user', $scope.user);
+    $localstorage.setObject('user', $scope.user); // TODO  Create seperate method for saving objects
   }
 
   $scope.selectRank = function(rankid)
@@ -60,6 +60,10 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     {
       $scope.testData = "blah";
       $scope.flashCardisFlipped = false;
+      $scope.pageBookmarked = false;
+      $scope.pageNotes = "";
+      $scope.pageNotesSaved = true;
+
       // Value Objects
       $scope.user = mainModel.getUser();
       $scope.ranks = mainModel.getRanks();

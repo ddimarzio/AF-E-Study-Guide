@@ -247,6 +247,12 @@ a, a:hover, a:visited, li {
 
 }
 
+.notes-card-box {
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+  border: 1px solid rgb(14,24,45,1);
+}
+
 /* Flash cards */
 .flash-card-box {
   background-color: rgb(241, 241, 241);
@@ -383,6 +389,17 @@ a, a:hover, a:visited, li {
 }
 
 /* FORMS */
+.form-notes-textarea
+{
+  color: #000000;
+  line-height: 1.1;
+  margin: 10px;
+  padding: 5px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .form-control
 {
   color: #000000;
@@ -429,6 +446,50 @@ a, a:hover, a:visited, li {
 .clickBox {
   cursor: pointer;
 }
+.button-notes-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/handbook/hb-notesIcon.png");
+}
+.button-notes-image:hover {
+  transform: scale(1.1);
+}
+
+.button-bookmark-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/handbook/hb-bookmarkIcon.png");
+}
+.button-bookmark-image:hover {
+  transform: scale(1.1);
+}
+
+.button-bookmark-marked-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/handbook/hb-bookmarkIcon-marked.png");
+}
+.button-bookmark-image:hover {
+  transform: scale(1.1);
+}
 
 .button-menu-image {
   transition: all 0.1s ease-in-out;
@@ -459,6 +520,21 @@ a, a:hover, a:visited, li {
   
 }
 .button-submit-image:hover {
+  transform: scale(1.1);
+}
+.button-submit-small-black-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/handbook/submitIcon_small-black.png");
+  
+}
+.button-submit-small-black-image:hover {
   transform: scale(1.1);
 }
 

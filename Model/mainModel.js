@@ -10,7 +10,9 @@ mainApp.factory('mainModel',function()
         userRankID:0,
         userRole:0,
         userProgress:75,
-        userLastView:'login'
+        userLastView:'login',
+        userBookMarks:[0,0,0,0],
+        userNotes:['','','','']
         };
     valObjects.getUser = function()
     {
@@ -25,7 +27,9 @@ mainApp.factory('mainModel',function()
         user.userRole = 0;
         user.userProgress = 75;
         user.userLastView = "login";
-
+        user.userBookMarks = [0,0,0,0];
+        user.userNotes = ['','','',''];
+        
         return user;
     }
 
