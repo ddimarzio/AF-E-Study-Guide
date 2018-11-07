@@ -1,0 +1,23 @@
+# POST https://powertrainafttest.azurewebsites.net/Account/Register HTTP/1.1
+# content-type: application/json
+
+# {
+#   "email":"ddimarzio2@powertrain.com",
+#   "username":"Don2",
+#   "password":"test"
+# }
+
+
+POST https://powertrainafttest.azurewebsites.net/Account/Login HTTP/1.1
+content-type: application/json
+
+{
+  "username":"Don2",
+  "password":"test"
+}
+
+# GET http://powertrainafttest.azurewebsites.net/Test/Index HTTP/1.1
+# content-type: application/json
+# {
+
+# }

@@ -25,6 +25,12 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/handbook', {
       templateUrl: 'View/airmanHandbookView.html', controller: 'MainController'
     })
+    .when('/register', {
+      templateUrl: 'View/registerUserView.html', controller: 'MainController'
+    })
+    .when('/forgotPassword', {
+      templateUrl: 'View/forgotPasswordView.html', controller: 'MainController'
+    })
       .otherwise({
        redirectTo: '/login'
     });

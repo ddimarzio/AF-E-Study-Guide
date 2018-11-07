@@ -364,6 +364,36 @@ a, a:hover, a:visited, li {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.bold-alert-text {
+  color: #ffd900;
+  line-height: 2;
+  margin: 10px 0 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bold-warning-text {
+  color: #ff0000;
+  line-height: 2;
+  margin: 10px 0 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bold-success-text {
+  color: #07d800;
+  line-height: 2;
+  margin: 10px 0 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .bold-text {
   color: #e8e8e8;
   line-height: 2;
