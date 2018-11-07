@@ -56,7 +56,8 @@ mainApp.factory('mainModel',function()
             resources:'Resources',
             handbook:'The Airman Handbook 1',
             practicetest:'Practice Test',
-            register:'Register'
+            register:'Register',
+            forgotPassword:'Forgot Password'
     };
     valObjects.getViewtitles = function()
     {

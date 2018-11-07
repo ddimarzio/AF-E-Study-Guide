@@ -2,7 +2,15 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel,dataService) {
  
-  $scope.version = "Version 0.28";
+  $scope.version = "Version 0.29";
+
+  $scope.resetPassword = function(thisUser)
+  {
+    // Service call then ...
+
+    $scope.alertMessageClass = "bold-success-text";
+    $scope.alertMessage = "An email has been sent to the address above.";
+  }
 
   $scope.registerOnPassChange = function(thisUser)
   {
@@ -95,7 +103,9 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.pageBookmarked = false;
       $scope.pageNotes = "";
       $scope.pageNotesSaved = true;
-
+      $scope.alertMessage = "";
+      $scope.alertMessageClass = "bold-text";
+      
       // Value Objects
       $scope.user = mainModel.getUser();
       $scope.ranks = mainModel.getRanks();
