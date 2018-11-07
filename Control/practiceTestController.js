@@ -5,7 +5,7 @@ mainApp.controller('PracticeTestController', function($scope,dataService,mainMod
 
         $scope.getTestData = function()
         {
-            dataService.getGreeting()
+            dataService.loginUser()
                 .then(function(response) 
                 {
                     if (response != undefined && typeof response == "object") {

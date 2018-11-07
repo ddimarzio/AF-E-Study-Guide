@@ -127,3 +127,7 @@ mainApp.directive('footer', function () {
   }
 });
 
+mainApp.config(function ($httpProvider, $httpParamSerializerJQLikeProvider){
+    $httpProvider.defaults.transformRequest.unshift($httpParamSerializerJQLikeProvider.$get());
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8';
+});
