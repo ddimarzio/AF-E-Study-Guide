@@ -7,7 +7,7 @@ mainApp.service('dataService', ['$http', function ($http) {
 //   "username":"Don1",
 //   "password":"test"
 // }
-        var urlBase = 'http://powertrainafttest.azurewebsites.net/';
+        var urlBase = 'https://powertrainafttest.azurewebsites.net/';
         // var urlBase = 'http://rest-service.guides.spring.io/';
 
         this.loginUser = function()
