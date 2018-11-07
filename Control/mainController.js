@@ -1,8 +1,40 @@
 var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
-mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel) {
+mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel,dataService) {
  
-  $scope.version = "Version 0.26";
+  $scope.version = "Version 0.28";
+
+  $scope.registerOnPassChange = function(thisUser)
+  {
+    var confirmPasswordInput = document.getElementById( 'inputPassword2' );
+    confirmPasswordInput.setCustomValidity("");
+  }
+
+  $scope.registerUser = function(thisUser)
+  {
+    var passwordInput = document.getElementById( 'inputPassword' );
+    var confirmPasswordInput = document.getElementById( 'inputPassword2' );
+
+    if ( passwordInput.value != confirmPasswordInput.value )
+    {
+      confirmPasswordInput.setCustomValidity("Passwords Don't Match");
+    }
+    else
+    {
+      confirmPasswordInput.setCustomValidity("Match!");
+   
+      // dataService.registerUser()
+      // .then(function(response) 
+      // {
+      //     if (response != undefined && typeof response == "object") {
+      //         console.log("Controller : "  + JSON.stringify(response.data) );
+      //         $scope.testData = response.data;
+      //     } else {
+      //             alert("Result is not JSON type");
+      //     }
+      // });
+    }
+  }
 
   $scope.navigateToView = function(viewPage)
   {

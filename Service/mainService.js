@@ -10,6 +10,11 @@ mainApp.service('dataService', ['$http', function ($http) {
         var urlBase = 'https://powertrainafttest.azurewebsites.net/';
         // var urlBase = 'http://rest-service.guides.spring.io/';
 
+        this.registerUser = function()
+        {
+            
+        }
+
         this.loginUser = function()
         {
             return $http({
