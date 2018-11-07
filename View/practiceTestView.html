@@ -3,7 +3,7 @@
         ng-controller="PracticeTestController">
 
         <!-- Flash cards -->
-                
+                {{testData}}
         <div class="col-10 m-3 align-left contentWhiteBox shadow" >
                 <div class="row">
                         <div class="col-2 m-0 p-0">
@@ -43,7 +43,11 @@
                                 <button class="btn btn-sm btn-primary m-3" 
                                 type="button"
                                 ng-click="NextTestQuestion(1)">Next</button>
-                                                               
+                                        
+                                <button class="btn btn-sm btn-primary m-3" 
+                                type="button"
+                                ng-click="getTestData()">Test Data</button>
+                                
                         </div>
                         
                 </div>
