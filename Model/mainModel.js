@@ -12,7 +12,9 @@ mainApp.factory('mainModel',function()
         userProgress:75,
         userLastView:'login',
         userBookMarks:[0,0,0,0],
-        userNotes:['','','','']
+        userNotes:['','','',''],
+        userFlashCardsMax:5,
+        userFlashCardFlagged:[0,0,0,0]
         };
     valObjects.getUser = function()
     {
@@ -29,7 +31,9 @@ mainApp.factory('mainModel',function()
         user.userLastView = "login";
         user.userBookMarks = [0,0,0,0];
         user.userNotes = ['','','',''];
-        
+        userFlashCardsMax = 5;
+        userFlashCardFlagged = [0,0,0,0];
+
         return user;
     }
 
@@ -57,7 +61,8 @@ mainApp.factory('mainModel',function()
             handbook:'The Airman Handbook 1',
             practicetest:'Practice Test',
             register:'Register',
-            forgotPassword:'Forgot Password'
+            forgotPassword:'Forgot Password',
+            thanksForRegister:'Thanks for registering'
     };
     valObjects.getViewtitles = function()
     {
@@ -129,8 +134,9 @@ mainApp.factory('mainModel',function()
             ID:"1D_1",
             chapter:1,
             paragraph:'1.11.1',
-            question:"What was the name of the World War II American volunteer group organized by former Air Corps Tactical School Instructor Claire Lee Chennault, who aided Nationalist China against Japanese invaders, and what were they famous for?",
-            answer:"The Flying Tigers were famous for shark mouths painted on their Curtis P-40 Warhawks.",
+            section:"1D",
+            question:"<p class='flashCard-title-text'>Bold title</p><div class='fc-image-wrap-right shadow'><img src='/Assets/images/flashcardsIcon-black.png' class='p-0'></img></div><p>Paragraph and image right : Which President announced an end to United States combat in Southeast Asia as a primary goal of his administration and charged the Secretary of Defense with making Vietnamization of the war a top priority?</p><ul class='flashCard-listed-text'><li>Bullet one</li><li>Bullet two</li><li>Bullet three</li>",
+            answer:"<p>The Flying Tigers were famous for shark mouths painted on their Curtis P-40 Warhawks.</p><ol class='flashCard-listed-text'><li>Numbered item one</li><li>Numbered item two</li><li>Numbered item three</li></ol>",
             level:'A',
             importance:'3',
             category:'A'
@@ -139,6 +145,7 @@ mainApp.factory('mainModel',function()
         {
             ID:"1D_2",
             chapter:1,
+            section:"1D",
             paragraph:'1.11.5',
             question:"The primary United States Army Air Forces contribution to the Pacific counterattack was made by the _____, attached to the Southwest Pacific Theater under _____’s command.",
             answer:"Fifth Air Force; General Douglas MacArthur",
@@ -149,6 +156,7 @@ mainApp.factory('mainModel',function()
         {
             ID:"1D_3",
             chapter:1,
+            section:"1D",
             paragraph:'1.12.1',
             question:"Which Act, signed by Harry S. Truman on 26 July 1947, provided for a separate Department of the Air Force?",
             answer:"The National Security Act of 1947",
@@ -157,11 +165,23 @@ mainApp.factory('mainModel',function()
             category:'A'
         },
         {
-            ID:"1D_4",
-            chapter:1,
-            paragraph:'1.12.4',
-            question:"During the Berlin Crisis in which the Soviet Union kept France, Britain, and the United States from their sectors of Berlin, what operation utilized nonviolent airpower to defuse a potentially disastrous confrontation?",
-            answer:"Operation VITTLES",
+            ID:"7D_4",
+            chapter:7,
+            section:"7D",
+            paragraph:'7.10.6',
+            question:"<p>Letters of counseling, admonishment, or reprimand require six parts. Identify the missing parts:</p><ol class='flashCard-listed-text'><li>What the member did or failed to do, citing incidents and dates</li><li>_____</li><li>_____</li><li>That the individual has three duty days to respond and provide rebuttal matters</li><li>_____</li><li>That the person who initiates the letter has three duty days to advise the individual of their decision regarding any comments submitted by the individual.</li></ol>",
+            answer:"<p>Letters of counseling, admonishment, or reprimand require six parts.</p><ol class='flashCard-listed-text'><li>What the member did or failed to do, citing incidents and dates</li><li>What improvement is expected</li><li>That further deviation may result in more severe action</li><li>That the individual has three duty days to respond and provide rebuttal matters</li><li>That all supporting documents become part of the record</li><li>That the person who initiates the letter has three duty days to advise the individual of their decision regarding any comments submitted by the individual</li></ol>",
+            level:'B',
+            importance:'1',
+            category:'B'
+        },
+        {
+            ID:"4D_9",
+            chapter:4,
+            section:"4D",
+            paragraph:'4.15.5',
+            question:"<p>Joint operation planning process consists of seven steps. Identify the missing steps:</p><ol class='flashCard-listed-text'><li>Planning Initiation</li><li>Mission Analysis</li><li>_____</li><li>_____</li><li>Course of Action Comparison</li><li>_____</li><li>Plan or Order Development</li></ol>",
+            answer:"<ol class='flashCard-listed-text'><li>Planning Initiation</li><li>Mission Analysis</li><li>Course of Action Development</li><li>Course of Action Analysis</li><li>Course of Action Comparison</li><li>Course of Action Approval</li><li>Plan or Order Development</li></ol>",
             level:'A',
             importance:'3',
             category:'A'
@@ -170,6 +190,14 @@ mainApp.factory('mainModel',function()
     valObjects.getFlashCards = function()
     {
         return flashCards;
+    };
+    valObjects.getFlashCardQuestion = function(num)
+    {
+        return flashCards[num].question;
+    };
+    valObjects.getFlashCardAnswer = function(num)
+    {
+        return flashCards[num].answer;
     };
 
   return valObjects;

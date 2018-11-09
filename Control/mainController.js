@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel,dataService) {
  
-  $scope.version = "Version 0.29";
+  $scope.version = "Version 0.32";
 
   $scope.resetPassword = function(thisUser)
   {
@@ -89,7 +89,6 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
 
   $scope.selectRank = function(rankid)
   {
-    console.log("selected : " + rankid); // debug
     $scope.user.userRankID = rankid;
     $localstorage.setObject('user', $scope.user);
     $scope.navigateToView('home');
@@ -101,6 +100,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.testData = "blah";
       $scope.flashCardisFlipped = false;
       $scope.pageBookmarked = false;
+      $scope.flashCardFlagged = false;
       $scope.pageNotes = "";
       $scope.pageNotesSaved = true;
       $scope.alertMessage = "";
@@ -124,8 +124,6 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
           $scope.navigateToView('login');
         }
       }
-      
-      console.log("init"); //debug
       $scope.intialized = true;
     }
 });

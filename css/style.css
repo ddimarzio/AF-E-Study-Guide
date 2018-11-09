@@ -59,7 +59,7 @@ footer {
     padding-bottom: 60px;
 }
 
-a, a:hover, a:visited, li {
+a, a:hover, a:visited {
   color: rgb(199,165,103);
   text-align: left;
   text-decoration: none;
@@ -253,12 +253,7 @@ a, a:hover, a:visited, li {
   border: 1px solid rgb(14,24,45,1);
 }
 
-/* Flash cards */
-.flash-card-box {
-  background-color: rgb(241, 241, 241);
-  border-radius: 10px;
-  border: 2px solid rgb(14,24,45,1);
-}
+
 
 .title-text1 {
   color: #e8e8e8;
@@ -342,16 +337,7 @@ a, a:hover, a:visited, li {
   font-family: 'agencyBold', sans-serif;
 }
 
-.flashCard-text {
-  color: #000000;
-  line-height: 1.1;
-  margin: 10px 0 0;
-  padding: 0;
-  text-align: left;
-  font-weight: 300;
-  font-size: 16px;
-  font-family: sans-serif;
-}
+
 
 .bold-link-text, .bold-link-text:hover, .bold-link-text:visited  {
   color: #d1d1d1;
@@ -418,6 +404,10 @@ a, a:hover, a:visited, li {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.highlight-text {
+  color: #ff0000;
+}
+
 /* FORMS */
 .form-notes-textarea
 {
@@ -476,6 +466,21 @@ a, a:hover, a:visited, li {
 .clickBox {
   cursor: pointer;
 }
+.button-highlight-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/handbook/hb-highlightIcon.png");
+}
+.button-highlight-image:hover {
+  transform: scale(1.1);
+}
+
 .button-notes-image {
   transition: all 0.1s ease-in-out;
   content: "";
@@ -637,41 +642,7 @@ a, a:hover, a:visited, li {
   animation:slideInUp 0.5s both ease-in;  
 }
 
-.flip {
-  perspective: 800;
-  -webkit-perspective: 800;
-  height: 250px;
-  position: relative;
-  margin: 50px auto;
-}
-.flip .card.flipped {
-  transform: rotatex(-180deg);
-  -webkit-transform: rotatex(-180deg);
-}
-.flip .card {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: 0.3s;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: 0.3s;
-}
-.flip .card .face {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden ;
-  -webkit-backface-visibility: hidden ;
-  z-index: 2;
-}
-.flip .card .front {
-  position: absolute;
-  z-index: 1;
-}
-.flip .card .back {
-  transform: rotatex(-180deg);
-  -webkit-transform: rotatex(-180deg);
-}
+
 .navDisabled {
   opacity: 0.5;
 }
