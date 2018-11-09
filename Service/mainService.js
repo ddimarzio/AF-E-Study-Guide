@@ -19,18 +19,20 @@ mainApp.service('dataService', ['$http', function ($http) {
         {
             return $http({
                 method: 'POST',
-                url: urlBase + 'Account/Login',
+                url: 'https://powertrainafttest.azurewebsites.net/Account/Login',
                 data: {
-                  username: 'Don1',
-                  password: 'test'
+                  'username': 'Don1',
+                  'password': 'test'
                 }
               });
-            // return $http.post(urlBase + 'Account/Login');
         }
 
         this.getGreeting = function () 
         {
-            return $http.get('http://rest-service.guides.spring.io/greeting');
+            return $http({
+                method:'GET',
+                url: 'http://rest-service.guides.spring.io/greeting'
+            });
         }
 
         this.getFlashCards = function()

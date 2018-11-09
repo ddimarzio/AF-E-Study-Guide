@@ -31,6 +31,10 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/forgotPassword', {
       templateUrl: 'View/forgotPasswordView.html', controller: 'MainController'
     })
+    .when('/thanksForRegister', {
+      templateUrl: 'View/thanksForRegisteringView.html', controller: 'MainController'
+    })
+    
       .otherwise({
        redirectTo: '/login'
     });

@@ -18,6 +18,21 @@ mainApp.controller('PracticeTestController', function($scope,dataService,mainMod
 
         }
 
+        $scope.getGreetingTest = function()
+        {
+            dataService.getGreeting()
+                .then(function(response) 
+                {
+                    if (response != undefined && typeof response == "object") {
+                        console.log("Controller : "  + JSON.stringify(response.data) );
+                        $scope.testData = response.data;
+                    } else {
+                            alert("Result is not JSON type");
+                    }
+                });
+
+        }
+
         $scope.testQuestions = mainModel.getTestQuestions();         // test data, change to service later
 
 
