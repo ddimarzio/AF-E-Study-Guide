@@ -177,4 +177,43 @@
     transform: rotatex(-180deg);
     -webkit-transform: rotatex(-180deg);
 }
+
+.button-flashcardSelect-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/circleIcon.png");
+}
+.button-flashcardSelect-image:hover {
+    transform: scale(1.1);
+}
+.button-flashcardSelect-selected-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/circleIcon-selected.png");
+}
+.button-flashcardSelect-selected-image:hover {
+    transform: scale(1.1);
+}
+
+.flashselection-text {
+    color: #e8e8e8;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: 'agencyBold', sans-serif;
+  }
 /* ************* */

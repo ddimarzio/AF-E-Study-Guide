@@ -1,0 +1,39 @@
+<div class="row justify-content-md-center m-0 flash-cards-background innerWithHeader"
+    ng-app="mainApp"
+    ng-controller="FlashCardController">
+    <div class="row col-10 blueBox justify-content-md-center">
+        <div class="row flashselection-text">How many flash cards do you want to study?</div>
+        <div class="row col-10">
+            <div class="col-1 ml-auto mr-auto">
+                <button class="btn button-flashcardSelect-image"
+                type="submit"
+                ng-model="amountSelected"
+                ng-value="25"
+                alt="select 25"
+                ng-click="selectFlashCardAmount(25)"><span class="flashselection-text">25</span></button>
+            </div>
+            <div class="col-1 ml-auto mr-auto">
+                <button class="btn button-flashcardSelect-image"
+                type="submit"
+                ng-model="amountSelected"
+                ng-value="50"
+                alt="select 50"
+                ng-click="selectFlashCardAmount(50)"><span class="flashselection-text">50</span></button>
+            </div>
+            <div class="col-1 ml-auto mr-auto">
+                <button class="btn button-flashcardSelect-image"
+                type="submit"
+                ng-model="amountSelected"
+                ng-value="100"
+                alt="select 100"
+                ng-click="selectFlashCardAmount(100)"><span class="flashselection-text">100</span></button>
+            </div>
+        </div>
+    
+
+        <div class="row col-10 justify-content-md-center">
+            <button class="btn btn-primary"
+                    ng-click="navigateToView('flashcards')">Submit</button>
+        </div>
+    </div>
+</div>
