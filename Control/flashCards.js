@@ -7,6 +7,11 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         $scope.flashCards = mainModel.getFlashCards();         // test data, change to service later
         
         // Methods
+        $scope.selectFlashCardAmount = function(amount)
+        {
+            console.log("Flash card amount :" + amount)
+        }
+
         $scope.flagFlashCard = function()
         {
             if ( $scope.user.userFlashCardFlagged[$scope.currentFlashcard] == 1 )

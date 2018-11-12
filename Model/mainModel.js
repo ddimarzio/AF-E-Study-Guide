@@ -62,7 +62,8 @@ mainApp.factory('mainModel',function()
             practicetest:'Practice Test',
             register:'Register',
             forgotPassword:'Forgot Password',
-            thanksForRegister:'Thanks for registering'
+            thanksForRegister:'Thanks for registering',
+            flashcardselection:'Flashcards Selection'
     };
     valObjects.getViewtitles = function()
     {

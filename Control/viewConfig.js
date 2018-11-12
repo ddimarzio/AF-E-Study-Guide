@@ -34,7 +34,9 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/thanksForRegister', {
       templateUrl: 'View/thanksForRegisteringView.html', controller: 'MainController'
     })
-    
+    .when('/flashcardselection', {
+      templateUrl: 'View/flashcardSelectionView.html', controller: 'MainController'
+    })
       .otherwise({
        redirectTo: '/login'
     });
