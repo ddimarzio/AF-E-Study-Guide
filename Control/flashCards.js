@@ -9,7 +9,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         // Methods
         $scope.selectFlashCardAmount = function(amount)
         {
-            console.log("Flash card amount :" + amount)
+            $scope.flashCardSelectedAmount = amount;
         }
 
         $scope.flagFlashCard = function()

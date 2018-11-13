@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel,dataService) {
  
-  $scope.version = "Version 0.33";
+  $scope.version = "Version 0.34";
 
   $scope.resetPassword = function(thisUser)
   {
@@ -105,13 +105,14 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.pageNotesSaved = true;
       $scope.alertMessage = "";
       $scope.alertMessageClass = "bold-text";
-      $scope.flashCardSelectedAmount = 0;
+      $scope.flashCardSelectedAmount = 25;
 
       // Value Objects
       $scope.user = mainModel.getUser();
       $scope.ranks = mainModel.getRanks();
       $scope.viewTitles = mainModel.getViewtitles();
-
+      $scope.flashCardChapters = mainModel.getFlashCardChapters();
+      
       if ( $localstorage.getObject('user') != null)
       {
         $scope.user = $localstorage.getObject('user');
@@ -168,7 +169,7 @@ mainApp.directive('footer', function () {
   }
 });
 
-mainApp.config(function ($httpProvider, $httpParamSerializerJQLikeProvider){
-    $httpProvider.defaults.transformRequest.unshift($httpParamSerializerJQLikeProvider.$get());
-    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8';
-});
+// mainApp.config(function ($httpProvider, $httpParamSerializerJQLikeProvider){
+//     $httpProvider.defaults.transformRequest.unshift($httpParamSerializerJQLikeProvider.$get());
+//     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8';
+// });

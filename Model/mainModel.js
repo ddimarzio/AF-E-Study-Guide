@@ -201,5 +201,28 @@ mainApp.factory('mainModel',function()
         return flashCards[num].answer;
     };
 
+    var flashCardChapters = [
+        {name:"The Airman's Creed",index:'0'},
+        {name:"Chapter 1 AIR FORCE HERITAGE",index:'1'},
+        {name:"Chapter 2 ENLISTED HISTORY",index:'2'},
+        {name:"Chapter 3 ORGANIZATION",index:'3'},
+        {name:"Chapter 4 AIR FORCE DOCTRINE, AIR EXPEDITIONARY FORCE (AEF) AND JOINT FORCE",index:'4'},
+        {name:"Chapter 5 EMERGANCY MANAGEMENT",index:'5'},
+        {name:"Chapter 6 STANDARDS OF CONDUCT",index:'6'},
+        {name:"Chapter 7 ENFORCING STANDARDS AND LEGAL ISSUES",index:'7'},
+        {name:"Chapter 8 MILITARY CUSTOMS, COURSIES, AND PROTOCOL FOR SPECIAL EVENTS",index:'8'},
+        {name:"Chapter 9 THE NON COMMISSIONED OFFICER",index:'9'},
+        {name:"Chapter # MORE CHAPTERS...",index:'10'},
+        {name:"Chapter # MORE CHAPTERS...",index:'11'},
+        {name:"Chapter # MORE CHAPTERS...",index:'12'},
+        {name:"Chapter # MORE CHAPTERS...",index:'13'},
+        {name:"Chapter # MORE CHAPTERS...",index:'14'},
+        {name:"Chapter # MORE CHAPTERS...",index:'15'}
+    ];
+    valObjects.getFlashCardChapters = function()
+    {
+        return flashCardChapters;
+    }
+
   return valObjects;
 })
