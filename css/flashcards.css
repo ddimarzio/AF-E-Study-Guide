@@ -1,4 +1,65 @@
 /* Flash cards */
+.button-flashcardCapterSelection-on-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 19px;
+    height: 22px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/chapterSelectionCheckmark-on.png");
+}
+.button-flashcardCapterSelection-on-imagee:hover {
+    transform: scale(1.1);
+}
+.button-flashcardCapterSelection-off-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 19px;
+    height: 22px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/chapterSelectionCheckmark-off.png");
+}
+.button-flashcardCapterSelection-off-imagee:hover {
+    transform: scale(1.1);
+}
+.flashselection-content-background {
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.flashSelection-header {
+    background: rgb(199, 165, 103);
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.flashselection-header-text {
+    color: #0c1f35;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 26px;
+    text-align: left;
+    font-family: 'agencyBold', sans-serif;
+}
+.flashselection-content-text {
+    color: #0e0e0e;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif
+}
+
 .flash-cards-chap-text {
     color: #270EFF;
     line-height: 1.1;

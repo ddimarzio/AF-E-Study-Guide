@@ -6,6 +6,7 @@
         <div class="row col-10">
             <div class="col-1 ml-auto mr-auto">
                 <button class="btn button-flashcardSelect-image"
+                ng-class="{'button-flashcardSelect-selected-image': flashCardSelectedAmount == '25'}"
                 type="submit"
                 ng-model="amountSelected"
                 ng-value="25"
@@ -14,6 +15,7 @@
             </div>
             <div class="col-1 ml-auto mr-auto">
                 <button class="btn button-flashcardSelect-image"
+                ng-class="{'button-flashcardSelect-selected-image': flashCardSelectedAmount == '50'}"
                 type="submit"
                 ng-model="amountSelected"
                 ng-value="50"
@@ -22,6 +24,7 @@
             </div>
             <div class="col-1 ml-auto mr-auto">
                 <button class="btn button-flashcardSelect-image"
+                ng-class="{'button-flashcardSelect-selected-image': flashCardSelectedAmount == '100'}"
                 type="submit"
                 ng-model="amountSelected"
                 ng-value="100"
@@ -30,6 +33,36 @@
             </div>
         </div>
     
+        <div class="row col-10">
+                <div class="row col-10 flashSelection-header">
+                    <div class="col flashselection-header-text mb-auto mt-auto mr-5">Select chapters to study</div>
+                    <div class="col-2 ml-auto flashselection-content-text text-nowrap">
+                        <div class="row clickBox"
+                            ng-click="">
+                            <button class="btn button-flashcardCapterSelection-on-image"
+                                    alt="check all chapters"></button>
+                            <div class="mb-auto mt-auto pt-1">Check all chapters</div>
+                        </div>
+                        <div class="row clickBox"
+                            ng-click="">
+                            <button class="btn button-flashcardCapterSelection-off-image"
+                                    alt="check all chapters"></button>
+                            <div class="mb-auto mt-auto pt-1">Uncheck all chapters</div>
+                        </div>
+                    </div>
+               
+                </div>
+                <div class="row col-10 flashselection-content-background">
+                        <div class="flashselection-content-text" ng-repeat="chapter in flashCardChapters">
+                                <div class="row clickBox"
+                                ng-click="">
+                                <button class="btn button-flashcardCapterSelection-on-image"
+                                        alt="check all chapters"></button>
+                                <div class="mb-auto mt-auto pt-1">{{chapter.name}}</div>
+                            </div>
+                        </div>
+                </div>
+        </div>
 
         <div class="row col-10 justify-content-md-center">
             <button class="btn btn-primary"
