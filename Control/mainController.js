@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel,dataService) {
  
-  $scope.version = "Version 0.34";
+  $scope.version = "Version 0.36";
 
   $scope.resetPassword = function(thisUser)
   {
