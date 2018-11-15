@@ -1,4 +1,8 @@
 /* Flash cards */
+.corner-flip-click {
+    width: 100px;
+    height: 100px;
+}
 .button-flashcardCapterSelection-on-image {
     transition: all 0.1s ease-in-out;
     content: "";
@@ -6,7 +10,7 @@
     height: 22px;
     display: inline-block;
     background-color: transparent;
-    background-position : center center;
+    /* background-position : center center; */
     background-repeat:no-repeat;
     background-image : url("../Assets/images/chapterSelectionCheckmark-on.png");
 }
@@ -20,7 +24,7 @@
     height: 22px;
     display: inline-block;
     background-color: transparent;
-    background-position : center center;
+    /* background-position : center center; */
     background-repeat:no-repeat;
     background-image : url("../Assets/images/chapterSelectionCheckmark-off.png");
 }
@@ -116,6 +120,16 @@
 .flash-cards-header-background {
     background: rgb(4, 0, 245);
     background: url('../Assets/images/flashcardHeaderBackground.png');
+    background-size: contain;
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px;
+    background-position: bottom;
+    height: 115px;
+    width: 660px;
+}
+.flash-cards-header-background-green {
+    background: rgb(4, 0, 245);
+    background: url('../Assets/images/flashcardHeaderBackground-green.png');
     background-size: contain;
     border-top-left-radius: 20px; 
     border-top-right-radius: 20px;

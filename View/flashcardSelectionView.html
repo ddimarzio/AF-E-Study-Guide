@@ -34,34 +34,46 @@
         </div>
     
         <div class="row col-10">
-                <div class="row col-10 flashSelection-header">
-                    <div class="col flashselection-header-text mb-auto mt-auto mr-5">Select chapters to study</div>
-                    <div class="col-2 ml-auto flashselection-content-text text-nowrap">
-                        <div class="row clickBox"
-                            ng-click="">
-                            <button class="btn button-flashcardCapterSelection-on-image"
-                                    alt="check all chapters"></button>
-                            <div class="mb-auto mt-auto pt-1">Check all chapters</div>
-                        </div>
-                        <div class="row clickBox"
-                            ng-click="">
-                            <button class="btn button-flashcardCapterSelection-off-image"
-                                    alt="check all chapters"></button>
-                            <div class="mb-auto mt-auto pt-1">Uncheck all chapters</div>
-                        </div>
+            <div class="row col-10 flashSelection-header">
+                <div class="col flashselection-header-text mb-auto mt-auto mr-5">Select chapters to study</div>
+                <div class="col-2 ml-auto flashselection-content-text text-nowrap">
+                    <div class="row clickBox"
+                        ng-click="">
+                        <button class="btn button-flashcardCapterSelection-on-image"
+                                alt="check all chapters"></button>
+                        <div class="mb-auto mt-auto pt-1">Check all chapters</div>
                     </div>
-               
+                    <div class="row clickBox"
+                        ng-click="">
+                        <button class="btn button-flashcardCapterSelection-off-image"
+                                alt="check all chapters"></button>
+                        <div class="mb-auto mt-auto pt-1">Uncheck all chapters</div>
+                    </div>
                 </div>
-                <div class="row col-10 flashselection-content-background">
-                        <div class="flashselection-content-text" ng-repeat="chapter in flashCardChapters">
-                                <div class="row clickBox"
-                                ng-click="">
-                                <button class="btn button-flashcardCapterSelection-on-image"
-                                        alt="check all chapters"></button>
-                                <div class="mb-auto mt-auto pt-1">{{chapter.name}}</div>
+            </div>
+
+             <div class="row col-10 flashselection-content-background flashselection-content-text">
+                    <div ng-repeat="row in flashCardChapters">
+                            <div class="col-2 testBorder" style="width: 250px;" ng-repeat="item in row">
+                                {{item.index}}
                             </div>
                         </div>
-                </div>
+
+              <!--  <div class="flashselection-content-text" ng-repeat="row in flashCardChapters">
+                    <div class="row testBorder" ng-repeat="chapter in row">
+                        <div class="row clickBox text-nowrap testBorder"
+                                ng-click="">
+                            <button class="btn button-flashcardCapterSelection-on-image"
+                                    alt="check all chapters"></button>
+                            <div class="col-0 mt-auto mb-auto pt-1">{{chapter.name}}</div>
+                        </div>
+                    </div>
+                </div>-->
+            </div> 
+
+
+
+
         </div>
 
         <div class="row col-10 justify-content-md-center">

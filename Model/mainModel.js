@@ -201,6 +201,21 @@ mainApp.factory('mainModel',function()
         return flashCards[num].answer;
     };
 
+
+    var columizeData = function(input, cols) 
+    {
+        var arr = [];
+        var lng = input.length;
+        for(i = 0; i < lng; i++) 
+        {
+
+            var colIdx = i % cols;
+            arr[colIdx] = arr[colIdx] || [];
+            arr[colIdx].push(input[i]);
+        }
+        return arr;
+    };
+
     var flashCardChapters = [
         {name:"The Airman's Creed",index:'0'},
         {name:"Chapter 1 AIR FORCE HERITAGE",index:'1'},
@@ -219,10 +234,15 @@ mainApp.factory('mainModel',function()
         {name:"Chapter # MORE CHAPTERS...",index:'14'},
         {name:"Chapter # MORE CHAPTERS...",index:'15'}
     ];
+
+    
     valObjects.getFlashCardChapters = function()
     {
-        return flashCardChapters;
-    }
+        var chapterCols = columizeData(flashCardChapters,2);
+        return chapterCols;
+    };
+
+
 
   return valObjects;
 })
