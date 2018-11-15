@@ -22,7 +22,7 @@
 
                         <!-- FRONT -->
                         <div class="face front">
-                            <div class="row flash-cards-header-background ">
+                            <div class="row flash-cards-header-background-green">
                                 <div class="col-0 mt-auto mb-auto mr-auto ml-4">
                                     <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
                                     type="submit"
@@ -30,7 +30,7 @@
                                     ng-click="flagFlashCard()"></button>                                   
                                 </div>
                                 <div class="col flash-cards-number mb-auto mt-auto mr-5">Question : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
-                                <div class="col-0 mt-auto mb-auto mr-auto ml-4"></div>
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
                             </div>
                             <div class="row flash-card-box pr-3 pl-3">
                                     <div class="flashCard-text" id="flashCardFrontContentEle" ng-bind-html="flashCardQuestionContent"></div>
@@ -40,7 +40,7 @@
                                         <button class="btn button-flash-card-checkmark ml-auto"
                                         type="submit"
                                         alt="check knowlege"
-                                        ng-click="flipCard()"
+                                        ng-click=""
                                         ></button>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                         ng-click="flagFlashCard()"></button>                                   
                                 </div>
                                 <div class="col flash-cards-number mb-auto mt-auto mr-5">Answer : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
-                                <div class="col-0 mt-auto mb-auto mr-auto ml-4"></div>
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
                             </div>
                             <div class="row flash-card-box pr-3 pl-3">
                                     <div class="flashCard-text" id="flashCardFrontContentEle" ng-bind-html="flashCardAnswerContent"></div>
@@ -65,7 +65,7 @@
                                         <button class="btn button-flash-card-checkmark ml-auto"
                                         type="submit"
                                         alt="check knowlege"
-                                        ng-click="flipCard()"
+                                        ng-click=""
                                         ></button>
                             </div>
                         </div>

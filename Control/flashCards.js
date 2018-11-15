@@ -7,6 +7,9 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         $scope.flashCards = mainModel.getFlashCards();         // test data, change to service later
         
         // Methods
+
+
+
         $scope.selectFlashCardAmount = function(amount)
         {
             $scope.flashCardSelectedAmount = amount;
@@ -24,6 +27,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             }
             $scope.setFlashCardData($scope.currentFlashcard);
             $localstorage.setObject('user', $scope.user);
+
+
         }
 
 
@@ -42,6 +47,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
                 $scope.flashCardFlagged = false;
             }
+
+            console.log("Flagged : " + $scope.flashCardFlagged )
         }
         
 
