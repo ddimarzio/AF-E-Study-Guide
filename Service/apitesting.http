@@ -2,22 +2,32 @@
 # content-type: application/json
 
 # {
-#   "email":"ddimarzio2@powertrain.com",
-#   "username":"Don2",
+#   "email":"don.dimarzio@gmail.com",
+#   "username":"dondimarzio",
 #   "password":"test"
 # }
 
+# POST https://powertrainafttest.azurewebsites.net/Account/Login HTTP/1.1
+# content-type: application/json
 
-POST https://powertrainafttest.azurewebsites.net/Account/Login HTTP/1.1
+# {
+#   "username":"dondimarzio",
+#   "password":"test"
+# }
+
+POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
 content-type: application/json
 
 {
-  "username":"Don2",
-  "password":"test"
+  "SessionID" : "3193ecae-0912-4c8b-95b5-0418387ed8fb",
+  "UserID" : "40"
 }
 
-# GET http://powertrainafttest.azurewebsites.net/Test/Index HTTP/1.1
+# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
 # content-type: application/json
-# {
 
+# {
+#   "SessionID" : "1118721c-15df-475a-815c-799ddbcba264",
+#   "amount" : "29",
+#   "chapters" : "0"
 # }

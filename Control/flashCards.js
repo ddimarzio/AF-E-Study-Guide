@@ -7,8 +7,29 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         $scope.flashCards = mainModel.getFlashCards();         // test data, change to service later
         
         // Methods
+        $scope.checkFlashCardChapter = function(indx)
+        {
+            if ( $scope.flashCardChapters[indx].checked == 'true' )
+            {
+                $scope.flashCardChapters[indx].checked = 'false';
+            }
+            else
+            {
+                $scope.flashCardChapters[indx].checked = 'true';
+            }
+        }
 
+        $scope.setAllFlashCardChapters = function(check)
+        {
+            $scope.flashCardChapters.forEach(function(chapter) {
+                chapter.checked = check;
+              });
 
+            // forEach ( chapter in $scope.flashCardChapters)
+            // {
+            //     chapter.checked = check;
+            // }
+        }
 
         $scope.selectFlashCardAmount = function(amount)
         {
