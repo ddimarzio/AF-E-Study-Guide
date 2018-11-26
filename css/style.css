@@ -253,7 +253,22 @@ a, a:hover, a:visited {
   border: 1px solid rgb(14,24,45,1);
 }
 
-
+.subtitle-text {
+  color: #c7a567;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.subtitle-text-white {
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .title-text1 {
   color: #e8e8e8;

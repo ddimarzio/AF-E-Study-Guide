@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel,dataService) {
  
-  $scope.version = "Version 0.39";
+  $scope.version = "Version 0.40";
 
   $scope.resetPassword = function(thisUser)
   {
@@ -49,16 +49,29 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     if ( viewPage != "")
     {
       $scope.user.userLastView = viewPage;
-      // $scope.currentViewTitle = $scope.viewTitles[viewPage];
       $localstorage.setObject('user', $scope.user);
       $location.path(viewPage);
 
-      // Forcing an update on an element. TODO:  Create a seperate method to updated needed elements
-      var viewTitleSpan = angular.element( document.querySelector( '#viewTitleSpan' ) );
-      viewTitleSpan.text($scope.viewTitles[viewPage] + " - " + $scope.user.userName);
-
-      console.log("View Page = " + viewPage); // debug
+      // Forcing an update on an element.
+      $scope.changeHeaderText($scope.viewTitles[viewPage] + " - " + $scope.user.userName);
+      $scope.changeSubHeaderText("","");
+      // console.log("View Page = " + viewPage); // debug
     }
+  }
+
+  $scope.changeHeaderText = function(text)
+  {
+    var viewTitleSpan = angular.element( document.querySelector( '#viewTitleSpan' ) );
+    viewTitleSpan.text(text);
+  }
+
+  $scope.changeSubHeaderText = function(text,text2)
+  {
+    var viewSubTitleSpan = angular.element( document.querySelector( '#viewSubTitleSpan' ) );
+    viewSubTitleSpan.text(text);
+
+    var viewSubTitleSpan2 = angular.element( document.querySelector( '#viewSubTitleSpan2' ) );
+    viewSubTitleSpan2.text(text2);
   }
 
   $scope.logout = function()
@@ -168,8 +181,3 @@ mainApp.directive('footer', function () {
       controller: 'MainController'
   }
 });
-
-// mainApp.config(function ($httpProvider, $httpParamSerializerJQLikeProvider){
-//     $httpProvider.defaults.transformRequest.unshift($httpParamSerializerJQLikeProvider.$get());
-//     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8';
-// });

@@ -4,8 +4,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.currentChapter = 1;
         $scope.currentPage = 0;
         $scope.currentMaxPages = mainModel.getMaxPages();
-        $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(0));
+        $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(0).content);
+        $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
         $scope.originalPageContent =  $scope.currentPageContent;
+
 
         $scope.addPageNotes = function(notes)
         {
@@ -31,6 +33,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setPageData = function(page)
         {
+            // header
+
             // notes
             $scope.pageNotes = $scope.user.userNotes[page];
 
@@ -50,8 +54,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             if ( num > -1 && num < $scope.currentMaxPages)
             {
                 $scope.currentPage = num;
-                $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(num));
-
+                page = mainModel.handbookGetHBPage(num);
+                $scope.currentPageContent = $sce.trustAsHtml(page.content);
+                $scope.changeSubHeaderText("Chapter " + page.chapter," - " + page.title);
                 $scope.setPageData($scope.currentPage);
             }   
         }
@@ -74,7 +79,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         else return;
         console.log("Selected Text : " + txt)
 
-        // TODO : Neees rework
+        // TODO : Needs rework
         $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage($scope.currentPage));
         var contentEle = document.getElementById( 'pageContentEle' );
         $scope.currentPageContent = $scope.highlight(contentEle.innerHTML,txt);
