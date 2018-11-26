@@ -201,45 +201,57 @@ mainApp.factory('mainModel',function()
         return flashCards[num].answer;
     };
 
-
+// Convert object to vertical col array - Needs work
     var columizeData = function(input, cols) 
     {
         var arr = [];
         var lng = input.length;
-        for(i = 0; i < lng; i++) 
+        for(i = 0; i < (lng/2); i++) 
         {
+            arr[i] = arr[i] || [];
+            arr[i].push(input[i]);
+            arr[i].push(input[i+(lng/2)]);
 
-            var colIdx = i % cols;
-            arr[colIdx] = arr[colIdx] || [];
-            arr[colIdx].push(input[i]);
+            // arr[1] = arr[1] || [];
+            // arr[1].push(input[i+(lng/2)]);
+            // var colIdx = i % cols;
+            // arr[colIdx] = arr[colIdx] || [];
+            // arr[colIdx].push(input[i]);
         }
+
+        console.log(JSON.stringify(arr, null, 4));
+
         return arr;
     };
 
     var flashCardChapters = [
-        {name:"The Airman's Creed",index:'0'},
-        {name:"Chapter 1 AIR FORCE HERITAGE",index:'1'},
-        {name:"Chapter 2 ENLISTED HISTORY",index:'2'},
-        {name:"Chapter 3 ORGANIZATION",index:'3'},
-        {name:"Chapter 4 AIR FORCE DOCTRINE, AIR EXPEDITIONARY FORCE (AEF) AND JOINT FORCE",index:'4'},
-        {name:"Chapter 5 EMERGANCY MANAGEMENT",index:'5'},
-        {name:"Chapter 6 STANDARDS OF CONDUCT",index:'6'},
-        {name:"Chapter 7 ENFORCING STANDARDS AND LEGAL ISSUES",index:'7'},
-        {name:"Chapter 8 MILITARY CUSTOMS, COURSIES, AND PROTOCOL FOR SPECIAL EVENTS",index:'8'},
-        {name:"Chapter 9 THE NON COMMISSIONED OFFICER",index:'9'},
-        {name:"Chapter # MORE CHAPTERS...",index:'10'},
-        {name:"Chapter # MORE CHAPTERS...",index:'11'},
-        {name:"Chapter # MORE CHAPTERS...",index:'12'},
-        {name:"Chapter # MORE CHAPTERS...",index:'13'},
-        {name:"Chapter # MORE CHAPTERS...",index:'14'},
-        {name:"Chapter # MORE CHAPTERS...",index:'15'}
+        {name:"The Airman's Creed",desc:"",index:'0',checked:'false'},
+        {name:"Chapter 1",desc:"AIR FORCE HERITAGE",index:'1',checked:'false'},
+        {name:"Chapter 2",desc:"ENLISTED HISTORY",index:'2',checked:'false'},
+        {name:"Chapter 3",desc:"ORGANIZATION",index:'3',checked:'false'},
+        {name:"Chapter 4",desc:"AIR FORCE DOCTRINE, AIR EXPEDITIONARY FORCE (AEF) AND JOINT FORCE",index:'4',checked:'false'},
+        {name:"Chapter 5",desc:"EMERGANCY MANAGEMENT",index:'5',checked:'false'},
+        {name:"Chapter 6",desc:"STANDARDS OF CONDUCT",index:'6',checked:'false'},
+        {name:"Chapter 7",desc:"ENFORCING STANDARDS AND LEGAL ISSUES",index:'7',checked:'false'},
+        {name:"Chapter 8",desc:"MILITARY CUSTOMS, COURSIES, AND PROTOCOL FOR SPECIAL EVENTS",index:'8',checked:'false'},
+        {name:"Chapter 9",desc:"THE NON COMMISSIONED OFFICER",index:'9',checked:'false'},
+        {name:"Chapter 10",desc:"MORE CHAPTERS...",index:'10',checked:'false'},
+        {name:"Chapter 11",desc:"MORE CHAPTERS...",index:'11',checked:'false'},
+        {name:"Chapter 12",desc:"MORE CHAPTERS...",index:'12',checked:'false'},
+        {name:"Chapter 13",desc:"MORE CHAPTERS...",index:'13',checked:'false'},
+        {name:"Chapter 14",desc:"MORE CHAPTERS...",index:'14',checked:'false'},
+        {name:"Chapter 15",desc:"MORE CHAPTERS...",index:'15',checked:'false'},
+        {name:"Chapter 16",desc:"MORE CHAPTERS...",index:'16',checked:'false'},
+        {name:"Chapter 17",desc:"MORE CHAPTERS...",index:'17',checked:'false'},
+        {name:"Chapter 18",desc:"MORE CHAPTERS...",index:'18',checked:'false'},
+        {name:"Chapter 19",desc:"MORE CHAPTERS...",index:'19',checked:'false'}
     ];
 
     
     valObjects.getFlashCardChapters = function()
     {
-        var chapterCols = columizeData(flashCardChapters,2);
-        return chapterCols;
+        // var chapterCols = columizeData(flashCardChapters,2);
+        return flashCardChapters;
     };
 
 
