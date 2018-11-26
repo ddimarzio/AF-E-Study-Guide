@@ -8,10 +8,18 @@
                     alt="Menu"
                     ng-click="navigateToView('home')"></button>
                 </div>
-                <div class="">
-                    <img src="/Assets/images/{{ranks[user.userRankID].iconFile}}" alt="Rank Icon" height="100px;">
-                    <span id="viewTitleSpan" class="title-text3 align-middle pl-3">MY DASHBOARD - {{user.userName}}</span>
+
+                <img src="/Assets/images/{{ranks[user.userRankID].iconFile}}" alt="Rank Icon" height="100px;">
+                <div class="col mt-auto mb-auto">
+                    <div class="row">
+                        <div id="viewTitleSpan" class="title-text3">MY DASHBOARD - {{user.userName}}</div>
+                    </div>
+                    <div class="row">
+                        <span id="viewSubTitleSpan" class="subtitle-text pr-1"></span>
+                        <span id="viewSubTitleSpan2" class="subtitle-text-white"></span>
+                    </div>
                 </div>
+
             </div>
             <div class="col-2 pt-1">
                 <img src="/Assets/images/af-logo-text.png" height="90px" class="">
