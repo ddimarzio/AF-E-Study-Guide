@@ -8,6 +8,17 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
         $scope.originalPageContent =  $scope.currentPageContent;
 
+        $scope.openCloseNotes = function()
+        {
+            if ( $scope.notesOpen != true )
+            {
+                $scope.notesOpen = true;
+            }
+            else
+            {
+                $scope.notesOpen = false;
+            }
+        }
 
         $scope.addPageNotes = function(notes)
         {
@@ -61,39 +72,39 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }   
         }
 
-    $scope.getSelectedText = function()
-    {
-        var txt = '';
-        if (window.getSelection)
+        $scope.getSelectedText = function()
         {
-            txt = window.getSelection();
-        }
-        else if (document.getSelection)
-        {
-            txt = document.getSelection();
-        }
-        else if (document.selection)
-        {
-            txt = document.selection.createRange().text;
-        }
-        else return;
-        console.log("Selected Text : " + txt)
+            var txt = '';
+            if (window.getSelection)
+            {
+                txt = window.getSelection();
+            }
+            else if (document.getSelection)
+            {
+                txt = document.getSelection();
+            }
+            else if (document.selection)
+            {
+                txt = document.selection.createRange().text;
+            }
+            else return;
+            console.log("Selected Text : " + txt)
 
-        // TODO : Needs rework
-        $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage($scope.currentPage));
-        var contentEle = document.getElementById( 'pageContentEle' );
-        $scope.currentPageContent = $scope.highlight(contentEle.innerHTML,txt);
-    // document.aform.selectedtext.value = txt;
-    }
-
-    $scope.highlight = function(haystack, needle) {
-        if(!needle) {
-            return $sce.trustAsHtml(haystack);
+            // TODO : Needs rework
+            $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage($scope.currentPage));
+            var contentEle = document.getElementById( 'pageContentEle' );
+            $scope.currentPageContent = $scope.highlight(contentEle.innerHTML,txt);
+        // document.aform.selectedtext.value = txt;
         }
-        return $sce.trustAsHtml(haystack.replace(new RegExp(needle, "gi"), function(match) {
-            return '<span class="highlight-text">' + match + '</span>';
-        }));
-    };
+
+        $scope.highlight = function(haystack, needle) {
+            if(!needle) {
+                return $sce.trustAsHtml(haystack);
+            }
+            return $sce.trustAsHtml(haystack.replace(new RegExp(needle, "gi"), function(match) {
+                return '<span class="highlight-text">' + match + '</span>';
+            }));
+        };
+
         $scope.setPageData($scope.currentPage);
-        
   });
