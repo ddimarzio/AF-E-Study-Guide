@@ -8,6 +8,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
         $scope.originalPageContent =  $scope.currentPageContent;
 
+        $scope.addHighlights = function(txt,page)
+        {
+            // page needs to be a specific index.  Replace array
+            
+        }
+
         $scope.openCloseNotes = function()
         {
             if ( $scope.notesOpen != true )
@@ -91,17 +97,17 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("Selected Text : " + txt)
 
             // TODO : Needs rework
-            $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage($scope.currentPage));
+            $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage($scope.currentPage).content);
+            
             var contentEle = document.getElementById( 'pageContentEle' );
-            $scope.currentPageContent = $scope.highlight(contentEle.innerHTML,txt);
-        // document.aform.selectedtext.value = txt;
+            $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
         }
 
         $scope.highlight = function(haystack, needle) {
-            if(!needle) {
+            if(!needle || needle == "" ) {
                 return $sce.trustAsHtml(haystack);
             }
-            return $sce.trustAsHtml(haystack.replace(new RegExp(needle, "gi"), function(match) {
+            return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
                 return '<span class="highlight-text">' + match + '</span>';
             }));
         };

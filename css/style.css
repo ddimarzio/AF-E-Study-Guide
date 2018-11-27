@@ -421,7 +421,7 @@ a, a:hover, a:visited {
 }
 
 .highlight-text {
-  color: #ff0000;
+  background: #ffd900;
 }
 
 /* FORMS */
@@ -526,7 +526,6 @@ a, a:hover, a:visited {
 .button-notes-open-image:hover {
   transform: scale(1.1);
 }
-
 
 .button-bookmark-image {
   transition: all 0.1s ease-in-out;
