@@ -421,7 +421,7 @@ a, a:hover, a:visited {
 }
 
 .highlight-text {
-  color: #ff0000;
+  background: #ffd900;
 }
 
 /* FORMS */

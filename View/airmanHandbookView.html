@@ -1,26 +1,34 @@
 <div class="row col-12 justify-content-md-center m-0 contentWhiteBox innerWithHeader"
         ng-app="mainApp" 
         ng-controller="HandbookController">
-        <div class="row ml-auto p-3">
-                <span class="hb-pageNumber">{{currentPage+1}} of {{currentMaxPages}}</span>
-                <button class="btn button-bookmark-image" ng-class="{'button-bookmark-marked-image': pageBookmarked}"
-                        type="submit"
-                        alt="bookmark"
-                        ng-click="bookmarkThisPage()"></button>
-                <button class="btn button-notes-image"
-                        ng-class="{'button-notes-open-image': notesOpen}"
-                        type="submit"
-                        alt="shownotes"
-                        data-toggle="collapse"
-                        data-target="#mynotes"
-                        aria-expanded="false"
-                        aria-controls="mynotes"
-                        ng-click="openCloseNotes()"></button>
-                <button class="btn button-highlight-image"
-                        type="submit"
-                        alt="highlight"
-                        ng-click="getSelectedText()"></button>
+
+        <div class="row p-0 m-0 col-12">
+                <div class="col-3 ml-4"
+                        ng-if="pageBookmarked">
+                        <img src="/Assets/images/handbook/hb-bookmark.png"/>
+                </div>
+                <div class="col-3 ml-auto pt-3">
+                        <span class="hb-pageNumber">{{currentPage+1}} of {{currentMaxPages}}</span>
+                        <button class="btn button-bookmark-image" ng-class="{'button-bookmark-marked-image': pageBookmarked}"
+                                type="submit"
+                                alt="bookmark"
+                                ng-click="bookmarkThisPage()"></button>
+                        <button class="btn button-notes-image"
+                                ng-class="{'button-notes-open-image': notesOpen}"
+                                type="submit"
+                                alt="shownotes"
+                                data-toggle="collapse"
+                                data-target="#mynotes"
+                                aria-expanded="false"
+                                aria-controls="mynotes"
+                                ng-click="openCloseNotes()"></button>
+                        <button class="btn button-highlight-image"
+                                type="submit"
+                                alt="highlight"
+                                ng-click="getSelectedText()"></button>
+                </div>
         </div>
+
         <div class="row">
                 <div class="col-1 mt-auto mb-auto">
                         <button class="btn button-nav-left-image" ng-if="currentPage > 0" 
@@ -41,8 +49,6 @@
                 </div>
         </div>
         <div class="row form-group col-10 collapse notes-card-box shadow" id="mynotes">
-                <!-- <span class="title-black-text3" ng-if="!pageNotesSaved">*</span> -->
-                <!-- <span class="title-black-text3">My Notes :</span> -->
                 <textarea class="form-notes-textarea" 
                           id="notesinput" 
                           placeholder="Add notes here" 
