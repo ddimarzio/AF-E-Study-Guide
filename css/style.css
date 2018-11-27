@@ -248,9 +248,10 @@ a, a:hover, a:visited {
 }
 
 .notes-card-box {
-  background-color: rgb(233, 233, 233);
-  border-radius: 10px;
-  border: 1px solid rgb(14,24,45,1);
+  background-color: #faea70;
+  padding: 0;
+  margin: 10px 0 0;
+  border: 1px solid #000000;
 }
 
 .subtitle-text {
@@ -427,6 +428,7 @@ a, a:hover, a:visited {
 .form-notes-textarea
 {
   color: #000000;
+  background: #fff293;
   line-height: 1.1;
   margin: 10px;
   padding: 5px;
@@ -510,6 +512,21 @@ a, a:hover, a:visited {
 .button-notes-image:hover {
   transform: scale(1.1);
 }
+.button-notes-open-image {
+  transition: all 0.1s ease-in-out;
+  content: "";
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/handbook/hb-notesIcon-open.png");
+}
+.button-notes-open-image:hover {
+  transform: scale(1.1);
+}
+
 
 .button-bookmark-image {
   transition: all 0.1s ease-in-out;

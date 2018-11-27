@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel,dataService) {
  
-  $scope.version = "Version 0.40";
+  $scope.version = "Version 0.41";
 
   $scope.resetPassword = function(thisUser)
   {
@@ -119,6 +119,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.alertMessage = "";
       $scope.alertMessageClass = "bold-text";
       $scope.flashCardSelectedAmount = 25;
+      $scope.notesOpen = false;
+
 
       // Value Objects
       $scope.user = mainModel.getUser();

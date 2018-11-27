@@ -8,13 +8,14 @@
                         alt="bookmark"
                         ng-click="bookmarkThisPage()"></button>
                 <button class="btn button-notes-image"
+                        ng-class="{'button-notes-open-image': notesOpen}"
                         type="submit"
                         alt="shownotes"
                         data-toggle="collapse"
                         data-target="#mynotes"
                         aria-expanded="false"
                         aria-controls="mynotes"
-                        ng-click=""></button>
+                        ng-click="openCloseNotes()"></button>
                 <button class="btn button-highlight-image"
                         type="submit"
                         alt="highlight"
@@ -40,7 +41,8 @@
                 </div>
         </div>
         <div class="row form-group col-10 collapse notes-card-box shadow" id="mynotes">
-                <span class="title-black-text3" ng-if="!pageNotesSaved">*</span><span class="title-black-text3">My Notes :</span>
+                <!-- <span class="title-black-text3" ng-if="!pageNotesSaved">*</span> -->
+                <!-- <span class="title-black-text3">My Notes :</span> -->
                 <textarea class="form-notes-textarea" 
                           id="notesinput" 
                           placeholder="Add notes here" 
@@ -48,7 +50,7 @@
                           ng-model="pageNotes"
                           ng-change="pageNotesSaved = false"></textarea>
                 <div class="row justify-content-md-center m-0 ml-auto">
-                        <div class="title-black-text3 text-nowrap">
+                        <div class="title-black-text3 text-nowrap"  ng-if="!pageNotesSaved">
                                 <span class="">Save</span><button class="btn button-submit-small-black-image" 
                                 type="submit"
                                 alt="save notes"
