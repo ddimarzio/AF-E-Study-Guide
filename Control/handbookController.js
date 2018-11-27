@@ -8,6 +8,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
         $scope.originalPageContent =  $scope.currentPageContent;
 
+        $scope.addHighlights = function(txt,page)
+        {
+            // page needs to be a specific index.  Replace array
+            
+        }
+
         $scope.openCloseNotes = function()
         {
             if ( $scope.notesOpen != true )
