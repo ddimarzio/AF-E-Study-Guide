@@ -8,10 +8,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
         $scope.originalPageContent =  $scope.currentPageContent;
 
-        $scope.addHighlights = function(txt,page)
+        $scope.saveHighlights = function(page,txt)
         {
-            // page needs to be a specific index.  Replace array
-            
+            $scope.user.userHightlights[page] = txt.toString();
+            $localstorage.setObject('user', $scope.user);
+
+            console.log("addHighlights : " + JSON.stringify($scope.user, null, 4)); // debug
+            // $scope.setPageData($scope.currentPage);
         }
 
         $scope.openCloseNotes = function()
@@ -50,7 +53,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setPageData = function(page)
         {
-            // header
+            // highlights
+            $scope.addHighlight($scope.user.userHightlights[$scope.currentPage]);
 
             // notes
             $scope.pageNotes = $scope.user.userNotes[page];
@@ -75,6 +79,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.currentPageContent = $sce.trustAsHtml(page.content);
                 $scope.changeSubHeaderText("Chapter " + page.chapter," - " + page.title);
                 $scope.setPageData($scope.currentPage);
+
+
             }   
         }
 
@@ -94,13 +100,21 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 txt = document.selection.createRange().text;
             }
             else return;
-            console.log("Selected Text : " + txt)
 
-            // TODO : Needs rework
+            $scope.addHighlight(txt);
+        }
+
+        $scope.addHighlight = function(txt)
+        {
             $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage($scope.currentPage).content);
-            
-            var contentEle = document.getElementById( 'pageContentEle' );
-            $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
+                
+            if ( txt != '')
+            {
+                var contentEle = document.getElementById( 'pageContentEle' );
+                $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
+
+                $scope.saveHighlights($scope.currentPage,txt);
+            }
         }
 
         $scope.highlight = function(haystack, needle) {
