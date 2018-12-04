@@ -1,8 +1,43 @@
 var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
-mainApp.controller('MainController', function($scope,$location,$window,$localstorage,mainModel,dataService) {
+mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.46";
+  $scope.version = "Version 0.49";
+
+  // Menu system
+  $scope.navMainMenuSelect = function(menuitem)
+  {
+    $scope.navMenuGreenText(menuitem);
+
+    $scope.navSubMenuOpen[menuitem] = !$scope.navSubMenuOpen[menuitem];
+    $scope.navMenuMainOpen[menuitem] = !$scope.navMenuMainOpen[menuitem];
+  }
+
+
+  $scope.navMenuGreenText = function(menuitem)
+  {
+    if ( menuitem != $scope.lastGreenText)
+    {
+      var menuText = angular.element( document.querySelector( '#menutext' + menuitem ) );
+      menuText.addClass('menu-selected');
+
+      var menuText = angular.element( document.querySelector( '#menutext' + $scope.lastGreenText ) );
+      menuText.removeClass('menu-selected');
+    }
+    $scope.lastGreenText = menuitem;
+  }
+  // ********************
+
+  $scope.toggleMainMenu = function()
+  {
+    $scope.navMenuMainOpen[0] = !$scope.navMenuMainOpen[0];
+  }
+
+  $scope.closeMainMenu = function()
+  {
+    $scope.navMenuMainOpen[0] = false;
+  }
+
 
   $scope.resetPassword = function(thisUser)
   {
@@ -120,7 +155,11 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.alertMessageClass = "bold-text";
       $scope.flashCardSelectedAmount = 25;
       $scope.notesOpen = false;
-
+      $scope.navMenuMainOpen = [false,false,false,false,false];;
+      $scope.lastMenuItem = '';
+      $scope.lastSubMenuItem = '';
+      $scope.navSubMenuOpen = [false,false,false,false,false];
+      $scope.lastGreenText = 0;
 
       // Value Objects
       $scope.user = mainModel.getUser();

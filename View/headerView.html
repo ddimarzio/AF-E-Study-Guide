@@ -1,12 +1,12 @@
 <div class="sticky-top m-0 p-0">
     <div ng-if="user.userLoggedIn">
-        <div class="row m-0 p-0">
+        <div class="row m-0 p-0" >
             <div class="row col-10 m-0 p-0">
                 <div class="blueBackground">
                     <button class="btn button-menu-image m-2" 
                     type="submit"
                     alt="Menu"
-                    ng-click="navigateToView('home')"></button>
+                    ng-click="toggleMainMenu()"></button>
                 </div>
 
                 <img src="/Assets/images/{{ranks[user.userRankID].iconFile}}" alt="Rank Icon" height="100px;">
@@ -23,6 +23,168 @@
             </div>
             <div class="col-2 pt-1">
                 <img src="/Assets/images/af-logo-text.png" height="90px" class="">
+            </div>
+        </div>
+
+        <div id="navMenu" 
+             class="navMenu-Main animate-show-hide"
+             tabindex="-1"
+             ng-show="navMenuMainOpen[0]"
+             ng-mouseleave="closeMainMenu()"
+             ng-blur="closeMainMenu()">
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(1);navigateToView('home');closeMainMenu()">
+                <div id="triangle1" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen[1]}"></div>
+                <img src="/Assets/images/menu/menu-afh-icon.png">
+                <div id="menutext1" class="menu-category mt-auto mb-auto">AFH 1 TOC</div>
+            </div>
+            <div class="m-0 p-0"><hr></div>
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(2)">
+                <div id="triangle2" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen[2]}"></div>
+                <img src="/Assets/images/menu/menu-dashboard-icon.png">
+                <div id="menutext2" class="menu-category mt-auto mb-auto">Dashboard</div>
+            </div>
+            <div class="animate-show-hide"
+                    ng-show="navSubMenuOpen[2]">
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(21)">
+                        <img src="/Assets/images/menu/menu-learning-tools-icon.png">
+                        <div id="menutext21" class="menu-sub mt-auto mb-auto">Learning tools</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(22)">
+                        <img src="/Assets/images/menu/menu-savedcontent-icon.png">
+                        <div id="menutext22" class="menu-sub mt-auto mb-auto">Saved Content</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(23)">
+                        <img src="/Assets/images/menu/menu-resources-icon.png">
+                        <div id="menutext23" class="menu-sub mt-auto mb-auto">Resources</div>
+                </div>
+            </div>
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(3)">
+                <div id="triangle3" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen[3]}"></div>
+                <img src="/Assets/images/menu/menu-learning-tools-main-icon.png">
+                <div id="menutext3" class="menu-category mt-auto mb-auto">Learning tools</div>
+            </div>
+            <div class="animate-show-hide"
+                    ng-show="navSubMenuOpen[3]">
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(31)">
+                        <img src="/Assets/images/menu/menu-studyguide-icon.png">
+                        <div id="menutext31" class="menu-sub mt-auto mb-auto">Study Guide</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(32)">
+                        <img src="/Assets/images/menu/menu-audiobook-icon.png">
+                        <div id="menutext32" class="menu-sub mt-auto mb-auto">Audio Book</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(33);navigateToView('flashcardselection');closeMainMenu()">
+                        <img src="/Assets/images/menu/menu-flashcards-icon.png">
+                        <div id="menutext33" class="menu-sub mt-auto mb-auto">Flash Cards</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(34);navigateToView('practicetest');closeMainMenu()">
+                        <img src="/Assets/images/menu/menu-practice-questions-icon.png">
+                        <div id="menutext34" class="menu-sub mt-auto mb-auto">Practice Test Questions</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(35)">
+                        <img src="/Assets/images/menu/menu-games-icon.png">
+                        <div id="menutext35" class="menu-sub mt-auto mb-auto pl-1">Game</div>
+                </div>
+            </div>
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(4)">
+                <div id="triangle4" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen[4]}"></div>
+                <img src="/Assets/images/menu/menu-savedcontent-main-icon.png">
+                <div id="menutext4" class="menu-category mt-auto mb-auto">Saved Content</div>
+            </div>
+            <div class="animate-show-hide"
+                    ng-show="navSubMenuOpen[4]">
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(41)">
+                        <img src="/Assets/images/menu/menu-bookmakrs-icon.png">
+                        <div id="menutext41" class="menu-sub mt-auto mb-auto">Bookmarks</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(42)">
+                        <img src="/Assets/images/menu/menu-notes-icon.png">
+                        <div id="menutext42" class="menu-sub mt-auto mb-auto">Notes</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(43)">
+                        <img src="/Assets/images/menu/menu-flashcards-icon.png">
+                        <div id="menutext43" class="menu-sub mt-auto mb-auto">Flash Cards</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(44)">
+                        <img src="/Assets/images/menu/menu-practice-questions-icon.png">
+                        <div id="menutext44" class="menu-sub mt-auto mb-auto">Practice Test Questions</div>
+                </div>
+            </div>
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(5)">
+                <div id="triangle5" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen[5]}"></div>
+                <img src="/Assets/images/menu/menu-resources-main-icon.png">
+                <div id="menutext5" class="menu-category mt-auto mb-auto">Resources</div>
+            </div>
+            <div class="animate-show-hide"
+                    ng-show="navSubMenuOpen[5]">
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(51);navigateToView('handbook');closeMainMenu()">
+                        <img src="/Assets/images/menu/menu-afh1-icon.png">
+                        <div id="menutext51" class="menu-sub mt-auto mb-auto">The Air Force Handbook 1</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(52)">
+                        <img src="/Assets/images/menu/menu-bluebook-icon.png">
+                        <div id="menutext52" class="menu-sub mt-auto mb-auto">The Little Blue Book</div>
+                </div>
+                <div class="row p-1 pl-5 clickBox"
+                    ng-click="navMainMenuSelect(53)">
+                        <img src="/Assets/images/menu/menu-brownbook-icon.png">
+                        <div id="menutext53" class="menu-sub mt-auto mb-auto">The Little Brown Booko</div>
+                </div>
+            </div>
+
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(6)">
+                <!-- <div id="triangle6" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen[6]}"></div> -->
+                <img src="/Assets/images/menu/menu-help-icon.png">
+                <div id="menutext6" class="menu-category mt-auto mb-auto">Help</div>
+            </div>
+
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(7)">
+                <!-- <div id="triangle7" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen7]}"></div> -->
+                <img src="/Assets/images/menu/menu-profile-icon.png">
+                <div id="menutext7" class="menu-category mt-auto mb-auto">Profile</div>
+            </div>
+
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(8)">
+                <!-- <div id="triangle8" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen[8]}"></div> -->
+                <img src="/Assets/images/menu/menu-print-icon.png">
+                <div id="menutext8" class="menu-category mt-auto mb-auto">Print</div>
+            </div>
+            <div class="row m-0 p-1 pl-3 clickBox"
+                ng-click="navMainMenuSelect(9);logout();closeMainMenu()">
+                <!-- <div id="triangle9" class="traingle mt-auto mb-auto"
+                ng-class="{'triangle-down': navMenuMainOpen[9]}"></div> -->
+                <img src="/Assets/images/menu/menu-logout-icon.png">
+                <div id="menutext9" class="menu-category mt-auto mb-auto">Logout</div>
             </div>
         </div>
     </div>
