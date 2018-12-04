@@ -12,9 +12,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             $scope.user.userHightlights[page] = txt.toString();
             $localstorage.setObject('user', $scope.user);
-
-            console.log("addHighlights : " + JSON.stringify($scope.user, null, 4)); // debug
-            // $scope.setPageData($scope.currentPage);
         }
 
         $scope.openCloseNotes = function()
@@ -79,11 +76,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.currentPageContent = $sce.trustAsHtml(page.content);
                 $scope.changeSubHeaderText("Chapter " + page.chapter," - " + page.title);
                 $scope.setPageData($scope.currentPage);
-
-
             }   
         }
 
+        // TODO - problem highlighting paranetheses
         $scope.getSelectedText = function()
         {
             var txt = '';
