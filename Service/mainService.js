@@ -17,14 +17,14 @@ mainApp.service('dataService', ['$http', function ($http) {
 
     }
 
-    this.loginUser = function()
+    this.loginUser = function(thisUser)
     {
         return $http({
             method: 'POST',
             url: 'https://powertrainafttest.azurewebsites.net/Account/Login',
             data: {
-                'username': 'Don1',
-                'password': 'test'
+                'username': thisUser.userEmail,
+                'password': thisUser.userPassword
                 }
             });
     }
