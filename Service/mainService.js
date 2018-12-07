@@ -3,9 +3,18 @@ mainApp.service('dataService', ['$http', function ($http) {
     var urlBase = 'https://powertrainafttest.azurewebsites.net/';
     // var urlBase = 'http://rest-service.guides.spring.io/';
 
-    this.registerUser = function()
+    this.registerUser = function(thisUser)
     {
-        
+        return $http({
+            method: 'POST',
+            url: 'https://powertrainafttest.azurewebsites.net/Account/Register',
+            data: {
+                'email': thisUser.userEmail,
+                'username': thisUser.userName,
+                'password': thisUser.userPassword
+                }
+            });
+
     }
 
     this.loginUser = function()

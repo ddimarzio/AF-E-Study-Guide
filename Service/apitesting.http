@@ -1,11 +1,12 @@
-# POST https://powertrainafttest.azurewebsites.net/Account/Register HTTP/1.1
-# content-type: application/json
 
-# {
-#   "email":"don.dimarzio@gmail.com",
-#   "username":"dondimarzio",
-#   "password":"test"
-# }
+POST https://powertrainafttest.azurewebsites.net/Account/Register HTTP/1.1
+content-type: application/json
+
+{
+  "email":"ddimarzio@powertrain.com",
+  "username":"ddimarzio",
+  "password":"test2"
+}
 
 # POST https://powertrainafttest.azurewebsites.net/Account/Login HTTP/1.1
 # content-type: application/json
@@ -15,13 +16,13 @@
 #   "password":"test"
 # }
 
-POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "3193ecae-0912-4c8b-95b5-0418387ed8fb",
-  "UserID" : "40"
-}
+# {
+#   "SessionID" : "3193ecae-0912-4c8b-95b5-0418387ed8fb",
+#   "UserID" : "40"
+# }
 
 # POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
 # content-type: application/json
