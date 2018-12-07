@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.50";
+  $scope.version = "Version 0.51";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -66,13 +66,30 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     {
       // confirmPasswordInput.setCustomValidity("Match!");
    
+      // TODO  - Disable submit button and add loader
       dataService.registerUser(thisUser)
       .then(function(response) 
       {
-          if (response != undefined && typeof response == "object") {
+          if (response != undefined && typeof response == "object") 
+          {
               console.log("Controller : "  + JSON.stringify(response.data) );
+            if ( response.data.status == 1)  //success
+            {
+              navigateToView('thanksForRegister');
+            }
+            else if ( response.data.status == 2) // email in use
+            {
+              alert("Email aready in use!");
+            }
+            else
+            {
+              alert("Error with credentials.  Please contact...!");
+            }
+
               $scope.testData = response.data;
-          } else {
+          } 
+          else 
+          {
                   alert("Result is not JSON type");
           }
       });
