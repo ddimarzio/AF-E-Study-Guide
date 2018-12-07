@@ -153,7 +153,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
               $scope.user.userLoggedIn = true;
               $localstorage.setObject('user', $scope.user); // TODO  Create seperate method for saving objects
 
-              $scope.navigateToView('rankselection');
+              $scope.getUserData();
+              
             }
             else if ( response.data.status == 2) // email in use
             {
@@ -169,7 +170,33 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
             alert("Result is not JSON type");
           }
         });
-      
+  }
+
+  $scope.getUserData = function()
+  {
+    thisUser.userSession = $scope.user.userSession;
+    thisUser.UserID = $scope.user.userID;
+
+    dataService.getUserData(thisUser)
+    .then(function(response) 
+        {
+          if (response != undefined && typeof response == "object") 
+          {
+            console.log("Controller : "  + JSON.stringify(response.data) );
+
+            $scope.user.userName = repsonse.data.Username;
+            $scope.user.userRankID = repsonse.data.Rank;
+            $scope.user.userRole = response.data.Role;
+            $scope.user.userNotes = response.data.Notes;
+            $scope.user.userBookMarks = response.data.Bookmarks;
+
+            $scope.navigateToView('rankselection');
+          }
+          else
+          {
+            alert("Result is not JSON type");
+          }
+    });
   }
 
   $scope.selectRank = function(rankid)
@@ -192,7 +219,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.alertMessageClass = "bold-text";
       $scope.flashCardSelectedAmount = 25;
       $scope.notesOpen = false;
-      $scope.navMenuMainOpen = [false,false,false,false,false];;
+      $scope.navMenuMainOpen = [false,false,false,false,false];
       $scope.lastMenuItem = '';
       $scope.lastSubMenuItem = '';
       $scope.navSubMenuOpen = [false,false,false,false,false];

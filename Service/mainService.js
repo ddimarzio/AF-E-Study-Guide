@@ -29,6 +29,18 @@ mainApp.service('dataService', ['$http', function ($http) {
             });
     }
 
+    this.getUserData = function(thisUser)
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://powertrainafttest.azurewebsites.net/Account/GetData',
+            data: {
+                'SessionID' : thisUser.userSession,
+                'UserID' : thisUser.UserID
+                }
+        });
+    }
+
     this.getGreeting = function () 
     {
         return $http({
