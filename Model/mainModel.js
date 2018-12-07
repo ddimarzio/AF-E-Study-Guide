@@ -15,7 +15,8 @@ mainApp.factory('mainModel',function()
         userNotes:['','','',''],
         userFlashCardsMax:5,
         userFlashCardFlagged:[0,0,0,0],
-        userHightlights:['','','','']
+        userHightlights:['','','',''],
+        userSession:''
         };
     valObjects.getUser = function()
     {
@@ -35,6 +36,7 @@ mainApp.factory('mainModel',function()
         userFlashCardsMax = 5;
         userFlashCardFlagged = [0,0,0,0];
         user.userHightlights = ['','','',''];
+        user.userSession = '';
         return user;
     }
 

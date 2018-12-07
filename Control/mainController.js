@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.51";
+  $scope.version = "Version 0.54";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -75,7 +75,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
               console.log("Controller : "  + JSON.stringify(response.data) );
             if ( response.data.status == 1)  //success
             {
-              navigateToView('thanksForRegister');
+              $scope.navigateToView('thanksForRegister');
             }
             else if ( response.data.status == 2) // email in use
             {
@@ -90,7 +90,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
           } 
           else 
           {
-                  alert("Result is not JSON type");
+            alert("Result is not JSON type");
           }
       });
 
@@ -139,19 +139,37 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
 
   $scope.authenticateUser = function(thisUser)
   {
-    if ( thisUser.userEmail == 'email@email.com' )
-    {
-      $scope.user.userName = thisUser.userName;
-      $scope.user.userLoggedIn = true;
-      $scope.navigateToView('rankselection');
-    }
-    else
-    {
-      $scope.user.userName = "Anon";
-      $scope.user.userLoggedIn = false;
-    };
+    // TODO - disable submit button
+    dataService.loginUser(thisUser)
+        .then(function(response) 
+        {
+          if (response != undefined && typeof response == "object") 
+          {
+              console.log("Controller : "  + JSON.stringify(response.data) );
+            if ( response.data.status == 1)  //success
+            {
+              $scope.user.userSession = response.data.sessionID;
+              $scope.user.userID = response.data.id;
+              $scope.user.userLoggedIn = true;
+              $localstorage.setObject('user', $scope.user); // TODO  Create seperate method for saving objects
 
-    $localstorage.setObject('user', $scope.user); // TODO  Create seperate method for saving objects
+              $scope.navigateToView('rankselection');
+            }
+            else if ( response.data.status == 2) // email in use
+            {
+              alert("Email aready in use!");
+            }
+            else
+            {
+              alert("Error with credentials!");
+            }
+          } 
+          else 
+          {
+            alert("Result is not JSON type");
+          }
+        });
+      
   }
 
   $scope.selectRank = function(rankid)
