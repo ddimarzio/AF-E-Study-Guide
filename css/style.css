@@ -654,9 +654,43 @@ hr {
   background-image : url("../Assets/images/submitIcon_03.png");
   
 }
-.button-submit-image:hover {
+/* .button-submit-image:hover {
   transform: scale(1.1);
 }
+.button-submit-image-spin:hover {
+  content: "";
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/submitIcon_03.png");
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+} */
+.button-submit-image-spin {
+  content: "";
+  width: 70px;
+  height: 70px;
+  top: 50%;
+  left: 50%;
+  display: inline-block;
+  background-color: transparent;
+  background-position : center center;
+  background-repeat:no-repeat;
+  background-image : url("../Assets/images/submitIcon_03.png");
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 .button-submit-small-black-image {
   transition: all 0.1s ease-in-out;
   content: "";

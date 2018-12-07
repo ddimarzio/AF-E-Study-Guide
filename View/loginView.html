@@ -19,16 +19,9 @@
                     class="form-control" 
                     ng-model="thisUser.userEmail"
                     placeholder="Email address" 
-                    title="Use email@email.com"
+                    title="Email address"
                     required 
                     autofocus>
-                <!-- <label for="inputUsername" class="sr-only">User Name</label>
-                <input type="text" 
-                    ng-model="thisUser.userName"
-                    id="inputUsername" 
-                    class="form-control" 
-                    placeholder="User Name"
-                    required> -->
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" 
                     ng-model="thisUser.userPassword"
@@ -49,8 +42,10 @@
 
                 <div class="row m-3">
                     <div class="col-12">
-                        <button class="btn button-submit-image" 
+                        <button class="btn button-submit-image"
+                            ng-class="{'btn button-submit-image-spin': loginLoading}"
                             type="submit"
+                            ng-disabled="loginLoading"
                             alt="Sign In"
                             ng-click="authenticateUser(thisUser)"></button>
                     </div>

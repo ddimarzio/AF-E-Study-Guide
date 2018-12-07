@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.57";
+  $scope.version = "Version 0.59";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -12,7 +12,6 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     $scope.navSubMenuOpen[menuitem] = !$scope.navSubMenuOpen[menuitem];
     $scope.navMenuMainOpen[menuitem] = !$scope.navMenuMainOpen[menuitem];
   }
-
 
   $scope.navMenuGreenText = function(menuitem)
   {
@@ -139,37 +138,44 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
 
   $scope.authenticateUser = function(thisUser)
   {
-    // TODO - disable submit button
-    dataService.loginUser(thisUser)
-        .then(function(response) 
-        {
-          if (response != undefined && typeof response == "object") 
-          {
-              console.log("Controller : "  + JSON.stringify(response.data) );
-            if ( response.data.status == 1)  //success
-            {
-              $scope.user.userSession = response.data.SessionID;
-              $scope.user.userID = response.data.ID;
-              $scope.user.userLoggedIn = true;
-              $localstorage.setObject('user', $scope.user); // TODO  Create seperate method for saving objects
+    if ( thisUser != undefined) // TODO  Add in validate email format
+    {
 
-              $scope.getUserData();
-              
-            }
-            else if ( response.data.status == 2) // email in use
-            {
-              alert("Email aready in use!");
-            }
-            else
-            {
-              alert("Error with credentials!");
-            }
-          } 
-          else 
+      $scope.loginLoading = true;
+      dataService.loginUser(thisUser)
+          .then(function(response) 
           {
-            alert("Result is not JSON type");
-          }
-        });
+            if (response != undefined && typeof response == "object") 
+            {
+                console.log("Controller : "  + JSON.stringify(response.data) );
+              if ( response.data.status == 1)  //success
+              {
+                $scope.user.userSession = response.data.SessionID;
+                $scope.user.userID = response.data.ID;
+                $scope.user.userLoggedIn = true;
+                $localstorage.setObject('user', $scope.user); // TODO  Create seperate method for saving objects
+
+                $scope.getUserData();
+                
+              }
+              else if ( response.data.status == 2) // email in use
+              {
+                $scope.loginLoading = false;
+                alert("Email aready in use!");
+              }
+              else
+              {
+                $scope.loginLoading = false;
+                alert("Error with credentials!");
+              }
+            } 
+            else 
+            {
+              $scope.loginLoading = false;
+              alert("Result is not JSON type");
+            }
+          });
+    }
   }
 
   $scope.getUserData = function()
@@ -181,12 +187,13 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
           {
             console.log("Controller : "  + JSON.stringify(response.data) );
 
-            $scope.user.userName = repsonse.data.Username;
-            $scope.user.userRankID = repsonse.data.Rank;
+            $scope.user.userName = response.data.Username;
+            $scope.user.userRankID = response.data.Rank;
             $scope.user.userRole = response.data.Role;
             $scope.user.userNotes = response.data.Notes;
             $scope.user.userBookMarks = response.data.Bookmarks;
 
+            $scope.loginLoading = false;
             $scope.navigateToView('rankselection');
           }
           else
@@ -221,6 +228,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.lastSubMenuItem = '';
       $scope.navSubMenuOpen = [false,false,false,false,false];
       $scope.lastGreenText = 0;
+      $scope.loginLoading = false;
 
       // Value Objects
       $scope.user = mainModel.getUser();
