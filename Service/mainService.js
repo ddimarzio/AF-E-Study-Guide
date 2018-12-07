@@ -29,14 +29,14 @@ mainApp.service('dataService', ['$http', function ($http) {
             });
     }
 
-    this.getUserData = function(thisUser)
+    this.getUserData = function(userSession,userID)
     {
         return $http({
             method : 'POST',
             url : 'https://powertrainafttest.azurewebsites.net/Account/GetData',
             data: {
-                'SessionID' : thisUser.userSession,
-                'UserID' : thisUser.UserID
+                'SessionID' : userSession,
+                'UserID' : userID
                 }
         });
     }

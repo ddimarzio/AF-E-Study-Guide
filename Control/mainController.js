@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.55";
+  $scope.version = "Version 0.57";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -174,10 +174,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
 
   $scope.getUserData = function()
   {
-    thisUser.userSession = $scope.user.userSession;
-    thisUser.UserID = $scope.user.userID;
-
-    dataService.getUserData(thisUser)
+    dataService.getUserData($scope.user.userSession,$scope.user.userID)
     .then(function(response) 
         {
           if (response != undefined && typeof response == "object") 
