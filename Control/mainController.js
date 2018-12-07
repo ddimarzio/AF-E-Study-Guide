@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.54";
+  $scope.version = "Version 0.55";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -148,8 +148,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
               console.log("Controller : "  + JSON.stringify(response.data) );
             if ( response.data.status == 1)  //success
             {
-              $scope.user.userSession = response.data.sessionID;
-              $scope.user.userID = response.data.id;
+              $scope.user.userSession = response.data.SessionID;
+              $scope.user.userID = response.data.ID;
               $scope.user.userLoggedIn = true;
               $localstorage.setObject('user', $scope.user); // TODO  Create seperate method for saving objects
 
