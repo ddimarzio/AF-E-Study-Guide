@@ -1,9 +1,19 @@
 <div class="row col-12 justify-content-md-center m-0 whiteBox innerWithHeader">
         <div class="blueBox row col-10 p-0 shadow">
-                <div class="col-3 mr-auto text-nowrap">
-                        <img src="/Assets/images/planeIcon.png" alt="">
-                        <span class="title-text4">My Progress</span>
-                        <span class="title-text4"><span style="color:green"> ||||||</span>||| {{user.userProgress}}%</span>
+                <div class="col-6 mr-auto text-nowrap p-0">
+                        <div class="row m-auto title-text4">
+                                <img src="/Assets/images/planeIcon.png" alt="">
+                                <div class="mt-auto mb-auto title-text4 pr-2">My Progress</div>
+                                <div class="mt-auto mb-auto progressBar-green" 
+                                     ng-repeat="n in [] | range:(user.userProgress/10)">
+                                        |
+                                </div>
+                                <div class="mt-auto mb-auto progressBar-white"
+                                     ng-repeat="n in [] | range:((100-user.userProgress)/10)">
+                                        |
+                                </div>                   
+                                <div class="mt-auto mb-auto pl-1">{{user.userProgress}}%</div>
+                        </div>
                 </div>
                 <div class="col-5 justify-content-md-center ml-auto mt-auto mb-auto title-text4 text-nowrap">
                         AFH1 - continue where you left off

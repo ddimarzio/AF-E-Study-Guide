@@ -68,8 +68,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
                 $scope.flashCardFlagged = false;
             }
-
-            console.log("Flagged : " + $scope.flashCardFlagged )
         }
         
 

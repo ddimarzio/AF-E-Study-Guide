@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.59";
+  $scope.version = "Version 0.60";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -71,7 +71,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       {
           if (response != undefined && typeof response == "object") 
           {
-              console.log("Controller : "  + JSON.stringify(response.data) );
+              // console.log("Controller : "  + JSON.stringify(response.data) );
             if ( response.data.status == 1)  //success
             {
               $scope.navigateToView('thanksForRegister');
@@ -132,7 +132,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     $scope.user = mainModel.resetUser();
     $scope.user.userLoggedIn = false;
     $localstorage.setObject('user', $scope.user);
-    console.log("Logout User : " + JSON.stringify($scope.user, null, 4)); // debug
+    // console.log("Logout User : " + JSON.stringify($scope.user, null, 4)); // debug
     $window.location.reload();
   }
 
@@ -210,6 +210,34 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     $scope.navigateToView('home');
   }
 
+  // SKIP LOGIN - testing
+  $scope.skipLogin = function()
+  {
+    $scope.user.userID = 100;
+    $scope.user.userLoggedIn = true;
+    $scope.user.userName = "Skippy";
+    $scope.user.userRankID = 1;
+    $scope.user.userRole = 1;
+    $scope.user.userProgress = 0;
+    $scope.user.userLastView = "login";
+    $scope.user.userBookMarks = [0,0,0,0,0,0,0,0,0,0];
+    $scope.user.userNotes = ['','','','','','','','','',''];
+    $scope.userFlashCardsMax = 5;
+    $scope.userFlashCardFlagged = [0,0,0,0,0,0,0,0,0,0];
+    $scope.user.userHightlights = ['','','','','','','','','',''];
+    $scope.user.userSession = '1118721c-15df-475a-815c-799ddbcba264';
+    $scope.user.userReadHandbook = 0;
+
+    $scope.navigateToView('home');
+  }
+
+  // Spit out data to console
+  $scope.consoleLogData = function()
+  {
+    console.log("User : " + JSON.stringify($scope.user, null, 4));
+  }
+
+
   // Init
   if ( !$scope.intialized )
     {
@@ -239,7 +267,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       if ( $localstorage.getObject('user') != null)
       {
         $scope.user = $localstorage.getObject('user');
-        console.log("User : " + JSON.stringify($scope.user, null, 4)); // debug
+        // console.log("User : " + JSON.stringify($scope.user, null, 4)); // debug
         if ( $scope.user.userLoggedIn )
         {
           $scope.navigateToView($scope.user.userLastView);
@@ -290,4 +318,17 @@ mainApp.directive('footer', function () {
       templateUrl: "View/footerView.html",
       controller: 'MainController'
   }
+});
+
+// Range filter for progress bar
+mainApp.filter('range', function() {
+  return function(input, total) {
+    total = parseInt(total);
+
+    for (var i=0; i<total; i++) {
+      input.push(i);
+    }
+
+    return input;
+  };
 });

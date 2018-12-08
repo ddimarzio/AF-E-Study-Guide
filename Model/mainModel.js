@@ -2,6 +2,7 @@ mainApp.factory('mainModel',function()
 {
     var valObjects = {}; 
 
+    // TODO : Change arrays to objects!
     // User
     var user = {
         userID:0,
@@ -9,14 +10,15 @@ mainApp.factory('mainModel',function()
         userName:'Anon',
         userRankID:0,
         userRole:0,
-        userProgress:75,
+        userProgress:0,
         userLastView:'login',
-        userBookMarks:[0,0,0,0],
-        userNotes:['','','',''],
+        userBookMarks:[0,0,0,0,0,0,0,0,0,0],
+        userNotes:['','','','','','','','','',''],
         userFlashCardsMax:5,
-        userFlashCardFlagged:[0,0,0,0],
-        userHightlights:['','','',''],
-        userSession:''
+        userFlashCardFlagged:[0,0,0,0,0,0,0,0,0,0],
+        userHightlights:['','','','','','','','','',''],
+        userSession:'',
+        userReadHandbook:0
         };
     valObjects.getUser = function()
     {
@@ -29,14 +31,15 @@ mainApp.factory('mainModel',function()
         user.userName = "anon";
         user.userRankID = 0;
         user.userRole = 0;
-        user.userProgress = 75;
+        user.userProgress = 0;
         user.userLastView = "login";
-        user.userBookMarks = [0,0,0,0];
-        user.userNotes = ['','','',''];
+        user.userBookMarks = [0,0,0,0,0,0,0,0,0,0];
+        user.userNotes = ['','','','','','','','','',''];
         userFlashCardsMax = 5;
-        userFlashCardFlagged = [0,0,0,0];
-        user.userHightlights = ['','','',''];
+        userFlashCardFlagged = [0,0,0,0,0,0,0,0,0,0];
+        user.userHightlights = ['','','','','','','','','',''];
         user.userSession = '';
+        user.userReadHandbook = 0;
         return user;
     }
 
@@ -101,7 +104,7 @@ mainApp.factory('mainModel',function()
     };
     valObjects.getMaxPages = function()
     {
-        return handbook.maxPages;
+        return hbPages.length;
     };
 
     // Test handbook pages
@@ -131,6 +134,48 @@ mainApp.factory('mainModel',function()
             chapter:1,
             section:1,
             page:4,
+            title:'The Early Days of the United States Army Aviation (1907-1917)',
+            content:"<p class='hb-p'><span class='hb-bold-text'>1.2.8.</span> On 13 August 1907, Ward and Barrett were ordered to report to Camp John Smith outside Norfolk, Virginia, to participate in the Jamestown Exposition celebrating the 300th anniversary of the first settlement of Virginia. Over the next few years, the detachment participated in numerous air shows and moved from location to location. Barrett left the Army to complete a career in the Navy, but the enlisted detachment was soon expanded to include eight others. These nine men were the nucleus from which America’s enlisted air arm grew. They were the first of a small band of enlisted Airmen who, during the decade before World War I, shared in the experimental and halting first steps to establish military aviation as a permanent part of the Nation’s defense. Never numbering more than a few hundred individuals, the enlisted crews of the Signal Corps’ Aeronautical Division provided day-to-day support for a handful of officer pilots, learned the entirely new skills of airplane “mechanician”—and later, mechanic, rigger, and fitter—met daunting transportation and logistical challenges, and contributed mightily to the era’s seat-of-the-pants technological advances.</p><p class='hb-p'><span class='hb-bold-text'>1.2.9.</span> A few enlisted men, against official and semi-official military prejudice, learned to fly. The majority of enlisted men were absorbed in the tasks of getting the fragile balloons and even flimsier planes of the day into the air and keeping them there. Of necessity flexible and innovative, early crews often had to rebuild aircraft from the ground up after every crash—and, in those early days of flight; crashes were the rule rather than the exception. Enlisted crews not only repaired the planes, they labored to make some of the more ill-designed craft airworthy in the first place.</p><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.3. The Early Days of the United States Army Aviation (1907-1917):</div></div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic4.jpg' class='col p-0'><div class='col hb-image-caption'>Wright brothers ay Kitty Hawk</div></div><p class='hb-p'><span class='hb-bold-text'>1.3.1.</span> By December 1907, the new Aeronautical Division of the Signal Corps established specifications for an American military aircraft. The flying machine had to carry two people (with a combined weight of 350 pounds or less), and fly for 125 miles at an average speed of 40 miles per hour (mph). The Army received 41 bids, but only one, submitted by the Wright brothers, produced a flyable aircraft. By September 1908, the Wright Type “A” Military Flyer flew for more than an hour at a maximum altitude of 310 feet, carrying the first military observer, Lieutenant Frank P. Lahm. A subsequent test on                  17 September 1908 resulted in the first military aviation fatality: Lieutenant Thomas E. Selfridge. On 30 July 1909, pilot Orville Wright and Lieutenant Benjamin D. Foulois flew from Fort Myer to Alexandria, Virginia, at an average speed of 42.6 mph. The Army accepted the plane 2 August 1909 and awarded the Wrights $25,000 and a $5,000 bonus.</p>"
+        },
+        {
+            chapter:1,
+            section:1,
+            page:5,
+            title:'Overview',
+            content:"<div class='col hb-section-title'>Section 1A—Overview</div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic1.jpg' class='col p-0'><div class='col hb-image-caption'>Flying Tiger P-40</div></div><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.1. Introduction</div></div><p class='hb-p'>As preparation for your entry into the Air Force, this section will introduce the Air Force mission and their evolution, the machines and technology associated with air and space flight and most importantly, the legacy of the men and women of the United States Air Force. By surveying the history of aviation, you will discover our heritage, appreciate Air Force traditions, and understand your role in our nation’s defense. This United States Air Force Historical Perspective is by Dr. John T. Farquhar from the United States Air Force Academy Department of History and contributing editor George W. Bradley III, the Air Force Space Command Historian. The enlisted portions of this document were provided by the Air Force Enlisted Heritage Research Institute’s historian, Mr. William I. Chivalette. Dr. John Q. Smith, Senior Air Force Historian, assisted with additional editing.</p>"
+        },
+        {
+            chapter:1,
+            section:1,
+            page:6,
+            title:'Dawn of Flight',
+            content:"<div class='col hb-section-title'>Section 1B—Dawn of Flight, Early Days of Aviation, First Air War and the 1920s and 1930s Airpower</div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic2.jpg' class='col p-0'><div class='col hb-image-caption'>Inflating the Civil War balloon Intrepid, 1862</div></div><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.2 The Dawn of Flight:</div></div><p class='hb-p'><span class='hb-bold-text'>1.2.1</span>As preparation for your entry into the Air Force, this section will introduce the Air Force mission and their evolution, the machines and technology associated with air and space flight and most importantly, the legacy of the men and women of the United States Air Force. By surveying the history of aviation, you will discover our heritage, appreciate Air Force traditions, and understand your role in our nation’s defense. This United States Air Force Historical Perspective is by Dr. John T. Farquhar from the United States Air Force Academy Department of History and contributing editor George W. Bradley III, the Air Force Space Command Historian. The enlisted portions of this document were provided by the Air Force Enlisted Heritage Research Institute’s historian, Mr. William I. Chivalette. Dr. John Q. Smith, Senior Air Force Historian, assisted with additional editing.</p><p class='hb-p'><span class='hb-bold-text'>1.2.2</span>In September 1861, a “Balloon Corps” provided aerial observation for the Union Army during the American Civil War. However, the early balloons proved fragile, vulnerable to weather, and of limited value.</p><p class='hb-p'><span class='hb-bold-text'>1.2.3</span>Aviation languished in the United States, but in Europe, balloons, gliders, and aerodynamics advanced rapidly. By 1853, Britain’s Sir George Cayley created a glider with fixed wings, cambered airfoil, and horizontal and vertical stabilizers. Continuing Cayley’s work, German engineer Otto Lilienthal produced flying machines similar to today’s hang gliders. From 1891 until his death five years later, Lilienthal greatly advanced aerodynamic theory. The publicity generated by Lilienthal spurred on imaginative people on both sides of the Atlantic, including Orville and Wilbur Wright.</p>"
+        }, 
+        {
+            chapter:1,
+            section:1,
+            page:7,
+            title:'Dawn of Flight',
+            content:"<p class='hb-p'><span class='hb-bold-text'>1.2.4.</span>The Wrights furthered Lilienthal’s experiments with the assistance of American Octave Chanute, whose book, Progress in Flying Machines, provided their foundation in aeronautics. From 1900 to 1902, the Wrights conducted more than 1,000 glides from Kill Devil Hills near Kitty Hawk, North Carolina. After perfecting wing warping, elevators and rudders, and a water-cooled engine, they attempted the first powered flight on 14 December 1903. On that try, the aircraft stalled upon takeoff and crashed three seconds later. Success came at 10:35, on 17 December 1903, when Orville Wright flew 120 feet in 12 seconds. Alternating pilot duties, the brothers made three more flights with Wilbur flying 852 feet and staying aloft 59 seconds on the fourth attempt.</p><div class='hb-image-wrap-right shadow'><img src='/Assets/images/handbook/handbook-pic3.jpg' class='col p-0'><div class='col hb-image-caption'>The enlisted men of the 1908 Aeronautical Division Left to right (back row), Pfc. Vernon L. Bridge. Pfc. Charles De Kim, Pvt. Eldred O. Eldred; (middle row) Pvt. Stewart K. Rosenburger, Corporal Edward Ward, Pvt. Cecil R. Colle, Pvt. William E. McConnell.  Seated are Pvt. John Crotty (left) and Pvt. Benjamin Schmidt.</div></div><p class='hb-p'><span class='hb-bold-text'>1.2.5.</span>American military authorities rejected the Wrights’ flyer, reacting in part to the highly publicized failure of Samuel P. Langley’s steam-powered Aerodrome in October 1903. Although a highly respected scientist and Secretary of the Smithsonian Institution, Langley and the Army were subjected to public ridicule and Congressional criticism for the “waste” of a $50,000 government grant. Only when President Theodore Roosevelt intervened was an aeronautical division established in the United States Army’s Signal Corps on 1 August 1907.</p><p class='hb-p'><span class='hb-bold-text'>1.2.6.</span>With the establishment of an aeronautical division the army was in possession of several balloons. The Army required trained enlisted men to conduct balloon inflations and effect necessary repairs. Effective 2 July 1907, Eddy Ward and Jason Barrett reported to the Leo Stevens’ balloon factory in New York City. They would become the first enlisted men assigned to the Signal Corps’ small Aeronautical Division, which in time evolved into the United States Air Force enlisted corps.</p><p class='hb-p'><span class='hb-bold-text'>1.2.7.</span>When Ward and Barrett reported, the division did not officially exist. The Army had disbanded the minuscule Civil War balloon service in 1863, and the corps’ attempts to revive military aviation met with little success. At the balloon factory, the two men were schooled in the rudiments of fabric handling, folding, and stitching; in the manufacturing of buoyant gases; and in the inflation and control of the Army’s “aircraft.”</p>"
+        }, 
+        {
+            chapter:1,
+            section:1,
+            page:8,
+            title:'The Early Days of the United States Army Aviation (1907-1917)',
+            content:"<p class='hb-p'><span class='hb-bold-text'>1.2.8.</span> On 13 August 1907, Ward and Barrett were ordered to report to Camp John Smith outside Norfolk, Virginia, to participate in the Jamestown Exposition celebrating the 300th anniversary of the first settlement of Virginia. Over the next few years, the detachment participated in numerous air shows and moved from location to location. Barrett left the Army to complete a career in the Navy, but the enlisted detachment was soon expanded to include eight others. These nine men were the nucleus from which America’s enlisted air arm grew. They were the first of a small band of enlisted Airmen who, during the decade before World War I, shared in the experimental and halting first steps to establish military aviation as a permanent part of the Nation’s defense. Never numbering more than a few hundred individuals, the enlisted crews of the Signal Corps’ Aeronautical Division provided day-to-day support for a handful of officer pilots, learned the entirely new skills of airplane “mechanician”—and later, mechanic, rigger, and fitter—met daunting transportation and logistical challenges, and contributed mightily to the era’s seat-of-the-pants technological advances.</p><p class='hb-p'><span class='hb-bold-text'>1.2.9.</span> A few enlisted men, against official and semi-official military prejudice, learned to fly. The majority of enlisted men were absorbed in the tasks of getting the fragile balloons and even flimsier planes of the day into the air and keeping them there. Of necessity flexible and innovative, early crews often had to rebuild aircraft from the ground up after every crash—and, in those early days of flight; crashes were the rule rather than the exception. Enlisted crews not only repaired the planes, they labored to make some of the more ill-designed craft airworthy in the first place.</p><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.3. The Early Days of the United States Army Aviation (1907-1917):</div></div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic4.jpg' class='col p-0'><div class='col hb-image-caption'>Wright brothers ay Kitty Hawk</div></div><p class='hb-p'><span class='hb-bold-text'>1.3.1.</span> By December 1907, the new Aeronautical Division of the Signal Corps established specifications for an American military aircraft. The flying machine had to carry two people (with a combined weight of 350 pounds or less), and fly for 125 miles at an average speed of 40 miles per hour (mph). The Army received 41 bids, but only one, submitted by the Wright brothers, produced a flyable aircraft. By September 1908, the Wright Type “A” Military Flyer flew for more than an hour at a maximum altitude of 310 feet, carrying the first military observer, Lieutenant Frank P. Lahm. A subsequent test on                  17 September 1908 resulted in the first military aviation fatality: Lieutenant Thomas E. Selfridge. On 30 July 1909, pilot Orville Wright and Lieutenant Benjamin D. Foulois flew from Fort Myer to Alexandria, Virginia, at an average speed of 42.6 mph. The Army accepted the plane 2 August 1909 and awarded the Wrights $25,000 and a $5,000 bonus.</p>"
+        },
+        {
+            chapter:1,
+            section:1,
+            page:9,
+            title:'Dawn of Flight',
+            content:"<p class='hb-p'><span class='hb-bold-text'>1.2.4.</span>The Wrights furthered Lilienthal’s experiments with the assistance of American Octave Chanute, whose book, Progress in Flying Machines, provided their foundation in aeronautics. From 1900 to 1902, the Wrights conducted more than 1,000 glides from Kill Devil Hills near Kitty Hawk, North Carolina. After perfecting wing warping, elevators and rudders, and a water-cooled engine, they attempted the first powered flight on 14 December 1903. On that try, the aircraft stalled upon takeoff and crashed three seconds later. Success came at 10:35, on 17 December 1903, when Orville Wright flew 120 feet in 12 seconds. Alternating pilot duties, the brothers made three more flights with Wilbur flying 852 feet and staying aloft 59 seconds on the fourth attempt.</p><div class='hb-image-wrap-right shadow'><img src='/Assets/images/handbook/handbook-pic3.jpg' class='col p-0'><div class='col hb-image-caption'>The enlisted men of the 1908 Aeronautical Division Left to right (back row), Pfc. Vernon L. Bridge. Pfc. Charles De Kim, Pvt. Eldred O. Eldred; (middle row) Pvt. Stewart K. Rosenburger, Corporal Edward Ward, Pvt. Cecil R. Colle, Pvt. William E. McConnell.  Seated are Pvt. John Crotty (left) and Pvt. Benjamin Schmidt.</div></div><p class='hb-p'><span class='hb-bold-text'>1.2.5.</span>American military authorities rejected the Wrights’ flyer, reacting in part to the highly publicized failure of Samuel P. Langley’s steam-powered Aerodrome in October 1903. Although a highly respected scientist and Secretary of the Smithsonian Institution, Langley and the Army were subjected to public ridicule and Congressional criticism for the “waste” of a $50,000 government grant. Only when President Theodore Roosevelt intervened was an aeronautical division established in the United States Army’s Signal Corps on 1 August 1907.</p><p class='hb-p'><span class='hb-bold-text'>1.2.6.</span>With the establishment of an aeronautical division the army was in possession of several balloons. The Army required trained enlisted men to conduct balloon inflations and effect necessary repairs. Effective 2 July 1907, Eddy Ward and Jason Barrett reported to the Leo Stevens’ balloon factory in New York City. They would become the first enlisted men assigned to the Signal Corps’ small Aeronautical Division, which in time evolved into the United States Air Force enlisted corps.</p><p class='hb-p'><span class='hb-bold-text'>1.2.7.</span>When Ward and Barrett reported, the division did not officially exist. The Army had disbanded the minuscule Civil War balloon service in 1863, and the corps’ attempts to revive military aviation met with little success. At the balloon factory, the two men were schooled in the rudiments of fabric handling, folding, and stitching; in the manufacturing of buoyant gases; and in the inflation and control of the Army’s “aircraft.”</p>"
+        }, 
+        {
+            chapter:1,
+            section:1,
+            page:10,
             title:'The Early Days of the United States Army Aviation (1907-1917)',
             content:"<p class='hb-p'><span class='hb-bold-text'>1.2.8.</span> On 13 August 1907, Ward and Barrett were ordered to report to Camp John Smith outside Norfolk, Virginia, to participate in the Jamestown Exposition celebrating the 300th anniversary of the first settlement of Virginia. Over the next few years, the detachment participated in numerous air shows and moved from location to location. Barrett left the Army to complete a career in the Navy, but the enlisted detachment was soon expanded to include eight others. These nine men were the nucleus from which America’s enlisted air arm grew. They were the first of a small band of enlisted Airmen who, during the decade before World War I, shared in the experimental and halting first steps to establish military aviation as a permanent part of the Nation’s defense. Never numbering more than a few hundred individuals, the enlisted crews of the Signal Corps’ Aeronautical Division provided day-to-day support for a handful of officer pilots, learned the entirely new skills of airplane “mechanician”—and later, mechanic, rigger, and fitter—met daunting transportation and logistical challenges, and contributed mightily to the era’s seat-of-the-pants technological advances.</p><p class='hb-p'><span class='hb-bold-text'>1.2.9.</span> A few enlisted men, against official and semi-official military prejudice, learned to fly. The majority of enlisted men were absorbed in the tasks of getting the fragile balloons and even flimsier planes of the day into the air and keeping them there. Of necessity flexible and innovative, early crews often had to rebuild aircraft from the ground up after every crash—and, in those early days of flight; crashes were the rule rather than the exception. Enlisted crews not only repaired the planes, they labored to make some of the more ill-designed craft airworthy in the first place.</p><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.3. The Early Days of the United States Army Aviation (1907-1917):</div></div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic4.jpg' class='col p-0'><div class='col hb-image-caption'>Wright brothers ay Kitty Hawk</div></div><p class='hb-p'><span class='hb-bold-text'>1.3.1.</span> By December 1907, the new Aeronautical Division of the Signal Corps established specifications for an American military aircraft. The flying machine had to carry two people (with a combined weight of 350 pounds or less), and fly for 125 miles at an average speed of 40 miles per hour (mph). The Army received 41 bids, but only one, submitted by the Wright brothers, produced a flyable aircraft. By September 1908, the Wright Type “A” Military Flyer flew for more than an hour at a maximum altitude of 310 feet, carrying the first military observer, Lieutenant Frank P. Lahm. A subsequent test on                  17 September 1908 resulted in the first military aviation fatality: Lieutenant Thomas E. Selfridge. On 30 July 1909, pilot Orville Wright and Lieutenant Benjamin D. Foulois flew from Fort Myer to Alexandria, Virginia, at an average speed of 42.6 mph. The Army accepted the plane 2 August 1909 and awarded the Wrights $25,000 and a $5,000 bonus.</p>"
         }
@@ -230,8 +275,6 @@ mainApp.factory('mainModel',function()
             // arr[colIdx] = arr[colIdx] || [];
             // arr[colIdx].push(input[i]);
         }
-
-        console.log(JSON.stringify(arr, null, 4));
 
         return arr;
     };
