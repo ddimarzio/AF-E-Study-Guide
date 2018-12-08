@@ -16,13 +16,13 @@
 #   "password":"test"
 # }
 
-POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "82986c8c-3b98-4e5a-afa0-9166058e9cd2",
-  "UserID" : "46"
-}
+# {
+#   "SessionID" : "82986c8c-3b98-4e5a-afa0-9166058e9cd2",
+#   "UserID" : "46"
+# }
 
   # "UserID": 46,
   # "SessionID": "82986c8c-3b98-4e5a-afa0-9166058e9cd2",
@@ -41,3 +41,11 @@ content-type: application/json
 #   "amount" : "29",
 #   "chapters" : "0"
 # }
+
+POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1
+content-type: application/json
+
+{
+  "email" : "ddimarzio@powertrain.com"
+}
+

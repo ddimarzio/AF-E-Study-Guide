@@ -776,7 +776,15 @@ hr {
   animation:slideInUp 0.5s both ease-in;  
 }
 
-
 .navDisabled {
   opacity: 0.5;
+}
+
+.progressBar-green {
+  color: #07d800;
+  font-size: 35px;
+}
+.progressBar-white {
+  color: #ffffff;
+  font-size: 35px;
 }
