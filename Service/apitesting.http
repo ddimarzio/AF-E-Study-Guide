@@ -20,8 +20,8 @@
 # content-type: application/json
 
 # {
-#   "SessionID" : "82986c8c-3b98-4e5a-afa0-9166058e9cd2",
-#   "UserID" : "46"
+#   "SessionID" : "0f4f4d18-d280-4211-a85f-754dcc4782df",
+#   "UserID" : "40"
 # }
 
   # "UserID": 46,
@@ -37,9 +37,9 @@
 # content-type: application/json
 
 # {
-#   "SessionID" : "1118721c-15df-475a-815c-799ddbcba264",
-#   "amount" : "29",
-#   "chapters" : "0"
+#   "SessionID" : "0bd2bdf9-1ee0-43ea-9121-8f21dcce48f6",
+#   "amount" : "10",
+#   "chapters" : [1,2]
 # }
 
 POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1

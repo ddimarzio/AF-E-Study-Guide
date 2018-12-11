@@ -1,16 +1,16 @@
-mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$window,dataService,mainModel) 
+mainApp.controller('BluebookController', function($scope,$sce,$localstorage,$window,dataService,mainModel) 
     {
         //init
         $scope.currentChapter = 1;
         $scope.currentPage = 0;
-        $scope.currentMaxPages = mainModel.getMaxPages();
-        $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(0).content);
-        $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
+        $scope.currentMaxPages = mainModel.getMaxBlueBookPages();
+        $scope.currentPageContent = $sce.trustAsHtml(mainModel.blueBookGetPage(0).content);
+        $scope.changeSubHeaderText("Chapter " + mainModel.blueBookGetPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
         $scope.originalPageContent =  $scope.currentPageContent;
 
         $scope.saveHighlights = function(page,txt)
         {
-            $scope.user.userHightlights[mainModel.handbookGetHBPage($scope.currentPage).indx] = txt.toString();
+            $scope.user.userHightlights[mainModel.blueBookGetPage($scope.currentPage).indx] = txt.toString();
             $localstorage.setObject('user', $scope.user);
         }
 
@@ -28,7 +28,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addPageNotes = function(notes)
         {
-            $scope.user.userNotes[mainModel.handbookGetHBPage($scope.currentPage).indx] = notes;
+            $scope.user.userNotes[mainModel.blueBookGetPage($scope.currentPage).indx] = notes;
             $localstorage.setObject('user', $scope.user);
             $scope.setPageData($scope.currentPage);
             $scope.pageNotesSaved = true;
@@ -36,14 +36,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.bookmarkThisPage = function()
         {
-
-            if ( $scope.user.userBookMarks[mainModel.handbookGetHBPage($scope.currentPage).indx] == 1 )
+            if ( $scope.user.userBookMarks[mainModel.blueBookGetPage($scope.currentPage).indx] == 1 )
             {
-                $scope.user.userBookMarks[mainModel.handbookGetHBPage($scope.currentPage).indx] = 0;
+                $scope.user.userBookMarks[mainModel.blueBookGetPage($scope.currentPage).indx] = 0;
             }
             else
             {
-                $scope.user.userBookMarks[mainModel.handbookGetHBPage($scope.currentPage).indx] = 1;
+                $scope.user.userBookMarks[mainModel.blueBookGetPage($scope.currentPage).indx] = 1;
             } 
             $scope.setPageData($scope.currentPage);
             $localstorage.setObject('user', $scope.user);
@@ -52,15 +51,16 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.setPageData = function(page)
         {
             // highlights
-            if ( $scope.user.userHightlights[mainModel.handbookGetHBPage($scope.currentPage).indx] != undefined)
+            if ( $scope.user.userHightlights[mainModel.blueBookGetPage($scope.currentPage).indx] != undefined)
             {
-                $scope.addHighlight($scope.user.userHightlights[mainModel.handbookGetHBPage($scope.currentPage).indx]);
+                $scope.addHighlight($scope.user.userHightlights[mainModel.blueBookGetPage($scope.currentPage).indx]);
             }
+
             // notes
-            $scope.pageNotes = $scope.user.userNotes[mainModel.handbookGetHBPage($scope.currentPage).indx];
+            $scope.pageNotes = $scope.user.userNotes[mainModel.blueBookGetPage($scope.currentPage).indx];
 
             // boookmark
-            if ( $scope.user.userBookMarks[mainModel.handbookGetHBPage($scope.currentPage).indx] == 1 )
+            if ( $scope.user.userBookMarks[mainModel.blueBookGetPage($scope.currentPage).indx] == 1 )
             {
                 $scope.pageBookmarked = true;
             }
@@ -74,6 +74,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             {
                 $scope.user.userReadHandbook = page+1;
                 $scope.user.userProgress = $scope.user.userReadHandbook*10;
+                console.log("Progress update" + $scope.user.userProgress);
                 $localstorage.setObject('user', $scope.user);
             }
         }
@@ -113,7 +114,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addHighlight = function(txt)
         {
-            $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage($scope.currentPage).content);
+            $scope.currentPageContent = $sce.trustAsHtml(mainModel.blueBookGetPage($scope.currentPage).content);
                 
             if ( txt != '')
             {
