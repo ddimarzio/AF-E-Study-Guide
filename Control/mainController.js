@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.60";
+  $scope.version = "Version 0.62";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -220,11 +220,11 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     $scope.user.userRole = 1;
     $scope.user.userProgress = 0;
     $scope.user.userLastView = "login";
-    $scope.user.userBookMarks = [0,0,0,0,0,0,0,0,0,0];
-    $scope.user.userNotes = ['','','','','','','','','',''];
+    $scope.user.userBookMarks = {};
+    $scope.user.userNotes = {};
     $scope.userFlashCardsMax = 5;
-    $scope.userFlashCardFlagged = [0,0,0,0,0,0,0,0,0,0];
-    $scope.user.userHightlights = ['','','','','','','','','',''];
+    $scope.userFlashCardFlagged = {};
+    $scope.user.userHightlights = {};
     $scope.user.userSession = '1118721c-15df-475a-815c-799ddbcba264';
     $scope.user.userReadHandbook = 0;
 

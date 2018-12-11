@@ -37,6 +37,13 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/flashcardselection', {
       templateUrl: 'View/flashcardSelectionView.html', controller: 'MainController'
     })
+    .when('/brownbook', {
+      templateUrl: 'View/brownBookView.html', controller: 'MainController'
+    })
+    .when('/bluebook', {
+      templateUrl: 'View/blueBookView.html', controller: 'MainController'
+    })
+    
       .otherwise({
        redirectTo: '/login'
     });

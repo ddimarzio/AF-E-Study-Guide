@@ -1,0 +1,85 @@
+<div class="row col-12 justify-content-md-center m-0 contentWhiteBox innerWithHeader"
+        ng-app="mainApp" 
+        ng-controller="BrownbookController">
+
+        <div class="row p-0 m-0 col-12">
+                <div class="col-3 ml-4"
+                        ng-if="pageBookmarked">
+                        <img src="/Assets/images/handbook/hb-bookmark.png"/>
+                </div>
+                <div class="col-3 ml-auto pt-3">
+                        <span class="hb-pageNumber">{{currentPage+1}} of {{currentMaxPages}}</span>
+                        <button class="btn button-bookmark-image" ng-class="{'button-bookmark-marked-image': pageBookmarked}"
+                                type="submit"
+                                alt="bookmark"
+                                ng-click="bookmarkThisPage()"></button>
+                        <button class="btn button-notes-image"
+                                ng-class="{'button-notes-open-image': notesOpen}"
+                                type="submit"
+                                alt="shownotes"
+                                data-toggle="collapse"
+                                data-target="#mynotes"
+                                aria-expanded="false"
+                                aria-controls="mynotes"
+                                ng-click="openCloseNotes()"></button>
+                        <button class="btn button-highlight-image"
+                                type="submit"
+                                alt="highlight"
+                                ng-click="getSelectedText()"></button>
+                </div>
+        </div>
+
+        <div class="row">
+                <div class="col-1 mt-auto mb-auto">
+                        <button class="btn button-nav-left-image" ng-if="currentPage > 0" 
+                        type="submit"
+                        alt="logout"
+                        ng-click="navToPage(currentPage-1)"></button>
+                </div>
+                <div class="col-10" id="pageContentEle" ng-bind-html="currentPageContent"></div>
+
+                <!-- <div class="col-10">
+                </div> -->
+
+                <div class="col-1 mt-auto mb-auto">
+                        <button class="btn button-nav-right-image"  ng-if="currentPage < (currentMaxPages-1)" 
+                        type="submit"
+                        alt="logout"
+                        ng-click="navToPage(currentPage+1)"></button>
+                </div>
+        </div>
+        <div class="row form-group col-10 collapse notes-card-box shadow" id="mynotes">
+                <textarea class="form-notes-textarea" 
+                          id="notesinput" 
+                          placeholder="Add notes here" 
+                          rows="3" 
+                          ng-model="pageNotes"
+                          ng-change="pageNotesSaved = false"></textarea>
+                <div class="row justify-content-md-center m-0 ml-auto">
+                        <div class="title-black-text3 text-nowrap"  ng-if="!pageNotesSaved">
+                                <span class="">Save</span><button class="btn button-submit-small-black-image" 
+                                type="submit"
+                                alt="save notes"
+                                ng-click="addPageNotes(pageNotes)"
+                                ng-disabled="pageNotesSaved"
+                                ></button>
+                        </div>
+                </div>
+        </div>
+</div>
+
+<!-- Code sniplets
+<div class='col hb-section-title'></div>
+
+<div class='hb-image-wrap-left shadow'>
+        <img src='/Assets/images/handbook/' class='col p-0'>
+        <div class='col hb-image-caption'></div>
+</div>
+<div class='row'>
+        <div class='col-0 hb-title-square'></div>
+        <div class='col hb-title'></div>
+</div>
+<p class="hb-p">
+        <span class="hb-bold-text"></span>
+</p>
+-- -->

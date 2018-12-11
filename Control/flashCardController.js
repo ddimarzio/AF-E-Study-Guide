@@ -38,18 +38,16 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
 
         $scope.flagFlashCard = function()
         {
-            if ( $scope.user.userFlashCardFlagged[$scope.currentFlashcard] == 1 )
+            if ( $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] == 1 )
             {
-                $scope.user.userFlashCardFlagged[$scope.currentFlashcard] = 0;
+                $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] = 0;
             }
             else
             {
-                $scope.user.userFlashCardFlagged[$scope.currentFlashcard] = 1;
+                $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] = 1;
             }
             $scope.setFlashCardData($scope.currentFlashcard);
             $localstorage.setObject('user', $scope.user);
-
-
         }
 
 
@@ -60,7 +58,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             $scope.flashCardAnswerContent = $sce.trustAsHtml(mainModel.getFlashCardAnswer(page));
 
             // flagged
-            if ( $scope.user.userFlashCardFlagged[page] == 1 )
+            if ( $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] == 1 )
             {
                 $scope.flashCardFlagged = true;
             }
