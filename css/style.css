@@ -1,12 +1,16 @@
 /* Main */
 html, body {
-  margin: 0 !important;
+  margin: auto !important;
   padding: 0 !important;
   background: rgba(0, 0, 0,1);
   background: url('../Assets/images/background.png');
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
+  max-width: 1366px;
+  /* max-height: 768px; */
+  height: 100vh;
+  overflow: auto;
 }
 
 header {
@@ -32,7 +36,7 @@ footer {
   bottom: 0;
   padding-left: 100px;
   padding-right: 100px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 1);
 }
 
 .mainContent {
@@ -53,11 +57,12 @@ footer {
   padding-right: 100px;
   padding-bottom: 100px;
   position: relative;
+
 }
 
 .innerWithHeader {
     padding-top: 105px;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
 }
 
 a, a:hover, a:visited {
@@ -145,12 +150,20 @@ hr {
 /* Internal  */
 .whiteBox {
   background-color:rgba(255, 255, 255, 0.6);
+  height: 100vh;
 }
 
 .contentWhiteBox {
   background-color:rgba(255, 255, 255, 0.9);
+  /* height: 100vh; */
 }
 
+.whiteBox-admin {
+  background-color:rgba(255, 255, 255, 0.6);
+  height: 768px;
+  widows: 1280px;
+  /* height: 100vh; */
+}
 .blueCard
 {
   min-height:350px;
@@ -515,6 +528,15 @@ hr {
   font-weight: bold;
   font-size: 24px;
   font-family: 'agencyBold', sans-serif;
+}
+.form-control-admin
+{
+  color: #000000;
+  line-height: 1.1;
+  margin: 10px 0 0;
+  padding: 5px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif
 }
 
 .form-check {
