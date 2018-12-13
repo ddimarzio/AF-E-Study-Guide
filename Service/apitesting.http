@@ -33,19 +33,19 @@
   # "Bookmarks": [],
   # "userLoggedIn": true
 
-# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
-# content-type: application/json
-
-# {
-#   "SessionID" : "0bd2bdf9-1ee0-43ea-9121-8f21dcce48f6",
-#   "amount" : "10",
-#   "chapters" : [1,2]
-# }
-
-POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1
+POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
 content-type: application/json
 
 {
-  "email" : "ddimarzio@powertrain.com"
+  "SessionID" : "9e783505-e0d3-439f-9517-aa11ea455489",
+  "amount" : "10",
+  "chapters" : [1,2]
 }
+
+# POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1
+# content-type: application/json
+
+# {
+#   "email" : "ddimarzio@powertrain.com"
+# }
 
