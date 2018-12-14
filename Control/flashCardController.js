@@ -9,16 +9,14 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             dataService.getFlashCardStack($scope.user.userSession,amount,chapters)
             .then(function(response) 
             {
-
-
               if (response != undefined && typeof response == "object") 
               {
                 $scope.flashCards = response.data;
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
 
-                console.log("Flash amount : "  + $scope.flashCardSelectedAmount );
-                console.log("Flash chapters : "  + $scope.chaptersSelected );
+                console.log("Flash amount : "  + $scope.user.flashCardSelectedAmount );
+                console.log("Flash chapters : "  + $scope.user.chaptersSelected );
               } 
               else 
               {
@@ -30,8 +28,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         // ********** Main flash card data call
         if ( $scope.user.userLastView == 'flashcards')
         {
-            console.log("amount : " + $scope.flashCardSelectedAmount);
-            $scope.getFlashCards($scope.flashCardSelectedAmount,$scope.chaptersSelected);
+            console.log("amount : " + $scope.user.flashCardSelectedAmount );
+            $scope.getFlashCards($scope.user.flashCardSelectedAmount ,$scope.user.chaptersSelected);
         }
         // **********
 
@@ -40,10 +38,13 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             $scope.flashCardChapters.forEach(function(chapter)
             {
                 $scope.chaptersSelected = [];
-                if ( chapter.checked )
+                if ( chapter.checked = 'true' )
                 {   
                     $scope.chaptersSelected.push(chapter.index);
                 }
+
+                $scope.user.chaptersSelected = $scope.chaptersSelected;
+                $localstorage.setObject('user', $scope.user);
 
                 console.log("Chapters select : " + $scope.chaptersSelected );
             });
@@ -73,7 +74,9 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
 
         $scope.selectFlashCardAmount = function(amount)
         {
-            $scope.flashCardSelectedAmount = amount;
+            // $scope.flashCardSelectedAmount = amount;
+            $scope.user.flashCardSelectedAmount = amount;
+            $localstorage.setObject('user', $scope.user);
         }
 
         $scope.flagFlashCard = function()

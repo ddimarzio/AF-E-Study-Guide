@@ -18,7 +18,9 @@ mainApp.factory('mainModel',function()
         userFlashCardFlagged:{},
         userHightlights:{},
         userSession:'',
-        userReadHandbook:0
+        userReadHandbook:0,
+        flashCardSelectedAmount:25,
+        chaptersSelected:[]
         };
     valObjects.getUser = function()
     {
@@ -40,6 +42,8 @@ mainApp.factory('mainModel',function()
         user.userHightlights = {};
         user.userSession = '';
         user.userReadHandbook = 0;
+        flashCardSelectedAmount = 25;
+        chaptersSelected = [];
         return user;
     }
 
