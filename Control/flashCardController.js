@@ -12,11 +12,10 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
               if (response != undefined && typeof response == "object") 
               {
-                  console.log("Controller : "  + JSON.stringify(response.data) );
+                console.log("Flash Cards : "  + JSON.stringify(response.data) );
                
                 $scope.flashCards = response.data;
-                // $scope.flashCardQuestionContent = $sce.trustAsHtml(mainModel.getFlashCardQuestion(0));
-                // $scope.flashCardAnswerContent = $sce.trustAsHtml(mainModel.getFlashCardAnswer(0));
+                $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
               } 
               else 
