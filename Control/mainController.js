@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.78";
+  $scope.version = "Version 0.79";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -222,8 +222,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     $scope.user.userLastView = "login";
     $scope.user.userBookMarks = {};
     $scope.user.userNotes = {};
-    $scope.userFlashCardsMax = 5;
-    $scope.userFlashCardFlagged = {};
+    $scope.user.userFlashCardsMax = 5;
+    $scope.user.userFlashCardFlagged = {};
     $scope.user.userHightlights = {};
     $scope.user.userSession = '1118721c-15df-475a-815c-799ddbcba264';
     $scope.user.userReadHandbook = 0;
@@ -250,7 +250,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.pageNotesSaved = true;
       $scope.alertMessage = "";
       $scope.alertMessageClass = "bold-text";
-      $scope.flashCardSelectedAmount = 25;
+      // $scope.flashCardSelectedAmount = 25;
       $scope.notesOpen = false;
       $scope.navMenuMainOpen = [false,false,false,false,false];
       $scope.lastMenuItem = '';
@@ -258,7 +258,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.navSubMenuOpen = [false,false,false,false,false];
       $scope.lastGreenText = 0;
       $scope.loginLoading = false;
-      $scope.flashCards = {};
+      // $scope.flashCards = {};
 
       // Value Objects
       $scope.user = mainModel.getUser();
