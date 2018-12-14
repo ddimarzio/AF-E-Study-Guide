@@ -177,11 +177,11 @@ hr {
 /* handbook */
 .hb-p {
   line-height: 1.6; 
-  font-family: Helvetica;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   text-align: justify;
   margin: 0;
   padding: 15px;
-  font-size: 14px;
+  font-size: 12px;
 }
 .hb-image-wrap-left {
   border: 1px solid rgb(187, 187, 187);
