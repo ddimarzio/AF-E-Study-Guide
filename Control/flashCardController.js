@@ -9,6 +9,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             dataService.getFlashCardStack($scope.user.userSession,amount,chapters)
             .then(function(response) 
             {
+
+
               if (response != undefined && typeof response == "object") 
               {
                 $scope.flashCards = response.data;
@@ -28,6 +30,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         // ********** Main flash card data call
         if ( $scope.user.userLastView == 'flashcards')
         {
+            console.log("amount : " + $scope.flashCardSelectedAmount);
             $scope.getFlashCards($scope.flashCardSelectedAmount,$scope.chaptersSelected);
         }
         // **********
