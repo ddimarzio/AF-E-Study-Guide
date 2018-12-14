@@ -2,7 +2,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
     {
         //init
         $scope.currentFlashcard = 0;
-        console.log("Flash Cards - init : "  + JSON.stringify($scope.flashCards) );
 
         // Methods
         $scope.getFlashCards = function(amount,chapters)
@@ -16,7 +15,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
 
-                console.log("Flash Cards : "  + JSON.stringify($scope.flashCards) );
+                console.log("Flash amount : "  + amount );
+                console.log("Flash chapters : "  + chapters );
               } 
               else 
               {
@@ -26,13 +26,10 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         }
 
         // ********** Main flash card data call
-        console.log("View : "  + $scope.user.userLastView );
         if ( $scope.user.userLastView == 'flashcards')
         {
             $scope.getFlashCards($scope.flashCardSelectedAmount,$scope.chaptersSelected);
         }
-        
-
         // **********
 
         $scope.setChaptersSelected = function()
