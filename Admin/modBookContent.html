@@ -28,7 +28,14 @@
                 <option>Little Blue Book</option>
                 <option>Little Brown Book</option>
             </select>
-
+            <div class="">
+                <span class="subtitle-text">Select chapter:</span>
+                <select class="form-control-admin" id="selcontchapter">
+                    <option value="0">1</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
+                </select>
+            <div>
             <div class="">
                 <span class="subtitle-text">Select page:</span>
                 <select class="form-control-admin" id="selcontpage"
@@ -39,17 +46,24 @@
                     <option value="2">Airman Handbook - page 2</option>
                 </select>
             <div>
-                <div class="subtitle-text pt-3">HTML Content</div>
+
+            <div class="subtitle-text pt-3">HTML Content</div>
                 <textarea class="form-control-admin" style="width: 1000px;" 
                     ng-model="textAreaData"
-                    ng-change="setPreview(textAreaData)" 
+                    ng-change="setPreview(textAreaData)"
+                    id="textAreaID"
                     rows="15"></textarea>
             </div>
             <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-secondary">Add Title</button>
-                    <button type="button" class="btn btn-secondary">Add Sub-title</button>
-                    <button type="button" class="btn btn-secondary">Add Image</button>
-                  </div>
+                <button type="button" class="btn btn-secondary"
+                ng-click="addHTMLTage('title')">Add Title</button>
+                <button type="button" class="btn btn-secondary"
+                ng-click="addHTMLTage('subtitle')">Add Sub-title</button>
+                <button type="button" class="btn btn-secondary"
+                ng-click="addHTMLTage('image')">Add Image</button>
+                <button type="button" class="btn btn-secondary"
+                ng-click="addHTMLTage('paragraph')">Add Paragraph</button>
+                </div>
 
             <hr>
 
