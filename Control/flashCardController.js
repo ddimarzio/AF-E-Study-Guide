@@ -28,7 +28,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         }
 
         // ********** Main data call
-        $scope.getFlashCardDeck = functon()
+        $scope.getFlashCardDeck = function()
         {
             $scope.getFlashCards($scope.flashCardSelectedAmount,$scope.chaptersSelected); 
         }
