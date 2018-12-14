@@ -2,9 +2,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
     {
         //init
         $scope.currentFlashcard = 0;
-        $scope.flashCardQuestionContent = $sce.trustAsHtml(mainModel.getFlashCardQuestion(0));
-        $scope.flashCardAnswerContent = $sce.trustAsHtml(mainModel.getFlashCardAnswer(0));
-        $scope.flashCards = "";//        // test data, change to service later
+
         
         // Methods
         $scope.getFlashCards = function(amount,chapters)
@@ -16,7 +14,10 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
               {
                   console.log("Controller : "  + JSON.stringify(response.data) );
                
-                //   $scope.setFlashCardData($scope.currentFlashcard);
+                $scope.flashCards = response.data;
+                // $scope.flashCardQuestionContent = $sce.trustAsHtml(mainModel.getFlashCardQuestion(0));
+                // $scope.flashCardAnswerContent = $sce.trustAsHtml(mainModel.getFlashCardAnswer(0));
+                $scope.setFlashCardData($scope.currentFlashcard);
               } 
               else 
               {
@@ -74,8 +75,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         $scope.setFlashCardData = function(page)
         {
             //Question&Answer
-            $scope.flashCardQuestionContent = $sce.trustAsHtml(mainModel.getFlashCardQuestion(page));
-            $scope.flashCardAnswerContent = $sce.trustAsHtml(mainModel.getFlashCardAnswer(page));
+            $scope.flashCardQuestionContent = $sce.trustAsHtml($scope.flashCards[page].question);
+            $scope.flashCardAnswerContent = $sce.trustAsHtml($scope.flashCards[page].answer);
 
             // flagged
             if ( $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] == 1 )
