@@ -4,9 +4,29 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         $scope.currentFlashcard = 0;
         $scope.flashCardQuestionContent = $sce.trustAsHtml(mainModel.getFlashCardQuestion(0));
         $scope.flashCardAnswerContent = $sce.trustAsHtml(mainModel.getFlashCardAnswer(0));
-        $scope.flashCards = mainModel.getFlashCards();         // test data, change to service later
+        $scope.flashCards = "";//        // test data, change to service later
         
         // Methods
+        $scope.getFlashCards = function(amount,chapters)
+        {
+            dataService.getFlashCardStack($scope.user.userSession,amount,chapters)
+            .then(function(response) 
+            {
+              if (response != undefined && typeof response == "object") 
+              {
+                  console.log("Controller : "  + JSON.stringify(response.data) );
+               
+                //   $scope.setFlashCardData($scope.currentFlashcard);
+              } 
+              else 
+              {
+                alert("Result is not JSON type");
+              }
+            });
+        }
+
+        $scope.getFlashCards(10,[1,2]); 
+
         $scope.checkFlashCardChapter = function(indx)
         {
             if ( $scope.flashCardChapters[indx].checked == 'true' )
@@ -87,5 +107,5 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
                 $scope.flashCardisFlipped = false;
             }
         }
-        $scope.setFlashCardData($scope.currentFlashcard);
+        
   });

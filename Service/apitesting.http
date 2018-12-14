@@ -34,14 +34,14 @@
   # "userLoggedIn": true
 
 
-# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "2e7b35ca-4bfc-487b-9273-ef0ef666246c",
-#   "amount" : "10",
-#   "chapters" : [1,2]
-# }
+{
+  "SessionID" : "2e7b35ca-4bfc-487b-9273-ef0ef666246c",
+  "amount" : "10",
+  "chapters" : [1,2]
+}
 
 # POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1
 # content-type: application/json

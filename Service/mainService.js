@@ -49,8 +49,16 @@ mainApp.service('dataService', ['$http', function ($http) {
         });
     }
 
-    this.getFlashCards = function()
+    this.getFlashCardStack = function(userSession,amount, chapters)
     {
-        // return $http.get(urlBase + 'greeting');
+        return $http({
+            method : 'POST',
+            url : 'https://powertrainafttest.azurewebsites.net/Flashcard/GetStack',
+            data: {
+                'SessionID' : userSession,
+                "amount" : amount,
+                "chapters" : chapters
+                }
+        });
     }
 }]);
