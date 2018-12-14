@@ -35,8 +35,8 @@ mainApp.factory('mainModel',function()
         user.userLastView = "login";
         user.userBookMarks = {};
         user.userNotes = {};
-        userFlashCardsMax = 5;
-        userFlashCardFlagged = {};
+        user.userFlashCardsMax = 5;
+        user.userFlashCardFlagged = {};
         user.userHightlights = {};
         user.userSession = '';
         user.userReadHandbook = 0;
