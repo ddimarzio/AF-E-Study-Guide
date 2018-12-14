@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.82";
+  $scope.version = "Version 0.83";
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -251,7 +251,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.pageNotesSaved = true;
       $scope.alertMessage = "";
       $scope.alertMessageClass = "bold-text";
-      // $scope.flashCardSelectedAmount = 25;
+      $scope.flashCardSelectedAmount = 25;
       $scope.notesOpen = false;
       $scope.navMenuMainOpen = [false,false,false,false,false];
       $scope.lastMenuItem = '';
@@ -259,7 +259,6 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.navSubMenuOpen = [false,false,false,false,false];
       $scope.lastGreenText = 0;
       $scope.loginLoading = false;
-      // $scope.flashCards = {};
 
       // Value Objects
       $scope.user = mainModel.getUser();
