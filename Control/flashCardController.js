@@ -38,7 +38,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             $scope.flashCardChapters.forEach(function(chapter)
             {
                 $scope.chaptersSelected = [];
-                if ( chapter.checked = 'true' )
+                if ( chapter.checked == 'true' )
                 {   
                     $scope.chaptersSelected.push(chapter.index);
                 }
