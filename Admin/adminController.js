@@ -8,6 +8,38 @@ mainApp.controller('AdminController', function($scope,$sce)
         $scope.selectedPage = 0;
         $scope.textAreaData = "";
 
+        $scope.addHTMLTage = function(type)
+        {
+            var textArea = document.getElementById( 'textAreaID' );
+            var position = textArea.selectionStart;  
+            
+            var firstPart = $scope.textAreaData.substring(0, position);
+            var secondPart = $scope.textAreaData.substring(position, $scope.textAreaData.length);
+
+            if ( type == "title")
+            {
+                $scope.textAreaData = firstPart + "<div class='col hb-section-title'>Title text</div>" + secondPart;
+            }
+
+            if ( type == "image")
+            {
+                $scope.textAreaData = firstPart + "<div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic1.jpg' class='col p-0'><div class='col hb-image-caption'>Caption Text</div></div>" + secondPart;
+            }
+
+            if ( type == "subtitle")
+            {
+                $scope.textAreaData = firstPart + "<div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>Sub title</div></div>" + secondPart;
+            }
+
+            if ( type == "paragraph")
+            {
+                $scope.textAreaData = firstPart + "<p class='hb-p'>Add paragraph text here</p>" + secondPart;
+            }
+
+            
+            $scope.setPreview($scope.textAreaData);
+        }
+
         $scope.setPreview = function(content)
         {
 
