@@ -2,7 +2,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
     {
         //init
         $scope.currentFlashcard = 0;
-
+        $scope.chaptersSelected = [];
         
         // Methods
         $scope.getFlashCards = function(amount,chapters)
@@ -25,7 +25,21 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             });
         }
 
-        $scope.getFlashCards(10,[1,2]); 
+        // ********** Main data call
+        $scope.getFlashCards($scope.flashCardSelectedAmount,$scope.chaptersSelected); 
+        // **********
+
+        $scope.setChaptersSelected = function()
+        {
+            $scope.flashCardChapters.forEach(function(chapter)
+            {
+                $scope.chaptersSelected = [];
+                if ( chapter.checked )
+                {   
+                    $scope.chaptersSelected.push(chapter.index);
+                }
+            });
+        }
 
         $scope.checkFlashCardChapter = function(indx)
         {
@@ -37,6 +51,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
                 $scope.flashCardChapters[indx].checked = 'true';
             }
+
+            $scope.setChaptersSelected();
         }
 
         $scope.setAllFlashCardChapters = function(check)
@@ -44,11 +60,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             $scope.flashCardChapters.forEach(function(chapter) {
                 chapter.checked = check;
               });
-
-            // forEach ( chapter in $scope.flashCardChapters)
-            // {
-            //     chapter.checked = check;
-            // }
+            $scope.setChaptersSelected();
         }
 
         $scope.selectFlashCardAmount = function(amount)
