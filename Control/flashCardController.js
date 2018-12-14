@@ -28,26 +28,23 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         // ********** Main flash card data call
         if ( $scope.user.userLastView == 'flashcards')
         {
-            console.log("amount : " + $scope.user.flashCardSelectedAmount );
             $scope.getFlashCards($scope.user.flashCardSelectedAmount ,$scope.user.chaptersSelected);
         }
         // **********
 
         $scope.setChaptersSelected = function()
         {
+            $scope.chaptersSelected = [];
             $scope.flashCardChapters.forEach(function(chapter)
             {
-                $scope.chaptersSelected = [];
                 if ( chapter.checked == 'true' )
                 {   
-                    $scope.chaptersSelected.push(chapter.index);
+                    $scope.chaptersSelected.push(parseFloat(chapter.index));
                 }
-
-                $scope.user.chaptersSelected = $scope.chaptersSelected;
-                $localstorage.setObject('user', $scope.user);
-
-                console.log("Chapters select : " + $scope.chaptersSelected );
             });
+
+            $scope.user.chaptersSelected = $scope.chaptersSelected;
+            $localstorage.setObject('user', $scope.user);
         }
 
         $scope.checkFlashCardChapter = function(indx)
@@ -74,7 +71,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
 
         $scope.selectFlashCardAmount = function(amount)
         {
-            // $scope.flashCardSelectedAmount = amount;
+            $scope.flashCardSelectedAmount = amount;
             $scope.user.flashCardSelectedAmount = amount;
             $localstorage.setObject('user', $scope.user);
         }
