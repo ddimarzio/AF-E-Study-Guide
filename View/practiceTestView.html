@@ -1,58 +1,78 @@
-<div class="row col-12 justify-content-md-center m-0 whiteBox innerWithHeader"
+<div class="row col-12 justify-content-md-center m-0 pl-0 pr-0 contentWhiteBox innerWithHeader"
         ng-app="mainApp" 
         ng-controller="PracticeTestController">
 
-        <!-- Flash cards -->
-                {{testData}}
-        <div class="col-10 m-3 align-left contentWhiteBox shadow" >
-                <div class="row">
-                        <div class="col-2 m-0 p-0">
-                                <img src="/Assets/images/practiceTestIcon-black.png" width="100px;"/>
-                        </div>
-                        <div class="col-10 p=3">
-                                <span class="row title-black-text3">Question :</span>
-                                <p class="row flashCard-text">
-                                        {{testQuestions[currentTestQuestion].question}}
-                                </p>
-                                <span class="row title-black-text3 mt-5">Answers :</span>
+        <div class="row m-0 p-0 ">
+				<!-- Question numbers -->
+                <div class="col-0 shadow testQuestionNum-col">
+					<div class="row ml-auto mr-auto p-3">
+							<div class="col-0 ml-auto mr-auto m-1 testQuestionNum-block clickBox"
+							ng-repeat="questionNum in testQuestions"
+							ng-click="setTestQuestion($index)"
+							ng-class="{'testQuestionNum-block-selected': currentTestQuestion == $index}">{{$index+1}}</div>
+					</div>
+                </div>
 
-                                <div ng-repeat="answer in testQuestions[currentTestQuestion].answers"
-                                        ng-click="TestAnswerSelected(thierAnswer)">
-                                        <div class="form-check" id="flashCardAnswers">
-                                                <input class="form-check-input" 
-                                                        ng-model="thierAnswer"
-                                                        ng-value="$index+1"
-                                                        type="radio" 
-                                                        name="answerRadios" 
-                                                        id="answerRadios" 
-                                                        value="option">
-                                                <label class="form-check-label" for="exampleRadios1">
-                                                        {{answer}}
-                                                </label>
-                                        </div>
-                                </div>  
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="SubmitTestAnswer(testQuestions[currentTestQuestion].correctAnswer)">Submit</button>
-                                <div class="row">
-                                                {{testQuestions.selectionResponse}}
-                                </div>
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="NextTestQuestion(-1)">Prev</button>
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="NextTestQuestion(1)">Next</button>
-                                        
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="getTestData()">Test Data</button>
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="getGreetingTest()">Greeting</button>
-                                
+                <!-- Questions -->
+                <div class="col-9 m-3" >
+					<div class="row col-0">
+						<div class="ml-auto testQuestion-number">{{currentTestQuestion+1}} of {{testQuestions.length}}</div>
+					</div>
+                        <div class="row">
+
+							<!-- left nav -->
+							<div class="col-0 mt-auto mb-auto">
+								<button class="btn button-nav-left-image"
+								type="submit"
+								alt="prev"
+								ng-disabled="currentTestQuestion <= 0"
+								ng-click="NextTestQuestion(-1)"></button>
+							</div>
+
+							<div class="col-0">
+									<button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
+									type="submit"
+									alt="flagged"
+									ng-click=""></button>                                   
+							</div>
+							<div class="col-9">
+								<p class="row flashCard-text">
+										{{testQuestions[currentTestQuestion].question}}
+								</p>
+								<span class="row title-black-text3 mt-5">Answers :</span>
+
+								<div ng-repeat="answer in testQuestions[currentTestQuestion].answers"
+										ng-click="TestAnswerSelected(thierAnswer)">
+										<div class="form-check" id="flashCardAnswers">
+												<input class="form-check-input" 
+														ng-model="thierAnswer"
+														ng-value="$index+1"
+														type="radio" 
+														name="answerRadios" 
+														id="answerRadios" 
+														value="option">
+												<label class="form-check-label" for="exampleRadios1">
+														{{answer}}
+												</label>
+										</div>
+								</div>  
+								<button class="btn btn-sm btn-primary m-3" 
+								type="button"
+								ng-click="SubmitTestAnswer(testQuestions[currentTestQuestion].correctAnswer)">Submit</button>
+								<div class="row">
+												{{testQuestions.selectionResponse}}
+								</div>
+							</div>
+							
+							<!-- right nav -->
+							<div class="col-0 mt-auto mb-auto">
+								<button class="btn button-nav-right-image"
+								type="submit"
+								alt="next"
+								ng-disabled="currentTestQuestion >= (testQuestions.length-1)"
+								ng-click="NextTestQuestion(1)"></button>
+							</div>
                         </div>
-                        
                 </div>
         </div>
 </div>

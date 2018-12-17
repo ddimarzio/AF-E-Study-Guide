@@ -14,9 +14,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
                 $scope.flashCards = response.data;
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
-
-                console.log("Flash amount : "  + $scope.user.flashCardSelectedAmount );
-                console.log("Flash chapters : "  + $scope.user.chaptersSelected );
               } 
               else 
               {
