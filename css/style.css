@@ -82,6 +82,61 @@ a, a:hover, a:visited {
   font-family: 'agencyBold', sans-serif;
 }
 
+/* Practice Test */
+.testQuestionNum-block {
+  height: 30px;
+  width: 85px;
+  background: #C7A567;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.testQuestionNum-block-selected {
+  height: 30px;
+  width: 85px;
+  background: #0E182D;
+  border: 2px solid rgb(0, 0, 0);
+  color: #ffffff;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.testQuestionNum-block:hover {
+  height: 30px;
+  width: 85px;
+  border: 2px solid rgb(116, 116, 116);
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.testQuestionNum-col {
+  border-right: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(0, 0, 0);
+  height: 80vh;
+  width: 250px;
+  overflow: auto;
+}
+.testQuestion-number {
+  color: #000000;
+  line-height: 1;
+  /* margin: 10px 0 0; */
+  /* padding: 0;
+  padding-right: 10px; */
+  /* text-align: right; */
+  font-size: 32px;
+  font-family: 'agencyReg', sans-serif;
+}
+
 /* Menu system */
 hr {
   border-color: #c7a5679b;
