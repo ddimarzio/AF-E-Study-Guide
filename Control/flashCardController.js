@@ -40,7 +40,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
                 if ( chapter.checked == 'true' )
                 {   
-                    $scope.chaptersSelected.push(parseFloat(chapter.index));
+                    $scope.chaptersSelected.push(parseFloat(chapter.index)+1);
                 }
             });
 
