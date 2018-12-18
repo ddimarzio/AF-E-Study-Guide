@@ -11,6 +11,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
               if (response != undefined && typeof response == "object") 
               {
+                console.log("Flash Cards : " + JSON.stringify(response.data));
                 $scope.flashCards = response.data;
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
