@@ -1,17 +1,16 @@
 .chapter-box {
-    width: 245px;
-    z-index: 3; 
+    width: 285px;
 }
 .section-box {
     border: 2px solid #000000;
-    width: 245px;
-    max-height: 500px;
-    overflow: auto;
-    z-index: 3; 
+    width: 285px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .horLine {
-    border: 2px solid #9B9B9B;
+    border: 1px solid #9B9B9B;
 }
 .chapter-title {
     color: black;
