@@ -8,6 +8,7 @@
 #   "password":"test2"
 # }
 
+
 # POST https://powertrainafttest.azurewebsites.net/Account/Login HTTP/1.1
 # content-type: application/json
 
@@ -34,14 +35,24 @@
   # "userLoggedIn": true
 
 
-POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "0545fff8-7f5b-4876-802f-08b5d8e7361d",
-  "amount" : "10",
-  "chapters" : [1,2]
-}
+# {
+#   "SessionID" : "0b174263-ef21-46f6-a0d5-33634be4898b",
+#   "amount" : "10",
+#   "chapters" : [1,2]
+# }
+
+# "ID": "1E_15",
+#   "Chapter": "1",
+#   "RankID": 3,
+#   "Question": "Describe the mutually assured destruction doctrine.",
+#   "Answer": "This doctrine is based on the theory that superpower strategic nuclear forces could be seized and protected to survive a nuclear attack in order to retaliate with sufficient force to destroy the other side.",
+#   "Level": "B",
+#   "Importance": 2,
+#   "Category": "A"
+
 
 # POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1
 # content-type: application/json
