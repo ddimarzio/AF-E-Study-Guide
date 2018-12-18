@@ -11,6 +11,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
               if (response != undefined && typeof response == "object") 
               {
+                console.log("Flash Cards : " + JSON.stringify(response.data));
                 $scope.flashCards = response.data;
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
@@ -91,8 +92,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         $scope.setFlashCardData = function(page)
         {
             //Question&Answer
-            $scope.flashCardQuestionContent = $sce.trustAsHtml($scope.flashCards[page].question);
-            $scope.flashCardAnswerContent = $sce.trustAsHtml($scope.flashCards[page].answer);
+            $scope.flashCardQuestionContent = $sce.trustAsHtml($scope.flashCards[page].Question);
+            $scope.flashCardAnswerContent = $sce.trustAsHtml($scope.flashCards[page].Answer);
 
             // flagged
             if ( $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] == 1 )

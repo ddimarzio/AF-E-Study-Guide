@@ -75,7 +75,8 @@ mainApp.factory('mainModel',function()
             thanksForRegister:'Thanks for registering',
             flashcardselection:'Flashcards Selection',
             brownbook:'Little Brown Book',
-            bluebook:'Little Blue Book'
+            bluebook:'Little Blue Book',
+            savedBookmarks:'Saved Bookmarks'
     };
     valObjects.getViewtitles = function()
     {

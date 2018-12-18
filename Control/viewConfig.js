@@ -43,6 +43,9 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/bluebook', {
       templateUrl: 'View/blueBookView.html', controller: 'MainController'
     })
+    .when('/savedBookmarks', {
+      templateUrl: 'View/saved-Bookmarks.html', controller: 'MainController'
+    })
     
       .otherwise({
        redirectTo: '/login'
