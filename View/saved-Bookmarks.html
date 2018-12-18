@@ -4,100 +4,46 @@
 
 	<div class="row p-0 m-0 col-12">
 
-		<!-- item -->
-		<div class="col-2 m-0 p-2">
+		<!-- chapter -->
+		<div class="col-3 m-0 p-1 testBorder"
+			ng-repeat="chapter in chapters">
 			<div class="row m-0 p-0 chapter-box clickBox"
-				data-toggle="collapse"
-				data-target="#section0"
-				aria-expanded="false"
-				aria-controls="section0"
-				ng-click="openChaperSection(0)">
+				ng-click="openChaperSection($index)">
 				<div class="col-0 m-0 p-0">
-					<div class="col-0 chapter-title">Chapter 1</div>
-					<div class="col-0 chapter-subtitle">Air Force Heritage</div>
+					<div class="col-0 chapter-title">{{chapter.name}}</div>
+					<div class="col-0 chapter-subtitle">{{chapter.desc}}</div>
 				</div>
-				<div id="triangle0" class="col-0 chapter-triangle ml-auto mt-auto mb-auto"
-					ng-class="{'chapter-triangle-down': chapterSectionOpen[0]}"></div>
+				<div id="triangle0" class="col-0 chapter-triangle mr-0 p-0 ml-auto mt-auto mb-auto"
+					ng-class="{'chapter-triangle-down': chapterSectionOpen[$index]}"></div>
 			</div>
-			<div class="section-box collapse" id="section0">
-				<div class="section-text row">
-					<div class="col-3 text-nowrap">
-						<img src="/Assets/images/savedContentDeleteIcon.png">
-						<span>1.3.</span>
-					</div>
-					<div class="col-8 m-0 p-0">
-						The Early Days of the United States Army Aviation (1907-1917)
-					</div>
-				</div>
+			
+			<div class="section-box" 
+				tabindex="-1"
+				id="section{{$index}}"
+				ng-show="chapterSectionOpen[$index]">
 
-				<div class="section-text row">
-					<div class="col-3 text-nowrap">
-						<img src="/Assets/images/savedContentDeleteIcon.png">
-						<span>1.3.</span>
+				<!-- section -->
+				<div class="section-text row"
+					ng-repeat="sect in chapter.sections">
+					<div class="col-3 m-0 text-nowrap">
+						<img class="clickBox"
+							 ng-click="removeBookmark(sect.sectIndx)"
+							 src="/Assets/images/savedContentDeleteIcon.png">
+						<span>{{sect.section}}</span>
 					</div>
 					<div class="col-8 m-0 p-0">
-						The Early Days of the United States Army Aviation (1907-1917)
+							{{sect.desc}}
 					</div>
 				</div>
-				<div class="section-text row">
-					<div class="col-3 text-nowrap">
-						<img src="/Assets/images/savedContentDeleteIcon.png">
-						<span>1.3.</span>
-					</div>
-					<div class="col-8 m-0 p-0">
-						The Early Days of the United States Army Aviation (1907-1917)
-					</div>
-				</div>
+				<!-- ------ -->
 			</div>
+			
+				<div class="row horLine" style="position: absolute; z-index: 1; width: 3000px; top: 100px; left:0px" ng-if="$index/4 == Math.round($index/4)">
+					
+				</div>
 		</div>
 		<!-- ---- -->
-		<!-- item -->
-		<div class="col-2 m-0 p-2">
-			<div class="row m-0 p-0 chapter-box clickBox"
-				data-toggle="collapse"
-				data-target="#section1"
-				aria-expanded="false"
-				aria-controls="section1"
-				ng-click="openChaperSection(1)">
-				<div class="col-0 m-0 p-0">
-					<div class="col-0 chapter-title">Chapter 1</div>
-					<div class="col-0 chapter-subtitle">Air Force Heritage</div>
-				</div>
-				<div id="triangle0" class="col-0 chapter-triangle ml-auto mt-auto mb-auto"
-					ng-class="{'chapter-triangle-down': chapterSectionOpen[1]}"></div>
-			</div>
-			<div class="section-box collapse" id="section1">
-				<div class="section-text row">
-					<div class="col-3 text-nowrap">
-						<img src="/Assets/images/savedContentDeleteIcon.png">
-						<span>1.3.</span>
-					</div>
-					<div class="col-8 m-0 p-0">
-						The Early Days of the United States Army Aviation (1907-1917)
-					</div>
-				</div>
-
-				<div class="section-text row">
-					<div class="col-3 text-nowrap">
-						<img src="/Assets/images/savedContentDeleteIcon.png">
-						<span>1.3.</span>
-					</div>
-					<div class="col-8 m-0 p-0">
-						The Early Days of the United States Army Aviation (1907-1917)
-					</div>
-				</div>
-				<div class="section-text row">
-					<div class="col-3 text-nowrap">
-						<img src="/Assets/images/savedContentDeleteIcon.png">
-						<span>1.3.</span>
-					</div>
-					<div class="col-8 m-0 p-0">
-						The Early Days of the United States Army Aviation (1907-1917)
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- ---- -->		
+				
 
 	</div>
 </div>

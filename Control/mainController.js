@@ -2,7 +2,8 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.88";
+  $scope.version = "Version 0.89";
+  $scope.Math = window.Math;
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
