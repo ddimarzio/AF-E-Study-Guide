@@ -51,6 +51,7 @@ mainApp.service('dataService', ['$http', function ($http) {
 
     this.getFlashCardStack = function(userSession,amount, chapters)
     {
+        console.log("Request : " + userSession + " | " + amount + " | " + chapters );
         return $http({
             method : 'POST',
             url : 'https://powertrainafttest.azurewebsites.net/Flashcard/GetStack',
