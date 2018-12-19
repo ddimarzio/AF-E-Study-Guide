@@ -46,6 +46,11 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/savedBookmarks', {
       templateUrl: 'View/saved-Bookmarks.html', controller: 'MainController'
     })
+    .when('/savedNotes', {
+      templateUrl: 'View/saved-Notes.html', controller: 'MainController'
+    })
+
+    
     
       .otherwise({
        redirectTo: '/login'

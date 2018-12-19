@@ -1,20 +1,22 @@
 mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,dataService,mainModel) 
     {
 
-        $scope.testIt = function(indx)
-        {
-            if ( (indx/4) == Math.round(indx/4) )
-            {
-                console.log("true" + (indx/4) + " | " + Math.round(indx/4) );
-            }
-            
-        }
         // Methods
         $scope.chapterSectionOpen = [];
 
         $scope.init = function()
         {
-            $scope.changeSubHeaderText("BOOKMARKS SAVED CONTENT");
+            $scope.user = $localstorage.getObject('user');
+
+            if ( $scope.user.userLastView == 'savedBookmarks')
+            {
+                $scope.changeSubHeaderText("BOOKMARKS SAVED CONTENT");
+            }
+            else if ( $scope.user.userLastView == 'savedNotes')
+            {
+                $scope.changeSubHeaderText("NOTES SAVED CONTENT");
+            }
+
             $scope.chapters = mainModel.getBookChapters();
             $scope.chapters.forEach(function(chapter)
             {
