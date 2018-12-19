@@ -17,12 +17,20 @@
 #   "password":"test"
 # }
 
+POST https://powertrainafttest.azurewebsites.net/FlashCard/DeleteFlashcardBookmark   HTTP/1.1
+content-type: application/json
+
+{
+  "SessionID":"38eef89c-7693-4f5c-9687-9986a9004216",
+  "FlashcardID":"4E_18"
+}
+
 # POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
 # content-type: application/json
 
 # {
-#   "SessionID" : "0f4f4d18-d280-4211-a85f-754dcc4782df",
-#   "UserID" : "40"
+#   "SessionID" : "38eef89c-7693-4f5c-9687-9986a9004216",
+#   "UserID" : "46"
 # }
 
   # "UserID": 46,
@@ -35,14 +43,14 @@
   # "userLoggedIn": true
 
 
-POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "0b174263-ef21-46f6-a0d5-33634be4898b",
-  "amount" : "2",
-  "chapters" : [1,2]
-}
+# {
+#   "SessionID" : "0b174263-ef21-46f6-a0d5-33634be4898b",
+#   "amount" : "2",
+#   "chapters" : [1,2]
+# }
 
 # "ID": "1E_15",
 #   "Chapter": "1",

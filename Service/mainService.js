@@ -49,9 +49,34 @@ mainApp.service('dataService', ['$http', function ($http) {
         });
     }
 
+    this.saveFlashCardMark = function(userSession,flashcardID)
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://powertrainafttest.azurewebsites.net/FlashCard/BookmarkFlashcard',
+            data : {
+                "SessionID":userSession,
+                "FlashcardID":flashcardID
+                }
+
+        });
+    }
+
+    this.deleteFlashCardMark = function(userSession,flashcardID)
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://powertrainafttest.azurewebsites.net/FlashCard/DeleteFlashcardBookmark',
+            data : {
+                "SessionID":userSession,
+                "FlashcardID":flashcardID
+                }
+
+        });
+    }
+
     this.getFlashCardStack = function(userSession,amount, chapters)
     {
-        console.log("Request : " + userSession + " | " + amount + " | " + chapters );
         return $http({
             method : 'POST',
             url : 'https://powertrainafttest.azurewebsites.net/Flashcard/GetStack',

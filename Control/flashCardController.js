@@ -82,15 +82,52 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             if ( $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] == 1 )
             {
                 $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] = 0;
+                $scope.setFlashCardMark($scope.flashCards[$scope.currentFlashcard].ID,false);
             }
             else
             {
                 $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] = 1;
+                $scope.setFlashCardMark($scope.flashCards[$scope.currentFlashcard].ID,true);
             }
             $scope.setFlashCardData($scope.currentFlashcard);
             $localstorage.setObject('user', $scope.user);
         }
 
+        $scope.setFlashCardMark = function(flashcardID,save)
+        {
+            if ( save )
+            {
+                dataService.saveFlashCardMark($scope.user.userSession,flashcardID)
+                .then(function(response) 
+                {
+                    if (response != undefined && typeof response == "object") 
+                    {
+                        console.log("setFlashCardMark : " + JSON.stringify(response.data));
+                        
+                    } 
+                    else 
+                    {
+                        alert("Result is not JSON type");
+                    }
+                });
+            }
+            else
+            {
+                dataService.deleteFlashCardMark($scope.user.userSession,flashcardID)
+                .then(function(response) 
+                {
+                    if (response != undefined && typeof response == "object") 
+                    {
+                        console.log("deleteFlashCardMark : " + JSON.stringify(response.data));
+                        
+                    } 
+                    else 
+                    {
+                        alert("Result is not JSON type");
+                    }
+                });
+            }
+        }
 
         $scope.setFlashCardData = function(page)
         {
