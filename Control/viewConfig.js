@@ -44,10 +44,13 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
       templateUrl: 'View/blueBookView.html', controller: 'MainController'
     })
     .when('/savedBookmarks', {
-      templateUrl: 'View/saved-Bookmarks.html', controller: 'MainController'
+      templateUrl: 'View/saved-BookmarksView.html', controller: 'MainController'
     })
     .when('/savedNotes', {
-      templateUrl: 'View/saved-Notes.html', controller: 'MainController'
+      templateUrl: 'View/saved-NotesView.html', controller: 'MainController'
+    })
+    .when('/savedFlashcards', {
+      templateUrl: 'View/saved-flashcardsView.html', controller: 'MainController'
     })
 
     

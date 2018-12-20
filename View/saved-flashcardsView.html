@@ -1,0 +1,91 @@
+<div class="row justify-content-md-center m-0 flash-cards-background innerWithHeader"
+    ng-app="mainApp"
+    ng-controller="FlashCardController">
+
+    <!-- Flash cards -->
+
+    <div class="row col-12 p-0 m-0 justify-content-md-center">
+        <div class="row col-12">
+
+                <div class="col-1 mt-auto mb-auto ml-auto">
+                        <button class="btn button-nav-left-image"
+                        type="submit"
+                        alt="prev"
+                        ng-disabled="currentFlashcard <= 0"
+                        ng-click="nextCard(-1)"></button>
+                    </div>
+
+            <div class="row col-6 ">
+
+                <div class="flip justify-content-md-center">
+                    <div class="card" ng-class="{'flipped':flashCardisFlipped}">
+
+                        <!-- FRONT -->
+                        <div class="face front">
+                            <div class="row flash-cards-header-background-green">
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4">
+                                    <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
+                                    type="submit"
+                                    alt="flagged"
+                                    ng-click="flagFlashCard()"></button>                                   
+                                </div>
+                                <div class="col flash-cards-number mb-auto mt-auto mr-5">Question : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
+                            </div>
+                            <div class="row flash-card-box pr-3 pl-3">
+                                    <div class="flashCard-text" id="flashCardFrontContentEle" ng-bind-html="flashCardQuestionContent"></div>
+                            </div>
+                            <div class="row flash-card-box-bottom p-2"></div>
+                            <div class="row flash-card-check-box">
+                                        <button class="btn button-flash-card-checkmark ml-auto"
+                                        type="submit"
+                                        alt="check knowlege"
+                                        ng-click=""
+                                        ></button>
+                            </div>
+                        </div>
+
+                        <!-- BACK -->
+                        <div class="face back">
+                            <div class="row flash-cards-header-background ">
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4">
+                                        <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
+                                        type="submit"
+                                        alt="flagged"
+                                        ng-click="flagFlashCard()"></button>                                   
+                                </div>
+                                <div class="col flash-cards-number mb-auto mt-auto mr-5">Answer : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
+                            </div>
+                            <div class="row flash-card-box pr-3 pl-3">
+                                    <div class="flashCard-text" id="flashCardFrontContentEle" ng-bind-html="flashCardAnswerContent"></div>
+                            </div>
+                            <div class="row flash-card-box-bottom p-2"></div>
+                            <div class="row flash-card-check-box ">
+                                        <button class="btn button-flash-card-checkmark ml-auto"
+                                        type="submit"
+                                        alt="check knowlege"
+                                        ng-click=""
+                                        ></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-1 mt-auto mb-auto mr-auto">
+                    <button class="btn button-nav-right-image"
+                    type="submit"
+                    ng-disabled="currentFlashcard >= (user.userFlashCardsMax-1)"
+                    alt="next"
+                    ng-click="nextCard(1)"></button>
+                </div>
+        </div>
+        <div class="ml-auto mr-auto">
+            <button class="btn btn-success" style="width: 200px; background-color:#0d8071"
+            ng-click="shuffleFlashCards()">Shuffle</button>
+        </div>
+        <!-- <div class="flash-cards-chap-text">Ch. {{flashCards[currentFlashcard].Chapter}} Sect. {{flashCards[currentFlashcard].section}} Para. {{flashCards[currentFlashcard].Paragraph}}</div> -->
+    </div>
+</div>

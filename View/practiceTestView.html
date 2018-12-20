@@ -36,24 +36,25 @@
 									ng-click=""></button>                                   
 							</div>
 							<div class="col-9">
-								<p class="row flashCard-text">
+								<p class="row flashCard-text pb-4">
 										{{testQuestions[currentTestQuestion].question}}
 								</p>
-								<span class="row title-black-text3 mt-5">Answers :</span>
 
 								<div ng-repeat="answer in testQuestions[currentTestQuestion].answers"
 										ng-click="TestAnswerSelected(thierAnswer)">
 										<div class="form-check" id="flashCardAnswers">
-												<input class="form-check-input" 
-														ng-model="thierAnswer"
-														ng-value="$index+1"
-														type="radio" 
-														name="answerRadios" 
-														id="answerRadios" 
-														value="option">
-												<label class="form-check-label" for="exampleRadios1">
-														{{answer}}
-												</label>
+												
+											<label class="pt-container">{{answer}}
+											<input type="radio" 
+												checked="checked" 
+												ng-model="thierAnswer"
+												ng-value="$index+1"
+												name="answerRadios"
+												id="answerRadios"
+												value="option" >
+											<span class="pt-checkmark"></span>
+											</label>
+											
 										</div>
 								</div>  
 								<button class="btn btn-sm btn-primary m-3" 
@@ -72,7 +73,7 @@
 								ng-disabled="currentTestQuestion >= (testQuestions.length-1)"
 								ng-click="NextTestQuestion(1)"></button>
 							</div>
-                        </div>
+						</div>
                 </div>
         </div>
 </div>

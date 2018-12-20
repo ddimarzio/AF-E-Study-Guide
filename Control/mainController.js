@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.91";
+  $scope.version = "Version 0.93";
   $scope.Math = window.Math;
 
   // Menu system
@@ -248,6 +248,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.flashCardisFlipped = false;
       $scope.pageBookmarked = false;
       $scope.flashCardFlagged = false;
+      $scope.savedflashCardFlagged = false;
       $scope.pageNotes = "";
       $scope.pageNotesSaved = true;
       $scope.alertMessage = "";

@@ -31,6 +31,10 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         {
             $scope.getFlashCards($scope.user.flashCardSelectedAmount ,$scope.user.chaptersSelected);
         }
+        else if ( $scope.user.userLastView == 'savedFlashcards' )
+        {
+            // Get user's flagged cards
+        }
         // **********
 
         $scope.setChaptersSelected = function()
@@ -164,6 +168,11 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
                 $scope.flashCardisFlipped = false;
             }
+        }
+
+        $scope.shuffleFlashCards = function()
+        {
+            console.log("Shuffling deck...");
         }
         
   });
