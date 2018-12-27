@@ -51,6 +51,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setPageData = function(page)
         {
+            console.log("setPageData : " + JSON.stringify($scope.user));
+            
             // highlights
             if ( $scope.user.userHightlights[mainModel.handbookGetHBPage($scope.currentPage).indx] != undefined)
             {
