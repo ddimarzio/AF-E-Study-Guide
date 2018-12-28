@@ -18,8 +18,9 @@ header {
   position: fixed;
   width: 100%;
   height: 105px;
-  padding-left: 100px;
-  padding-right: 100px;
+  max-width: 1366px;
+  /* padding-left: 100px; */
+  /* padding-right: 100px; */
   background: rgba(0, 0, 0, 0.6);
   background: url('../Assets/images/background.png') ;
   opacity: 1;
@@ -34,8 +35,9 @@ footer {
   width: 100%;
   height: 60px;
   bottom: 0;
-  padding-left: 100px;
-  padding-right: 100px;
+  max-width: 1366px;
+  /* padding-left: 100px;
+  padding-right: 100px; */
   background: rgba(0, 0, 0, 1);
 }
 
@@ -82,6 +84,9 @@ a, a:hover, a:visited {
   font-family: 'agencyBold', sans-serif;
 }
 
+.progress-box {
+  max-height: 120px;
+}
 /* Practice Test */
 .testQuestionNum-block {
   height: 30px;
@@ -226,6 +231,7 @@ hr {
 .blueCard
 {
   min-height:350px;
+  max-height: 500px;
 }
 
 .testBorder
