@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.97";
+  $scope.version = "Version 0.98";
   $scope.Math = window.Math;
 
   // Menu system
@@ -186,13 +186,21 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
         {
           if (response != undefined && typeof response == "object") 
           {
-            console.log("Controller : "  + JSON.stringify(response.data) );
+            
 
             $scope.user.userName = response.data.Username;
             $scope.user.userRankID = response.data.Rank;
             $scope.user.userRole = response.data.Role;
             $scope.user.userNotes = response.data.Notes;
             $scope.user.userBookMarks = response.data.Bookmarks;
+
+            $scope.user.userFlashCardFlagged = {};
+            response.data.userFlashCardFlagged.forEach(function(flashcard)
+            {
+              $scope.user.userFlashCardFlagged[flashcard.indx] = flashcard.flagged;
+            });
+            
+            console.log("User get data : "  + JSON.stringify($scope.user) );
 
             $scope.loginLoading = false;
             $scope.navigateToView('rankselection');
@@ -202,6 +210,23 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
             alert("Result is not JSON type");
           }
     });
+  }
+
+
+  // TODO  Save data
+  $scope.saveUserData = function()
+  {
+    // dataService.getUserData($scope.user.userSession,$scope.user.userID)
+    // .then(function(response) 
+    //     {
+    //       if (response != undefined && typeof response == "object") 
+    //       {
+    //       }
+    //       else
+    //       {
+    //         alert("Result is not JSON type");
+    //       }
+    // });
   }
 
   $scope.selectRank = function(rankid)
