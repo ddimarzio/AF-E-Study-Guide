@@ -25,13 +25,21 @@
 #   "FlashcardID":"4E_18"
 # }
 
-POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-content-type: application/json
+POST https://powertrainafttest.azurewebsites.net/Flashcard/GetUserFlagged HTTP/1.1
 
+content-type: application/json
 {
-  "SessionID" : "384a4f9e-e274-4741-b07e-b41b4e7da11f",
-  "UserID" : "46"
+  "SessionID" : "f3e5dccf-c356-4b5a-b5a1-ebd540e396ac",
+  "userID" : "46"
 }
+
+# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "70a0a607-5207-4d32-83f5-c8ea5a4efce6",
+#   "UserID" : "46"
+# }
 
   # "UserID": 46,
   # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",

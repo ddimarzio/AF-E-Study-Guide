@@ -34,6 +34,20 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         else if ( $scope.user.userLastView == 'savedFlashcards' )
         {
             // Get user's flagged cards
+            dataService.getUserFlaggedCards($scope.user.userSession,$scope.user.userID)
+            .then(function(response) 
+                {
+                  if (response != undefined && typeof response == "object") 
+                  {
+                      console.log("Flagged cards " + JSON.stringify(response.data));
+                  }
+                  else
+                  {
+                    alert("Result is not JSON type");
+                  }
+            });
+
+
         }
         // **********
 
