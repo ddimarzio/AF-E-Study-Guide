@@ -49,6 +49,8 @@ mainApp.service('dataService', ['$http', function ($http) {
         });
     }
 
+    // this.getUserFlaggedCards = function(userSession,)
+
     this.saveFlashCardMark = function(userSession,flashcardID)
     {
         return $http({
@@ -84,6 +86,18 @@ mainApp.service('dataService', ['$http', function ($http) {
                 'SessionID' : userSession,
                 "amount" : amount,
                 "chapters" : chapters
+                }
+        });
+    }
+
+    this.getUserFlaggedCards = function(userSession,userid)
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://powertrainafttest.azurewebsites.net/Flashcard/GetUserFlagged',
+            data: {
+                'SessionID' : userSession,
+                "userID" : userid
                 }
         });
     }
