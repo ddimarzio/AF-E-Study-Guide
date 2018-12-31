@@ -26,6 +26,26 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             });
         }
 
+        $scope.getFlaggedFlashCards = function()
+        {
+            dataService.getUserFlaggedCards($scope.user.userSession,$scope.user.userID)
+            .then(function(response) 
+            {
+              if (response != undefined && typeof response == "object") 
+              {
+                console.log("Flagged Cards : " + JSON.stringify(response.data));
+
+                $scope.flashCards = response.data;
+                $scope.user.userFlashCardsMax = $scope.flashCards.length;
+                $scope.setFlashCardData($scope.currentFlashcard);
+              } 
+              else 
+              {
+                alert("Result is not JSON type");
+              }
+            });
+        }
+
         // ********** Main flash card data call
         if ( $scope.user.userLastView == 'flashcards')
         {
@@ -34,19 +54,9 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         else if ( $scope.user.userLastView == 'savedFlashcards' )
         {
             // Get user's flagged cards
-            dataService.getUserFlaggedCards($scope.user.userSession,$scope.user.userID)
-            .then(function(response) 
-                {
-                  if (response != undefined && typeof response == "object") 
-                  {
-                      console.log("Flagged cards " + JSON.stringify(response.data));
-                  }
-                  else
-                  {
-                    alert("Result is not JSON type");
-                  }
-            });
+            console.log("Getting flagged");
 
+            $scope.getFlaggedFlashCards();
 
         }
         // **********
