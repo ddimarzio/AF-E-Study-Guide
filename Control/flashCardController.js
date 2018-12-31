@@ -2,8 +2,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
     {
         //init
         $scope.currentFlashcard = 0;
-        $scope.user = $localstorage.getObject('user');
-        
+
+
         // Methods
         $scope.getFlashCards = function(amount,chapters)
         {
@@ -47,15 +47,15 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             });
         }
 
-
-        console.log("$scope.user.userLastView : " + $scope.user.userLastView);
+        $scope.Tuser = $localstorage.getObject('user'); // bug workaround 'Tuser'
+        console.log("$scope.user.userLastView : " + $scope.Tuser.userLastView);
 
         // ********** Main flash card data call
-        if ( $scope.user.userLastView == 'flashcards')
+        if ( $scope.Tuser.userLastView == 'flashcards')
         {
             $scope.getFlashCards($scope.user.flashCardSelectedAmount ,$scope.user.chaptersSelected);
         }
-        else if ( $scope.user.userLastView == 'savedFlashcards' )
+        else if ( $scope.Tuser.userLastView == 'savedFlashcards' )
         {
             // Get user's flagged cards
             console.log("Getting flagged");

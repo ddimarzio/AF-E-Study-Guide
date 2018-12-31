@@ -25,13 +25,13 @@
 #   "FlashcardID":"4E_18"
 # }
 
-POST https://powertrainafttest.azurewebsites.net/Flashcard/GetUserFlagged HTTP/1.1
+# POST https://powertrainafttest.azurewebsites.net/Flashcard/GetUserFlagged HTTP/1.1
 
-content-type: application/json
-{
-  "SessionID" : "f3e5dccf-c356-4b5a-b5a1-ebd540e396ac",
-  "userID" : "46"
-}
+# content-type: application/json
+# {
+#   "SessionID" : "f3e5dccf-c356-4b5a-b5a1-ebd540e396ac",
+#   "userID" : "46"
+# }
 
 # POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
 # content-type: application/json
@@ -60,14 +60,14 @@ content-type: application/json
 #   "FlashcardID":"6F_23"
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "0b174263-ef21-46f6-a0d5-33634be4898b",
-#   "amount" : "2",
-#   "chapters" : [1,2]
-# }
+{
+  "SessionID" : "f3e5dccf-c356-4b5a-b5a1-ebd540e396ac",
+  "amount" : "2",
+  "chapters" : [1,2]
+}
 
 # "ID": "1E_15",
 #   "Chapter": "1",
