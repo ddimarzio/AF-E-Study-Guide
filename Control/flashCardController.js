@@ -2,7 +2,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
     {
         //init
         $scope.currentFlashcard = 0;
-
+        $scope.user = $localstorage.getObject('user');
+        
         // Methods
         $scope.getFlashCards = function(amount,chapters)
         {
@@ -45,6 +46,9 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
               }
             });
         }
+
+
+        console.log("$scope.user.userLastView : " + $scope.user.userLastView);
 
         // ********** Main flash card data call
         if ( $scope.user.userLastView == 'flashcards')
