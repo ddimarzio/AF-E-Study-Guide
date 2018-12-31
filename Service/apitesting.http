@@ -29,7 +29,7 @@
 
 # content-type: application/json
 # {
-#   "SessionID" : "f3e5dccf-c356-4b5a-b5a1-ebd540e396ac",
+#   "SessionID" : "f7fff9f0-d275-4e69-8dc0-115513eac281",
 #   "userID" : "46"
 # }
 
@@ -64,7 +64,7 @@ POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
 content-type: application/json
 
 {
-  "SessionID" : "f3e5dccf-c356-4b5a-b5a1-ebd540e396ac",
+  "SessionID" : "f7fff9f0-d275-4e69-8dc0-115513eac281",
   "amount" : "2",
   "chapters" : [1,2]
 }
@@ -86,3 +86,10 @@ content-type: application/json
 #   "email" : "ddimarzio@powertrain.com"
 # }
 
+# POST http://powertrainafttest.azurewebsites.net/AdminEReader/GetPageContent HTTP/1.1
+# content-type: application/json
+
+# {
+#   "book type" : 0,
+#   "index" : 1,
+# }

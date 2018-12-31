@@ -164,8 +164,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         $scope.setFlashCardData = function(page)
         {
             //Question&Answer
-            $scope.flashCardQuestionContent = $sce.trustAsHtml($scope.flashCards[page].Question);
-            $scope.flashCardAnswerContent = $sce.trustAsHtml($scope.flashCards[page].Answer);
+            $scope.flashCardQuestionContent = $sce.trustAsHtml($scope.flashCards[page].question);
+            $scope.flashCardAnswerContent = $sce.trustAsHtml($scope.flashCards[page].answer);
 
             // flagged
             if ( $scope.user.userFlashCardFlagged[$scope.flashCards[$scope.currentFlashcard].ID] == 1 )
