@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.105";
+  $scope.version = "Version 0.106";
   $scope.Math = window.Math;
 
   // Menu system
@@ -157,6 +157,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
                 $localstorage.setObject('user', $scope.user); // TODO  Create seperate method for saving objects
 
                 $scope.getUserData();
+                $scope.getAllChaptersSections();
                 
               }
               else if ( response.data.status == 2) // email in use
@@ -212,6 +213,23 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     });
   }
 
+
+  $scope.getAllChaptersSections = function()
+  {
+    dataService.getChapterSections($scope.user.userSession,0)
+    .then(function(response) 
+        {
+          if (response != undefined && typeof response == "object") 
+          {
+              console.log("Chapters : " + JSON.stringify(response.data));
+          }
+            else
+            {
+              alert("Result is not JSON type");
+            }
+      });
+    // $scope.flashCardChapters 
+  }
 
   // TODO  Save data
   $scope.saveUserData = function()
@@ -291,7 +309,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.user = mainModel.getUser();
       $scope.ranks = mainModel.getRanks();
       $scope.viewTitles = mainModel.getViewtitles();
-      $scope.flashCardChapters = mainModel.getFlashCardChapters();
+      // $scope.flashCardChapters = mainModel.getFlashCardChapters();
       
       if ( $localstorage.getObject('user') != null)
       {

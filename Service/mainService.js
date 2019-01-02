@@ -101,4 +101,16 @@ mainApp.service('dataService', ['$http', function ($http) {
                 }
         });
     }
+
+    this.getChapterSections = function(userSession,booktype)
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://powertrainafttest.azurewebsites.net/Flashcard/GetUserFlagged',
+            data: {
+                'SessionID' : userSession,
+                "booktype" : booktype
+                }
+        });
+    }
 }]);
