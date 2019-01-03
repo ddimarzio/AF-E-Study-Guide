@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.111";
+  $scope.version = "Version 0.113";
   $scope.Math = window.Math;
 
 
@@ -109,7 +109,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $location.path(viewPage);
 
       // Forcing an update on an element.
-      $scope.changeHeaderText($scope.viewTitles[viewPage] + " - " + $scope.user.userName);
+      $scope.changeHeaderText($scope.viewTitles[viewPage]);// + " - " + $scope.user.userName);
       $scope.changeSubHeaderText("","");
       // console.log("View Page = " + viewPage); // debug
     }
