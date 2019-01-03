@@ -48,7 +48,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         }
 
         $scope.Tuser = $localstorage.getObject('user'); // bug workaround 'Tuser'
-        console.log("$scope.user.userLastView : " + $scope.Tuser.userLastView);
+        $scope.flashCardChapters = $localstorage.getObject('flashCardChapters');
 
         // ********** Main flash card data call
         if ( $scope.Tuser.userLastView == 'flashcards')
