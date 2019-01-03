@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.110";
+  $scope.version = "Version 0.111";
   $scope.Math = window.Math;
 
 
@@ -228,8 +228,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
               response.data.forEach(function(chapter)
               {
                 $scope.flashCardChapters[i] = {};
-                $scope.flashCardChapters[i].name = response.data[i].chapterTitle;
-                $scope.flashCardChapters[i].desc = response.data[i].desc;
+                $scope.flashCardChapters[i].name = "Chapter " + i;//response.data[i].chapterTitle;
+                $scope.flashCardChapters[i].desc = response.data[i].chapterTitle;
                 $scope.flashCardChapters[i].index = response.data[i].chapterID;
                 $scope.flashCardChapters[i].checked = false;
                 i++;
