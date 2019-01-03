@@ -106,7 +106,7 @@ mainApp.service('dataService', ['$http', function ($http) {
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/Flashcard/GetUserFlagged',
+            url : 'https://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles',
             data: {
                 'SessionID' : userSession,
                 "booktype" : booktype

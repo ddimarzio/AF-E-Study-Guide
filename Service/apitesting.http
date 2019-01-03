@@ -95,14 +95,14 @@
 # }
 
 
-# POST http://powertrainafttest.azurewebsites.net/AdminEReader/GetPageContent HTTP/1.1
+# POST http://powertrainafttest.azurewebsites.net/EReader/GetSectionContent HTTP/1.1
 # content-type: application/json
 
 # {
-#   "SessionID" : "59f7eed7-04ea-43d2-a69f-385a87e447bb",
-#   "book type" : 1,
-#   "chapterID" : 1,
-#   "sectionID" : 1
+# "SessionID" : "f8815040-a21c-456e-8323-b85d45516054",
+# "bookType" : 0,
+# "chapterID" : 0,
+# "sectionID" : "1C"
 # }
 
 POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
