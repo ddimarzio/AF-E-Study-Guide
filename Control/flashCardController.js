@@ -9,7 +9,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         {
             console.log("Get Flash Cards : " + $scope.user.userSession + " | " + amount + " | " + chapters);
 
-            dataService.getFlashCardStack($scope.user.userSession,amount,chapters)
+            dataService.getFlashCardStack($scope.user.userSession,amount,chapters,$scope.user.userRankID)
             .then(function(response) 
             {
               if (response != undefined && typeof response == "object") 
