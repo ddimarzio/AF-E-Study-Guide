@@ -77,7 +77,7 @@ mainApp.service('dataService', ['$http', function ($http) {
         });
     }
 
-    this.getFlashCardStack = function(userSession,amount, chapters)
+    this.getFlashCardStack = function(userSession,amount, chapters, rank)
     {
         return $http({
             method : 'POST',
@@ -85,7 +85,8 @@ mainApp.service('dataService', ['$http', function ($http) {
             data: {
                 'SessionID' : userSession,
                 "amount" : amount,
-                "chapters" : chapters
+                "chapters" : chapters,
+                "rank" : rank
                 }
         });
     }
