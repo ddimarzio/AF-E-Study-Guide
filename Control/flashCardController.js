@@ -210,6 +210,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
                     [a[i], a[j]] = [a[j], a[i]];
                 }
                 $scope.flashCards = a;
+                $scope.setFlashCardData($scope.currentFlashcard);
             }
         }
         
