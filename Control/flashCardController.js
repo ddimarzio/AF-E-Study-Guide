@@ -3,7 +3,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         //init
         $scope.currentFlashcard = 0;
 
-
         // Methods
         $scope.getFlashCards = function(amount,chapters)
         {
@@ -201,6 +200,17 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         $scope.shuffleFlashCards = function()
         {
             console.log("Shuffling deck...");
+
+            var a = [];
+            a = $scope.flashCards;
+
+            function shuffle(a) {
+                for (let i = a.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [a[i], a[j]] = [a[j], a[i]];
+                }
+                $scope.flashCards = a;
+            }
         }
         
   });

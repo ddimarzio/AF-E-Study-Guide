@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.115";
+  $scope.version = "Version 0.117";
   $scope.Math = window.Math;
 
 
@@ -228,7 +228,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
               response.data.forEach(function(chapter)
               {
                 $scope.flashCardChapters[i] = {};
-                $scope.flashCardChapters[i].name = "Chapter " + i;//response.data[i].chapterTitle;
+                $scope.flashCardChapters[i].name = "Chapter " + (i+1);//response.data[i].chapterTitle;
                 $scope.flashCardChapters[i].desc = response.data[i].chapterTitle;
                 $scope.flashCardChapters[i].index = response.data[i].chapterID;
                 $scope.flashCardChapters[i].checked = false;
@@ -283,7 +283,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     $scope.user.userLastView = "login";
     $scope.user.userBookMarks = {};
     $scope.user.userNotes = {};
-    $scope.user.userFlashCardsMax = 5;
+    $scope.user.userFlashCardsMax = 25;
     $scope.user.userFlashCardFlagged = {};
     $scope.user.userHightlights = {};
     $scope.user.userSession = '1118721c-15df-475a-815c-799ddbcba264';
