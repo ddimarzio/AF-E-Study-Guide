@@ -201,20 +201,25 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         {
             console.log("Shuffling deck...");
 
-            var a = [];
-            a = $scope.flashCards;
-
-            function shuffle(a) {
-                var j, x, i;
-                for (i = a.length - 1; i > 0; i--) {
-                    j = Math.floor(Math.random() * (i + 1));
-                    x = a[i];
-                    a[i] = a[j];
-                    a[j] = x;
-                }
-                $scope.flashCards = a;
-                $scope.setFlashCardData($scope.currentFlashcard);
-            }
+            $scope.flashCards = $scope.shuffleArray($scope.flashCards);
         }
+
+        $scope.shuffleArray = function(array)
+        {
+            var m = array.length, t, i;
+          
+            // While there remain elements to shuffle
+            while (m) {
+              // Pick a remaining element…
+              i = Math.floor(Math.random() * m--);
+          
+              // And swap it with the current element.
+              t = array[m];
+              array[m] = array[i];
+              array[i] = t;
+            }
+          
+            return array;
+          }
         
   });
