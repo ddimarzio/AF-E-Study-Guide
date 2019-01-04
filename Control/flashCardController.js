@@ -202,6 +202,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             console.log("Shuffling deck...");
 
             $scope.flashCards = $scope.shuffleArray($scope.flashCards);
+            $scope.setFlashCardData($scope.currentFlashcard);
         }
 
         $scope.shuffleArray = function(array)
