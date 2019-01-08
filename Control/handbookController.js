@@ -18,10 +18,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
               {
                 console.log("content : " + JSON.stringify(response.data));
 
-                // $scope.currentMaxPages = mainModel.getMaxPages();
-                // $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(0).content);
+                $scope.allPageContent = [];
+                $scope.allPageContent = response.data.content;
+
+                $scope.currentMaxPages = $scope.allPageContent.length;
+                $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent(0).content);
                 // $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
-                // $scope.originalPageContent =  $scope.currentPageContent;
+                $scope.originalPageContent =  $scope.currentPageContent;
 
               } 
               else 
@@ -108,9 +111,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             if ( num > -1 && num < $scope.currentMaxPages)
             {
                 $scope.currentPage = num;
-                page = mainModel.handbookGetHBPage(num);
+                page = $scope.allPageContent(num);
                 $scope.currentPageContent = $sce.trustAsHtml(page.content);
-                $scope.changeSubHeaderText("Chapter " + page.chapter," - " + page.title);
+                // $scope.changeSubHeaderText("Chapter " + page.chapter," - " + page.title);
                 $scope.setPageData($scope.currentPage);
             }   
         }
