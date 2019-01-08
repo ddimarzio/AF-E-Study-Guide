@@ -88,17 +88,17 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.addHighlight($scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page);
             }
             // notes
-            $scope.pageNotes = $scope.user.userNotes[$scope.allPageContent[$scope.currentPage].page];
+            // $scope.pageNotes = $scope.user.userNotes[$scope.allPageContent[$scope.currentPage].page];
 
             // boookmark
-            if ( $scope.user.userBookMarks[$scope.allPageContent[$scope.currentPage].page] == 1 )
-            {
-                $scope.pageBookmarked = true;
-            }
-            else
-            {
-                $scope.pageBookmarked = false;
-            }
+            // if ( $scope.user.userBookMarks[$scope.allPageContent[$scope.currentPage].page] == 1 )
+            // {
+            //     $scope.pageBookmarked = true;
+            // }
+            // else
+            // {
+            //     $scope.pageBookmarked = false;
+            // }
 
             // set read progress
             if ( page+1 > $scope.user.userReadHandbook)
