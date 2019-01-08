@@ -89,7 +89,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             //     $scope.addHighlight($scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page);
             // }
             // notes
-            $scope.pageNotes = $scope.user.userNotes[$scope.actualPageNumber];
+            // $scope.pageNotes = $scope.user.userNotes[$scope.actualPageNumber];
 
             // boookmark
             // if ( $scope.user.userBookMarks[$scope.allPageContent[$scope.currentPage].page] == 1 )
