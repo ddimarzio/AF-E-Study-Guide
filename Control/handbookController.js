@@ -25,7 +25,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 console.log("allPageContent : " + JSON.stringify($scope.allPageContent));
 
                 $scope.currentMaxPages = $scope.allPageContent.length;
-                $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent(0).content);
+                $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[0].content);
                 // $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
                 $scope.originalPageContent =  $scope.currentPageContent;
 
@@ -114,7 +114,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             if ( num > -1 && num < $scope.currentMaxPages)
             {
                 $scope.currentPage = num;
-                page = $scope.allPageContent(num);
+                page = $scope.allPageContent[num];
                 $scope.currentPageContent = $sce.trustAsHtml(page.content);
                 // $scope.changeSubHeaderText("Chapter " + page.chapter," - " + page.title);
                 $scope.setPageData($scope.currentPage);
