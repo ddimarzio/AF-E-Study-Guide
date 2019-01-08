@@ -119,7 +119,7 @@ mainApp.service('dataService', ['$http', function ($http) {
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles',
+            url : 'https://powertrainafttest.azurewebsites.net/EReader/GetSectionContent',
             data: {
                 "SessionID" : userSession,
                 "bookType" : booktype,
