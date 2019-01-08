@@ -21,6 +21,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
                 $scope.allPageContent = [];
                 $scope.allPageContent = response.data;
+                $scope.actualPageNumber = parseFloat($scope.allPageContent[0].page);
 
                 console.log("allPageContent : " + JSON.stringify($scope.allPageContent));
 
@@ -83,12 +84,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("setPageData : " + JSON.stringify($scope.user));
             
             // highlights
-            if ( $scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page] != undefined)
-            {
-                $scope.addHighlight($scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page);
-            }
+            // if ( $scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page] != undefined)
+            // {
+            //     $scope.addHighlight($scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page);
+            // }
             // notes
-            // $scope.pageNotes = $scope.user.userNotes[$scope.allPageContent[$scope.currentPage].page];
+            $scope.pageNotes = $scope.user.userNotes[$scope.actualPageNumber];
 
             // boookmark
             // if ( $scope.user.userBookMarks[$scope.allPageContent[$scope.currentPage].page] == 1 )
@@ -117,6 +118,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 page = $scope.allPageContent[num];
                 $scope.currentPageContent = $sce.trustAsHtml(page.content);
                 // $scope.changeSubHeaderText("Chapter " + page.chapter," - " + page.title);
+                $scope.actualPageNumber = parseFloat($scope.allPageContent[num].page);
                 $scope.setPageData($scope.currentPage);
             }   
         }
