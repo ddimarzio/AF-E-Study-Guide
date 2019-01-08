@@ -17,11 +17,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
               if (response != undefined && typeof response == "object") 
               {
                 
+                console.log("response.data : " + JSON.stringify(response.data));
 
                 $scope.allPageContent = [];
                 $scope.allPageContent = response.data.content;
 
-                console.log("content : " + JSON.stringify($scope.allPageContent));
+                console.log("allPageContent : " + JSON.stringify($scope.allPageContent));
 
                 $scope.currentMaxPages = $scope.allPageContent.length;
                 $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent(0).content);
