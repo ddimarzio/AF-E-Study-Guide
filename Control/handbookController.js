@@ -20,7 +20,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 console.log("response.data : " + JSON.stringify(response.data));
 
                 $scope.allPageContent = [];
-                $scope.allPageContent = response.data.content;
+                $scope.allPageContent = response.data;
 
                 console.log("allPageContent : " + JSON.stringify($scope.allPageContent));
 
