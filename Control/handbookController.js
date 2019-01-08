@@ -83,22 +83,22 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("setPageData : " + JSON.stringify($scope.user));
             
             // highlights
-            // if ( $scope.user.userHightlights[mainModel.handbookGetHBPage($scope.currentPage).indx] != undefined)
-            // {
-            //     $scope.addHighlight($scope.user.userHightlights[mainModel.handbookGetHBPage($scope.currentPage).indx]);
-            // }
+            if ( $scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page] != undefined)
+            {
+                $scope.addHighlight($scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page);
+            }
             // notes
-            // $scope.pageNotes = $scope.user.userNotes[mainModel.handbookGetHBPage($scope.currentPage).indx];
+            $scope.pageNotes = $scope.user.userNotes[$scope.allPageContent[$scope.currentPage].page];
 
             // boookmark
-            // if ( $scope.user.userBookMarks[mainModel.handbookGetHBPage($scope.currentPage).indx] == 1 )
-            // {
-            //     $scope.pageBookmarked = true;
-            // }
-            // else
-            // {
-            //     $scope.pageBookmarked = false;
-            // }
+            if ( $scope.user.userBookMarks[$scope.allPageContent[$scope.currentPage].page] == 1 )
+            {
+                $scope.pageBookmarked = true;
+            }
+            else
+            {
+                $scope.pageBookmarked = false;
+            }
 
             // set read progress
             if ( page+1 > $scope.user.userReadHandbook)
