@@ -60,15 +60,15 @@
 #   "FlashcardID":"6F_23"
 # }
 
-POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "ba7846aa-4beb-4fe3-ad4c-14e2899f274f",
-  "amount" : "2",
-  "chapters" : [1,2],
-  "rank" : "0"
-}
+# {
+#   "SessionID" : "ba7846aa-4beb-4fe3-ad4c-14e2899f274f",
+#   "amount" : "2",
+#   "chapters" : [1,2],
+#   "rank" : "0"
+# }
 
 # "ID": "1E_15",
 #   "Chapter": "1",
@@ -91,20 +91,21 @@ content-type: application/json
 # content-type: application/json
 
 # {
-#   "book type" : 0,
-#   "index" : 1,
-# }
-
-
-# POST http://powertrainafttest.azurewebsites.net/EReader/GetSectionContent HTTP/1.1
-# content-type: application/json
-
-# {
 # "SessionID" : "f8815040-a21c-456e-8323-b85d45516054",
 # "bookType" : 0,
-# "chapterID" : 0,
-# "sectionID" : "1C"
+# "chapterID" : 6,
 # }
+
+
+POST http://powertrainafttest.azurewebsites.net/EReader/GetSectionContent HTTP/1.1
+content-type: application/json
+
+{
+"SessionID" : "02201853-082a-455c-955e-4143bf3159b3",
+"bookType" : 0,
+"chapterID" : 5,
+"sectionID" : "5C"
+}
 
 # POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
 # content-type: application/json
