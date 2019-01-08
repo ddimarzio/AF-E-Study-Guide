@@ -114,4 +114,19 @@ mainApp.service('dataService', ['$http', function ($http) {
                 }
         });
     }
+
+    this.getEReaderPages = function(userSession,booktype,chapterid,sectionid)
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles',
+            data: {
+                "SessionID" : userSession,
+                "bookType" : booktype,
+                "chapterID" : chapterid,
+                "sectionID" : sectionid
+                }
+        });
+    }
+
 }]);

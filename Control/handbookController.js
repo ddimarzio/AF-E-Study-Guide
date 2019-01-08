@@ -3,10 +3,33 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         //init
         $scope.currentChapter = 1;
         $scope.currentPage = 0;
-        $scope.currentMaxPages = mainModel.getMaxPages();
-        $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(0).content);
-        $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
-        $scope.originalPageContent =  $scope.currentPageContent;
+        // $scope.currentMaxPages = mainModel.getMaxPages();
+        // $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(0).content);
+        // $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
+        // $scope.originalPageContent =  $scope.currentPageContent;
+
+
+        $scope.getContent = function()
+        {
+            dataService.getEReaderPages($scope.user.userSession,0,5,"5C")
+            .then(function(response) 
+            {
+              if (response != undefined && typeof response == "object") 
+              {
+                console.log("content : " + JSON.stringify(response.data));
+
+                // $scope.currentMaxPages = mainModel.getMaxPages();
+                // $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(0).content);
+                // $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
+                // $scope.originalPageContent =  $scope.currentPageContent;
+
+              } 
+              else 
+              {
+                alert("Result is not JSON type");
+              }
+            });
+        }
 
         $scope.saveHighlights = function(page,txt)
         {
