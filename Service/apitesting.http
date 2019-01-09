@@ -97,21 +97,21 @@
 # }
 
 
-POST http://powertrainafttest.azurewebsites.net/EReader/GetSectionContent HTTP/1.1
-content-type: application/json
-
-{
-"SessionID" : "02201853-082a-455c-955e-4143bf3159b3",
-"bookType" : 0,
-"chapterID" : 1,
-"sectionID" : "1A"
-}
-
-# POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
+# POST http://powertrainafttest.azurewebsites.net/EReader/GetSectionContent HTTP/1.1
 # content-type: application/json
 
 # {
-#   "SessionID" : "59f7eed7-04ea-43d2-a69f-385a87e447bb",
-#   "booktype" : 0
+# "SessionID" : "02201853-082a-455c-955e-4143bf3159b3",
+# "bookType" : 0,
+# "chapterID" : 1,
+# "sectionID" : "1A"
 # }
+
+POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
+content-type: application/json
+
+{
+  "SessionID" : "59f7eed7-04ea-43d2-a69f-385a87e447bb",
+  "booktype" : 0
+}
 
