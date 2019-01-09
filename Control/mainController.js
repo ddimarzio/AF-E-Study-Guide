@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.145";
+  $scope.version = "Version 0.146";
   $scope.Math = window.Math;
 
 
@@ -46,8 +46,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   $scope.toggleChapterMenu = function()
   {
     // $localstorage.setObject('flashCardChapters', $scope.flashCardChapters);
-    $scope.flashCardChapters = $localstorage.getObject('flashCardChapters');
-    console.log("Chapters :" + $scope.flashCardChapters);
+    $scope.allChapterSections = $localstorage.getObject('allChapterSections');
+    console.log("Chapters :" + $scope.allChapterSections);
 
     $scope.navChapterMenuOpen[0] = !$scope.navChapterMenuOpen[0];
   }
@@ -56,6 +56,13 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   {
     $scope.navChapterMenuOpen[0] = false;
   }
+
+  $scope.navigateToResource = function(booktype,chapter)
+  {
+    // save data to local, nav to page
+
+  }
+
 
  // ********************
 
@@ -242,6 +249,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
           if (response != undefined && typeof response == "object") 
           {
               $scope.flashCardChapters = [];
+              $scope.allChapterSections = [];
               var i = 0;
               response.data.forEach(function(chapter)
               {
@@ -251,10 +259,25 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
                 $scope.flashCardChapters[i].index = response.data[i].chapterID;
                 $scope.flashCardChapters[i].checked = false;
                 i++;
+
+
+                $scope.allChapterSections[i].name = "Chapter " + (i+1);
+                $scope.allChapterSections[i].desc = chapter.chapterTitle;
+                $scope.allChapterSections[i].index = chapter.chapterID;
+
+                var j = 0;
+                chapter.sections.forEach(function(section)
+                  {
+                    $scope.allChapterSections[i].sections = [];
+                    $scope.allChapterSections[i].section[j].sectionID = section.sectionID;
+                    $scope.allChapterSections[i].section[j].sectionNumber = section.sectionNumber;
+                    $scope.allChapterSections[i].section[j].sectionTitle = section.sectionTitle;
+                    j++;
+                  });
               });
 
               $localstorage.setObject('flashCardChapters', $scope.flashCardChapters);
-
+              $localstorage.setObject('allChapterSections', $scope.allChapterSections);
               console.log("Chapters : " + JSON.stringify($scope.flashCardChapters));
 
           }
