@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.139";
+  $scope.version = "Version 0.140";
   $scope.Math = window.Math;
 
 
@@ -28,18 +28,32 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     }
     $scope.lastGreenText = menuitem;
   }
-  // ********************
 
+
+ 
   $scope.toggleMainMenu = function()
   {
     $scope.navMenuMainOpen[0] = !$scope.navMenuMainOpen[0];
+    $scope.closeChapterMenu[0] = false;
   }
 
   $scope.closeMainMenu = function()
   {
     $scope.navMenuMainOpen[0] = false;
+    $scope.closeChapterMenu[0] = false;
   }
 
+  $scope.toggleChapterMenu = function()
+  {
+    $scope.navChapterMenuOpen[0] = !$scope.navChapterMenuOpen[0];
+  }
+
+  $scope.closeChapterMenu = function()
+  {
+    $scope.navChapterMenuOpen[0] = false;
+  }
+
+ // ********************
 
   $scope.resetPassword = function(thisUser)
   {
@@ -321,6 +335,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.navSubMenuOpen = [false,false,false,false,false];
       $scope.lastGreenText = 0;
       $scope.loginLoading = false;
+      $scope.navChapterMenuOpen = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+      
 
       // Value Objects
       $scope.user = mainModel.getUser();
