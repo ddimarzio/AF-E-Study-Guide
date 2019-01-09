@@ -192,22 +192,20 @@
             </div>
             </div>
             <div class="col-0">
-                <!-- Sub menu -->
+                <!-- Sub menu ng-mouseleave="closeChapterMenu()" ng-blur="closeChapterMenu()"> -->
                 <div id="navChapterMenu" 
                 class="navChapterMenu animate-show-hide"
                 tabindex="-1"
-                ng-show="navChapterMenuOpen[0]"
-                ng-mouseleave="closeChapterMenu()"
-                ng-blur="closeChapterMenu()">
+                ng-show="navChapterMenuOpen[0]">
 
                     <div class="p-1 pl-5 clickBox"
                         ng-repeat="chapt in allChapterSections"
-                        ng-click="navChapterMenuSelect($index)">
+                        ng-click="navChapterMenuSelect($index+1)">
                         <!-- <div id="chapterTriangle1" class="chapterTraingle mt-auto mb-auto"></div> -->
                         <div id="chapterMenutext1" class="chapterMenu-category mt-auto mb-auto">{{chapt.name}} {{chapt.desc}}</div>
                     
                         <div class="animate-show-hide"
-                            ng-show="navChapterMenuOpen[$index]">
+                            ng-show="navChapterMenuOpen[$index+1]">
 
                             <div class="row p-1 pl-5 clickBox"
                                 ng-repeat="section in chapt.sections"
