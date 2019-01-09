@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.155";
+  $scope.version = "Version 0.156";
   $scope.Math = window.Math;
 
 
@@ -58,6 +58,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   $scope.navChapterMenuSelect = function(menuitem)
   {
     // $scope.navMenuGreenText(menuitem);
+
+    console.log("menuitem : " + menuitem);
 
     $scope.navChapterMenuOpen[menuitem] = !$scope.navChapterMenuOpen[menuitem];
     // $scope.navMenuMainOpen[menuitem] = !$scope.navMenuMainOpen[menuitem];
