@@ -78,7 +78,7 @@ mainApp.factory('mainModel',function()
             bluebook:'Little Blue Book',
             savedBookmarks:'Saved Bookmarks',
             savedNotes:'Saved Notes',
-            savedFlashcards:'Saved Flash Cards'
+            savedFlashcards:'Saved Flashcards'
     };
     valObjects.getViewtitles = function()
     {
