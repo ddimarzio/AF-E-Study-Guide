@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.157";
+  $scope.version = "Version 0.158";
   $scope.Math = window.Math;
 
 
@@ -39,6 +39,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   {
     $scope.navMenuMainOpen[0] = false;
     $scope.closeChapterMenu[0] = false;
+    $scope.navChapterMenuOpen[0] = false;
   }
 
   $scope.toggleChapterMenu = function()
@@ -59,17 +60,16 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   {
     // $scope.navMenuGreenText(menuitem);
 
-    console.log("menuitem : " + menuitem);
-
     $scope.navChapterMenuOpen[menuitem] = !$scope.navChapterMenuOpen[menuitem];
     // $scope.navMenuMainOpen[menuitem] = !$scope.navMenuMainOpen[menuitem];
   }
 
 
-  $scope.navigateToResource = function(booktype,chapter)
+  $scope.navigateToResource = function(booktype,chapterid,sectionid)
   {
-    // save data to local, nav to page
-
+      $localstorage.setObject('resourcePage', [booktype,chapterid,sectionid]);
+      console.log("resourcePage :" + [booktype,chapterid,sectionid]);
+      // navigateToView('handbook');
   }
 
 
@@ -149,11 +149,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     }
   }
 
-  $scope.navigateToResource = function(booktype,chapterid,sectionid)
-  {
-    $localstorage.setObject('resourcePage', [booktype,chapterid,sectionid]);
-    navigateToView('handbook');
-  }
+
 
   $scope.changeHeaderText = function(text)
   {
