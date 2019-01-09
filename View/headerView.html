@@ -206,10 +206,9 @@
                     
                         <div class="animate-show-hide"
                             ng-show="navChapterMenuOpen[$index+1]">
-
                             <div class="row p-1 pl-5 clickBox"
                                 ng-repeat="section in chapt.sections"
-                                ng-click="">
+                                ng-click="navigateToResource(0,chapt.index,section.sectionID)">
                                     <div id="chapterMenutext11" class="chapterSubMenu-category mt-auto mb-auto">{{section.sectionTitle}}</div>
                             </div>
                         </div>
