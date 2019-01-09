@@ -202,26 +202,28 @@
 
                     <div class="row p-1 pl-5 clickBox"
                         ng-repeat="chapt in allChapterSections"
-                        ng-click="navChapterMenuSelect(1)">
+                        ng-click="navChapterMenuSelect($index)">
                         <div id="chapterTriangle1" class="chapterTraingle mt-auto mb-auto"></div>
                         <div id="chapterMenutext1" class="chapterMenu-category mt-auto mb-auto">{{chapt.name}} {{chapt.desc}}</div>
+                    
+                        <div class="animate-show-hide"
+                            ng-show="navChapterMenuOpen[$index]">
+                            <div class="row p-1 pl-5 clickBox"
+                                ng-click="">
+                                    <div id="chapterMenutext11" class="chapterSubMenu-category mt-auto mb-auto">{{chapt.name}}</div>
+                            </div>
+                            <div class="row p-1 pl-5 clickBox"
+                                ng-click="">
+                                    <div id="chapterMenutext12" class="chapterSubMenu-category mt-auto mb-auto">{{chapt.name}}</div>
+                            </div>
+                            <div class="row p-1 pl-5 clickBox"
+                                ng-click="">
+                                    <div id="chapterMenutext13" class="chapterSubMenu-category mt-auto mb-auto">{{chapt.name}}</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="animate-show-hide"
-                        ng-show="navChapterMenuOpen[1]">
-                        <div class="row p-1 pl-5 clickBox"
-                            ng-click="">
-                                <div id="chapterMenutext11" class="menu-sub mt-auto mb-auto">sec1</div>
-                        </div>
-                        <div class="row p-1 pl-5 clickBox"
-                            ng-click="">
-                                <div id="chapterMenutext12" class="menu-sub mt-auto mb-auto">sec2</div>
-                        </div>
-                        <div class="row p-1 pl-5 clickBox"
-                            ng-click="">
-                                <div id="chapterMenutext13" class="menu-sub mt-auto mb-auto">sec3</div>
-                        </div>
-                    </div>
+
 
 
                 </div>
