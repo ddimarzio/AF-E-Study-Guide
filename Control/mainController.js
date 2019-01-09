@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.149";
+  $scope.version = "Version 0.150";
   $scope.Math = window.Math;
 
 
@@ -47,7 +47,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   {
     // $localstorage.setObject('flashCardChapters', $scope.flashCardChapters);
     $scope.allChapterSections = $localstorage.getObject('allChapterSections');
-    console.log("Chapters :" + $scope.allChapterSections);
+    console.log("ChaptersSections :" + $scope.allChapterSections);
 
     $scope.navChapterMenuOpen[0] = !$scope.navChapterMenuOpen[0];
   }
@@ -261,7 +261,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
                 i++;
 
                 $scope.allChapterSections[i] = {};
-                $scope.allChapterSections[i].name = "Chapter " + (i+1);
+                $scope.allChapterSections[i].name = "CH. " + (i+1);
                 $scope.allChapterSections[i].desc = chapter.chapterTitle;
                 $scope.allChapterSections[i].index = chapter.chapterID;
 
@@ -279,8 +279,6 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
 
               $localstorage.setObject('flashCardChapters', $scope.flashCardChapters);
               $localstorage.setObject('allChapterSections', $scope.allChapterSections);
-              console.log("Chapters : " + JSON.stringify($scope.flashCardChapters));
-
           }
             else
             {
