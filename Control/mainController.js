@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.148";
+  $scope.version = "Version 0.149";
   $scope.Math = window.Math;
 
 
@@ -266,9 +266,10 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
                 $scope.allChapterSections[i].index = chapter.chapterID;
 
                 var j = 0;
+                $scope.allChapterSections[i].sections = [];
                 chapter.sections.forEach(function(section)
                   {
-                    $scope.allChapterSections[i].sections = [];
+                    $scope.allChapterSections[i].sections[j] = {};
                     $scope.allChapterSections[i].sections[j].sectionID = section.sectionID;
                     $scope.allChapterSections[i].sections[j].sectionNumber = section.sectionNumber;
                     $scope.allChapterSections[i].sections[j].sectionTitle = section.sectionTitle;
