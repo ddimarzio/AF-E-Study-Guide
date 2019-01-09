@@ -11,8 +11,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.getContent = function()
         {
+            var whichPage = $localstorage.getObject('resourcePage');
+            console.log("whichPage :" + whichPage);
             
-            dataService.getEReaderPages($scope.user.userSession,0,5,"5C")
+            dataService.getEReaderPages($scope.user.userSession,whichPage[0],whichPage[1],whichPage[2])
             .then(function(response) 
             {
               if (response != undefined && typeof response == "object") 
