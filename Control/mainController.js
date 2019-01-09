@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.150";
+  $scope.version = "Version 0.151";
   $scope.Math = window.Math;
 
 
@@ -47,7 +47,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   {
     // $localstorage.setObject('flashCardChapters', $scope.flashCardChapters);
     $scope.allChapterSections = $localstorage.getObject('allChapterSections');
-    console.log("ChaptersSections :" + $scope.allChapterSections);
+    console.log("ChaptersSections :" + JSON.stringify($scope.allChapterSections));
 
     $scope.navChapterMenuOpen[0] = !$scope.navChapterMenuOpen[0];
   }
