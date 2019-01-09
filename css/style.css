@@ -239,7 +239,7 @@ hr {
   background: rgb(255, 255, 255);
   background-color: rgb(255, 255, 255);
   width: 270px;
-  max-height: 500px;
+  max-height: 200px;
   overflow: auto;
 }
 /* *********************************** */
