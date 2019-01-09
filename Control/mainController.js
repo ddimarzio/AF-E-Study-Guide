@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.158";
+  $scope.version = "Version 0.159";
   $scope.Math = window.Math;
 
 
@@ -69,7 +69,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   {
       $localstorage.setObject('resourcePage', [booktype,chapterid,sectionid]);
       console.log("resourcePage :" + [booktype,chapterid,sectionid]);
-      // navigateToView('handbook');
+      navigateToView('handbook');
   }
 
 
