@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.151";
+  $scope.version = "Version 0.152";
   $scope.Math = window.Math;
 
 
@@ -28,8 +28,6 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
     }
     $scope.lastGreenText = menuitem;
   }
-
-
  
   $scope.toggleMainMenu = function()
   {
@@ -56,6 +54,15 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
   {
     $scope.navChapterMenuOpen[0] = false;
   }
+
+  $scope.navChapterMenuSelect = function(menuitem)
+  {
+    // $scope.navMenuGreenText(menuitem);
+
+    $scope.navChapterMenuOpen[menuitem] = !$scope.navChapterMenuOpen[menuitem];
+    // $scope.navMenuMainOpen[menuitem] = !$scope.navMenuMainOpen[menuitem];
+  }
+
 
   $scope.navigateToResource = function(booktype,chapter)
   {
@@ -138,6 +145,12 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
       $scope.changeSubHeaderText("","");
       // console.log("View Page = " + viewPage); // debug
     }
+  }
+
+  $scope.navigateToResource = function(booktype,chapterid,sectionid)
+  {
+    $localstorage.setObject('resourcePage', [booktype,chapterid,sectionid]);
+    navigateToView('handbook');
   }
 
   $scope.changeHeaderText = function(text)
@@ -258,7 +271,7 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
                 $scope.flashCardChapters[i].desc = response.data[i].chapterTitle;
                 $scope.flashCardChapters[i].index = response.data[i].chapterID;
                 $scope.flashCardChapters[i].checked = false;
-                i++;
+                
 
                 $scope.allChapterSections[i] = {};
                 $scope.allChapterSections[i].name = "CH. " + (i+1);
@@ -275,6 +288,8 @@ mainApp.controller('MainController', function($scope,$location,$window,$localsto
                     $scope.allChapterSections[i].sections[j].sectionTitle = section.sectionTitle;
                     j++;
                   });
+
+                i++;
               });
 
               $localstorage.setObject('flashCardChapters', $scope.flashCardChapters);

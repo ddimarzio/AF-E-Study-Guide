@@ -11,6 +11,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.getContent = function()
         {
+            
             dataService.getEReaderPages($scope.user.userSession,0,5,"5C")
             .then(function(response) 
             {
