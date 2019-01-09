@@ -201,10 +201,10 @@
                 ng-blur="closeChapterMenu()">
 
                     <div class="row p-1 pl-5 clickBox"
-                        ng-repeat="chapter in flashCardChapters"
+                        ng-repeat="chapt in flashCardChapters"
                         ng-click="">
                         <div id="chapterTriangle1" class="chapterTraingle mt-auto mb-auto"></div>
-                        <div id="chapterMenutext1" class="chapterMenu-category mt-auto mb-auto">{chapter.name}</div>
+                        <div id="chapterMenutext1" class="chapterMenu-category mt-auto mb-auto">{{chapt.name}}</div>
                     </div>
 
                 </div>
