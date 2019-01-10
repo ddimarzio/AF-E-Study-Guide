@@ -34,7 +34,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.originalPageContent =  $scope.currentPageContent;
 
                 $scope.changeHeaderText("THE AIRMAN HANDBOOK 1");
-                $scope.changeSubHeaderText("Chapter " + $scope.allPageContent.title);
+                $scope.changeSubHeaderText("Chapter " + $scope.allPageContent[0].title);
 
               } 
               else 
