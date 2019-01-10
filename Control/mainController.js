@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.177";
+  $scope.version = "Version 0.178";
   $scope.Math = window.Math;
 
 
@@ -65,11 +65,11 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
   }
 
 
-  $scope.navigateToResource = function(booktype,chapterid,sectionid)
+  $scope.navigateToResource = function(booktype,sectionid)
   {
-      console.log("chapterid :" + chapterid);
+      console.log("chapterid :" + parseFloat(sectionid));
 
-      $localstorage.setObject('resourcePage', [booktype,chapterid,sectionid]);
+      $localstorage.setObject('resourcePage', [booktype,parseFloat(sectionid),sectionid]);
       $scope.closeMainMenu();
 
       if ( $scope.user.userLastView != 'handbook')
