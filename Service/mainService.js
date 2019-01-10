@@ -1,13 +1,12 @@
 mainApp.service('dataService', ['$http', function ($http,$location) {
 
-    var urlBase = 'https://powertrainafttest.azurewebsites.net/';
-    // var urlBase = 'http://rest-service.guides.spring.io/';
+    var urlBase = window.location.host;
 
     this.registerUser = function(thisUser)
     {
         return $http({
             method: 'POST',
-            url: 'https://powertrainafttest.azurewebsites.net/Account/Register',
+            url: 'https://' + urlBase + '/Account/Register',
             data: {
                 'email': thisUser.userEmail,
                 'username': thisUser.userName,
@@ -23,7 +22,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
 
         return $http({
             method: 'POST',
-            url: 'https://powertrainafttest.azurewebsites.net/Account/Login',
+            url: 'https://' + urlBase + '/Account/Login',
             data: {
                 'username': thisUser.userEmail,
                 'password': thisUser.userPassword
@@ -35,7 +34,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/Account/GetData',
+            url : 'https://' + urlBase + '/Account/GetData',
             data: {
                 'SessionID' : userSession,
                 'UserID' : userID
@@ -43,21 +42,11 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
         });
     }
 
-    this.getGreeting = function () 
-    {
-        return $http({
-            method:'GET',
-            url: 'https://rest-service.guides.spring.io/greeting'
-        });
-    }
-
-    // this.getUserFlaggedCards = function(userSession,)
-
     this.saveFlashCardMark = function(userSession,flashcardID)
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/FlashCard/BookmarkFlashcard',
+            url : 'https://' + urlBase + '/FlashCard/BookmarkFlashcard',
             data : {
                 "SessionID":userSession,
                 "FlashcardID":flashcardID
@@ -70,7 +59,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/FlashCard/DeleteFlashcardBookmark',
+            url : 'https://' + urlBase + '/FlashCard/DeleteFlashcardBookmark',
             data : {
                 "SessionID":userSession,
                 "FlashcardID":flashcardID
@@ -83,7 +72,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/Flashcard/GetStack',
+            url : 'https://' + urlBase + '/Flashcard/GetStack',
             data: {
                 'SessionID' : userSession,
                 "amount" : amount,
@@ -97,7 +86,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/Flashcard/GetUserFlagged',
+            url : 'https://' + urlBase + '/Flashcard/GetUserFlagged',
             data: {
                 'SessionID' : userSession,
                 "userID" : userid
@@ -109,7 +98,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles',
+            url : 'https://' + urlBase + '/EReader/GetChapterSectionTitles',
             data: {
                 'SessionID' : userSession,
                 "booktype" : booktype
@@ -121,7 +110,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
     {
         return $http({
             method : 'POST',
-            url : 'https://powertrainafttest.azurewebsites.net/EReader/GetSectionContent',
+            url : 'https://' + urlBase + '/EReader/GetSectionContent',
             data: {
                 "SessionID" : userSession,
                 "bookType" : booktype,
