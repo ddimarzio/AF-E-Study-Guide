@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.166";
+  $scope.version = "Version 0.167";
   $scope.Math = window.Math;
 
 
@@ -69,7 +69,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
   {
       $localstorage.setObject('resourcePage', [booktype,chapterid,sectionid]);
       $scope.closeMainMenu();
-      console.log("userLastView : " + $scope.user.userLastView);
 
       if ( $scope.user.userLastView != 'handbook')
       {
@@ -81,39 +80,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
       }
       // $scope.getContent();
   }
-
-
-  $scope.getContent = function()
-    {
-        var whichPage = $localstorage.getObject('resourcePage');
-        console.log("whichPage :" + whichPage);
-        
-        dataService.getEReaderPages($scope.user.userSession,whichPage[0],whichPage[1],whichPage[2])
-        .then(function(response) 
-        {
-          if (response != undefined && typeof response == "object") 
-          {
-            
-            console.log("response.data : " + JSON.stringify(response.data));
-
-            $scope.allPageContent = [];
-            $scope.allPageContent = response.data;
-            $scope.actualPageNumber = parseFloat($scope.allPageContent[0].page);
-
-            console.log("allPageContent : " + JSON.stringify($scope.allPageContent));
-
-            $scope.currentMaxPages = $scope.allPageContent.length;
-            $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[0].content);
-            // $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
-            $scope.originalPageContent =  $scope.currentPageContent;
-
-          } 
-          else 
-          {
-            alert("Result is not JSON type");
-          }
-        });
-    }
 
  // ********************
 
