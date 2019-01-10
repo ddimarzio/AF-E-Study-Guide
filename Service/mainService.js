@@ -19,9 +19,9 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
 
     this.loginUser = function(thisUser)
     {
-        console.log("host url : " + this.router.url);
+        console.log("host url : " + this.router);
         console.log("window.location.href : " + window.location.href);
-        
+
         return $http({
             method: 'POST',
             url: 'https://powertrainafttest.azurewebsites.net/Account/Login',
