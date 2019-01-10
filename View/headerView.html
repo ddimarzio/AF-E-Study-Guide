@@ -201,7 +201,8 @@
                     <div class="p-1 pl-5 clickBox"
                         ng-repeat="chapt in allChapterSections"
                         ng-click="navChapterMenuSelect($index+1)">
-                        <!-- <div id="chapterTriangle1" class="chapterTraingle mt-auto mb-auto"></div> -->
+                        <div id="chapterTriangle1" class="chapterTraingle mt-auto mb-auto"
+                             ng-class="{'chapterTraingle-down': navChapterMenuOpen[$index+1]}"></div>
                         <div id="chapterMenutext1" class="chapterMenu-category mt-auto mb-auto">{{chapt.name}} {{chapt.desc}}</div>
                     
                         <div class="animate-show-hide"
