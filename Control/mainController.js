@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.178";
+  $scope.version = "Version 0.179";
   $scope.Math = window.Math;
 
 
@@ -67,7 +67,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
 
   $scope.navigateToResource = function(booktype,sectionid)
   {
-      console.log("chapterid :" + parseFloat(sectionid));
+      console.log("chapterid :" + parseFloat(sectionid));  // TODO Need to send the chapter not parse the sectionid
 
       $localstorage.setObject('resourcePage', [booktype,parseFloat(sectionid),sectionid]);
       $scope.closeMainMenu();

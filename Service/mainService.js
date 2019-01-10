@@ -1,4 +1,4 @@
-mainApp.service('dataService', ['$http', function ($http) {
+mainApp.service('dataService', ['$http', function ($http,$location) {
 
     var urlBase = 'https://powertrainafttest.azurewebsites.net/';
     // var urlBase = 'http://rest-service.guides.spring.io/';
@@ -19,6 +19,8 @@ mainApp.service('dataService', ['$http', function ($http) {
 
     this.loginUser = function(thisUser)
     {
+        console.log("host url : " + $location.host());
+
         return $http({
             method: 'POST',
             url: 'https://powertrainafttest.azurewebsites.net/Account/Login',
