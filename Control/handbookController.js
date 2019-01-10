@@ -89,11 +89,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             console.log("setPageData : " + JSON.stringify($scope.user));
             
-            highlights
-            if ( $scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page] != undefined)
-            {
-                $scope.addHighlight($scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page);
-            }
+            // highlights
+            // if ( $scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page] != undefined)
+            // {
+            //     $scope.addHighlight($scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page);
+            // }
             // notes
             // $scope.pageNotes = $scope.user.userNotes[$scope.actualPageNumber];
 
