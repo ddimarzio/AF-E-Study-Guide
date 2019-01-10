@@ -27,9 +27,11 @@
             <div header class="page-header"></div>
         </header>
       </div>
-      <footer>
-          <div footer class="page-footer"></div>
-      </footer>
+      <div ng-if="user.userLastView != 'rankselection'">
+        <footer>
+            <div footer class="page-footer"></div>
+        </footer>
+      </div>
     </div>
 
     <div class="mainContent">

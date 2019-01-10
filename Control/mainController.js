@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.186";
+  $scope.version = "Version 0.187";
   $scope.Math = window.Math;
 
 
@@ -354,7 +354,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     $scope.user.flashCardSelectedAmount = 25;
     $scope.user.chaptersSelected = [];
 
-    $scope.navigateToView('home');
+    $scope.navigateToView('rankselection');
   }
 
   // Spit out data to console
