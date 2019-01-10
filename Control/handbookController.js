@@ -152,7 +152,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addHighlight = function(txt)
         {
-            $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage($scope.currentPage).content);
+            $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
                 
             if ( txt != '')
             {
