@@ -270,6 +270,11 @@ hr {
   /* height: 100vh; */
 }
 
+.rankSelectionWhiteBox {
+  background-color:rgba(255, 255, 255, 0.6);
+  /* height: 100vh; */
+}
+
 .whiteBox-admin {
   background-color:rgba(255, 255, 255, 0.6);
   height: 768px;
@@ -414,6 +419,9 @@ hr {
   font-family: 'Orbitron', sans-serif;
   border: 0px solid rgb(199, 165, 102);
   border-left-width: 8px;
+}
+.resourceBlueBox {
+  max-height: 150px;
 }
 .blueBackground
 {
