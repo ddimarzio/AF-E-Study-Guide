@@ -19,7 +19,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
 
     this.loginUser = function(thisUser)
     {
-        console.log("host url : " + $location.host);
+        console.log("host url : " + $location);
 
         return $http({
             method: 'POST',
