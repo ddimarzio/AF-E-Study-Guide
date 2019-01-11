@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.193";
+  $scope.version = "Version 0.194";
   $scope.Math = window.Math;
 
 
@@ -110,7 +110,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     }
     else
     {
-      // confirmPasswordInput.setCustomValidity("Match!");
    
       // TODO  - Disable submit button and add loader
       dataService.registerUser(thisUser)
@@ -238,10 +237,10 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
             
 
             $scope.user.userName = response.data.Username;
-            $scope.user.userRankID = response.data.Rank;
-            $scope.user.userRole = response.data.Role;
-            $scope.user.userNotes = response.data.Notes;
-            $scope.user.userBookMarks = response.data.Bookmarks;
+            $scope.user.userRankID = response.data.userRankID;
+            $scope.user.userRole = response.data.userRole;
+            $scope.user.userNotes = response.data.userNotes;
+            $scope.user.userBookMarks = response.data.userBookMarks;
 
             $scope.user.userFlashCardFlagged = {};
             response.data.userFlashCardFlagged.forEach(function(flashcard)
