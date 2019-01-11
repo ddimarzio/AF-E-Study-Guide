@@ -66,7 +66,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addPageNotes = function(notes)
         {
-            var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
+            console.log("keyindex : " + JSON.stringify($scope.allPageContent[$scope.currentPage]));
+
+            var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
             
             $scope.user.userNotes[keyindex] = notes;
             $localstorage.setObject('user', $scope.user);
@@ -76,14 +78,15 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.bookmarkThisPage = function()
         {
-
-            if ( $scope.user.userBookMarks[mainModel.handbookGetHBPage($scope.currentPage).indx] == 1 )
+            var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
+            
+            if ( $scope.user.userBookMarks[keyindex] == 1 )
             {
-                $scope.user.userBookMarks[mainModel.handbookGetHBPage($scope.currentPage).indx] = 0;
+                $scope.user.userBookMarks[keyindex] = 0;
             }
             else
             {
-                $scope.user.userBookMarks[mainModel.handbookGetHBPage($scope.currentPage).indx] = 1;
+                $scope.user.userBookMarks[keyindex] = 1;
             } 
             $scope.setPageData($scope.currentPage);
             $localstorage.setObject('user', $scope.user);
