@@ -66,6 +66,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addPageNotes = function(notes)
         {
+            console.log("keyindex : " + JSON.stringify($scope.allPageContent[$scope.currentPage]));
+
             var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
             
             $scope.user.userNotes[keyindex] = notes;
