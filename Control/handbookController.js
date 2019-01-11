@@ -3,11 +3,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         //init
         $scope.currentChapter = 1;
         $scope.currentPage = 0;
-        // $scope.currentMaxPages = mainModel.getMaxPages();
-        // $scope.currentPageContent = $sce.trustAsHtml(mainModel.handbookGetHBPage(0).content);
-        // $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
-        // $scope.originalPageContent =  $scope.currentPageContent;
-
 
         $scope.getContent = function()
         {
@@ -80,8 +75,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
             
-            console.log("bookmarkThisPage : " + keyindex );
-            
             if ( $scope.user.userBookMarks[keyindex] == 1 )
             {
                 $scope.user.userBookMarks[keyindex] = 0;
@@ -96,8 +89,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setPageData = function(page)
         {
-            console.log("setPageData : " + JSON.stringify($scope.user));
-            
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
             
             // highlights
