@@ -20,8 +20,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
               if (response != undefined && typeof response == "object") 
               {
                 
-                console.log("response.data : " + JSON.stringify(response.data));
-
                 $scope.allPageContent = [];
                 $scope.allPageContent = response.data;
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[0].page);
@@ -52,8 +50,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             
             $scope.user.userHightlights[keyindex] = txt.toString();
             $localstorage.setObject('user', $scope.user);
-
-            console.log("User : " + JSON.stringify($scope.user));
         }
 
         $scope.openCloseNotes = function()
@@ -70,7 +66,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addPageNotes = function(notes)
         {
-            $scope.user.userNotes[mainModel.handbookGetHBPage($scope.currentPage).indx] = notes;
+            var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
+            
+            $scope.user.userNotes[keyindex] = notes;
             $localstorage.setObject('user', $scope.user);
             $scope.setPageData($scope.currentPage);
             $scope.pageNotesSaved = true;
@@ -103,17 +101,17 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.addHighlight($scope.user.userHightlights[keyindex]);
             }
             // notes
-            // $scope.pageNotes = $scope.user.userNotes[$scope.actualPageNumber];
+            $scope.pageNotes = $scope.user.userNotes[keyindex];
 
             // boookmark
-            // if ( $scope.user.userBookMarks[$scope.allPageContent[$scope.currentPage].page] == 1 )
-            // {
-            //     $scope.pageBookmarked = true;
-            // }
-            // else
-            // {
-            //     $scope.pageBookmarked = false;
-            // }
+            if ( $scope.user.userBookMarks[keyindex] == 1 )
+            {
+                $scope.pageBookmarked = true;
+            }
+            else
+            {
+                $scope.pageBookmarked = false;
+            }
 
             // set read progress
             if ( page+1 > $scope.user.userReadHandbook)
