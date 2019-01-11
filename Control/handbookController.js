@@ -36,6 +36,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.changeHeaderText("THE AIRMAN HANDBOOK 1");
                 $scope.changeSubHeaderText("Chapter " + $scope.allPageContent[0].title);
 
+                $scope.setPageData($scope.currentPage);
+
               } 
               else 
               {
@@ -179,5 +181,5 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         };
 
         $scope.getContent();
-        $scope.setPageData($scope.currentPage);
+
   });
