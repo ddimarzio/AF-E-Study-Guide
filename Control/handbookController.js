@@ -46,8 +46,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.saveHighlights = function(page,txt)
         {
-            $scope.user.userHightlights[mainModel.handbookGetHBPage($scope.currentPage).indx] = txt.toString();
+            var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
+            
+            $scope.user.userHightlights[keyindex] = txt.toString();
             $localstorage.setObject('user', $scope.user);
+
+            console.log("User : " + JSON.stringify($scope.user));
         }
 
         $scope.openCloseNotes = function()
@@ -89,11 +93,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             console.log("setPageData : " + JSON.stringify($scope.user));
             
+            var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
+            
             // highlights
-            // if ( $scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page] != undefined)
-            // {
-            //     $scope.addHighlight($scope.user.userHightlights[$scope.allPageContent[$scope.currentPage].page);
-            // }
+            if ( $scope.user.userHightlights[keyindex] != undefined)
+            {
+                $scope.addHighlight($scope.user.userHightlights[keyindex]);
+            }
             // notes
             // $scope.pageNotes = $scope.user.userNotes[$scope.actualPageNumber];
 
