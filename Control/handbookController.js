@@ -80,6 +80,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
             
+            console.log("bookmarkThisPage : " + keyindex );
+            
             if ( $scope.user.userBookMarks[keyindex] == 1 )
             {
                 $scope.user.userBookMarks[keyindex] = 0;
