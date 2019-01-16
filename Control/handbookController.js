@@ -70,9 +70,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var notesArray = [];
             angular.forEach($scope.user.userNotes, function(note, indexarray) 
             {
-                console.log("note :" + note);
-                console.log("indexarray :" + indexarray);
-                
                 var indexarray = keyindex.split('.');
                 var noteObject = {};
                 noteObject.chapterID = indexarray[0];
@@ -82,8 +79,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 notesArray.push(noteObject);
             });
 
-            console.log("notesArray : " + JSON.stringify(notesArray));
-
+            // Saving data
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
                                         $scope.user.userRankID,
@@ -130,6 +126,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.setPageData = function(page)
         {
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
+         
+            console.log("User userNotes :" + JSON.stringify($scope.user.userNotes));
+            console.log("keyindex : " + keyindex);
+            console.log("$scope.user.userNotes[keyindex] :" + $scope.user.userNotes[keyindex]);
+
             
             // highlights
             if ( $scope.user.userHightlights[keyindex] != undefined)
