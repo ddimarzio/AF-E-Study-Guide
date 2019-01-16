@@ -60,7 +60,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
                 "userBookMarks":userBookMarks,
                 "userNotes": userNotes,
                 "userFlashCardFlagged":[],
-                "userHightlights":userHightlights,
+                "userHightlights":[],
                 "userReadHandbook":userReadHandbook,
                 "userProgress":userProgress
                 }

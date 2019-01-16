@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.218";
+  $scope.version = "Version 0.220";
   $scope.Math = window.Math;
 
   // Menu system
@@ -232,13 +232,12 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
         {
           if (response != undefined && typeof response == "object") 
           {
-            
-
             $scope.user.userName = response.data.Username;
             $scope.user.userRankID = response.data.userRankID;
             $scope.user.userRole = response.data.userRole;
             $scope.user.userNotes = response.data.userNotes;
             $scope.user.userBookMarks = response.data.userBookMarks;
+            $scope.user.userHightlights = response.data.userHightlights;
 
             $scope.user.userFlashCardFlagged = {};
             response.data.userFlashCardFlagged.forEach(function(flashcard)
