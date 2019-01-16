@@ -63,21 +63,26 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
             
-            var noteObject = {};
-            noteObject.chapterID = $scope.allPageContent[$scope.currentPage].chapter;
-            noteObject.sectionID = $scope.allPageContent[$scope.currentPage].section;
-            noteObject.pageNumber = $scope.allPageContent[$scope.currentPage].page;
-            noteObject.note = notes;
+
 
             $scope.user.userNotes[keyindex] = noteObject;
             $localstorage.setObject('user', $scope.user);
 
-    // "chapterID":1,
-    // "sectionID":"1A",
-    // "pageNumber":1,
-    // "note":"est"
 
-            console.log("addPageNotes " + JSON.stringify($scope.user));
+            // Converting my notes system to the 'other' system
+            var notesArray = [];
+            $scope.user.userNotes.forEach(function(note, keyindex)
+            {
+                var indexarray = keyindex.split('.');
+                var noteObject = {};
+                noteObject.chapterID = indexarray[0];
+                noteObject.sectionID = indexarray[1];
+                noteObject.pageNumber = indexarray[2];
+                noteObject.note = note;
+                notesArray.push(noteObject);
+            });
+
+            console.log("notesArray : " + JSON.stringify(notesArray));
 
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
@@ -85,7 +90,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                                         $scope.user.userRole,
                                         $scope.user.userName,
                                         $scope.user.userBookMarks,
-                                        $scope.user.userNotes,
+                                        notesArray,
                                         $scope.user.userFlashCardFlagged,
                                         $scope.user.userHightlights,
                                         $scope.user.userReadHandbook,
