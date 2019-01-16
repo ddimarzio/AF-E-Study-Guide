@@ -301,6 +301,15 @@ hr {
   padding: 15px;
   font-size: 14px;
 }
+.hb-p-indent {
+  line-height: 1.6; 
+  font-family: Calibri;
+  text-align: justify;
+  margin: 0;
+  padding: 15px;
+  padding-left: 40px;
+  font-size: 14px;
+}
 .hb-image-wrap-left {
   border: 1px solid rgb(187, 187, 187);
   float: left;
