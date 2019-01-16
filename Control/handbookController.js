@@ -78,9 +78,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             // Converting my system to the 'other' system
             var notesArray = [];
-            angular.forEach($scope.user.userNotes, function(note, indexarray) 
+            angular.forEach($scope.user.userNotes, function(note, index) 
             {
-                var indexarray = keyindex.split('.');
+                var indexarray = index.split('.');
                 var noteObject = {};
                 noteObject.chapterID = indexarray[0];
                 noteObject.sectionID = indexarray[1];
@@ -90,11 +90,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             });
 
             var bookmarksArray = [];
-            angular.forEach($scope.user.userBookMarks, function(bookmark, indexarray) 
+            angular.forEach($scope.user.userBookMarks, function(bookmark, index) 
             {
                 if ( bookmark == 1 )
                 {
-                    var indexarray = keyindex.split('.');
+                    var indexarray = index.split('.');
                     var bookMarkObject = {};
                     bookMarkObject.chapterID = indexarray[0];
                     bookMarkObject.sectionID = indexarray[1];
