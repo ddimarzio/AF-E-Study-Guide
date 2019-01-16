@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.227";
+  $scope.version = "Version 0.228";
   $scope.Math = window.Math;
 
   // Menu system
@@ -250,15 +250,9 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
             {
               var noteIndex = noteObject.chapterID + "." + noteObject.sectionID + "." + noteObject.pageNumber;
               $scope.user.userNotes[noteIndex] = noteObject.note;
-
-              console.log("noteIndex :" + noteIndex);
-              console.log("noteObject.note :" + noteObject.note);
-              console.log("$scope.user.userNotes[noteIndex] :" + $scope.user.userNotes[noteIndex]);
             });
             
             $localstorage.setObject('user', $scope.user);
-            console.log("response.data.userNotes : "  + JSON.stringify(response.data.userNotes) );
-            console.log("User get data : "  + JSON.stringify($scope.user) );
 
             $scope.loginLoading = false;
             $scope.navigateToView('rankselection');

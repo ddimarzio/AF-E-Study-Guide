@@ -13,7 +13,7 @@ mainApp.factory('mainModel',function()
         userProgress:0,
         userLastView:'login',
         userBookMarks:[],
-        userNotes:[],
+        userNotes:{},
         userFlashCardsMax:25,
         userFlashCardFlagged:[],
         userHightlights:[],
@@ -36,7 +36,7 @@ mainApp.factory('mainModel',function()
         user.userProgress = 0;
         user.userLastView = "login";
         user.userBookMarks = [];
-        user.userNotes = [];
+        user.userNotes = {};
         user.userFlashCardsMax = 25;
         user.userFlashCardFlagged = [];
         user.userHightlights = [];
