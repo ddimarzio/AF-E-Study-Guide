@@ -34,13 +34,13 @@
 # }
 
 # # # 
-# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "9d99c2f7-839d-4c6e-8996-d2d139c90b8d",
-#   "UserID" : "46"
-# }
+{
+  "SessionID" : "9d99c2f7-839d-4c6e-8996-d2d139c90b8d",
+  "UserID" : "46"
+}
 
   # "UserID": 46,
   # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",
@@ -118,22 +118,27 @@
 # }
 
 
-POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
+# content-type: application/json
 
-{
-  "userSession" : "29c78358-aa96-4c2d-9feb-4ce70ec56d80",
-  "UserID" : "46",
-  "userBookMarks" : [],
-  "userRankID" : 2,
-  "userRole" : 0,
-  "userName" : "",
-  "userProgress" : 30,
-  "userNotes" : [],
-  "userFlashCardFlagged" : [],
-  "userHightlights" : [],
-  "userReadHandbook" : 100
-}
+# {
+#   "userSession" : "29c78358-aa96-4c2d-9feb-4ce70ec56d80",
+#   "UserID" : "46",
+#   "userBookMarks" : [],
+#   "userRankID" : 2,
+#   "userRole" : 0,
+#   "userName" : "",
+#   "userProgress" : 30,
+#   "userNotes" : [{
+#                 "chapterID":1,
+#                 "sectionID":"1A",
+#                 "pageNumber":1,
+#                 "note":"est"
+#                 }],
+#   "userFlashCardFlagged" : [],
+#   "userHightlights" : [],
+#   "userReadHandbook" : 100
+# }
 
 # SessionID: "29c78358-aa96-4c2d-9feb-4ce70ec56d80"
 # UserID: "46"
