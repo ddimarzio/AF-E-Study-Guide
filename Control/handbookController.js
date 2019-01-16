@@ -131,9 +131,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
             // notes
             console.log("User : " + JSON.stringify($scope.user));
-
-
-            if ( $scope.user.userNotes[keyindex] != undefined)
+            
+            if ( $scope.user.userNotes[keyindex].noteObject != undefined)
             {
                 $scope.pageNotes = $scope.user.userNotes[keyindex].noteObject.note;
             }
