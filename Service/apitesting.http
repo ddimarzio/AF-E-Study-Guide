@@ -33,7 +33,7 @@
 #   "userID" : "46"
 # }
 
-# # 
+# # # 
 # POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
 # content-type: application/json
 
@@ -123,7 +123,7 @@
 
 # {
 #   "userSession" : "9d99c2f7-839d-4c6e-8996-d2d139c90b8d",
-#   "userID" : "46",
+#   "UserID" : "46",
 #   "userRankID" : 2,
 #   "userRole" : 0,
 #   "userName" : "Donny",
@@ -134,6 +134,8 @@
 #   "userHightlights" : [],
 #   "userReadHandbook" : 100
 # }
+
+
 
 # {"SessionID":"7631fe60-2b4d-43e0-858b-1b63fbc0a0e0",
 # "UserID":"58",

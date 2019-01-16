@@ -57,9 +57,9 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
                 "userRankID":userRank,
                 "userRole":userRole,
                 "userName":"",
-                "userBookMarks":[],
-                "userNotes": [],
-                "userFlashCardFlagged":userFlashCardFlagged,
+                "userBookMarks":userBookMarks,
+                "userNotes": userNotes,
+                "userFlashCardFlagged":[],
                 "userHightlights":userHightlights,
                 "userReadHandbook":userReadHandbook,
                 "userProgress":userProgress
