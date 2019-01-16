@@ -68,8 +68,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             // Converting my notes system to the 'other' system
             var notesArray = [];
-            $scope.user.userNotes.forEach(function(note, keyindex)
+            angular.forEach($scope.user.userNotes, function(note, indexarray) 
             {
+                console.log("note :" + note);
+                console.log("indexarray :" + indexarray);
+                
                 var indexarray = keyindex.split('.');
                 var noteObject = {};
                 noteObject.chapterID = indexarray[0];
