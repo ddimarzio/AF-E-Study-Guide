@@ -66,6 +66,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             $scope.user.userNotes[keyindex] = notes;
             $localstorage.setObject('user', $scope.user);
 
+            $scope.saveThisUserData();
+
+            $scope.setPageData($scope.currentPage);
+            $scope.pageNotesSaved = true;
+        }
+
+        $scope.saveThisUserData = function()
+        {
             // Converting my system to the 'other' system
             var notesArray = [];
             angular.forEach($scope.user.userNotes, function(note, indexarray) 
@@ -105,20 +113,18 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                                         $scope.user.userHightlights,
                                         $scope.user.userReadHandbook,
                                         $scope.user.userProgress)
-                .then(function(response) 
-                {
-                if (response != undefined && typeof response == "object") 
-                {
-                    console.log("saveUserData response: " + JSON.stringify(response.data))
-                }
-                else 
-                {
-                    alert("Result is not JSON type");
-                }
-                });
+            .then(function(response) 
+            {
+            if (response != undefined && typeof response == "object") 
+            {
+                console.log("saveUserData response: " + JSON.stringify(response.data))
+            }
+            else 
+            {
+                alert("Result is not JSON type");
+            }
+            });
 
-            $scope.setPageData($scope.currentPage);
-            $scope.pageNotesSaved = true;
         }
 
         $scope.bookmarkThisPage = function()
@@ -133,6 +139,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             {
                 $scope.user.userBookMarks[keyindex] = 1;
             } 
+
+            $scope.saveThisUserData();
+
             $scope.setPageData($scope.currentPage);
             $localstorage.setObject('user', $scope.user);
         }
