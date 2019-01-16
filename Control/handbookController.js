@@ -77,7 +77,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
     // "pageNumber":1,
     // "note":"est"
 
-            console.log("saveUserData " + JSON.stringify($scope.user));
+            console.log("addPageNotes " + JSON.stringify($scope.user));
 
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
@@ -94,7 +94,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 {
                 if (response != undefined && typeof response == "object") 
                 {
-                    console.log("saveUserData : " + JSON.stringify(response.data))
+                    console.log("saveUserData response: " + JSON.stringify(response.data))
                 }
                 else 
                 {
