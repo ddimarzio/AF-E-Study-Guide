@@ -52,7 +52,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
             method : 'POST',
             url : 'https://' + urlBase + '/Account/SaveData',
             data: {
-                "SessionID" : userSession,
+                "userSession" : userSession,
                 "UserID" : userID,
                 "userRankID":userRank,
                 "userRole":userRole,

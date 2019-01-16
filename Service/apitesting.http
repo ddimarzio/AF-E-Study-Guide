@@ -118,24 +118,34 @@
 # }
 
 
-# POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
+content-type: application/json
 
-# {
-#   "userSession" : "9d99c2f7-839d-4c6e-8996-d2d139c90b8d",
-#   "UserID" : "46",
-#   "userRankID" : 2,
-#   "userRole" : 0,
-#   "userName" : "Donny",
-#   "userProgress" : 30,
-#   "userBookMarks" : [],
-#   "userNotes" : [],
-#   "userFlashCardFlagged" : [],
-#   "userHightlights" : [],
-#   "userReadHandbook" : 100
-# }
+{
+  "userSession" : "29c78358-aa96-4c2d-9feb-4ce70ec56d80",
+  "UserID" : "46",
+  "userBookMarks" : [],
+  "userRankID" : 2,
+  "userRole" : 0,
+  "userName" : "",
+  "userProgress" : 30,
+  "userNotes" : [],
+  "userFlashCardFlagged" : [],
+  "userHightlights" : [],
+  "userReadHandbook" : 100
+}
 
-
+# SessionID: "29c78358-aa96-4c2d-9feb-4ce70ec56d80"
+# UserID: "46"
+# userBookMarks: []
+# userFlashCardFlagged: []
+# userHightlights: []
+# userName: ""
+# userNotes: []
+# userProgress: 10
+# userRankID: 1
+# userReadHandbook: 1
+# userRole: 0
 
 # {"SessionID":"7631fe60-2b4d-43e0-858b-1b63fbc0a0e0",
 # "UserID":"58",
