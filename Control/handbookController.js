@@ -74,6 +74,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.saveThisUserData = function()
         {
+            var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
+
             // Converting my system to the 'other' system
             var notesArray = [];
             angular.forEach($scope.user.userNotes, function(note, indexarray) 
