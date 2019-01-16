@@ -134,25 +134,38 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         // TODO - problem highlighting paranetheses
         $scope.getSelectedText = function()
         {
+            var selection = getSelection();
 
-            console.log("Range : " + JSON.stringify(window.getSelection().getRangeAt(0)) );
+            if (selection.getRangeAt)
+                range = selection.getRangeAt(0);
+            else {
+                range = document.createRange();
+                range.setStart(selection.anchorNode, selection.anchorOffset);
+                range.setEnd(selection.focusNode, selection.focusOffset);
+            }
 
-            var txt = '';
-            if (window.getSelection)
-            {
-                txt = window.getSelection();
-            }
-            else if (document.getSelection)
-            {
-                txt = document.getSelection();
-            }
-            else if (document.selection)
-            {
-                txt = document.selection.createRange().text;
-            }
-            else return;
+            console.log("Range : " + range.startOffset + ":" + range.endOffset );
+            console.log("Nodes : " + range.startContainer + ":" + range.endContainer );
 
-            $scope.addHighlight(txt);
+            console.log("range.startContainer : " + range.startContainer.textContent  );
+
+
+            // var txt = '';
+            // if (window.getSelection)
+            // {
+            //     txt = window.getSelection();
+            // }
+            // else if (document.getSelection)
+            // {
+            //     txt = document.getSelection();
+            // }
+            // else if (document.selection)
+            // {
+            //     txt = document.selection.createRange().text;
+            // }
+            // else return;
+
+            // $scope.addHighlight(txt);
         }
 
         $scope.addHighlight = function(txt)
