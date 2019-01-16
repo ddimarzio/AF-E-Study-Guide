@@ -147,7 +147,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("Range : " + range.startOffset + ":" + range.endOffset );
             console.log("Nodes : " + range.startContainer + ":" + range.endContainer );
 
-            console.log("range.startContainer : " + range.startContainer.innerHTML );
+            console.log("range.startContainer : " + range.startContainer.textContent  );
 
 
             // var txt = '';
