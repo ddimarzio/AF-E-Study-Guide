@@ -13,7 +13,7 @@
 # content-type: application/json
 
 # {
-#   "username":"dondimarzio",
+#   "username":"Don",
 #   "password":"test"
 # }
 
@@ -38,7 +38,7 @@
 # content-type: application/json
 
 # {
-#   "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
+#   "SessionID" : "9d99c2f7-839d-4c6e-8996-d2d139c90b8d",
 #   "UserID" : "46"
 # }
 
@@ -117,22 +117,22 @@
 #   "booktype" : 0
 # }
 
-POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
+# content-type: application/json
 
-{
-  "userSession" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
-  "userID" : "46",
-  "userRankID" : 0,
-  "userRole" : 0,
-  "userName" : "Donny",
-  "userProgress" : 30,
-  "userBookMarks" : [],
-  "userNotes" : [],
-  "userFlashCardFlagged" : [],
-  "userHightlights" : [],
-  "userReadHandbook" : 50
-}
+# {
+#   "userSession" : "9d99c2f7-839d-4c6e-8996-d2d139c90b8d",
+#   "userID" : "46",
+#   "userRankID" : 2,
+#   "userRole" : 0,
+#   "userName" : "Donny",
+#   "userProgress" : 30,
+#   "userBookMarks" : [],
+#   "userNotes" : [],
+#   "userFlashCardFlagged" : [],
+#   "userHightlights" : [],
+#   "userReadHandbook" : 100
+# }
 
 # {"SessionID":"7631fe60-2b4d-43e0-858b-1b63fbc0a0e0",
 # "UserID":"58",
