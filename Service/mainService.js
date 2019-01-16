@@ -46,7 +46,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
 
     this.saveUserData = function(userSession,userID,userRank,userRole,userName,userBookMarks,userNotes,userFlashCardFlagged,userHightlights,userReadHandbook,userProgress)
     {
-        console.log("SaveData : " + userSession + ":" + userID + ":" + userRank + ":" + userRole + ":" + userName + ":" + userBookMarks + ":" + userNotes + ":" + userFlashCardFlagged + ":" + userHightlights + ":" + userReadHandbook + ":" + userProgress);
+        console.log("SaveData : " + userSession + "userSession:" + userID + "userID:" + userRankID + "userRankID:" + userRole + "userRole:" + userBookMarks + "userBookMarks:" + userNotes + "userNotes:" + userFlashCardFlagged + "userFlashCardFlagged:" + userHightlights + "userHightlights:" + userReadHandbook + "userReadHandbook:" + userProgress + "userProgress");
 
         return $http({
             method : 'POST',
@@ -56,7 +56,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
                 "UserID" : userID,
                 "userRankID":userRank,
                 "userRole":userRole,
-                "userName":userName,
+                "userName":"",
                 "userBookMarks":userBookMarks,
                 "userNotes": userNotes,
                 "userFlashCardFlagged":userFlashCardFlagged,

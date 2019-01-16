@@ -81,7 +81,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
-                                        $scope.user.userRank,
+                                        $scope.user.userRankID,
                                         $scope.user.userRole,
                                         $scope.user.userName,
                                         $scope.user.userBookMarks,
