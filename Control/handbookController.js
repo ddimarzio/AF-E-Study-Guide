@@ -62,12 +62,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.addPageNotes = function(notes)
         {
             var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
-            
 
-
-            $scope.user.userNotes[keyindex] = noteObject;
+            $scope.user.userNotes[keyindex] = notes;
             $localstorage.setObject('user', $scope.user);
-
 
             // Converting my notes system to the 'other' system
             var notesArray = [];
@@ -137,12 +134,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.addHighlight($scope.user.userHightlights[keyindex]);
             }
             // notes
-            console.log("User : " + JSON.stringify($scope.user));
-
-            // if ( $scope.user.userNotes[keyindex] != undefined)
-            // {
-            //     $scope.pageNotes = $scope.user.userNotes[keyindex].noteObject.note;
-            // }
+            if ( $scope.user.userNotes[keyindex] != undefined)
+            {
+                $scope.pageNotes = $scope.user.userNotes[keyindex].noteObject.note;
+            }
 
             // boookmark
             if ( $scope.user.userBookMarks[keyindex] == 1 )
