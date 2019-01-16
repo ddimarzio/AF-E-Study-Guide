@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.226";
+  $scope.version = "Version 0.227";
   $scope.Math = window.Math;
 
   // Menu system
@@ -245,7 +245,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
               $scope.user.userFlashCardFlagged[flashcard.indx] = flashcard.flagged;
             });
 
-            $scope.user.userNotes = []; 
+            $scope.user.userNotes = {}; 
             response.data.userNotes.forEach(function(noteObject)
             {
               var noteIndex = noteObject.chapterID + "." + noteObject.sectionID + "." + noteObject.pageNumber;
@@ -253,8 +253,10 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
 
               console.log("noteIndex :" + noteIndex);
               console.log("noteObject.note :" + noteObject.note);
+              console.log("$scope.user.userNotes[noteIndex] :" + $scope.user.userNotes[noteIndex]);
             });
             
+            $localstorage.setObject('user', $scope.user);
             console.log("response.data.userNotes : "  + JSON.stringify(response.data.userNotes) );
             console.log("User get data : "  + JSON.stringify($scope.user) );
 
