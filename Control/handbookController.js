@@ -135,7 +135,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.getSelectedText = function()
         {
 
-            console.log("Range : " + window.getSelection().getRangeAt(0) );
+            console.log("Range : " + JSON.stringify(window.getSelection().getRangeAt(0)) );
 
             var txt = '';
             if (window.getSelection)
