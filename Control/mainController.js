@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.231";
+  $scope.version = "Version 0.232";
   $scope.Math = window.Math;
 
   // Menu system
@@ -236,7 +236,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
             $scope.user.userRankID = response.data.userRankID;
             $scope.user.userRole = response.data.userRole;
 
-            $scope.user.userBookMarks = response.data.userBookMarks;
+            // $scope.user.userBookMarks = response.data.userBookMarks;
             $scope.user.userHightlights = response.data.userHightlights;
 
             $scope.user.userFlashCardFlagged = {};
@@ -245,6 +245,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
               $scope.user.userFlashCardFlagged[flashcard.indx] = flashcard.flagged;
             });
 
+            // Notes
             $scope.user.userNotes = {}; 
             response.data.userNotes.forEach(function(noteObject)
             {
@@ -252,6 +253,14 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
               $scope.user.userNotes[noteIndex] = noteObject.note;
             });
             
+            // bookmarks
+            $scope.user.userBookMarks = {}; 
+            response.data.userBookMarks.forEach(function(bmObject)
+            {
+              var bmIndex = bmObject.chapterID + "." + bmObject.sectionID + "." + bmObject.pageNumber;
+              $scope.user.userBookMarks[bmIndex] = 1;
+            });
+
             $localstorage.setObject('user', $scope.user);
 
             $scope.loginLoading = false;
@@ -314,22 +323,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     // $scope.flashCardChapters 
   }
 
-  // TODO  Save data
-  $scope.saveUserData = function()
-  {
-    // dataService.getUserData($scope.user.userSession,$scope.user.userID)
-    // .then(function(response) 
-    //     {
-    //       if (response != undefined && typeof response == "object") 
-    //       {
-    //       }
-    //       else
-    //       {
-    //         alert("Result is not JSON type");
-    //       }
-    // });
-  }
-
   $scope.selectRank = function(rankid)
   {
     $scope.user.userRankID = rankid;
@@ -347,8 +340,8 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     $scope.user.userRole = 1;
     $scope.user.userProgress = 0;
     $scope.user.userLastView = "login";
-    $scope.user.userBookMarks = [];
-    $scope.user.userNotes = [];
+    $scope.user.userBookMarks = {};
+    $scope.user.userNotes = {};
     $scope.user.userFlashCardsMax = 25;
     $scope.user.userFlashCardFlagged = [];
     $scope.user.userHightlights = [];

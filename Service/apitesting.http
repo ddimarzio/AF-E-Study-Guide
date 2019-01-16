@@ -123,29 +123,20 @@ content-type: application/json
 {
   "userSession" : "246e87df-6364-4383-83c4-2d07228755ec",
   "UserID" : "46",
-  "userBookMarks" : [],
-  "userRankID" : 2,
-  "userRole" : 0,
-  "userName" : "",
-  "userProgress" : 30,
-  "userNotes" : [
-    {
+  "userBookMarks" : [{
       "chapterID":1,
       "sectionID":"1A",
       "pageNumber":1,
-      "note":"test"
     },
     {
       "chapterID":2,
       "sectionID":"2B",
       "pageNumber":75,
-      "note":"test-2"
     },
     {
       "chapterID":2,
       "sectionID":"2B",
       "pageNumber":76,
-      "note":"test-2"
     },
     {
       "chapterID":2,
@@ -153,6 +144,11 @@ content-type: application/json
       "pageNumber":77,
       "note":"test-2"
       }],
+  "userRankID" : 2,
+  "userRole" : 0,
+  "userName" : "",
+  "userProgress" : 30,
+  "userNotes" : [],
   "userFlashCardFlagged" : [],
   "userHightlights" : [],
   "userReadHandbook" : 100
