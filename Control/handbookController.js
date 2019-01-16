@@ -61,12 +61,45 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addPageNotes = function(notes)
         {
-            console.log("keyindex : " + JSON.stringify($scope.allPageContent[$scope.currentPage]));
-
             var keyindex = $scope.allPageContent[$scope.currentPage].chapter + "." + $scope.allPageContent[$scope.currentPage].section + "." + $scope.allPageContent[$scope.currentPage].page;
             
-            $scope.user.userNotes[keyindex] = notes;
+            var noteObject = {};
+            noteObject.chapterID = $scope.allPageContent[$scope.currentPage].chapter;
+            noteObject.sectionID = $scope.allPageContent[$scope.currentPage].section;
+            noteObject.pageNumber = $scope.allPageContent[$scope.currentPage].page;
+            noteObject.note = notes;
+
+            $scope.user.userNotes[keyindex] = noteObject;
             $localstorage.setObject('user', $scope.user);
+
+    // "chapterID":1,
+    // "sectionID":"1A",
+    // "pageNumber":1,
+    // "note":"est"
+
+            dataService.saveUserData($scope.user.userSession,
+                                        $scope.user.userID,
+                                        $scope.user.userRank,
+                                        $scope.user.userRole,
+                                        $scope.user.userName,
+                                        $scope.user.userBookMarks,
+                                        $scope.user.userNotes,
+                                        $scope.user.userFlashCardFlagged,
+                                        $scope.user.userHightlights,
+                                        $scope.user.userReadHandbook,
+                                        $scope.user.userProgress)
+                .then(function(response) 
+                {
+                if (response != undefined && typeof response == "object") 
+                {
+                    console.log("saveUserData : " + JSON.stringify(response.data))
+                }
+                else 
+                {
+                    alert("Result is not JSON type");
+                }
+                });
+
             $scope.setPageData($scope.currentPage);
             $scope.pageNotesSaved = true;
         }
@@ -97,7 +130,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.addHighlight($scope.user.userHightlights[keyindex]);
             }
             // notes
-            $scope.pageNotes = $scope.user.userNotes[keyindex];
+            $scope.pageNotes = $scope.user.userNotes[keyindex].noteObject.note;
 
             // boookmark
             if ( $scope.user.userBookMarks[keyindex] == 1 )

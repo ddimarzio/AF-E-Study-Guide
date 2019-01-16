@@ -42,6 +42,27 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
         });
     }
 
+    this.saveUserData = function(userSession,userID,userRank,userRole,userName,userBookMarks,userNotes,userFlashCardFlagged,userHightlights,userReadHandbook,userProgress)
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://' + urlBase + '/Account/SaveData',
+            data: {
+                'SessionID' : userSession,
+                'UserID' : userID,
+                'userRankID':userRank,
+                'userRole':userRole,
+                'userName':userName,
+                'userBookMarks':userBookMarks,
+                'userNotes': userNotes,
+                'userFlashCardFlagged':userFlashCardFlagged,
+                'userHightlights':userHightlights,
+                'userReadHandbook':userReadHandbook,
+                'userProgress':userProgress
+                }
+        });
+    }
+
     this.saveFlashCardMark = function(userSession,flashcardID)
     {
         return $http({
