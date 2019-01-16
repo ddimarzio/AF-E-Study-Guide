@@ -131,7 +131,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("keyindex : " + keyindex);
             console.log("$scope.user.userNotes[keyindex] :" + $scope.user.userNotes[keyindex]);
 
-            
+
             // highlights
             if ( $scope.user.userHightlights[keyindex] != undefined)
             {
@@ -142,6 +142,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             if ( $scope.user.userNotes[keyindex] != undefined)
             {
                 $scope.pageNotes = $scope.user.userNotes[keyindex];
+            }
+            else
+            {
+                $scope.pageNotes = "";
+                $scope.notesOpen = false;
             }
 
             // boookmark
