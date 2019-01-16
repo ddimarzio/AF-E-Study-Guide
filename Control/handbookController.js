@@ -66,7 +66,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             $scope.user.userNotes[keyindex] = notes;
             $localstorage.setObject('user', $scope.user);
 
-            // Converting my notes system to the 'other' system
+            // Converting my system to the 'other' system
             var notesArray = [];
             angular.forEach($scope.user.userNotes, function(note, indexarray) 
             {
@@ -79,13 +79,27 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 notesArray.push(noteObject);
             });
 
+            var bookmarksArray = [];
+            angular.forEach($scope.user.userBookMarks, function(bookmark, indexarray) 
+            {
+                if ( bookmark == 1 )
+                {
+                    var indexarray = keyindex.split('.');
+                    var bookMarkObject = {};
+                    bookMarkObject.chapterID = indexarray[0];
+                    bookMarkObject.sectionID = indexarray[1];
+                    bookMarkObject.pageNumber = indexarray[2];
+                    bookmarksArray.push(bookMarkObject);
+                }
+            });
+
             // Saving data
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
                                         $scope.user.userRankID,
                                         $scope.user.userRole,
                                         $scope.user.userName,
-                                        $scope.user.userBookMarks,
+                                        bookmarksArray,
                                         notesArray,
                                         $scope.user.userFlashCardFlagged,
                                         $scope.user.userHightlights,
@@ -150,9 +164,16 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
 
             // boookmark
-            if ( $scope.user.userBookMarks[keyindex] == 1 )
+            if ( $scope.user.userBookMarks[keyindex] != undefined)
             {
-                $scope.pageBookmarked = true;
+                if ( $scope.user.userBookMarks[keyindex] == 1 )
+                {
+                    $scope.pageBookmarked = true;
+                }
+                else
+                {
+                    $scope.pageBookmarked = false;
+                }
             }
             else
             {
