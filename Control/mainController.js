@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.223";
+  $scope.version = "Version 0.224";
   $scope.Math = window.Math;
 
   // Menu system
@@ -252,6 +252,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
               $scope.user.userNotes[noteIndex] = noteObject.note;
             });
             
+            console.log("response.data.userNotes : "  + JSON.stringify(response.data.userNotes) );
             console.log("User get data : "  + JSON.stringify($scope.user) );
 
             $scope.loginLoading = false;
