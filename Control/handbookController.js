@@ -130,7 +130,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.addHighlight($scope.user.userHightlights[keyindex]);
             }
             // notes
-            $scope.pageNotes = $scope.user.userNotes[keyindex].noteObject.note;
+            console.log("User : " + JSON.stringify($scope.user));
+            
+            if ( $scope.user.userNotes[keyindex].noteObject != undefined)
+            {
+                $scope.pageNotes = $scope.user.userNotes[keyindex].noteObject.note;
+            }
 
             // boookmark
             if ( $scope.user.userBookMarks[keyindex] == 1 )
