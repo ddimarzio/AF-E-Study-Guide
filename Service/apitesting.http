@@ -37,7 +37,7 @@
 # content-type: application/json
 
 # {
-#   "SessionID" : "35939aad-c7ae-404f-b4ba-2bdab6089817",
+#   "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
 #   "UserID" : "46"
 # }
 
@@ -114,4 +114,54 @@
 #   "SessionID" : "59f7eed7-04ea-43d2-a69f-385a87e447bb",
 #   "booktype" : 0
 # }
+
+# POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
+# content-type: application/json
+
+# {
+#   "userSession" : "59f7eed7-04ea-43d2-a69f-385a87e447bb",
+#   "userID" : 0,
+#   "userRankID" : 0,
+#   "userRole" : 0,
+#   "userProgress" : 0,
+#   "userBookMarks" : 0,
+#   "userNotes" : 0,
+#   "userID" : 0,
+#   "userFlashCardFlagged" : {},
+#   "userHightlights" : {},
+#   "userReadHandbook" : 50
+
+# {"SessionID":"7631fe60-2b4d-43e0-858b-1b63fbc0a0e0",
+# "UserID":"58",
+# "userRankID":4,
+# "userRole":0,
+# "userName":"JamesBlackaa",
+# "userBookMarks":[
+#     {
+#     "chapterID":1,
+#     "sectionID":"1A",
+#     "pageNumber":1
+#     }],
+#     "userNotes": [
+#     {
+#     "chapterID":1,
+#     "sectionID":"1A",
+#     "pageNumber":1,
+#     "note":"est"
+#     }],
+#     "userFlashCardFlagged":[],
+#     "userHightlights":[
+#         {
+#         "chapterID":1,
+#         "sectionID":"1A",
+#         "pageNumber":1,
+#         "content":"TESTEST",
+#         "startChar":0,
+#         "endChar":0} ],
+#     "userReadHandbook":0,
+#     "userProgress":0
+#     }
+# }
+
+
 

@@ -134,6 +134,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         // TODO - problem highlighting paranetheses
         $scope.getSelectedText = function()
         {
+
+            consol.log("Range : " + window.getSelection().getRangeAt(0) );
+
             var txt = '';
             if (window.getSelection)
             {
