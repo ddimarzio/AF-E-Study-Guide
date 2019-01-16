@@ -77,6 +77,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
     // "pageNumber":1,
     // "note":"est"
 
+            console.log("saveUserData " + JSON.stringify($scope.user));
+
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
                                         $scope.user.userRank,
