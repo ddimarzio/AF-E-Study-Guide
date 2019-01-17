@@ -276,7 +276,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         {
                             whichPage[1]--;
 
-                            console.log("whichPage[1] : " + whichPage[1]);
+                            console.log("moving back whichPage[1] : " + whichPage[1]);
 
                             var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
                             whichPage[2] = nextSection;
