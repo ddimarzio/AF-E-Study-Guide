@@ -234,6 +234,18 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 });
 
                 console.log("Current Section : " + currentSectionNum);
+                
+                if ( num >= $scope.currentMaxPages) // moving forward
+                {
+                    // TODO : add in check for max sections
+                    var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum+1];
+                    whichPage[2] = nextSection;
+                    $localstorage.setObject('resourcePage',whichPage);
+                    console.log("next whichpage : " + whichPage);
+                    $scope.getContent();
+
+                }
+                
 
 
                 var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
