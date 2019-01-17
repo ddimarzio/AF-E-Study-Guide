@@ -68,7 +68,7 @@ mainApp.factory('mainModel',function()
             rankselection:'Rank Selection',
             learningtools:'Learning Tools',
             resources:'Resources',
-            handbook:'The Airman Handbook 1',
+            handbook:'The Air Force Handbook 1',
             practicetest:'Practice Test',
             register:'Register',
             forgotPassword:'Forgot Password',
