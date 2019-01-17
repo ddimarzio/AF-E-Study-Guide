@@ -272,7 +272,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 {
                     if (currentSectionNum < 1) // moving back a chapter
                     {
-                        if ( whichPage[1] > 0 ) // Stop on first chapter
+                        if ( whichPage[1] > 1 ) // Stop on first chapter
                         {
                             whichPage[1]--;
 
