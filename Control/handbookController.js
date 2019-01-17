@@ -242,12 +242,22 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 
                 if ( num >= $scope.currentMaxPages) // moving forward
                 {
-                    console.log("currentSectionNum :" + currentSectionNum);
-                    console.log("totalSections :" + totalSections);
+
                     if ( currentSectionNum >= (totalSections-1) ) // at end of sections, move to next chapter
                     {
                         // TODO check for last chapter
                         whichPage[1]++;
+
+                        var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
+                        whichPage[2] = nextSection;
+                        $localstorage.setObject('resourcePage',whichPage);
+                        console.log("next whichpage : " + whichPage);
+                        $scope.getContent();
+                    }
+                    else if (currentSectionNum < 1) // moving back a chapter
+                    {
+                        // TODO check for last chapter
+                        whichPage[1]--;
 
                         var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
                         whichPage[2] = nextSection;
