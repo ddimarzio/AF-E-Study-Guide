@@ -107,6 +107,13 @@
 # "sectionID" : "5A"
 # }
 
+POST http://powertrainaftreview.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
+content-type: application/json
+
+{
+  "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
+  "booktype" : 0
+}
 
 POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
 content-type: application/json
