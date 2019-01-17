@@ -221,6 +221,22 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
                 console.log("Sections total :" + chaptSections[(whichPage[1]-1)].sections.length);
 
+                // TODO. Not the best way to get the current section we are on.
+                var currentSectionNum = 0;
+                chaptSections[(whichPage[1]-1)].sections.forEach(function(section)
+                {
+                    if ( section.sectionID == whichPage[2])
+                    {
+                       break;   
+                    }
+                    currentSectionNum++;
+                });
+
+                console.log("Current Section : " + currentSectionNum);
+
+
+                var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
+
                 // chapter has sections, section exists.
                 // check if chapter or sections are at the end
                 // $localstorage.setObject('allChapterSections', $scope.allChapterSections);
