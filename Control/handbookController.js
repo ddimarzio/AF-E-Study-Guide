@@ -216,7 +216,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
             else // move chapters
             {
-                $scope.currentPage = 0;
+
 
                 var chaptSections = $localstorage.getObject('allChapterSections');
                 var whichPage = $localstorage.getObject('resourcePage');
@@ -252,6 +252,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                             whichPage[2] = nextSection;
                             $localstorage.setObject('resourcePage',whichPage);
                             console.log("next whichpage : " + whichPage);
+                            $scope.currentPage = 0;
                             $scope.getContent();
                         }
                     }
@@ -262,6 +263,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         whichPage[2] = nextSection;
                         $localstorage.setObject('resourcePage',whichPage);
                         console.log("next whichpage : " + whichPage);
+                        $scope.currentPage = 0;
                         $scope.getContent();
                     }
 
@@ -280,6 +282,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                             whichPage[2] = nextSection;
                             $localstorage.setObject('resourcePage',whichPage);
                             console.log("next whichpage : " + whichPage);
+                            $scope.currentPage = 0;
                             $scope.getContent();
                         }
                     }
@@ -289,6 +292,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         whichPage[2] = nextSection;
                         $localstorage.setObject('resourcePage',whichPage);
                         console.log("next whichpage : " + whichPage);
+                        $scope.currentPage = 0;
                         $scope.getContent();
                     }
                 }
