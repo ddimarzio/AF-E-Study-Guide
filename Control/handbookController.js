@@ -223,13 +223,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
                 // TODO. Not the best way to get the current section we are on.
                 var currentSectionNum = 0;
+                var i = 0;
                 chaptSections[(whichPage[1]-1)].sections.forEach(function(section)
                 {
                     if ( section.sectionID == whichPage[2])
                     {
-                       break;   
+                        currentSectionNum = i;   
                     }
-                    currentSectionNum++;
+                    i++;
                 });
 
                 console.log("Current Section : " + currentSectionNum);
