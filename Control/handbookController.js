@@ -220,6 +220,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
                 var chaptSections = $localstorage.getObject('allChapterSections');
                 var whichPage = $localstorage.getObject('resourcePage');
+                var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
                 console.log("Chapter :" + whichPage[1]);
                 console.log("Section :" + whichPage[2]);
 
@@ -241,12 +242,25 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 
                 if ( num >= $scope.currentMaxPages) // moving forward
                 {
-                    // TODO : add in check for max sections
-                    var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum+1].sectionID;
-                    whichPage[2] = nextSection;
-                    $localstorage.setObject('resourcePage',whichPage);
-                    console.log("next whichpage : " + whichPage);
-                    $scope.getContent();
+                    if ( currentSectionNum >= totalSections ) // at end of sections, move to next chapter
+                    {
+                        // TODO check for last chapter
+                        whichPage[1]++;
+
+                        var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
+                        whichPage[2] = nextSection;
+                        $localstorage.setObject('resourcePage',whichPage);
+                        console.log("next whichpage : " + whichPage);
+                        $scope.getContent();
+                    }
+                    else
+                    {
+                        var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum+1].sectionID;
+                        whichPage[2] = nextSection;
+                        $localstorage.setObject('resourcePage',whichPage);
+                        console.log("next whichpage : " + whichPage);
+                        $scope.getContent();
+                    }
 
                 }
                 else // moving back
