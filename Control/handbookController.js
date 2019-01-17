@@ -219,7 +219,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 console.log("Chapter :" + whichPage[1]);
                 console.log("Section :" + whichPage[2]);
 
-                console.log("Sections total :" + chaptSections[whichPage[1]].sections.length);
+                console.log("Sections total :" + chaptSections[(whichPage[1]-1)].sections.length);
 
                 // chapter has sections, section exists.
                 // check if chapter or sections are at the end
