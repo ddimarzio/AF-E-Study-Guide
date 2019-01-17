@@ -259,6 +259,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         // TODO check for last chapter
                         whichPage[1]--;
 
+                        console.log("whichPage[1] : " + whichPage[1]);
+
                         var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
                         whichPage[2] = nextSection;
                         $localstorage.setObject('resourcePage',whichPage);
