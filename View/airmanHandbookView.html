@@ -32,8 +32,7 @@
         <div class="row">
                 <div class="col-1 mt-auto mb-auto">
                                 <!-- ng-if="currentPage > 0" -->
-                        <button class="btn button-nav-left-image"
-                        ng-if="currentPage > 0"
+                        <button class="btn button-nav-left-image" 
                         type="submit"
                         alt="logout"
                         ng-click="navToPage(currentPage-1)"></button>
@@ -53,7 +52,6 @@
                 <div class="col-1 mt-auto mb-auto">
                                 <!-- ng-if="currentPage < (currentMaxPages-1) -->
                         <button class="btn button-nav-right-image"
-                        ng-if="currentPage < (currentMaxPages-1)"
                         type="submit"
                         alt="logout"
                         ng-click="navToPage(currentPage+1)"></button>
