@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.240";
+  $scope.version = "Version 0.241";
   $scope.Math = window.Math;
 
   // Menu system
@@ -42,7 +42,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
 
   $scope.toggleChapterMenu = function()
   {
-    // $localstorage.setObject('flashCardChapters', $scope.flashCardChapters);
     $scope.allChapterSections = $localstorage.getObject('allChapterSections');
     console.log("ChaptersSections :" + JSON.stringify($scope.allChapterSections));
 
@@ -56,17 +55,12 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
 
   $scope.navChapterMenuSelect = function(menuitem)
   {
-    // $scope.navMenuGreenText(menuitem);
-
     $scope.navChapterMenuOpen[menuitem] = !$scope.navChapterMenuOpen[menuitem];
-    // $scope.navMenuMainOpen[menuitem] = !$scope.navMenuMainOpen[menuitem];
   }
 
 
   $scope.navigateToResource = function(booktype,sectionid)
   {
-      console.log("chapterid :" + parseFloat(sectionid));  // TODO Need to send the chapter not parse the sectionid
-
       $localstorage.setObject('resourcePage', [booktype,parseFloat(sectionid),sectionid]);
       $scope.closeMainMenu();
 
@@ -76,6 +70,9 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
       }
       else
       {
+        $scope.user.userLastView = 'handbook';
+        $localstorage.setObject('user', $scope.user);
+
         $window.location.reload();
       }
       // $scope.getContent();
