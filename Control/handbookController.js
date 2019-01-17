@@ -26,7 +26,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 // $scope.changeSubHeaderText("Chapter " + mainModel.handbookGetHBPage(0).chapter," - " + mainModel.handbookGetHBPage(0).title);
                 $scope.originalPageContent =  $scope.currentPageContent;
 
-                $scope.changeHeaderText("THE AIRMAN HANDBOOK 1");
+                $scope.changeHeaderText("THE AIR Force HANDBOOK 1");
                 $scope.changeSubHeaderText("Chapter " + $scope.allPageContent[0].title);
 
                 $scope.setPageData($scope.currentPage);
