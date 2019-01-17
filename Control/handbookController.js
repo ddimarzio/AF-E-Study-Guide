@@ -244,7 +244,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 {
                     console.log("currentSectionNum :" + currentSectionNum);
                     console.log("totalSections :" + totalSections);
-                    if ( currentSectionNum >= totalSections ) // at end of sections, move to next chapter
+                    if ( currentSectionNum >= (totalSections-1) ) // at end of sections, move to next chapter
                     {
                         // TODO check for last chapter
                         whichPage[1]++;
