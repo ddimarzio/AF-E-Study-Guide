@@ -242,7 +242,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 
                 if ( num >= $scope.currentMaxPages) // moving forward
                 {
-
                     if ( currentSectionNum >= (totalSections-1) ) // at end of sections, move to next chapter
                     {
                         // TODO check for last chapter
@@ -254,7 +253,20 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         console.log("next whichpage : " + whichPage);
                         $scope.getContent();
                     }
-                    else if (currentSectionNum < 1) // moving back a chapter
+                    
+                    else
+                    {
+                        var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum+1].sectionID;
+                        whichPage[2] = nextSection;
+                        $localstorage.setObject('resourcePage',whichPage);
+                        console.log("next whichpage : " + whichPage);
+                        $scope.getContent();
+                    }
+
+                }
+                else // moving back
+                {
+                    if (currentSectionNum < 1) // moving back a chapter
                     {
                         // TODO check for last chapter
                         whichPage[1]--;
@@ -269,21 +281,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     }
                     else
                     {
-                        var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum+1].sectionID;
+                        var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum-1].sectionID;
                         whichPage[2] = nextSection;
                         $localstorage.setObject('resourcePage',whichPage);
                         console.log("next whichpage : " + whichPage);
                         $scope.getContent();
                     }
-
-                }
-                else // moving back
-                {
-                    var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum-1].sectionID;
-                    whichPage[2] = nextSection;
-                    $localstorage.setObject('resourcePage',whichPage);
-                    console.log("next whichpage : " + whichPage);
-                    $scope.getContent();
                 }
                 
 
