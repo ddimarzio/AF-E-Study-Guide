@@ -244,14 +244,16 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 {
                     if ( currentSectionNum >= (totalSections-1) ) // at end of sections, move to next chapter
                     {
-                        // TODO check for last chapter
-                        whichPage[1]++;
+                        if ( whichPage[1] < 5 ) // max chapters 5 for now
+                        {
+                            whichPage[1]++;
 
-                        var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
-                        whichPage[2] = nextSection;
-                        $localstorage.setObject('resourcePage',whichPage);
-                        console.log("next whichpage : " + whichPage);
-                        $scope.getContent();
+                            var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
+                            whichPage[2] = nextSection;
+                            $localstorage.setObject('resourcePage',whichPage);
+                            console.log("next whichpage : " + whichPage);
+                            $scope.getContent();
+                        }
                     }
                     
                     else
@@ -268,16 +270,18 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 {
                     if (currentSectionNum < 1) // moving back a chapter
                     {
-                        // TODO check for last chapter
-                        whichPage[1]--;
+                        if ( whichPage[1] > 0 ) // Stop on first chapter
+                        {
+                            whichPage[1]--;
 
-                        console.log("whichPage[1] : " + whichPage[1]);
+                            console.log("whichPage[1] : " + whichPage[1]);
 
-                        var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
-                        whichPage[2] = nextSection;
-                        $localstorage.setObject('resourcePage',whichPage);
-                        console.log("next whichpage : " + whichPage);
-                        $scope.getContent();
+                            var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
+                            whichPage[2] = nextSection;
+                            $localstorage.setObject('resourcePage',whichPage);
+                            console.log("next whichpage : " + whichPage);
+                            $scope.getContent();
+                        }
                     }
                     else
                     {
@@ -288,19 +292,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         $scope.getContent();
                     }
                 }
-                
-
-
-                var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
-
-                // chapter has sections, section exists.
-                // check if chapter or sections are at the end
-                // $localstorage.setObject('allChapterSections', $scope.allChapterSections);
-
-                // $scope.allPageContent[0].chapter
-                // $localstorage.setObject('resourcePage', [booktype,parseFloat(sectionid),sectionid]);
-                // var whichPage = $localstorage.getObject('resourcePage');
-                // $scope.getContent();
             }
         }
 
