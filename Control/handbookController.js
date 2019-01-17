@@ -152,8 +152,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setPageData = function(page)
         {
-            console.log("setPageData : " + JSON.stringify($scope.allPageContent[page]));
-            
+            // console.log("setPageData : " + JSON.stringify($scope.allPageContent[page]));
+
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
          
             console.log("User userNotes :" + JSON.stringify($scope.user.userNotes));
@@ -216,6 +216,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
             else // move chapters
             {
+                $scope.currentPage = 0;
+                
                 var chaptSections = $localstorage.getObject('allChapterSections');
                 var whichPage = $localstorage.getObject('resourcePage');
                 console.log("Chapter :" + whichPage[1]);
