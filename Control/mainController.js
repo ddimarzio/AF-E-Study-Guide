@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.238";
+  $scope.version = "Version 0.239";
   $scope.Math = window.Math;
 
   // Menu system
@@ -320,7 +320,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
               alert("Result is not JSON type");
             }
       });
-    // $scope.flashCardChapters 
   }
 
   $scope.selectRank = function(rankid)

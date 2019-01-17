@@ -29,7 +29,9 @@
         <!-- main menu  ng-mouseleave="closeMainMenu()" 
                    
                     ng-blur="closeMainMenu()"--> 
-        <div class="row">
+        <div class="row"
+                ng-blur="closeMainMenu()"
+                ng-mouseleave="closeMainMenu()">
             <div class="col-0">
                 <div id="navMenu" 
                     class="navMenu-Main animate-show-hide"
@@ -190,13 +192,32 @@
                     <div id="menutext9" class="menu-category mt-auto mb-auto">Logout</div>
                 </div>
             </div>
-            </div>
+        </div>
+
             <div class="col-0">
                 <!-- Sub menu ng-mouseleave="closeChapterMenu()" ng-blur="closeChapterMenu()"> -->
                 <div id="navChapterMenu" 
                 class="navChapterMenu animate-show-hide"
                 tabindex="-1"
                 ng-show="navChapterMenuOpen[0]">
+
+                <!-- ***Testing menu*** -->
+                <div class="p-1 pl-5 clickBox"
+                    ng-click="navChapterMenuSelect(1)">
+                    <div class="row">
+                        <div id="chapterTriangle1" class="chapterTraingle mt-auto mb-auto"
+                            ng-class="{'chapterTraingle-down': navChapterMenuOpen[1]}"></div>
+                        <div id="chapterMenutext1" class="chapterMenu-category mt-auto mb-auto">Chapt 1 test</div>
+                    </div>
+                    <div class="animate-show-hide"
+                        ng-show="navChapterMenuOpen[1]">
+                        <div class="row p-1 pl-5 clickBox"
+                            ng-click="navigateToResource(0,1)">
+                                <div id="chapterMenutext11" class="chapterSubMenu-category mt-auto mb-auto">section title</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ****************** -->
 
                     <div class="p-1 pl-5 clickBox"
                         ng-repeat="chapt in allChapterSections"
@@ -225,8 +246,8 @@
         </div>
 
 
-
-    </div>
+    <!-- logged in div -->
+    </div> 
 
     <div ng-if="!user.userLoggedIn">
     </div>
