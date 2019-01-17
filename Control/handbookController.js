@@ -217,7 +217,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             else // move chapters
             {
                 $scope.currentPage = 0;
-                
+
                 var chaptSections = $localstorage.getObject('allChapterSections');
                 var whichPage = $localstorage.getObject('resourcePage');
                 console.log("Chapter :" + whichPage[1]);
@@ -248,6 +248,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     console.log("next whichpage : " + whichPage);
                     $scope.getContent();
 
+                }
+                else // moving back
+                {
+                    var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum-1].sectionID;
+                    whichPage[2] = nextSection;
+                    $localstorage.setObject('resourcePage',whichPage);
+                    console.log("next whichpage : " + whichPage);
+                    $scope.getContent();
                 }
                 
 
