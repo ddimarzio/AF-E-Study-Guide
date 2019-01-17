@@ -212,14 +212,14 @@
                     </div>
                     <div class="animate-show-hide mt-1 mb-1"
                         ng-show="navChapterMenuOpen[1]">
-                        <div class="row pt-0 pb-0 pl-2 m-0 clickBox section-hover"
+                        <div class="row m-0 clickBox section-title"
                             ng-click="navigateToResource(0,1)">
                                 <div id="chapterMenutext11" class="chapterSubMenu-category mt-auto mb-auto">● section title</div>
                         </div>
                     </div>
                     <div class="animate-show-hide mt-1 mb-1"
                         ng-show="navChapterMenuOpen[1]">
-                        <div class="row pt-0 pb-0 pl-2 m-0 clickBox section-hover"
+                        <div class="row m-0 clickBox section-title"
                             ng-click="navigateToResource(0,2)">
                                 <div id="chapterMenutext12" class="chapterSubMenu-category mt-auto mb-auto">● section title 2</div>
                         </div>
@@ -234,14 +234,14 @@
                     </div>
                     <div class="animate-show-hide mt-1 mb-1"
                         ng-show="navChapterMenuOpen[2]">
-                        <div class="row pt-0 pb-0 pl-2 m-0 clickBox section-hover "
+                        <div class="row m-0 clickBox section-title"
                             ng-click="navigateToResource(1,1)">
                                 <div id="chapterMenutext21" class="chapterSubMenu-category mt-auto mb-auto">● section title</div>
                         </div>
                     </div>
                     <div class="animate-show-hide mt-1 mb-1"
                         ng-show="navChapterMenuOpen[2]">
-                        <div class="row pt-0 pb-0 pl-2 m-0 clickBox section-hover"
+                        <div class="row m-0 clickBox section-title"
                             ng-click="navigateToResource(1,2)">
                                 <div id="chapterMenutext22" class="chapterSubMenu-category mt-auto mb-auto">● section title 2 section title 2section title 2section title 2section title 2section title 2section title 2section title 2section title 2section title 2</div>
                         </div>
@@ -260,10 +260,10 @@
                         </div>
                         <div class="animate-show-hide mt-1 mb-1"
                             ng-show="navChapterMenuOpen[$index+1]">
-                            <div class="row pt-0 pb-0 pl-2 m-0 clickBox section-hover "
+                            <div class="row m-0 clickBox section-title"
                                 ng-repeat="section in chapt.sections"
                                 ng-click="navigateToResource(0,section.sectionID)">
-                                    <div id="chapterMenutext11" class="chapterSubMenu-category mt-auto mb-auto">{{section.sectionTitle}}</div>
+                                    <div id="chapterMenutext11" class="chapterSubMenu-category mt-auto mb-auto">● {{section.sectionTitle}}</div>
                             </div>
                         </div>
                     </div>
