@@ -3,6 +3,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         //init
         $scope.currentChapter = 1;
         $scope.currentPage = 0;
+        $scope.maxChapters = 5;
         $scope.nextChapterBtn = false;
         $scope.prevChapterBtn = false;
 
@@ -237,7 +238,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 {
                     if ( currentSectionNum >= (totalSections-1) ) // at end of sections, move to next chapter
                     {
-                        if ( whichPage[1] < 5 ) // max chapters 5 for now
+                        if ( whichPage[1] < $scope.maxChapters ) // max chapters 5 for now
                         {
                             whichPage[1]++;
 
@@ -247,6 +248,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                             $scope.currentPage = 0;
                             $scope.getContent();
                         }
+
                     }
                     
                     else
@@ -290,8 +292,42 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             console.log("nextChapterBtn :" + $scope.nextChapterBtn );
             console.log("prevChapterBtn :" + $scope.prevChapterBtn );
-            $scope.nextChapterBtn = !$scope.nextChapterBtn;
-            $scope.prevChapterBtn = !$scope.prevChapterBtn;
+
+            var chaptSections = $localstorage.getObject('allChapterSections');
+            var whichPage = $localstorage.getObject('resourcePage');
+            var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
+
+            // Current section number
+            var currentSectionNum = 0;
+            var i = 0;
+            chaptSections[(whichPage[1]-1)].sections.forEach(function(section)
+            {
+                if ( section.sectionID == whichPage[2])
+                {
+                    currentSectionNum = i;   
+                }
+                i++;
+            });
+
+            // end of section
+            console.log("setNavButtons :" + currentSectionNum + ":" + totalSections);
+            console.log("whichPage[1] :" + whichPage[1]);
+            
+            if ( currentSectionNum >= (totalSections-1) )
+            {
+                if ( whichPage[1] < $scope.maxChapters )
+                {
+                    $scope.nextChapterBtn = true;
+                }
+                else if ( whichPage[1] == $scope.maxChapters)
+                {
+                    $scope.nextChapterBtn = false;
+                }
+                else
+                {
+                    // remove right nav
+                }
+            }
         }
 
         $scope.getSelectedText = function()
