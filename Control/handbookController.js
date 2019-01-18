@@ -6,6 +6,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.maxChapters = 5;
         $scope.nextChapterBtn = false;
         $scope.prevChapterBtn = false;
+        $scope.showNextNav = true;
+        $scope.showPrevNav = true;
 
         $scope.getContent = function()
         {
@@ -290,8 +292,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setNavButtons = function()
         {
-            console.log("nextChapterBtn :" + $scope.nextChapterBtn );
-            console.log("prevChapterBtn :" + $scope.prevChapterBtn );
+            console.log("showNextNav :" + $scope.showNextNav );
+            console.log("showPrevNav :" + $scope.showPrevNav );
 
             var chaptSections = $localstorage.getObject('allChapterSections');
             var whichPage = $localstorage.getObject('resourcePage');
@@ -315,6 +317,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("$scope.currentPage :" + $scope.currentPage);
             console.log("$scope.currentMaxPages :" + $scope.currentMaxPages);
 
+            // change nav button to prev or next chapter
             if ( currentSectionNum == (totalSections-1) && $scope.currentPage == ($scope.currentMaxPages-1))
             {
                 $scope.nextChapterBtn = true;
@@ -331,6 +334,25 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             else
             {
                 $scope.prevChapterBtn = false;
+            }
+
+            // remove nav if no next/prev chapter
+            if ( whichPage[1] > 1)
+            {
+                $scope.showPrevNav = false;
+            }
+            else
+            {
+                $scope.showPrevNav = true;
+            }
+
+            if ( whichPage[1] < $scope.maxChapters)
+            {
+                $scope.showNextNav = true;
+            }
+            else
+            {
+                $scope.showNextNav = false;
             }
 
         }
