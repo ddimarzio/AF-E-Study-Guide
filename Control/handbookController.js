@@ -154,15 +154,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setPageData = function(page)
         {
-            // console.log("setPageData : " + JSON.stringify($scope.allPageContent[page]));
 
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
          
-            console.log("User userNotes :" + JSON.stringify($scope.user.userNotes));
-            console.log("keyindex : " + keyindex);
-            console.log("$scope.user.userNotes[keyindex] :" + $scope.user.userNotes[keyindex]);
-
-
             // highlights
             if ( $scope.user.userHightlights[keyindex] != undefined)
             {
