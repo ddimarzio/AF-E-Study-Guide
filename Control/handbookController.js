@@ -290,8 +290,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             console.log("nextChapterBtn :" + $scope.nextChapterBtn );
             console.log("prevChapterBtn :" + $scope.prevChapterBtn );
-            $scope.nextChapterBtn != $scope.nextChapterBtn;
-            $scope.prevChapterBtn != $scope.prevChapterBtn;
+            $scope.nextChapterBtn = !$scope.nextChapterBtn;
+            $scope.prevChapterBtn = !$scope.prevChapterBtn;
         }
 
         $scope.getSelectedText = function()
