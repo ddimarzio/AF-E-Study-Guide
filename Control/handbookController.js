@@ -3,6 +3,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         //init
         $scope.currentChapter = 1;
         $scope.currentPage = 0;
+        $scope.nextChapterBtn = false;
+        $scope.prevChapterBtn = false;
 
         $scope.getContent = function()
         {
@@ -202,10 +204,15 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.user.userProgress = $scope.user.userReadHandbook*10;
                 $localstorage.setObject('user', $scope.user);
             }
+
+            $scope.setNavButtons();
+
         }
 
         $scope.navToPage = function(num)
         {
+            
+
             if ( num > -1 && num < $scope.currentMaxPages)
             {
                 $scope.currentPage = num;
@@ -219,10 +226,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 var chaptSections = $localstorage.getObject('allChapterSections');
                 var whichPage = $localstorage.getObject('resourcePage');
                 var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
-                console.log("Chapter :" + whichPage[1]);
-                console.log("Section :" + whichPage[2]);
-
-                console.log("Sections total :" + chaptSections[(whichPage[1]-1)].sections.length);
 
                 // TODO. Not the best way to get the current section we are on.
                 var currentSectionNum = 0;
@@ -236,8 +239,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     i++;
                 });
 
-                console.log("Current Section : " + currentSectionNum);
-                
                 if ( num >= $scope.currentMaxPages) // moving forward
                 {
                     if ( currentSectionNum >= (totalSections-1) ) // at end of sections, move to next chapter
@@ -249,7 +250,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                             var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
                             whichPage[2] = nextSection;
                             $localstorage.setObject('resourcePage',whichPage);
-                            console.log("next whichpage : " + whichPage);
                             $scope.currentPage = 0;
                             $scope.getContent();
                         }
@@ -260,7 +260,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum+1].sectionID;
                         whichPage[2] = nextSection;
                         $localstorage.setObject('resourcePage',whichPage);
-                        console.log("next whichpage : " + whichPage);
                         $scope.currentPage = 0;
                         $scope.getContent();
                     }
@@ -274,12 +273,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         {
                             whichPage[1]--;
 
-                            console.log("moving back whichPage[1] : " + whichPage[1]);
-
                             var nextSection = chaptSections[(whichPage[1]-1)].sections[0].sectionID;
                             whichPage[2] = nextSection;
                             $localstorage.setObject('resourcePage',whichPage);
-                            console.log("next whichpage : " + whichPage);
                             $scope.currentPage = 0;
                             $scope.getContent();
                         }
@@ -289,7 +285,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         var nextSection = chaptSections[(whichPage[1]-1)].sections[currentSectionNum-1].sectionID;
                         whichPage[2] = nextSection;
                         $localstorage.setObject('resourcePage',whichPage);
-                        console.log("next whichpage : " + whichPage);
                         $scope.currentPage = 0;
                         $scope.getContent();
                     }
@@ -297,7 +292,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
         }
 
-        // TODO - problem highlighting paranetheses
+        $scope.setNavButtons = function()
+        {
+            $scope.nextChapterBtn != $scope.nextChapterBtn;
+            $scope.prevChapterBtn != $scope.prevChapterBtn;
+        }
+
         $scope.getSelectedText = function()
         {
             var selection = getSelection();
