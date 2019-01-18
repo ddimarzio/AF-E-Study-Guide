@@ -216,8 +216,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
             else // move chapters
             {
-
-
                 var chaptSections = $localstorage.getObject('allChapterSections');
                 var whichPage = $localstorage.getObject('resourcePage');
                 var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
