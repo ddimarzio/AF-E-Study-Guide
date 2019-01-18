@@ -289,9 +289,9 @@ hr {
 
 .whiteBox-admin {
   background-color:rgba(255, 255, 255, 0.9);
-  /* height: 768px; */
+  height: 768px;
   max-width: 1366px;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .blueCard
 {
