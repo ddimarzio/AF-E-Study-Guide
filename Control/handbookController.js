@@ -314,8 +314,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("whichPage[1] :" + whichPage[1]);
             console.log("$scope.currentPage :" + $scope.currentPage);
             console.log("$scope.currentMaxPages :" + $scope.currentMaxPages);
-            
-            if ( currentSectionNum == (totalSections-1) && $scope.currentPage == $scope.currentMaxPages)
+
+            if ( currentSectionNum == (totalSections-1) && $scope.currentPage == ($scope.currentMaxPages-1))
             {
                 $scope.nextChapterBtn = true;
             }
