@@ -294,6 +294,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setNavButtons = function()
         {
+            console.log("nextChapterBtn :" + $scope.nextChapterBtn );
+            console.log("prevChapterBtn :" + $scope.prevChapterBtn );
             $scope.nextChapterBtn != $scope.nextChapterBtn;
             $scope.prevChapterBtn != $scope.prevChapterBtn;
         }
