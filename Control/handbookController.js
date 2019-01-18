@@ -320,6 +320,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // change nav button to prev or next chapter
             if ( currentSectionNum == (totalSections-1) && $scope.currentPage == ($scope.currentMaxPages-1))
             {
+                if ( whichPage[1] < $scope.maxChapters)
+                {
+                    $scope.showNextNav = true;
+                }
+                else
+                {
+                    $scope.showNextNav = false;
+                }
                 $scope.nextChapterBtn = true;
             }
             else
@@ -329,6 +337,15 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             if ( currentSectionNum == 0 && $scope.currentPage == 0)
             {
+                // remove nav if no next/prev chapter
+                if ( whichPage[1] > 1)
+                {
+                    $scope.showPrevNav = true;
+                }
+                else
+                {
+                    $scope.showPrevNav = false;
+                }                
                 $scope.prevChapterBtn = true;
             }
             else
@@ -336,24 +353,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.prevChapterBtn = false;
             }
 
-            // remove nav if no next/prev chapter
-            if ( whichPage[1] > 1)
-            {
-                $scope.showPrevNav = false;
-            }
-            else
-            {
-                $scope.showPrevNav = true;
-            }
+ 
 
-            if ( whichPage[1] < $scope.maxChapters)
-            {
-                $scope.showNextNav = true;
-            }
-            else
-            {
-                $scope.showNextNav = false;
-            }
+
 
         }
 
