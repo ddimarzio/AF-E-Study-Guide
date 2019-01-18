@@ -312,8 +312,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // end of section
             console.log("setNavButtons :" + currentSectionNum + ":" + totalSections);
             console.log("whichPage[1] :" + whichPage[1]);
-
-            if ( currentSectionNum == (totalSections-1) )
+            console.log("$scope.currentPage :" + $scope.currentPage);
+            console.log("$scope.currentMaxPages :" + $scope.currentMaxPages);
+            
+            if ( currentSectionNum == (totalSections-1) && $scope.currentPage == $scope.currentMaxPages)
             {
                 $scope.nextChapterBtn = true;
             }
@@ -322,7 +324,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.nextChapterBtn = false;
             }
 
-            if ( currentSectionNum == 0)
+            if ( currentSectionNum == 0 && $scope.currentPage == 0)
             {
                 $scope.prevChapterBtn = true;
             }
