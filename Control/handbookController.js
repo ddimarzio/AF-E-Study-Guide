@@ -318,6 +318,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("$scope.currentMaxPages :" + $scope.currentMaxPages);
 
             // change nav button to prev or next chapter
+            $scope.showNextNav = true;
             if ( currentSectionNum == (totalSections-1) && $scope.currentPage == ($scope.currentMaxPages-1))
             {
                 if ( whichPage[1] < $scope.maxChapters)
@@ -335,9 +336,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.nextChapterBtn = false;
             }
 
+            $scope.showPrevNav = true;
             if ( currentSectionNum == 0 && $scope.currentPage == 0)
             {
-                // remove nav if no next/prev chapter
                 if ( whichPage[1] > 1)
                 {
                     $scope.showPrevNav = true;
