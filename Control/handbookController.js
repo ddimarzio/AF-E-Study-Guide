@@ -312,22 +312,25 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // end of section
             console.log("setNavButtons :" + currentSectionNum + ":" + totalSections);
             console.log("whichPage[1] :" + whichPage[1]);
-            
-            if ( currentSectionNum >= (totalSections-1) )
+
+            if ( currentSectionNum == (totalSections-1) )
             {
-                if ( whichPage[1] < $scope.maxChapters )
-                {
-                    $scope.nextChapterBtn = true;
-                }
-                else if ( whichPage[1] == $scope.maxChapters)
-                {
-                    $scope.nextChapterBtn = false;
-                }
-                else
-                {
-                    // remove right nav
-                }
+                $scope.nextChapterBtn = true;
             }
+            else
+            {
+                $scope.nextChapterBtn = false;
+            }
+
+            if ( currentSectionNum == 0)
+            {
+                $scope.prevChapterBtn = true;
+            }
+            else
+            {
+                $scope.prevChapterBtn = false;
+            }
+
         }
 
         $scope.getSelectedText = function()
