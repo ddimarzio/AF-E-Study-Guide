@@ -33,13 +33,13 @@
 #   "userID" : "46"
 # }
 
-POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "035a4e27-ddc5-4ce3-935e-76918e46ef1a",
-  "UserID" : "46"
-}
+# {
+#   "SessionID" : "035a4e27-ddc5-4ce3-935e-76918e46ef1a",
+#   "UserID" : "46"
+# }
 
   # "UserID": 46,
   # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",
@@ -124,42 +124,26 @@ content-type: application/json
 # }
 
 
-# POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
+content-type: application/json
 
-# {
-#   "userSession" : "246e87df-6364-4383-83c4-2d07228755ec",
-#   "UserID" : "46",
-#   "userBookMarks" : [{
-#       "chapterID":1,
-#       "sectionID":"1A",
-#       "pageNumber":1,
-#     },
-#     {
-#       "chapterID":2,
-#       "sectionID":"2B",
-#       "pageNumber":75,
-#     },
-#     {
-#       "chapterID":2,
-#       "sectionID":"2B",
-#       "pageNumber":76,
-#     },
-#     {
-#       "chapterID":2,
-#       "sectionID":"2C",
-#       "pageNumber":77,
-#       "note":"test-2"
-#       }],
-#   "userRankID" : 2,
-#   "userRole" : 0,
-#   "userName" : "",
-#   "userProgress" : 30,
-#   "userNotes" : [],
-#   "userFlashCardFlagged" : [],
-#   "userHightlights" : [],
-#   "userReadHandbook" : 100
-# }
+{
+  "userSession" : "035a4e27-ddc5-4ce3-935e-76918e46ef1a",
+  "UserID" : "46",
+  "userBookMarks" : [],
+  "userRankID" : 2,
+  "userRole" : 0,
+  "userName" : "Don",
+  "userProgress" : 30,
+  "userNotes" : [],
+  "userFlashCardFlagged" : [],
+  "userHightlights" : [{"chapterID":2,"sectionID":"2B","pageNumber":1,"content":"0:0","startChar":140,"endChar":161}],
+  "userSession":"c11f8022-0188-4dd6-a5ed-615f87e061c0",
+  "userReadHandbook":1,
+  "flashCardSelectedAmount":25,
+  "chaptersSelected":[],
+  "userReadHandbook" : 100
+}
 
 # SessionID: "29c78358-aa96-4c2d-9feb-4ce70ec56d80"
 # UserID: "46"

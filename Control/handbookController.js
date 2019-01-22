@@ -112,7 +112,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             // Saving data
             console.log("Saving data : " + JSON.stringify($scope.user));
-            
+
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
                                         $scope.user.userRankID,
@@ -373,7 +373,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var highlight = {};
             highlight.chapterID = whichPage[1];
             highlight.sectionID = whichPage[2];
-            highlight.pageNumber = $scope.currentPage;
+            highlight.pageNumber = $scope.allPageContent[$scope.currentPage].page;
             highlight.content = specNode.nodes;
             highlight.startChar = specNode.startChar;
             highlight.endChar = specNode.endChar;
