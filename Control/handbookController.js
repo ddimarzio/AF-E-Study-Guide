@@ -111,7 +111,19 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("bookmarksArray :" + JSON.stringify(bookmarksArray));
 
             // Saving data
-            console.log("Saving data : " + JSON.stringify($scope.user));
+            console.log("Saving data : " +
+                JSON.stringify($scope.user.userSession) + "," + 
+                JSON.stringify($scope.user.userID) + "," + 
+                JSON.stringify($scope.user.userRankID) + "," + 
+                JSON.stringify($scope.user.userRole) + "," + 
+                JSON.stringify($scope.user.userName) + "," + 
+                JSON.stringify(bookmarksArray) + "," + 
+                JSON.stringify(notesArray) + "," + 
+                JSON.stringify($scope.user.userFlashCardFlagged) + "," + 
+                JSON.stringify($scope.user.userHightlights) + "," + 
+                JSON.stringify($scope.user.userReadHandbook) + "," + 
+                JSON.stringify($scope.user.userProgress)
+            );
 
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
