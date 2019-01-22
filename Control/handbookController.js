@@ -219,7 +219,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 console.log("----------------------------");
                 console.log("$scope.currentPageContent :" + $scope.currentPageContent);
                 console.log("----------------------------");
-                
+
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[num].page);
                 $scope.setPageData($scope.currentPage);
             }
@@ -433,10 +433,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var spanCount = div.querySelectorAll('span').length;
             var pCount = div.querySelectorAll('p').length;
             var divCount = div.querySelectorAll('div').length;
-            var allNodes = div.querySelectorAll().length;
+            // var allNodes = div.querySelectorAll().length;
 
             console.log("divCount : " + divCount + " | pCount : " + pCount + " | spanCount: + " + spanCount );
-            console.log("allNodes : " + allNodes );
+            // console.log("allNodes : " + allNodes );
 
 
             return returnObj;
