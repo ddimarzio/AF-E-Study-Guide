@@ -438,9 +438,21 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("divCount : " + divCount + " | pCount : " + pCount + " | spanCount: + " + spanCount );
             console.log("allParaNodes : " + allParaNodes.length );
 
+            // Getting node index start and end
+            var startNodeIndex = 0;
+            var endNodeIndex = 0;
             angular.forEach(allParaNodes, function(value,key)
             {
-                console.log("value : " + value.tagName + " | key " + key);
+                if ( range.startContainer == value)
+                {
+                    startNodeIndex = key;
+                }
+                if ( range.endContainer == value)
+                {
+                    endNodeIndex = key;
+                }
+
+                console.log("startNodeIndex : " + startNodeIndex + " | endNodeIndex " + endNodeIndex);
             });
 
 
