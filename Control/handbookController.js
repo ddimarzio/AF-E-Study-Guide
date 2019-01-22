@@ -376,7 +376,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
 
             var specNode = {};
-            var specNode = $scope.getNode(range);
+            var specNode = $scope.getNode(range,selection);
 
             console.log("Range : " + range.startOffset + ":" + range.endOffset );
             console.log("Nodes : " + range.startContainer + ":" + range.endContainer );
@@ -424,7 +424,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }));
         };
 
-        $scope.getNode = function(range)
+        $scope.getNode = function(range,selection)
         {
             var returnObj = {};
 
@@ -443,8 +443,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var endNodeIndex = 0;
             angular.forEach(allParaNodes, function(value,key)
             {
-                console.log("range.startContainer :" + JSON.stringify(range.startContainer));
-                
+                console.log("selection.anchorNode :" + JSON.stringify(selection.anchorNode));
+
                 if ( range.startContainer == value)
                 {
                     startNodeIndex = key;
