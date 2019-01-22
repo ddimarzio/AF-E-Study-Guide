@@ -438,6 +438,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("divCount : " + divCount + " | pCount : " + pCount + " | spanCount: + " + spanCount );
             console.log("allParaNodes : " + allParaNodes.length );
 
+            angular.forEach(allParaNodes, function(value,key)
+            {
+                console.log("value : " + value.tagName + " | key " + key);
+            });
+
 
 
 
