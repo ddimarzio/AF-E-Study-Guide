@@ -378,10 +378,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var specNode = {};
             var specNode = $scope.getNode(range,selection);
 
-            console.log("Range : " + range.startOffset + ":" + range.endOffset );
-            console.log("Nodes : " + range.startContainer + ":" + range.endContainer );
+            console.log("specNode : " + JSON.stringify(specNode));
 
-            console.log("range.startContainer : " + range.startContainer.textContent  );
+            // console.log("Range : " + range.startOffset + ":" + range.endOffset );
+            // console.log("Nodes : " + range.startContainer + ":" + range.endContainer );
+
+            // console.log("range.startContainer : " + range.startContainer.textContent  );
 
 
             // var txt = '';
@@ -428,15 +430,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             var returnObj = {};
 
-            // var contentEle = document.getElementById( 'pageContentEle' );
             var div = document.querySelector('#pageContentEle');
-            var spanCount = div.querySelectorAll('span').length;
-            var pCount = div.querySelectorAll('p').length;
-            var divCount = div.querySelectorAll('div').length;
             var allParaNodes = div.querySelectorAll('p');
-
-            console.log("divCount : " + divCount + " | pCount : " + pCount + " | spanCount: + " + spanCount );
-            console.log("allParaNodes : " + allParaNodes.length );
 
             // Getting node index start and end
             var startNodeIndex = 0;
@@ -455,8 +450,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             console.log("startNodeIndex : " + startNodeIndex + " | endNodeIndex " + endNodeIndex);
 
-
-
+            returnObj.nodes = startNodeIndex + "," + endNodeIndex;
+            returnObj.range = range.startOffset + "," + range.endOffset;
 
             return returnObj;
         }
