@@ -443,6 +443,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var endNodeIndex = 0;
             angular.forEach(allParaNodes, function(value,key)
             {
+                console.log("range.startContainer :" + JSON.stringify(range.startContainer));
+                
                 if ( range.startContainer == value)
                 {
                     startNodeIndex = key;
