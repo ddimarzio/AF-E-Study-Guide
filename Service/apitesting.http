@@ -33,13 +33,13 @@
 #   "userID" : "46"
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "246e87df-6364-4383-83c4-2d07228755ec",
-#   "UserID" : "46"
-# }
+{
+  "SessionID" : "035a4e27-ddc5-4ce3-935e-76918e46ef1a",
+  "UserID" : "46"
+}
 
   # "UserID": 46,
   # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",
