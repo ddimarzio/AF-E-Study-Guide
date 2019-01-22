@@ -137,7 +137,7 @@ content-type: application/json
   "userProgress" : 30,
   "userNotes" : [],
   "userFlashCardFlagged" : [],
-  "userHightlights" : [{"chapterID":2,"sectionID":"2B","pageNumber":74,"content":"0,0","startChar":139,"endChar":161}],
+  "userHightlights" : [{"chapterID":"2","sectionID":"2B","pageNumber":74,"content":"0,0","startChar":"139","endChar":"161"}],
   "userSession":"c11f8022-0188-4dd6-a5ed-615f87e061c0",
   "userReadHandbook":1,
   "flashCardSelectedAmount":25,
