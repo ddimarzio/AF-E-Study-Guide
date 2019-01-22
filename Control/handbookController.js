@@ -353,15 +353,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             {
                 $scope.prevChapterBtn = false;
             }
-
- 
-
-
-
         }
 
+        // *********  HIGHLIGHTS **************
         $scope.getSelectedText = function()
         {
+
+
             var selection = getSelection();
 
             if (selection.getRangeAt)
@@ -371,6 +369,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 range.setStart(selection.anchorNode, selection.anchorOffset);
                 range.setEnd(selection.focusNode, selection.focusOffset);
             }
+
+            var specNode = {};
+            var specNode = $scope.getNode(range);
 
             console.log("Range : " + range.startOffset + ":" + range.endOffset );
             console.log("Nodes : " + range.startContainer + ":" + range.endContainer );
@@ -417,6 +418,25 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 return '<span class="highlight-text">' + match + '</span>';
             }));
         };
+
+        $scope.getNode = function(range)
+        {
+            var returnObj = {};
+
+            // var contentEle = document.getElementById( 'pageContentEle' );
+            var div = document.querySelector('#pageContentEle');
+            var spanCount = div.querySelectorAll('span').length;
+            var pCount = div.querySelectorAll('p').length;
+            var divCount = div.querySelectorAll('div').length;
+
+            console.log("divCount : " + divCount + " | pCount : " + pCount + " | spanCount: + " + spanCount );
+
+
+            return returnObj;
+        }
+
+        // *********  HIGHLIGHTS **************
+
 
         $scope.getContent();
 
