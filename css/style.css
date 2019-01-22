@@ -320,12 +320,13 @@ hr {
   line-height: 1.6; 
   font-family: Calibri;
   text-align: justify;
-  margin: auto;
+  margin: 0;
   padding-top: 5;
   padding-bottom: 5px;
   padding-right: 15px;
-  padding-left: 70px;
+  padding-left: 61px;
   font-size: 14px;
+  display: inline-block;
 }
 .hb-image-wrap-left {
   border: 1px solid rgb(187, 187, 187);
