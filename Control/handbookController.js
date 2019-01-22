@@ -203,13 +203,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
 
             $scope.setNavButtons();
-
         }
 
         $scope.navToPage = function(num)
         {
-            
-
             if ( num > -1 && num < $scope.currentMaxPages)
             {
                 $scope.currentPage = num;
@@ -255,7 +252,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                             $scope.currentPage = 0;
                             $scope.getContent();
                         }
-
                     }
                     
                     else
@@ -266,7 +262,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         $scope.currentPage = 0;
                         $scope.getContent();
                     }
-
                 }
                 else // moving back
                 {
@@ -297,9 +292,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setNavButtons = function()
         {
-            console.log("showNextNav :" + $scope.showNextNav );
-            console.log("showPrevNav :" + $scope.showPrevNav );
-
             var chaptSections = $localstorage.getObject('allChapterSections');
             var whichPage = $localstorage.getObject('resourcePage');
             var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
@@ -315,12 +307,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 }
                 i++;
             });
-
             // end of section
-            console.log("setNavButtons :" + currentSectionNum + ":" + totalSections);
-            console.log("whichPage[1] :" + whichPage[1]);
-            console.log("$scope.currentPage :" + $scope.currentPage);
-            console.log("$scope.currentMaxPages :" + $scope.currentMaxPages);
 
             // change nav button to prev or next chapter
             $scope.showNextNav = true;
@@ -363,8 +350,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         // *********  HIGHLIGHTS **************
         $scope.getSelectedText = function()
         {
-
-
             var selection = getSelection();
 
             if (selection.getRangeAt)
@@ -380,27 +365,23 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             console.log("specNode : " + JSON.stringify(specNode));
 
-            // console.log("Range : " + range.startOffset + ":" + range.endOffset );
-            // console.log("Nodes : " + range.startContainer + ":" + range.endContainer );
+            // Save highlight
+            var whichPage = $localstorage.getObject('resourcePage');
 
-            // console.log("range.startContainer : " + range.startContainer.textContent  );
+            var highlight = {};
+            highlight.chapterID = whichPage[1];
+            highlight.sectionID = whichPage[2];
+            highlight.pageNumber = $scope.currentPage;
+            highlight.content = specNode.nodes;
+            highlight.startChar = specNode.startChar;
+            highlight.endChar = specNode.endChar;
 
+            $scope.user.userHightlights.push(highlight);
 
-            // var txt = '';
-            // if (window.getSelection)
-            // {
-            //     txt = window.getSelection();
-            // }
-            // else if (document.getSelection)
-            // {
-            //     txt = document.getSelection();
-            // }
-            // else if (document.selection)
-            // {
-            //     txt = document.selection.createRange().text;
-            // }
-            // else return;
+            $localstorage.setObject('user', $scope.user);
 
+            $scope.saveThisUserData();
+            $scope.setPageData($scope.currentPage);
             // $scope.addHighlight(txt);
         }
 
@@ -451,7 +432,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("startNodeIndex : " + startNodeIndex + " | endNodeIndex " + endNodeIndex);
 
             returnObj.nodes = startNodeIndex + "," + endNodeIndex;
-            returnObj.range = range.startOffset + "," + range.endOffset;
+            returnObj.startChar = range.startOffset
+            returnObj.endChar = range.endOffset;
 
             return returnObj;
         }
