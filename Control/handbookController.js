@@ -215,6 +215,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.currentPage = num;
                 page = $scope.allPageContent[num];
                 $scope.currentPageContent = $sce.trustAsHtml(page.content);
+
+                console.log("----------------------------");
+                console.log("$scope.currentPageContent :" + $scope.currentPageContent);
+                console.log("----------------------------");
+                
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[num].page);
                 $scope.setPageData($scope.currentPage);
             }
