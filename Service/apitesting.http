@@ -33,13 +33,13 @@
 #   "userID" : "46"
 # }
 
-POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "31605ae2-6cb2-443e-8699-577a3511d788",
-  "UserID" : "46"
-}
+# {
+#   "SessionID" : "76925666-87b3-4731-86cb-8a0c5f127ac7",
+#   "UserID" : "110"
+# }
 
   # "UserID": 46,
   # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",
@@ -124,26 +124,26 @@ content-type: application/json
 # }
 
 
-POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
+# content-type: application/json
 
-{
-  "userSession" : "034cd8b3-8229-42cc-9edc-a799afba3d37",
-  "UserID" : "46",
-  "userBookMarks" : [],
-  "userRankID" : 2,
-  "userRole" : 0,
-  "userName" : "Don",
-  "userProgress" : 30,
-  "userNotes" : [],
-  "userFlashCardFlagged" : [],
-  "userHightlights" : [{"chapterID":"2","sectionID":"2B","pageNumber":74,"content":"0,0","startChar":"139","endChar":"161"}],
-  "userSession":"c11f8022-0188-4dd6-a5ed-615f87e061c0",
-  "userReadHandbook":1,
-  "flashCardSelectedAmount":25,
-  "chaptersSelected":[],
-  "userReadHandbook" : 100
-}
+# {
+#   "userSession" : "034cd8b3-8229-42cc-9edc-a799afba3d37",
+#   "UserID" : "46",
+#   "userBookMarks" : [],
+#   "userRankID" : 2,
+#   "userRole" : 0,
+#   "userName" : "Don",
+#   "userProgress" : 30,
+#   "userNotes" : [],
+#   "userFlashCardFlagged" : [],
+#   "userHightlights" : [{"chapterID":"2","sectionID":"2B","pageNumber":74,"content":"0,0","startChar":"139","endChar":"161"}],
+#   "userSession":"c11f8022-0188-4dd6-a5ed-615f87e061c0",
+#   "userReadHandbook":1,
+#   "flashCardSelectedAmount":25,
+#   "chaptersSelected":[],
+#   "userReadHandbook" : 100
+# }
 
 # SessionID: "29c78358-aa96-4c2d-9feb-4ce70ec56d80"
 # UserID: "46"
@@ -189,5 +189,12 @@ content-type: application/json
 #     }
 # }
 
+POST http://powertrainafttest.azurewebsites.net/EReader/DeleteHighlight HTTP/1.1
+content-type: application/json
 
+{
+  "SessionID" : "76925666-87b3-4731-86cb-8a0c5f127ac7",
+  "userID" : "110",
+  "highlightID" : 17
+}
 
