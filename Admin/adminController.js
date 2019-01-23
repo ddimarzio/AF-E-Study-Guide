@@ -7,7 +7,7 @@ mainApp.controller('AdminController', function($scope,$sce)
 
         $scope.selectedPage = 0;
         $scope.textAreaData = "";
-        $scope.version = "Version 0.325";
+        $scope.version = "Version 0.326";
 
         $scope.addHTMLTage = function(type)
         {
