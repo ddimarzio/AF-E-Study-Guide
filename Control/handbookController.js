@@ -430,10 +430,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var allParaNodes = div.querySelectorAll('p');
             var startEndNodes = highlight.content.split(',');
 
-            var startSpanText = 31;  // Length of added start of highlight html text
+            var startSpanHTMLLength = 32;  // Length of added start of highlight html text
             // Start highlight
             var result = allParaNodes[startEndNodes[0]].textContent.splice(highlight.startChar, 0, " <span class='highlight-text'> ");
-            var endResult = result.splice(highlight.endChar, startSpanText, " </span> ");
+            var endResult = result.splice(highlight.endChar+startSpanHTMLLength, 0, " </span> ");
 
             console.log("endResult : " + endResult);
 
