@@ -159,10 +159,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
          
             // highlights
-            if ( $scope.user.userHightlights[keyindex] != undefined)
-            {
-                $scope.addHighlight($scope.user.userHightlights[keyindex]);
-            }
+            // if ( $scope.user.userHightlights[keyindex] != undefined)
+            // {
+            //     $scope.addHighlight($scope.user.userHightlights[keyindex]);
+            // }
             
             // notes
             if ( $scope.user.userNotes[keyindex] != undefined)
@@ -380,20 +380,37 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             $scope.saveThisUserData();
             $scope.setPageData($scope.currentPage);
-            // $scope.addHighlight(txt);
+            $scope.addHighlights();
         }
 
-        $scope.addHighlight = function(txt)
+        $scope.addHighlights = function()
         {
             $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
-                
-            if ( txt != '')
-            {
-                var contentEle = document.getElementById( 'pageContentEle' );
-                $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
+            var whichPage = $localstorage.getObject('resourcePage');
 
-                $scope.saveHighlights($scope.currentPage,txt);
-            }
+            var hightlights = $scope.user.userHightlights;
+            hightlights.forEach(function(highlight)
+            {
+                console.log("highlight.chapterID : " + highlight.chapterID + ":" + whidhPage[1]);
+                console.log("highlight.sectionID : " + highlight.sectionID + ":" + whidhPage[2]);
+                console.log("highlight.pageNumber : " + highlight.pageNumber + ":" + $scope.allPageContent[$scope.currentPage].page);
+
+                // "highlightID": 29,
+                // "chapterID": "2",
+                // "sectionID": "2A",
+                // "pageNumber": 74,
+                // "content": "0,0",
+                // "startChar": 140,
+                // "endChar": 161
+            });
+
+            // if ( txt != '')
+            // {
+            //     var contentEle = document.getElementById( 'pageContentEle' );
+            //     $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
+
+            //     $scope.saveHighlights($scope.currentPage,txt);
+            // }
         }
 
         $scope.highlight = function(haystack, needle) {
