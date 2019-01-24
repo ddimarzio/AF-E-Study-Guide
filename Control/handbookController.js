@@ -399,6 +399,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     console.log("highlight.chapterID : " + highlight.chapterID + ":" + whichPage[1]);
                     console.log("highlight.sectionID : " + highlight.sectionID + ":" + whichPage[2]);
                     console.log("highlight.pageNumber : " + highlight.pageNumber + ":" + $scope.allPageContent[$scope.currentPage].page);
+                
+                    highlightText(highlight);
                 }
                 // "highlightID": 29,
                 // "chapterID": "2",
@@ -418,14 +420,22 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // }
         }
 
-        $scope.highlight = function(haystack, needle) {
-            if(!needle || needle == "" ) {
-                return $sce.trustAsHtml(haystack);
-            }
-            return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
-                return '<span class="highlight-text">' + match + '</span>';
-            }));
+        $scope.highlightText = function(highlight)
+        {
+            var div = document.querySelector('#pageContentEle');
+            var allParaNodes = div.querySelectorAll('p');
+
+            var startEndNodes = highlight.content.split(',');
+            // Start highlight
+            var result = allParaNodes[startEndNodes[0]].textContent.splice(highlight.startChar, 0, "[!!!!!]");
+
+            console.log("result : " + result);
+
+            // return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
+                // return '<span class="highlight-text">' + match + '</span>';
         };
+
+
 
         $scope.getNode = function(range,selection)
         {
