@@ -438,7 +438,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("result : " + result);
 
             // allParaNodes[startEndNodes[0]].textContent = result;
-            var newString = $scope.currentPageContent.toString().Replace(allParaNodes[startEndNodes[0]].textContent,result);
+            // $scope.newString = oldString.replace(/stackover/g,"NO");
+            var newString = $scope.currentPageContent.toString().replace(/allParaNodes[startEndNodes[0]].textContent/g,result);
             $scope.currentPageContent = $sce.trustAsHtml(newString);
             
             console.log("$scope.currentPageContent : " + $scope.currentPageContent);
