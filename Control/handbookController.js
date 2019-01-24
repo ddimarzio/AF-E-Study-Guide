@@ -431,11 +431,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var startEndNodes = highlight.content.split(',');
 
             // Start highlight
-            var result = allParaNodes[startEndNodes[0]].textContent.splice(highlight.startChar, 0, "<span class='highlight-text'>");
-            var startHighLightContent = $scope.currentPageContent.toString().replace(allParaNodes[startEndNodes[0]].textContent,result);
+            var result = allParaNodes[startEndNodes[0]].textContent.splice(highlight.startChar, 0, " <span class='highlight-text'> ");
+            var endResult = result.splice(highlight.endChar, 0, " </span> ");
+            var allHighlightContent = $scope.currentPageContent.toString().replace(allParaNodes[startEndNodes[0]].textContent,endResult);
             
-            var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, "</span>");
-            var allHighlightContent = startHighLightContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
+            // var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, " </span> ");
+            // var allHighlightContent = startHighLightContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
            
             $scope.currentPageContent = $sce.trustAsHtml(allHighlightContent);
 
