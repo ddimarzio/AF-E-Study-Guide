@@ -1018,3 +1018,14 @@ hr {
   color: #ffffff;
   font-size: 35px;
 }
+
+ /* IE 10+ only */
+ @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) 
+{  
+  .ie11-headerPaddingTop {
+    padding-top: 150px;
+  }
+  .ie11-PaddingTop {
+    padding-top: 40px;
+  }
+}

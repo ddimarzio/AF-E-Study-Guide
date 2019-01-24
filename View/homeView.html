@@ -1,21 +1,21 @@
-<div class="row col-12 justify-content-md-center m-0 whiteBox innerWithHeader">
+<div class="row col-12 justify-content-md-center m-0 whiteBox innerWithHeader ie11-headerPaddingTop">
         <div class="blueBox row col-10 p-0 shadow progress-box mt-auto mb-auto">
-                <div class="col-6 mr-auto text-nowrap p-0 testBorder">
-                        <div class="row m-auto title-text4 testBorder">
+                <div class="col-6 mr-auto text-nowrap p-0">
+                        <div class="row m-auto title-text4">
                                 <img src="/Assets/images/planeIcon.png" alt="">
-                                <div class="col-0 mt-auto mb-auto pr-2 testBorder">My Progress</div>
+                                <div class="col-0 mt-auto mb-auto pr-2 ie11-PaddingTop">My Progress</div>
                                 <div class="mt-auto mb-auto progressBar-green" 
                                      ng-repeat="n in [] | range:(user.userProgress/10)">
                                         |
                                 </div>
-                                <div class="mt-auto mb-auto progressBar-white"
+                                <div class="mt-auto mb-auto progressBar-white ie11-PaddingTop"
                                      ng-repeat="n in [] | range:((100-user.userProgress)/10)">
                                         |
                                 </div>                   
-                                <div class="mt-auto mb-auto pl-1">{{user.userProgress}}%</div>
+                                <div class="mt-auto mb-auto pl-1 ie11-PaddingTop">{{user.userProgress}}%</div>
                         </div>
                 </div>
-                <div class="col-5 justify-content-md-center ml-auto mt-auto mb-auto title-text4 text-nowrap">
+                <div class="col-5 ie11-PaddingTop justify-content-md-center ml-auto mt-auto mb-auto title-text4 text-nowrap">
                         AFH 1 - continue where you left off
                         <button class="btn button-submit-small-image ml-2" 
                         type="submit"
