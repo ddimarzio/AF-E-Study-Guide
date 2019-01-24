@@ -428,20 +428,17 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             var div = document.querySelector('#pageContentEle');
             var allParaNodes = div.querySelectorAll('p');
-
             var startEndNodes = highlight.content.split(',');
+
             // Start highlight
             var result = allParaNodes[startEndNodes[0]].textContent.splice(highlight.startChar, 0, "<span class='highlight-text'>");
-
-            console.log("allParaNodes[startEndNodes[0]] : " + allParaNodes[startEndNodes[0]]);
-            console.log("startEndNodes[0] : " + startEndNodes[0]);
-            console.log("result : " + result);
-
-            // allParaNodes[startEndNodes[0]].textContent = result;
-            // $scope.newString = oldString.replace(/stackover/g,"NO");
             var newString = $scope.currentPageContent.toString().replace(allParaNodes[startEndNodes[0]].textContent,result);
             $scope.currentPageContent = $sce.trustAsHtml(newString);
             
+            var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, "</span>");
+            var newString = $scope.currentPageContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
+            $scope.currentPageContent = $sce.trustAsHtml(newString);
+
             console.log("$scope.currentPageContent : " + $scope.currentPageContent);
             // return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
                 // return '<span class="highlight-text">' + match + '</span>';
