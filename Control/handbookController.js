@@ -422,17 +422,21 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.highlightText = function(highlight)
         {
+            String.prototype.splice = function(idx, rem, str) {
+                return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+            };
+
             var div = document.querySelector('#pageContentEle');
             var allParaNodes = div.querySelectorAll('p');
 
             var startEndNodes = highlight.content.split(',');
             // Start highlight
             var result = allParaNodes[startEndNodes[0]].textContent;
-            // var newresult = result.toString().splice(highlight.startChar, 0, "[!!!!!]");
+            var newresult = result.splice(highlight.startChar, 0, "[!!!!!]");
 
             console.log("allParaNodes[startEndNodes[0]] : " + allParaNodes[startEndNodes[0]]);
             console.log("startEndNodes[0] : " + startEndNodes[0]);
-            console.log("result : " + JSON.stringify(result));
+            console.log("newresult : " + newresult);
 
             // return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
                 // return '<span class="highlight-text">' + match + '</span>';
