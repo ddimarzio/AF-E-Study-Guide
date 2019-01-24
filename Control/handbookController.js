@@ -438,7 +438,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("result : " + result);
 
             allParaNodes[startEndNodes[0]].textContent = result;
-
+            $scope.currentPageContent = $sce.trustAsHtml($scope.currentPageContent.toString().replace(new RegExp(allParaNodes[startEndNodes[0]].textContent, "gi")));
+            
+            console.log("$scope.currentPageContent : " + $scope.currentPageContent);
             // return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
                 // return '<span class="highlight-text">' + match + '</span>';
         };
