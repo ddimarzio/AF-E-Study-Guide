@@ -428,7 +428,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var startEndNodes = highlight.content.split(',');
             // Start highlight
             var result = allParaNodes[startEndNodes[0]].textContent;
-            var newresult = result.splice(highlight.startChar, 0, "[!!!!!]");
+            var newresult = result.toString().splice(highlight.startChar, 0, "[!!!!!]");
 
             console.log("allParaNodes[startEndNodes[0]] : " + allParaNodes[startEndNodes[0]]);
             console.log("startEndNodes[0] : " + startEndNodes[0]);
