@@ -427,8 +427,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             var startEndNodes = highlight.content.split(',');
             // Start highlight
-            var result = allParaNodes[startEndNodes[0]].textContent.splice(highlight.startChar, 0, "[!!!!!]");
+            var result = allParaNodes[startEndNodes[0]].textContent;//.splice(highlight.startChar, 0, "[!!!!!]");
 
+            console.log("allParaNodes[startEndNodes[0]] : " + allParaNodes[startEndNodes[0]]);
+            console.log("startEndNodes[0] : " + startEndNodes[0]);
             console.log("result : " + result);
 
             // return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
