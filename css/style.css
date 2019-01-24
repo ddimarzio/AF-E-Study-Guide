@@ -8,7 +8,6 @@ html, body {
   background-position: top center;
   background-attachment: fixed;
   max-width: 1366px;
-  /* max-height: 768px; */
   height: 100vh;
   overflow: auto;
 }
@@ -252,7 +251,7 @@ hr {
 .navMenu-Main {
   /* TODO . IE does not like the background color */
   background: rgba(14,24,45,1);
-  background-color: rgb(14,24,45,1);
+  background-color: rgba(14,24,45,1);
   width: 270px;
 }
 
@@ -499,7 +498,7 @@ hr {
   display: inline-block;
   width: 105px;
   height: 105px;
-  background-color: rgb(14,24,45,1);
+  background-color: rgba(14,24,45,1);
 }
 
 .box-title-text {
@@ -955,24 +954,41 @@ hr {
 
 /* FONTS */
 @font-face {
-  font-family: MyriadPro;
-  src: url('../Assets/fonts/MyriadPro-Regular.otf');
+  font-family: 'MyriadPro';
+  src: url('../Assets/fonts/MyriadPro-Regular.eot'); 
+  src: url('../Assets/fonts/MyriadPro-Regular?#iefix') format('embedded-opentype'),  
+       url('../Assets/fonts/MyriadPro-Regular.woff') format('woff'), 
+       url('../Assets/fonts/MyriadPro-Regular.ttf')  format('truetype'),
+       url('../Assets/fonts/MyriadPro-Regular.svg#svgFontName') format('svg');
+  /* font-weight: bold; */
+}
+@font-face {
+  font-family: 'arialn';
+  src: url('../Assets/fonts/Arial-Narrow.eot'); 
+  src: url('../Assets/fonts/Arial-Narrow.eot?#iefix') format('embedded-opentype'),  
+       url('../Assets/fonts/Arial-Narrow.woff') format('woff'), 
+       url('../Assets/fonts/Arial-Narrow.ttf')  format('truetype'),
+       url('../Assets/fonts/Arial-Narrow.svg#svgFontName') format('svg');
+  /* font-weight: bold; */
+}
+@font-face {
+  font-family: 'agencyBold';
+  src: url('../Assets/fonts/Agency-FB-Bold.eot'); 
+  src: url('../Assets/fonts/Agency-FB-Bold.eot?#iefix') format('embedded-opentype'),  
+       url('../Assets/fonts/Agency-FB-Bold.woff') format('woff'), 
+       url('../Assets/fonts/Agency-FB-Bold.ttf')  format('truetype'),
+       url('../Assets/fonts/Agency-FB-Bold.svg#svgFontName') format('svg');
   font-weight: bold;
 }
 @font-face {
-  font-family: arialn;
-  src: url('../Assets/fonts/ARIALN.TTF');
-  font-weight: bold;
-}
-@font-face {
-  font-family: agencyBold;
-  src: url('../Assets/fonts/AGENCYB.TTF');
-  font-weight: bold;
-}
-@font-face {
-  font-family: agencyReg;
-  src: url('../Assets/fonts/AGENCYR.TTF');
-  font-weight: bold;
+  font-family: 'agencyReg';
+  src: url('../Assets/fonts/Agency-FB-W00 Regular.eot'); 
+  src: url('../Assets/fonts/Agency-FB-W00 Regular.eot?#iefix') format('embedded-opentype'),  
+       url('../Assets/fonts/Agency-FB-W00 Regular.woff') format('woff'), 
+       url('../Assets/fonts/Agency-FB-W00 Regular.ttf')  format('truetype'),
+       url('../Assets/fonts/Agency-FB-W00 Regular.svg#svgFontName') format('svg');
+
+  /* font-weight: bold; */
 }
 
 /* Animations */
