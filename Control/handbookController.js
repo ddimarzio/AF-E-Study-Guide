@@ -430,14 +430,17 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var allParaNodes = div.querySelectorAll('p');
             var startEndNodes = highlight.content.split(',');
 
-            var startSpanHTMLLength = 32;  // Length of added start of highlight html text
+            // var startSpanHTMLLength = 31;  // Length of added start of highlight html text
             // Start highlight
-            var result = allParaNodes[startEndNodes[0]].textContent.splice(highlight.startChar, 0, " <span class='highlight-text'> ");
-            var endResult = result.splice(highlight.endChar+startSpanHTMLLength, 0, " </span> ");
+            var beginContent = allParaNodes[startEndNodes[0]].textContent.substring(0,highlight.startChar);
+            var middleContent = allParaNodes[startEndNodes[0]].textContent.substring(highlight.startChar,highlight.endChar);
+            var endContent = allParaNodes[startEndNodes[0]].textContent.substring(highlight.endChar,allParaNodes[startEndNodes[0]].textContent.length);
+            var result = beginContent + " <span class='highlight-text'> " + middleContent + " </span> " + endContent);
+            // var endResult = result.splice(highlight.endChar+startSpanHTMLLength, 0, " </span> ");
 
-            console.log("endResult : " + endResult);
+            console.log("result : " + result);
 
-            var allHighlightContent = $scope.currentPageContent.toString().replace(allParaNodes[startEndNodes[0]].textContent,endResult);
+            var allHighlightContent = $scope.currentPageContent.toString().replace(allParaNodes[startEndNodes[0]].textContent,result);
             
             // var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, " </span> ");
             // var allHighlightContent = startHighLightContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
