@@ -391,8 +391,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var hightlights = $scope.user.userHightlights;
             hightlights.forEach(function(highlight)
             {
-                console.log("highlight.chapterID : " + highlight.chapterID + ":" + whidhPage[1]);
-                console.log("highlight.sectionID : " + highlight.sectionID + ":" + whidhPage[2]);
+                console.log("highlight.chapterID : " + highlight.chapterID + ":" + whichPage[1]);
+                console.log("highlight.sectionID : " + highlight.sectionID + ":" + whichPage[2]);
                 console.log("highlight.pageNumber : " + highlight.pageNumber + ":" + $scope.allPageContent[$scope.currentPage].page);
 
                 // "highlightID": 29,
