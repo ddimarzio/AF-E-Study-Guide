@@ -400,7 +400,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     console.log("highlight.sectionID : " + highlight.sectionID + ":" + whichPage[2]);
                     console.log("highlight.pageNumber : " + highlight.pageNumber + ":" + $scope.allPageContent[$scope.currentPage].page);
                 
-                    highlightText(highlight);
+                    $scope.highlightText(highlight);
                 }
                 // "highlightID": 29,
                 // "chapterID": "2",
