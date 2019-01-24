@@ -437,8 +437,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("startEndNodes[0] : " + startEndNodes[0]);
             console.log("result : " + result);
 
-            allParaNodes[startEndNodes[0]].textContent = result;
-            $scope.currentPageContent = $sce.trustAsHtml($scope.currentPageContent.toString().replace(new RegExp(allParaNodes[startEndNodes[0]].textContent, "gi")));
+            // allParaNodes[startEndNodes[0]].textContent = result;
+            var newString = $scope.currentPageContent.toString().Replace(allParaNodes[startEndNodes[0]].textContent,result);
+            $scope.currentPageContent = $sce.trustAsHtml(newString);
             
             console.log("$scope.currentPageContent : " + $scope.currentPageContent);
             // return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
