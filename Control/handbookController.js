@@ -435,7 +435,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var beginContent = allParaNodes[startEndNodes[0]].textContent.substring(0,highlight.startChar);
             var middleContent = allParaNodes[startEndNodes[0]].textContent.substring(highlight.startChar,highlight.endChar);
             var endContent = allParaNodes[startEndNodes[0]].textContent.substring(highlight.endChar,allParaNodes[startEndNodes[0]].textContent.length);
-            var result = beginContent + " <span class='highlight-text'> " + middleContent + " </span> " + endContent);
+            var result = beginContent + " <span class='highlight-text'> " + middleContent + " </span> " + endContent;
             // var endResult = result.splice(highlight.endChar+startSpanHTMLLength, 0, " </span> ");
 
             console.log("result : " + result);
