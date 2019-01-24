@@ -391,10 +391,15 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var hightlights = $scope.user.userHightlights;
             hightlights.forEach(function(highlight)
             {
-                console.log("highlight.chapterID : " + highlight.chapterID + ":" + whichPage[1]);
-                console.log("highlight.sectionID : " + highlight.sectionID + ":" + whichPage[2]);
-                console.log("highlight.pageNumber : " + highlight.pageNumber + ":" + $scope.allPageContent[$scope.currentPage].page);
 
+                if ( highlight.chapterID == whichPage[1] &&
+                     highlight.sectionID == whichPage[2] &&
+                     highlight.pageNumber == $scope.allPageContent[$scope.currentPage].page)
+                {
+                    console.log("highlight.chapterID : " + highlight.chapterID + ":" + whichPage[1]);
+                    console.log("highlight.sectionID : " + highlight.sectionID + ":" + whichPage[2]);
+                    console.log("highlight.pageNumber : " + highlight.pageNumber + ":" + $scope.allPageContent[$scope.currentPage].page);
+                }
                 // "highlightID": 29,
                 // "chapterID": "2",
                 // "sectionID": "2A",
