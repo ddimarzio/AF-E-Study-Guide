@@ -438,6 +438,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var result = beginContent + " <span class='highlight-text'> " + middleContent + " </span> " + endContent;
             // var endResult = result.splice(highlight.endChar+startSpanHTMLLength, 0, " </span> ");
 
+            console.log("beginContent : " + beginContent);
+            console.log("middleContent : " + middleContent);
+            console.log("endContent : " + endContent);
             console.log("result : " + result);
 
             var allHighlightContent = $scope.currentPageContent.toString().replace(allParaNodes[startEndNodes[0]].textContent,result);
@@ -445,6 +448,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, " </span> ");
             // var allHighlightContent = startHighLightContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
            
+            console.log("allHighlightContent : " + allHighlightContent);
+
             $scope.currentPageContent = $sce.trustAsHtml(allHighlightContent);
 
             // console.log("$scope.currentPageContent : " + $scope.currentPageContent);
