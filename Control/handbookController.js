@@ -412,7 +412,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var contentWithMarker = $scope.currentPageContent.toString().replace(nodeContent,replacedContent);
             // console.log("contentWithMarker:" + contentWithMarker);
             
-            var reg = new RegExp("/(" + $scope.marker + ")?" + txt + "/",gi);
+            var reg = new RegExp("/(" + $scope.marker + ")?" + txt + "/","gi");
             while ( result = reg.exec(contentWithMarker))
             {
                 console.log("result :" + JSON.stringify(result));
