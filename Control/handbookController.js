@@ -457,6 +457,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
             };
 
+            var s = "aaaaaaaaaaa";
+            console.log("test :" + s.splice(3,0,"ddd"));
+
             var startHLTag = "<span class='highlight-text'>";
             $scope.user.userHightlights.forEach(function(highlight)
             {
