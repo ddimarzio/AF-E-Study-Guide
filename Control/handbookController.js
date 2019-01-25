@@ -396,7 +396,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             var marker = "|";
 
-            var addedMarkerContent = [specNode.textContent.toString().slice(0, specNode.startChar), marker, specNode.textContent.toString().slice(specNode.startChar)].join('');
+            var addedMarkerContent = [specNode.startContent.toString().slice(0, specNode.startChar), marker, specNode.startContent.toString().slice(specNode.startChar)].join('');
            
             console.log("addedMarkerContent :" + addedMarkerContent);
 
@@ -454,22 +454,28 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             // Getting node index start and end
             var startNodeIndex = 0;
+            var startContent = "";
             var endNodeIndex = 0;
+            var endContent = "";
             angular.forEach(allParaNodes, function(value,key)
             {
                 if ( range.startContainer.textContent == value.textContent)
                 {
                     startNodeIndex = key;
+                    startContent = value.textContent;
                 }
                 if ( range.endContainer.textContent == value.textContent)
                 {
                     endNodeIndex = key;
+                    endContent = value.textContent;
                 }
             });
 
             returnObj.nodes = startNodeIndex + "," + endNodeIndex;
             returnObj.startChar = range.startOffset
             returnObj.endChar = range.endOffset;
+            returnObj.startContent = startContent;
+            returnObj.endContent = endContent;
 
             return returnObj;
         }
