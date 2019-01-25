@@ -397,7 +397,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
 
 
-            console.log("specNode.startContent :" + specNode.startContent);
+            console.log("specNode :" + JSON.toString(specNode));
             var addedMarkerContent = [specNode.startContent.toString().slice(0, specNode.startChar), $scope.marker, specNode.startContent.toString().slice(specNode.startChar)].join('');
            
             console.log("addedMarkerContent :" + addedMarkerContent);
