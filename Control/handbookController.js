@@ -379,11 +379,29 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             console.log("startChar :" + specNode.startChar );
             
-            $scope.addHighlight(txt);
+            $scope.addMarker(specNode,txt);
+
+
+            // $scope.addHighlight(txt);
 
             // $scope.saveThisUserData();
             // $scope.setPageData($scope.currentPage);
-            // $scope.addHighlights();
+        }
+
+        $scope.addMarker - function(specNode,txt)
+        {
+            var marker = "|";
+
+            var addedMarkerContent = [specNode.textContent.slice(0, specNode.startChar), marker, specNode.textContent.slice(specNode.startChar)].join('');
+           
+            console.log("addedMarkerContent :" + addedMarkerContent);
+            
+            // var allHighlightContent = $scope.currentPageContent.toString().replace(specNode.textContent,addedMarkerContent);
+            
+            // var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, " </span> ");
+            // var allHighlightContent = startHighLightContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
+
+            // $scope.currentPageContent = $sce.trustAsHtml(allHighlightContent);
         }
 
         $scope.addHighlight = function(txt)
