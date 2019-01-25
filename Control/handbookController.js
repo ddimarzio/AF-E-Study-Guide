@@ -464,8 +464,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             $scope.user.userHightlights.forEach(function(highlight)
             {
                 // var reg = new RegExp(highlight.content,"g");
-               var highLightContent =  $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
-               $scope.currentPageContent.$sce.trustAsHtml(highLightContent);
+               var highLightContent = $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
+               $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
             });
         }
 
