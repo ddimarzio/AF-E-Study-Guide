@@ -389,13 +389,16 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             {
                 return $sce.trustAsHtml(haystack);
             }
+
+            var reg = new RegExp("(" + needle + ")", "g");
+            while ( match = reg.exec(haystack.toString()) )
+            {
+                console.log("match.index : " + match.index);
+            }
             console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
 
-            var temp = "This is a string.";
-            var count = (temp.match(/is/g) || []).length;
-            console.log(count);
 
-            return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) 
+            return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "g"), function(match) 
             {
 
                 return '<span class="highlight-text">' + match + '</span>';
