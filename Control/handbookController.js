@@ -365,110 +365,34 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             console.log("getSelectedText :" + txt );
 
-            
-
-            // $scope.addHighlight(txt);
+            $scope.addHighlight(txt);
 
             // $scope.saveThisUserData();
             // $scope.setPageData($scope.currentPage);
             // $scope.addHighlights();
         }
 
-        $scope.addHighlights = function()
+        $scope.addHighlight = function()
         {
             $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
-            var whichPage = $localstorage.getObject('resourcePage');
 
-            var hightlights = $scope.user.userHightlights;
-            hightlights.forEach(function(highlight)
+            if ( txt != '')
             {
+                var contentEle = document.getElementById( 'pageContentEle' );
+                $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
 
-                if ( highlight.chapterID == whichPage[1] &&
-                     highlight.sectionID == whichPage[2] &&
-                     highlight.pageNumber == $scope.allPageContent[$scope.currentPage].page)
-                {
-                    console.log("highlight.chapterID : " + highlight.chapterID + ":" + whichPage[1]);
-                    console.log("highlight.sectionID : " + highlight.sectionID + ":" + whichPage[2]);
-                    console.log("highlight.pageNumber : " + highlight.pageNumber + ":" + $scope.allPageContent[$scope.currentPage].page);
-                
-                    $scope.highlightText(highlight);
-                }
-                // "highlightID": 29,
-                // "chapterID": "2",
-                // "sectionID": "2A",
-                // "pageNumber": 74,
-                // "content": "0,0",
-                // "startChar": 140,
-                // "endChar": 161
-            });
-
-            // if ( txt != '')
-            // {
-            //     var contentEle = document.getElementById( 'pageContentEle' );
-            //     $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
-
-            //     $scope.saveHighlights($scope.currentPage,txt);
-            // }
+                $scope.saveHighlights($scope.currentPage,txt);
+            }
         }
 
-        $scope.highlightText = function(highlight)
-        {
-            String.prototype.splice = function(idx, rem, str) {
-                return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
-            };
-
-            var div = document.querySelector('#pageContentEle');
-            var allParaNodes = div.querySelectorAll('p');
-            var startEndNodes = highlight.content.split(',');
-
-            // var startSpanHTMLLength = 31;  // Length of added start of highlight html text
-            // Start highlight
-            var beginContent = allParaNodes[startEndNodes[0]].textContent.substring(0,highlight.startChar);
-            var middleContent = allParaNodes[startEndNodes[0]].textContent.substring(highlight.startChar,highlight.endChar);
-            var endContent = allParaNodes[startEndNodes[0]].textContent.substring(highlight.endChar,allParaNodes[startEndNodes[0]].textContent.length);
-            var result = beginContent + " <span class='highlight-text'> " + middleContent + " </span> " + endContent;
-            // var endResult = result.splice(highlight.endChar+startSpanHTMLLength, 0, " </span> ");
-
-            console.log("beginContent : " + beginContent);
-            console.log("middleContent : " + middleContent);
-            console.log("endContent : " + endContent);
-            console.log("result : " + result);
-
-            var allHighlightContent = $scope.currentPageContent.toString().replace(allParaNodes[startEndNodes[0]].textContent,result);
-            
-            // var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, " </span> ");
-            // var allHighlightContent = startHighLightContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
-           
-            console.log("allHighlightContent : " + allHighlightContent);
-
-            $scope.currentPageContent = $sce.trustAsHtml(allHighlightContent);
-
-            // console.log("$scope.currentPageContent : " + $scope.currentPageContent);
-            // return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
-                // return '<span class="highlight-text">' + match + '</span>';
+        $scope.highlight = function(haystack, needle) {
+            if(!needle || needle == "" ) {
+                return $sce.trustAsHtml(haystack);
+            }
+            return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
+                return '<span class="highlight-text">' + match + '</span>';
+            }));
         };
-
-        // $scope.addHighlight = function(txt)
-        // {
-        //     $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
-                
-        //     if ( txt != '')
-        //     {
-        //         var contentEle = document.getElementById( 'pageContentEle' );
-        //         $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
-
-        //         $scope.saveHighlights($scope.currentPage,txt);
-        //     }
-        // }
-
-        // $scope.highlight = function(haystack, needle) {
-        //     if(!needle || needle == "" ) {
-        //         return $sce.trustAsHtml(haystack);
-        //     }
-        //     return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
-        //         return '<span class="highlight-text">' + match + '</span>';
-        //     }));
-        // };
 
 
         $scope.getNode = function(range,selection)
