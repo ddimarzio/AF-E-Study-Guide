@@ -403,9 +403,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("addedMarkerContent :" + addedMarkerContent);
 
             var contentWithMarker = $scope.currentPageContent.toString().replace(specNode.startContent,addedMarkerContent);
-            $scope.currentPageContent = $sce.trustAsHtml(contentWithMarker);  // TODO remove later
+            $scope.currentPageContent = $sce.trustAsHtml(contentWithMarker);
 
-            $scope.addHighlight(txt,contentWithMarker);
+            $scope.addHighlight(txt);
 
             // var allHighlightContent = $scope.currentPageContent.toString().replace(specNode.textContent,addedMarkerContent);
             
@@ -415,14 +415,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // $scope.currentPageContent = $sce.trustAsHtml(allHighlightContent);
         }
 
-        $scope.addHighlight = function(txt,contentWithMarker)
+        $scope.addHighlight = function(txt)
         {
-            // $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
+            $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
 
             if ( txt != '')
             {
                 var contentEle = document.getElementById( 'pageContentEle' );
-                $scope.currentPageContent = $scope.highlight(contentWithMarker,txt);
+                $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
 
             }
         }
