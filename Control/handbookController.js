@@ -409,7 +409,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var reg = new RegExp("(" + needle + ")", "g");
             while ( match = reg.exec(haystack.toString()) )
             {
-                console.log("match.index : " + JSON.stringify(match) );
+                console.log("match.index : " + match.index );
             }
 
             console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
