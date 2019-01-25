@@ -395,20 +395,31 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
             };
 
-            console.log("range :" + JSON.stringify(range));
+            // console.log("range :" + JSON.stringify(range));
 
             var addedMarkerContent = [range.startContainer.textContent.toString().slice(0, range.startOffset), $scope.marker, range.startContainer.textContent.toString().slice(range.startOffset)].join('');
            
-            // replace " with &quot;  TODO  find out what other special chars are escaped
+            // replace " with &quot;  TODO  add other special chars
+                // EM Dash is escaped to:  &mdash;
+                // EN Dash is escaped to: &ndash;
+                // Double quotes are escaped to: &quot;
+                // And single quotes are escaped to: ((quote))
+
             var replacedContent = addedMarkerContent.replace(/"/g, '&quot;');
             var nodeContent = range.startContainer.textContent.replace(/"/g, '&quot;');
-            console.log("addedMarkerContent :" + replacedContent);
+            // console.log("addedMarkerContent :" + replacedContent);
 
             var contentWithMarker = $scope.currentPageContent.toString().replace(nodeContent,replacedContent);
-            console.log("contentWithMarker:" + contentWithMarker);
-
+            // console.log("contentWithMarker:" + contentWithMarker);
+            
+            var reg = new RegExp("/" + txt + "/g");
+            while ( result = reg.exec(contentWithMarker))
+            {
+                console.log("result :" + JSON.stringify(result));
+            }
             
             $scope.currentPageContent = $sce.trustAsHtml(contentWithMarker);
+
 
             // $scope.addHighlight(txt);
 
