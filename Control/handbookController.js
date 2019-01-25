@@ -413,12 +413,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // console.log("contentWithMarker:" + contentWithMarker);
             
             var reg = new RegExp("(" + $scope.marker + ")?" + txt,"g");
+            var occurance = 0;
             while ( result = reg.exec(contentWithMarker))
             {
                 if ( result[1] != null)
                 {
-                    console.log("result.index " + result.index);
+                    console.log("result.index " + occurance);
                 }
+                occurance++;
                 console.log("result :" + JSON.stringify(result));
             }
             
