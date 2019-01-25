@@ -8,6 +8,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.prevChapterBtn = false;
         $scope.showNextNav = true;
         $scope.showPrevNav = true;
+        $scope.marker = "MM";
 
         $scope.getContent = function()
         {
@@ -394,10 +395,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
             };
 
-            var marker = "**";
+
 
             console.log("specNode.startContent :" + specNode.startContent);
-            var addedMarkerContent = [specNode.startContent.toString().slice(0, specNode.startChar), marker, specNode.startContent.toString().slice(specNode.startChar)].join('');
+            var addedMarkerContent = [specNode.startContent.toString().slice(0, specNode.startChar), $scope.marker, specNode.startContent.toString().slice(specNode.startChar)].join('');
            
             console.log("addedMarkerContent :" + addedMarkerContent);
 
@@ -444,7 +445,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
 
 
-            return $sce.trustAsHtml(haystack.toString().replace(new RegExp("(**)?" + needle, "g"), function(match) 
+            return $sce.trustAsHtml(haystack.toString().replace(new RegExp("(" + $scope.marker + ")?" + needle, "g"), function(match) 
             {
                 console.log("Match : " + JSON.stringify(match));
                 // return '<span class="highlight-text">' + match + '</span>';
