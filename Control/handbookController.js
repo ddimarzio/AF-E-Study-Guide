@@ -466,9 +466,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var endContent = "";
             angular.forEach(allParaNodes, function(value,key)
             {
+                console.log("------------------------------------------------");
+                console.log("key : " + key);
                 console.log("range.startContainer.textContent : [" + range.startContainer.textContent + "]");
-                console.log("value.textContent : [" + value.textContent + "]");
-
+                console.log("range.startContainer : " + value.textContent.indexOf(range.startContainer.textContent));
+                console.log("range.endContainer : " + value.textContent.indexOf(range.endContainer.textContent));
+                console.log("------------------------------------------------");
                 if ( value.textContent.indexOf(range.startContainer.textContent) > -1 )
                 {
                     startNodeIndex = key;
