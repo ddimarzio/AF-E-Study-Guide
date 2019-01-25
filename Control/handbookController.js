@@ -372,7 +372,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // $scope.addHighlights();
         }
 
-        $scope.addHighlight = function()
+        $scope.addHighlight = function(txt)
         {
             $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
 
@@ -381,15 +381,18 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 var contentEle = document.getElementById( 'pageContentEle' );
                 $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
 
-                $scope.saveHighlights($scope.currentPage,txt);
             }
         }
 
         $scope.highlight = function(haystack, needle) {
-            if(!needle || needle == "" ) {
+            if(!needle || needle == "" ) 
+            {
                 return $sce.trustAsHtml(haystack);
             }
-            return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
+            console.log("Count : " + haystack.toString().match(needle, "gi").length);
+            return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) 
+            {
+
                 return '<span class="highlight-text">' + match + '</span>';
             }));
         };
