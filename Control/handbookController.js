@@ -401,7 +401,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
            
             console.log("addedMarkerContent :" + addedMarkerContent);
 
-            var contentWithMarker = $scope.currentPageContent.toString().replace(specNode.startContent,addedMarkerContent);
+            var contentWithMarker = $scope.currentPageContent.toString().replace(range.startContainer.textContent,addedMarkerContent);
             $scope.currentPageContent = $sce.trustAsHtml(contentWithMarker);
 
             // $scope.addHighlight(txt);
