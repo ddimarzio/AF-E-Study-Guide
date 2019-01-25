@@ -433,7 +433,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 hl.chapterID = whichPage[1];
                 hl.sectionID = whichPage[2];
                 hl.pageNumber = $scope.allPageContent[$scope.currentPage].page;
-                hl.content = txt;
+                hl.content = txt.toString();
                 hl.startChar = occurance;
                 hl.endChar = matchIndex;
             $scope.user.userHightlights.push(hl);
