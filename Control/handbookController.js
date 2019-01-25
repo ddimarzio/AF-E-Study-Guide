@@ -389,7 +389,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             {
                 return $sce.trustAsHtml(haystack);
             }
-            console.log("Count : " + haystack.toString().match(needle, "gi").length);
+            console.log("Count : " + haystack.toString().match(needle, "gi" || []).length);
+
+            var temp = "This is a string.";
+            var count = (temp.match(/is/g) || []).length;
+            console.log(count);
+
             return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) 
             {
 
