@@ -374,7 +374,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 range.setEnd(selection.focusNode, selection.focusOffset);
             }
 
-            console.log("range count" + range.rangeCount);
+            console.log("range count" + selection.rangeCount);
             // var specNode = {};
             // var specNode = $scope.getNode(range,selection);
 
@@ -402,6 +402,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("addedMarkerContent :" + addedMarkerContent);
 
             var contentWithMarker = $scope.currentPageContent.toString().replace(range.startContainer.textContent,addedMarkerContent);
+            console.log("contentWithMarker:" + contentWithMarker);
+
+            
             $scope.currentPageContent = $sce.trustAsHtml(contentWithMarker);
 
             // $scope.addHighlight(txt);
