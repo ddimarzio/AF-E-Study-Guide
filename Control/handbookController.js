@@ -388,14 +388,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // $scope.setPageData($scope.currentPage);
         }
 
-        $scope.addMarker - function(specNode,txt)
+        $scope.addMarker = function(specNode,txt)
         {
             var marker = "|";
 
             var addedMarkerContent = [specNode.textContent.slice(0, specNode.startChar), marker, specNode.textContent.slice(specNode.startChar)].join('');
            
             console.log("addedMarkerContent :" + addedMarkerContent);
-            
+
             // var allHighlightContent = $scope.currentPageContent.toString().replace(specNode.textContent,addedMarkerContent);
             
             // var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, " </span> ");
