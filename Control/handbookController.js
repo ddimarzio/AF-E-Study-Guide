@@ -375,12 +375,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
 
             console.log("range count" + range.rangeCount);
-            var specNode = {};
-            var specNode = $scope.getNode(range,selection);
+            // var specNode = {};
+            // var specNode = $scope.getNode(range,selection);
 
-            console.log("startChar :" + specNode.startChar );
+            // console.log("startChar :" + specNode.startChar );
             
-            $scope.addMarker(specNode,txt);
+            $scope.addMarker(range,txt);
 
 
             // $scope.addHighlight(txt);
@@ -389,15 +389,15 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // $scope.setPageData($scope.currentPage);
         }
 
-        $scope.addMarker = function(specNode,txt)
+        $scope.addMarker = function(range,txt)
         {
             String.prototype.splice = function(idx, rem, str) {
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
             };
 
-            console.log("specNode :" + JSON.stringify(specNode));
+            console.log("range :" + JSON.stringify(range));
 
-            var addedMarkerContent = [specNode.startContent.toString().slice(0, specNode.startChar), $scope.marker, specNode.startContent.toString().slice(specNode.startChar)].join('');
+            var addedMarkerContent = [range.startContainer.textContent.toString().slice(0, range.startOffset), $scope.marker, range.startContainer.textContent.toString().slice(range.startOffset)].join('');
            
             console.log("addedMarkerContent :" + addedMarkerContent);
 
