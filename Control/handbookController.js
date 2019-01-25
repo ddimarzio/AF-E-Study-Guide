@@ -363,7 +363,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
             else return;
 
-            console.log("getSelectedText :" + txt );
+           
 
             var selection = getSelection();
 
@@ -375,9 +375,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 range.setEnd(selection.focusNode, selection.focusOffset);
             }
 
+            console.log("range count" + range.range)
             var specNode = {};
-            var specNode = $scope.getNode(range,selection);
+            var specNode = $scope.getNode(selection.rangeCount);
 
+            console.log("startChar :" + specNode.startChar );
+            
             $scope.addHighlight(txt);
 
             // $scope.saveThisUserData();
