@@ -399,8 +399,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
            
             console.log("addedMarkerContent :" + addedMarkerContent);
 
-            var allContent = $scope.currentPageContent.toString().replace(specNode.startContent,addedMarkerContent);
-            $scope.currentPageContent = $sce.trustAsHtml(allContent);
+            // var allContent = $scope.currentPageContent.toString().replace(specNode.startContent,addedMarkerContent);
+            // $scope.currentPageContent = $sce.trustAsHtml(allContent);
 
             // var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, " </span> ");
             // var allHighlightContent = startHighLightContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
