@@ -365,6 +365,19 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             console.log("getSelectedText :" + txt );
 
+            var selection = getSelection();
+
+            if (selection.getRangeAt)
+                range = selection.getRangeAt(0);
+            else {
+                range = document.createRange();
+                range.setStart(selection.anchorNode, selection.anchorOffset);
+                range.setEnd(selection.focusNode, selection.focusOffset);
+            }
+
+            var specNode = {};
+            var specNode = $scope.getNode(range,selection);
+
             $scope.addHighlight(txt);
 
             // $scope.saveThisUserData();
@@ -390,11 +403,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 return $sce.trustAsHtml(haystack);
             }
 
+
+            // Get all match indexes
             var reg = new RegExp("(" + needle + ")", "g");
             while ( match = reg.exec(haystack.toString()) )
             {
-                console.log("match.index : " + match.index);
+                console.log("match.index : " + JSON.stringify(match) );
             }
+
             console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
 
 
@@ -427,8 +443,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     endNodeIndex = key;
                 }
             });
-
-            console.log("startNodeIndex : " + startNodeIndex + " | endNodeIndex " + endNodeIndex);
 
             returnObj.nodes = startNodeIndex + "," + endNodeIndex;
             returnObj.startChar = range.startOffset
