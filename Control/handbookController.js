@@ -460,12 +460,15 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var allParaNodes = div.querySelectorAll('p');
 
             // Getting node index start and end
-            var startNodeIndex = 0;
+            var startNodeIndex = -1;
             var startContent = "";
-            var endNodeIndex = 0;
+            var endNodeIndex = -1;
             var endContent = "";
             angular.forEach(allParaNodes, function(value,key)
             {
+                console.log("range.startContainer.textContent : [" + range.startContainer.textContent + "]");
+                console.log("value.textContent : [" + value.textContent + "]");
+                
                 if ( range.startContainer.textContent == value.textContent)
                 {
                     startNodeIndex = key;
