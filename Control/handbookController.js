@@ -391,9 +391,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addMarker = function(range,txt)
         {
-            String.prototype.splice = function(idx, rem, str) {
-                return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
-            };
+
 
             // console.log("range :" + JSON.stringify(range));
 
@@ -412,24 +410,37 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var contentWithMarker = $scope.currentPageContent.toString().replace(nodeContent,replacedContent);
             // console.log("contentWithMarker:" + contentWithMarker);
             
+            // Matching the txt with the marker in front
             var reg = new RegExp("(" + $scope.marker + ")?" + txt,"g");
             var occurance = -1;
             var i = 0;
+            var matchIndex = -1;
             while ( result = reg.exec(contentWithMarker))
             {
                 console.log("result[1] :(" + i +")" + result[1]);
                 if ( result[1] != undefined)
                 {
                     occurance = i;
+                    matchIndex = result.index;
                 }
                 i++;
             }
             console.log("occurance : " + occurance);
 
-            $scope.currentPageContent = $sce.trustAsHtml(contentWithMarker);
+            // save highlight
+            var whichPage = $localstorage.getObject('resourcePage');
+            var hl = {};
+                hl.chapterID = whichPage[1];
+                hl.sectionID = whichPage[2];
+                hl.pageNumber = $scope.allPageContent[$scope.currentPage].page;
+                hl.content = txt;
+                hl.startChar = occurance;
+                hl.endChar = matchIndex;
+            $scope.user.userHightlights.push(hl);
+            $localstorage.setObject('user', $scope.user);
+            // TODO save highlight
 
-
-            // $scope.addHighlight(txt);
+            $scope.addHighlights();
 
             // var allHighlightContent = $scope.currentPageContent.toString().replace(specNode.textContent,addedMarkerContent);
             
@@ -439,86 +450,101 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // $scope.currentPageContent = $sce.trustAsHtml(allHighlightContent);
         }
 
-        $scope.addHighlight = function(txt)
+        $scope.addHighlights = function()
         {
-            $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
+            //TODO move prototypes to new file.
+            String.prototype.splice = function(idx, rem, str) {
+                return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+            };
 
-            if ( txt != '')
+            var startHLTag = "<span class='highlight-text'>";
+            $scope.user.userHightlights.forEach(function(highlight)
             {
-                var contentEle = document.getElementById( 'pageContentEle' );
-                $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
-
-            }
-        }
-
-        $scope.highlight = function(haystack, needle) 
-        {
-            if(!needle || needle == "" ) 
-            {
-                return $sce.trustAsHtml(haystack);
-            }
-
-
-            // Get all match indexes
-            var reg = new RegExp("(" + needle + ")", "g");
-            while ( match = reg.exec(haystack.toString()) )
-            {
-                console.log("match.index : " + match.index );
-            }
-
-            console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
-
-
-            return $sce.trustAsHtml(haystack.toString().replace(new RegExp("(" + $scope.marker + ")?" + needle, "g"), function(match) 
-            {
-                console.log("Match : " + JSON.stringify(match));
-                // return '<span class="highlight-text">' + match + '</span>';
-            }));
-        };
-
-
-        $scope.getNode = function(range,selection)
-        {
-            var returnObj = {};
-
-            var div = document.querySelector('#pageContentEle');
-            var allParaNodes = div.querySelectorAll('p');
-
-            // Getting node index start and end
-            var startNodeIndex = -1;
-            var startContent = "";
-            var endNodeIndex = -1;
-            var endContent = "";
-            angular.forEach(allParaNodes, function(value,key)
-            {
-                console.log("--------------");
-                console.log("key : " + key);
-                console.log("range.startContainer.textContent : [" + range.startContainer.textContent + "]");
-                console.log("value.textContent : [" + value.textContent + "]");
-                console.log("range.startContainer : " + value.textContent.indexOf(range.startContainer.textContent));
-                console.log("range.endContainer : " + value.textContent.indexOf(range.endContainer.textContent));
-                console.log("---------------");
-                
-                if ( value.textContent.indexOf(range.startContainer.textContent) > -1 )
-                {
-                    startNodeIndex = key;
-                    startContent = value.textContent;
-                }
-                if ( value.textContent.indexOf(range.endContainer.textContent) > -1 )
-                {
-                    endNodeIndex = key;
-                    endContent = value.textContent;
-                }
+                // var reg = new RegExp(highlight.content,"g");
+                $scope.currentPageContent.splice(highlight.matchIndex,0,startHLTag);
             });
-
-            returnObj.nodes = startNodeIndex + "," + endNodeIndex;
-            returnObj.startChar = range.startOffset
-            returnObj.endChar = range.endOffset;
-            returnObj.startContent = startContent;
-            returnObj.endContent = endContent;
-
-            return returnObj;
         }
+
+        // $scope.addHighlight = function(txt)
+        // {
+        //     $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
+
+        //     if ( txt != '')
+        //     {
+        //         var contentEle = document.getElementById( 'pageContentEle' );
+        //         $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
+
+        //     }
+        // }
+
+        // $scope.highlight = function(haystack, needle) 
+        // {
+        //     if(!needle || needle == "" ) 
+        //     {
+        //         return $sce.trustAsHtml(haystack);
+        //     }
+
+
+        //     // Get all match indexes
+        //     var reg = new RegExp("(" + needle + ")", "g");
+        //     while ( match = reg.exec(haystack.toString()) )
+        //     {
+        //         console.log("match.index : " + match.index );
+        //     }
+
+        //     console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
+
+
+        //     return $sce.trustAsHtml(haystack.toString().replace(new RegExp("(" + $scope.marker + ")?" + needle, "g"), function(match) 
+        //     {
+        //         console.log("Match : " + JSON.stringify(match));
+        //         // return '<span class="highlight-text">' + match + '</span>';
+        //     }));
+        // };
+
+
+        // $scope.getNode = function(range,selection)
+        // {
+        //     var returnObj = {};
+
+        //     var div = document.querySelector('#pageContentEle');
+        //     var allParaNodes = div.querySelectorAll('p');
+
+        //     // Getting node index start and end
+        //     var startNodeIndex = -1;
+        //     var startContent = "";
+        //     var endNodeIndex = -1;
+        //     var endContent = "";
+        //     angular.forEach(allParaNodes, function(value,key)
+        //     {
+        //         console.log("--------------");
+        //         console.log("key : " + key);
+        //         console.log("range.startContainer.textContent : [" + range.startContainer.textContent + "]");
+        //         console.log("value.textContent : [" + value.textContent + "]");
+        //         console.log("range.startContainer : " + value.textContent.indexOf(range.startContainer.textContent));
+        //         console.log("range.endContainer : " + value.textContent.indexOf(range.endContainer.textContent));
+        //         console.log("---------------");
+                
+        //         if ( value.textContent.indexOf(range.startContainer.textContent) > -1 )
+        //         {
+        //             startNodeIndex = key;
+        //             startContent = value.textContent;
+        //         }
+        //         if ( value.textContent.indexOf(range.endContainer.textContent) > -1 )
+        //         {
+        //             endNodeIndex = key;
+        //             endContent = value.textContent;
+        //         }
+        //     });
+
+        //     returnObj.nodes = startNodeIndex + "," + endNodeIndex;
+        //     returnObj.startChar = range.startOffset
+        //     returnObj.endChar = range.endOffset;
+        //     returnObj.startContent = startContent;
+        //     returnObj.endContent = endContent;
+
+        //     return returnObj;
+        // }
 
         // *********  HIGHLIGHTS **************
 
