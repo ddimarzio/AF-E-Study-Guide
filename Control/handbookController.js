@@ -348,39 +348,30 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         // *********  HIGHLIGHTS **************
         $scope.getSelectedText = function()
         {
-            var selection = getSelection();
-
-            if (selection.getRangeAt)
-                range = selection.getRangeAt(0);
-            else {
-                range = document.createRange();
-                range.setStart(selection.anchorNode, selection.anchorOffset);
-                range.setEnd(selection.focusNode, selection.focusOffset);
+            var txt = '';
+            if (window.getSelection)
+            {
+                txt = window.getSelection();
             }
+            else if (document.getSelection)
+            {
+                txt = document.getSelection();
+            }
+            else if (document.selection)
+            {
+                txt = document.selection.createRange().text;
+            }
+            else return;
 
-            var specNode = {};
-            var specNode = $scope.getNode(range,selection);
+            console.log("getSelectedText :" + txt );
 
-            console.log("specNode : " + JSON.stringify(specNode));
+            
 
-            // Save highlight
-            var whichPage = $localstorage.getObject('resourcePage');
+            // $scope.addHighlight(txt);
 
-            var highlight = {};
-            highlight.chapterID = whichPage[1];
-            highlight.sectionID = whichPage[2];
-            highlight.pageNumber = $scope.allPageContent[$scope.currentPage].page;
-            highlight.content = specNode.nodes;
-            highlight.startChar = specNode.startChar;
-            highlight.endChar = specNode.endChar;
-
-            $scope.user.userHightlights.push(highlight);
-
-            $localstorage.setObject('user', $scope.user);
-
-            $scope.saveThisUserData();
-            $scope.setPageData($scope.currentPage);
-            $scope.addHighlights();
+            // $scope.saveThisUserData();
+            // $scope.setPageData($scope.currentPage);
+            // $scope.addHighlights();
         }
 
         $scope.addHighlights = function()
@@ -457,6 +448,27 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 // return '<span class="highlight-text">' + match + '</span>';
         };
 
+        // $scope.addHighlight = function(txt)
+        // {
+        //     $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
+                
+        //     if ( txt != '')
+        //     {
+        //         var contentEle = document.getElementById( 'pageContentEle' );
+        //         $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
+
+        //         $scope.saveHighlights($scope.currentPage,txt);
+        //     }
+        // }
+
+        // $scope.highlight = function(haystack, needle) {
+        //     if(!needle || needle == "" ) {
+        //         return $sce.trustAsHtml(haystack);
+        //     }
+        //     return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "gi"), function(match) {
+        //         return '<span class="highlight-text">' + match + '</span>';
+        //     }));
+        // };
 
 
         $scope.getNode = function(range,selection)
