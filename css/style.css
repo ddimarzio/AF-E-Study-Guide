@@ -408,6 +408,22 @@ hr {
   height: 20px;
   background-color: rgb(199, 165, 103)
 }
+
+.hb-image-center
+{ 
+  display: block; margin-left: auto; margin-right: auto; width:min-content; 
+}
+.hb-image-left
+{ 
+  float: left; margin-bottom: 20px; margin-right: 20px; 
+}
+.hb-image-right 
+{
+  float: right;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
 .button-nav-right-image {
   transition: all 0.1s ease-in-out;
   content: "";
