@@ -393,10 +393,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             String.prototype.splice = function(idx, rem, str) {
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
             };
-            
+
             var marker = "|";
 
-            var addedMarkerContent = [specNode.textContent.slice(0, specNode.startChar), marker, specNode.textContent.slice(specNode.startChar)].join('');
+            var addedMarkerContent = [specNode.textContent.toString().slice(0, specNode.startChar), marker, specNode.textContent.toString().slice(specNode.startChar)].join('');
            
             console.log("addedMarkerContent :" + addedMarkerContent);
 
