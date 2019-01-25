@@ -399,9 +399,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             var addedMarkerContent = [range.startContainer.textContent.toString().slice(0, range.startOffset), $scope.marker, range.startContainer.textContent.toString().slice(range.startOffset)].join('');
            
-            console.log("addedMarkerContent :" + addedMarkerContent);
+            // replace " with &quot;  TODO  find out what other special chars are escaped
+            var replacedContent = addedMarkerContent.replace(/"/g, '&quot;');
+            console.log("addedMarkerContent :" + replacedContent);
 
-            var contentWithMarker = $scope.currentPageContent.toString().replace(range.startContainer.textContent,addedMarkerContent);
+            var contentWithMarker = $scope.currentPageContent.toString().replace(range.startContainer.textContent,replacedContent);
             console.log("contentWithMarker:" + contentWithMarker);
 
             
