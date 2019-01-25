@@ -394,7 +394,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
             };
 
-            var marker = "|";
+            var marker = "**";
 
             console.log("specNode.startContent :" + specNode.startContent);
             var addedMarkerContent = [specNode.startContent.toString().slice(0, specNode.startChar), marker, specNode.startContent.toString().slice(specNode.startChar)].join('');
@@ -403,6 +403,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             var contentWithMarker = $scope.currentPageContent.toString().replace(specNode.startContent,addedMarkerContent);
             $scope.currentPageContent = $sce.trustAsHtml(contentWithMarker);
+
+            $scope.addHighlight(txt);
 
             // var allHighlightContent = $scope.currentPageContent.toString().replace(specNode.textContent,addedMarkerContent);
             
@@ -424,7 +426,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
         }
 
-        $scope.highlight = function(haystack, needle) {
+        $scope.highlight = function(haystack, needle) 
+        {
             if(!needle || needle == "" ) 
             {
                 return $sce.trustAsHtml(haystack);
@@ -441,10 +444,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
 
 
-            return $sce.trustAsHtml(haystack.toString().replace(new RegExp(needle, "g"), function(match) 
+            return $sce.trustAsHtml(haystack.toString().replace(new RegExp("(??)" + needle, "g"), function(match) 
             {
-
-                return '<span class="highlight-text">' + match + '</span>';
+                console.log("Match : " + JSON.stringify(match));
+                // return '<span class="highlight-text">' + match + '</span>';
             }));
         };
 
