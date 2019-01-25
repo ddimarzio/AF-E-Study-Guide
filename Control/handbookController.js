@@ -401,9 +401,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
            
             // replace " with &quot;  TODO  find out what other special chars are escaped
             var replacedContent = addedMarkerContent.replace(/"/g, '&quot;');
+            var nodeContent = range.startContainer.textContent.replace(/"/g, '&quot;');
             console.log("addedMarkerContent :" + replacedContent);
 
-            var contentWithMarker = $scope.currentPageContent.toString().replace(range.startContainer.textContent,replacedContent);
+            var contentWithMarker = $scope.currentPageContent.toString().replace(nodeContent,replacedContent);
             console.log("contentWithMarker:" + contentWithMarker);
 
             
