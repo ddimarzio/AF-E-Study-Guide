@@ -363,8 +363,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
             else return;
 
-           
-
             var selection = getSelection();
 
             if (selection.getRangeAt)
@@ -377,7 +375,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             console.log("range count" + range.range)
             var specNode = {};
-            var specNode = $scope.getNode(selection.rangeCount);
+            var specNode = $scope.getNode(range,selection);
 
             console.log("startChar :" + specNode.startChar );
             
