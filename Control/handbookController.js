@@ -444,7 +444,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
 
 
-            return $sce.trustAsHtml(haystack.toString().replace(new RegExp("(??)" + needle, "g"), function(match) 
+            return $sce.trustAsHtml(haystack.toString().replace(new RegExp("(**)?" + needle, "g"), function(match) 
             {
                 console.log("Match : " + JSON.stringify(match));
                 // return '<span class="highlight-text">' + match + '</span>';
