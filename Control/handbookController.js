@@ -418,7 +418,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             while ( result = reg.exec(contentWithMarker))
             {
                 console.log("result[1] :" + result[1]);
-                if ( result[1] != "null")
+                if ( result[1] != undefined)
                 {
                     occurance = i;
                 }
