@@ -373,7 +373,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 range.setEnd(selection.focusNode, selection.focusOffset);
             }
 
-            console.log("range count" + range.rangeCount)
+            console.log("range count" + range.range)
             var specNode = {};
             var specNode = $scope.getNode(range,selection);
 
@@ -396,13 +396,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             var marker = "|";
 
+            console.log("specNode.startContent :" + specNode.startContent);
             var addedMarkerContent = [specNode.startContent.toString().slice(0, specNode.startChar), marker, specNode.startContent.toString().slice(specNode.startChar)].join('');
            
             console.log("addedMarkerContent :" + addedMarkerContent);
-
-            // Update page with marker
-            // var allContent = $scope.currentPageContent.toString().replace(specNode.startContent,addedMarkerContent);
-            // $scope.currentPageContent = $sce.trustAsHtml(allContent);
 
             // var allHighlightContent = $scope.currentPageContent.toString().replace(specNode.textContent,addedMarkerContent);
             
