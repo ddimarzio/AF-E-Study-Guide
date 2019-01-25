@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.409";
+  $scope.version = "Version 0.410";
 
   $scope.Math = window.Math;
 
