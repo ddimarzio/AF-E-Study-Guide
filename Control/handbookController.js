@@ -468,13 +468,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             {
                 console.log("range.startContainer.textContent : [" + range.startContainer.textContent + "]");
                 console.log("value.textContent : [" + value.textContent + "]");
-                
-                if ( range.startContainer.textContent == value.textContent)
+
+                if ( value.textContent.indexOf(range.startContainer.textContent) > -1 )
                 {
                     startNodeIndex = key;
                     startContent = value.textContent;
                 }
-                if ( range.endContainer.textContent == value.textContent)
+                if ( value.textContent.indexOf(range.endContainer.textContent) > -1 )
                 {
                     endNodeIndex = key;
                     endContent = value.textContent;
