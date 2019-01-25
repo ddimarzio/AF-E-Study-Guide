@@ -413,17 +413,19 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             // console.log("contentWithMarker:" + contentWithMarker);
             
             var reg = new RegExp("(" + $scope.marker + ")?" + txt,"g");
-            var occurance = 0;
+            var occurance = -1;
+            var i = 0;
             while ( result = reg.exec(contentWithMarker))
             {
                 if ( result[1] != null)
                 {
-                    console.log("result.index " + occurance);
+                    occurance = i;
                 }
-                occurance++;
+                i++;
                 console.log("result :" + JSON.stringify(result));
             }
-            
+            console.log("occurance : " + occurance);
+
             $scope.currentPageContent = $sce.trustAsHtml(contentWithMarker);
 
 
