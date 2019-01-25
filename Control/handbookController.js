@@ -417,12 +417,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var i = 0;
             while ( result = reg.exec(contentWithMarker))
             {
-                if ( result[1] != null)
+                console.log("result[1] :" + result[1]);
+                if ( result[1] != "null")
                 {
                     occurance = i;
                 }
                 i++;
-                console.log("result :" + JSON.stringify(result));
             }
             console.log("occurance : " + occurance);
 
