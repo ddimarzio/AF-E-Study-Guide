@@ -133,6 +133,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
             });
 
+            $localstorage.setObject('user', $scope.user);
         }
 
         $scope.bookmarkThisPage = function()
@@ -151,7 +152,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             $scope.saveThisUserData();
 
             $scope.setPageData($scope.currentPage);
-            $localstorage.setObject('user', $scope.user);
+            // $localstorage.setObject('user', $scope.user);
         }
 
         $scope.setPageData = function(page)
