@@ -49,7 +49,7 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
             console.log("Removing #" + num);
         }
         
-        $scope.deleteHightlight = function(highlight)
+        $scope.deleteHightlight = function(highlight,hlIndex)
         {
             console.log("Deleting.. :" + JSON.stringify(highlight));
 
@@ -62,6 +62,7 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
                 if (response != undefined && typeof response == "object") 
                 {
                     console.log("deletedHighlight response: " + JSON.stringify(response.data))
+                    $scope.removeUIHighlight(hlIndex);
                 }
                 else 
                 {
@@ -70,6 +71,12 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
             });
         }
 
+        $scope.removeUIHighlight = function(hlIndex)
+        {
+            delete $scope.savedHighlights[hlIndex];
+
+            console.log("$scope.savedHighlights : " + $scope.savedHighlights);
+        }
 
         $scope.init();
         
