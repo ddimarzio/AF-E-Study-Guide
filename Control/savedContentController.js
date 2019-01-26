@@ -16,6 +16,10 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
             {
                 $scope.changeSubHeaderText("NOTES SAVED CONTENT");
             }
+            else if ( $scope.user.userLastView == 'savedHighlights')
+            {
+                $scope.changeSubHeaderText("HIGHLIGHTS SAVED CONTENT");
+            }
 
             $scope.chapters = mainModel.getBookChapters();
             $scope.chapters.forEach(function(chapter)
@@ -23,7 +27,8 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
                 $scope.chapterSectionOpen.push(false);
             });
 
-            // console.log("Chapters : " + JSON.stringify($scope.chapters));
+            $scope.user = $localstorage.getObject('user');
+            $scope.savedHighlights = $scope.user.userHightlights;
         }
 
         $scope.openChaperSection = function(num)
@@ -44,6 +49,12 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
             console.log("Removing #" + num);
         }
         
+        $scope.deleteHightlight = function(highlight)
+        {
+            console.log("Deleting.." : JSON.stringify(highlight));
+        }
+
+
         $scope.init();
         
   });
