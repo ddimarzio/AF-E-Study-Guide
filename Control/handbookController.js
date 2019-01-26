@@ -477,8 +477,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     i++;
                 }
                 // 
-                var highLightContent = $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
-                $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
+                // var highLightContent = $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
+                // $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
             });
         }
 
