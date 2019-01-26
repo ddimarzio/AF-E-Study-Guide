@@ -380,8 +380,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             // console.log("startChar :" + specNode.startChar );
             
-            // No selection, inifnite loop problem!
-            if ( txt != "")
+            // No selection, has to be same node also
+            if ( txt != "" && selection.focusNode == selection.anchorNode)
             {
                 $scope.addMarker(range,txt);
             }
@@ -405,13 +405,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 // EN Dash is escaped to: &ndash;
                 // Double quotes are escaped to: &quot;
                 // And single quotes are escaped to: ((quote))
-
             var replacedContent = addedMarkerContent.replace(/"/g, '&quot;');
             var nodeContent = range.startContainer.textContent.replace(/"/g, '&quot;');
-            // console.log("addedMarkerContent :" + replacedContent);
-
             var contentWithMarker = $scope.currentPageContent.toString().replace(nodeContent,replacedContent);
-            // console.log("contentWithMarker:" + contentWithMarker);
             
             // Matching the txt with the marker in front
             var reg = new RegExp("(" + $scope.marker + ")?" + txt,"g");
