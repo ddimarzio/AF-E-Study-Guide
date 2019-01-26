@@ -51,7 +51,7 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
         
         $scope.deleteHightlight = function(highlight)
         {
-            console.log("Deleting.." : JSON.stringify(highlight));
+            console.log("Deleting.. :" + JSON.stringify(highlight));
         }
 
 
