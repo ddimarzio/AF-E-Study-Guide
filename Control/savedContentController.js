@@ -75,7 +75,7 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
         {
             delete $scope.savedHighlights[hlIndex];
 
-            console.log("$scope.savedHighlights : " + JSON.stringify($scope.savedHighlights);
+            console.log("$scope.savedHighlights : " + JSON.stringify($scope.savedHighlights));
         }
 
         $scope.init();
