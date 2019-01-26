@@ -380,6 +380,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             // console.log("startChar :" + specNode.startChar );
             
+            // TODO - Check txt for content.  No content, inifnite loop problem!
             $scope.addMarker(range,txt);
 
 
@@ -457,15 +458,20 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
             };
 
-            var s = "aaaaaaaaaaa";
-            console.log("test :" + s.splice(3,0,"ddd"));
-
             var startHLTag = "<span class='highlight-text'>";
             $scope.user.userHightlights.forEach(function(highlight)
             {
-                // var reg = new RegExp(highlight.content,"g");
-               var highLightContent = $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
-               $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
+                // Finding the occurance
+                var reg = new RegExp(highlight.content,"g");
+                var i = 0;
+                while ( result = reg.exec($scope.currentPageContent))
+                {
+                    console.log("Found result[1] : (" + i + ") " + result[1]);
+                    i++;
+                }
+                // 
+                // var highLightContent = $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
+                // $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
             });
         }
 
