@@ -52,6 +52,10 @@ mainApp.config(['$routeProvider', function($routeProvider, $scope) {
     .when('/savedFlashcards', {
       templateUrl: 'View/saved-flashcardsView.html', controller: 'MainController'
     })
+    .when('/savedHighlights', {
+      templateUrl: 'View/saved-HighlightsView.html', controller: 'MainController'
+    })
+    
 
     
     
