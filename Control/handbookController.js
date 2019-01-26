@@ -372,30 +372,15 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 range.setEnd(selection.focusNode, selection.focusOffset);
             }
 
-            console.log("range count" + selection.rangeCount);
-            // var specNode = {};
-            // var specNode = $scope.getNode(range,selection);
-
-            // console.log("startChar :" + specNode.startChar );
-            
             // No selection, has to be same node also
             if ( txt != "" && selection.focusNode == selection.anchorNode)
             {
                 $scope.addMarker(range,txt);
             }
-
-            // $scope.addHighlight(txt);
-
-            // $scope.saveThisUserData();
-            // $scope.setPageData($scope.currentPage);
         }
 
         $scope.addMarker = function(range,txt)
         {
-
-
-            // console.log("range :" + JSON.stringify(range));
-
             var addedMarkerContent = [range.startContainer.textContent.toString().slice(0, range.startOffset), $scope.marker, range.startContainer.textContent.toString().slice(range.startOffset)].join('');
            
             // replace " with &quot;  TODO  add other special chars
@@ -422,8 +407,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 }
                 i++;
             }
-            console.log("occurance : " + occurance);
-
             // save highlight
             var whichPage = $localstorage.getObject('resourcePage');
             var hl = {};
@@ -435,6 +418,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 hl.endChar = matchIndex;
             $scope.user.userHightlights.push(hl);
             $localstorage.setObject('user', $scope.user);
+
+            console.log("$scope.user.userHightlights :" + $scope.user.userHightlights);
 
             $scope.saveThisUserData();
             $scope.addHighlights();
@@ -462,12 +447,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     var i = 0;
                     while ( result = reg.exec($scope.currentPageContent))
                     {
-                        console.log("occ :" + highlight.startChar);
                         if ( i == highlight.startChar)
                         {
                             var highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
                             $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
-                            console.log("Found result[0] : (" + i + ") " + result[0] + " | " + result.index);
                         }
                         i++;
                     }
