@@ -460,25 +460,30 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             };
 
             var startHLTag = "<span class='highlight-text'>";
+            var endHTMLTag = "</span>";
             $scope.user.userHightlights.forEach(function(highlight)
             {
-                // Finding the occurance
-                var reg = new RegExp(highlight.content,"g");
-                var i = 0;
-                while ( result = reg.exec($scope.currentPageContent))
+                // Determining if on correect page for highllight
+                var whichPage = $localstorage.getObject('resourcePage');
+                if ( highlight.chapterID == whichPage[1] &&
+                     highlight.sectionID == whichPage[2] &&
+                     highlight.pageNumber == $scope.allPageContent[$scope.currentPage].page)
                 {
-                    console.log("occ :" + highlight.startChar);
-                    if ( i == highlight.startChar)
+                    // Finding the occurance
+                    var reg = new RegExp(highlight.content,"g");
+                    var i = 0;
+                    while ( result = reg.exec($scope.currentPageContent))
                     {
-                        var highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,"<span class='highlight-text'>" + result[0] + "</span>");
-                        $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
-                        console.log("Found result[0] : (" + i + ") " + result[0] + " | " + result.index);
+                        console.log("occ :" + highlight.startChar);
+                        if ( i == highlight.startChar)
+                        {
+                            var highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
+                            $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
+                            console.log("Found result[0] : (" + i + ") " + result[0] + " | " + result.index);
+                        }
+                        i++;
                     }
-                    i++;
                 }
-                // 
-                // var highLightContent = $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
-                // $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
             });
         }
 
