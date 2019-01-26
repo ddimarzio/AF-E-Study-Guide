@@ -488,14 +488,14 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.removeAllHighlights = function()
         {
-            var reg = new RegExp("<span class='highlight-text'>(.*)</span>","g");
+            var reg = new RegExp("<span class='highlight-text'>(.+?)</span>","g");
             while ( result = reg.exec($scope.currentPageContent))
             {
                 var removedHiglighContent = $scope.currentPageContent.toString().replace(reg,result[1]);
                 $scope.currentPageContent = $sce.trustAsHtml(removedHiglighContent);
             }
         }
-        
+
         // $scope.addHighlight = function(txt)
         // {
         //     $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
