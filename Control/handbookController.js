@@ -160,10 +160,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
          
             // highlights
-            // if ( $scope.user.userHightlights[keyindex] != undefined)
-            // {
-            //     $scope.addHighlight($scope.user.userHightlights[keyindex]);
-            // }
+            $scope.addHighlights();
             
             // notes
             if ( $scope.user.userNotes[keyindex] != undefined)
@@ -437,23 +434,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 hl.endChar = matchIndex;
             $scope.user.userHightlights.push(hl);
             $localstorage.setObject('user', $scope.user);
-            // TODO save highlight
 
+            $scope.saveThisUserData();
             $scope.addHighlights();
-
-            // var allHighlightContent = $scope.currentPageContent.toString().replace(specNode.textContent,addedMarkerContent);
-            
-            // var result = allParaNodes[startEndNodes[1]].textContent.splice(highlight.endChar, 0, " </span> ");
-            // var allHighlightContent = startHighLightContent.toString().replace(allParaNodes[startEndNodes[1]].textContent,result);
-
-            // $scope.currentPageContent = $sce.trustAsHtml(allHighlightContent);
         }
 
         $scope.addHighlights = function()
         {
-            // Remove all current highlights
-            // $scope.removeAllHighlights();
-
             //TODO move prototypes to new file.
             String.prototype.splice = function(idx, rem, str) {
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
@@ -487,52 +474,16 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             });
         }
 
-        $scope.removeAllHighlights = function()
-        {
-            var reg = new RegExp("<span class='highlight-text'>(.+?)</span>","g");
-            while ( result = reg.exec($scope.currentPageContent))
-            {
-                var removedHiglighContent = $scope.currentPageContent.toString().replace(reg,result[1]);
-                $scope.currentPageContent = $sce.trustAsHtml(removedHiglighContent);
-            }
-        }
-
-        // $scope.addHighlight = function(txt)
+        // $scope.removeAllHighlights = function()
         // {
-        //     $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
-
-        //     if ( txt != '')
+        //     var reg = new RegExp("<span class='highlight-text'>(.+?)</span>","g");
+        //     while ( result = reg.exec($scope.currentPageContent))
         //     {
-        //         var contentEle = document.getElementById( 'pageContentEle' );
-        //         $scope.currentPageContent = $scope.highlight($scope.currentPageContent,txt);
-
+        //         var removedHiglighContent = $scope.currentPageContent.toString().replace(reg,result[1]);
+        //         $scope.currentPageContent = $sce.trustAsHtml(removedHiglighContent);
         //     }
         // }
 
-        // $scope.highlight = function(haystack, needle) 
-        // {
-        //     if(!needle || needle == "" ) 
-        //     {
-        //         return $sce.trustAsHtml(haystack);
-        //     }
-
-
-        //     // Get all match indexes
-        //     var reg = new RegExp("(" + needle + ")", "g");
-        //     while ( match = reg.exec(haystack.toString()) )
-        //     {
-        //         console.log("match.index : " + match.index );
-        //     }
-
-        //     console.log("Count : " + haystack.toString().match(new RegExp("(" + needle + ")", "g")).length);
-
-
-        //     return $sce.trustAsHtml(haystack.toString().replace(new RegExp("(" + $scope.marker + ")?" + needle, "g"), function(match) 
-        //     {
-        //         console.log("Match : " + JSON.stringify(match));
-        //         // return '<span class="highlight-text">' + match + '</span>';
-        //     }));
-        // };
 
 
         // $scope.getNode = function(range,selection)
@@ -577,8 +528,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         //     return returnObj;
         // }
-
-        // *********  HIGHLIGHTS **************
 
 
         $scope.getContent();
