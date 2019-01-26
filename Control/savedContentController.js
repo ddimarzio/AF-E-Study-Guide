@@ -53,7 +53,7 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
         {
             console.log("Deleting.. :" + JSON.stringify(highlight));
 
-            // Saving data
+            // Delete
             dataService.deleteHighlight($scope.user.userSession,
                                         $scope.user.userID,
                                         highlight.highlightID)
@@ -73,9 +73,11 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
 
         $scope.removeUIHighlight = function(hlIndex)
         {
-            delete $scope.savedHighlights[hlIndex];
+            $scope.savedHighlights.splice(hlIndex,1);
+            $scope.user.userHightlights = $scope.savedHighlights;
+            $localstorage.setObject('user', $scope.user);
 
-            console.log("$scope.savedHighlights : " + JSON.stringify($scope.savedHighlights));
+            console.log("$scope.user.userHightlights : " + JSON.stringify($scope.user.userHightlights));
         }
 
         $scope.init();
