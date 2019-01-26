@@ -466,12 +466,19 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 var i = 0;
                 while ( result = reg.exec($scope.currentPageContent))
                 {
-                    console.log("Found result[1] : (" + i + ") " + result[1]);
+                    console.log("occ :" + highlight.startChar);
+                    if ( i == highlight.startChar)
+                    {
+                        var highLightContent =  $scope.currentPageContent.toString().splice(result.index,0,"<span class='highlight-text'>" + result[0] + "</span>");
+                        $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
+                        // <span class="highlight-text">' + match + '</span>
+                        console.log("Found result[0] : (" + i + ") " + result[0] + " | " + result.index);
+                    }
                     i++;
                 }
                 // 
-                // var highLightContent = $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
-                // $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
+                var highLightContent = $scope.currentPageContent.toString().splice(highlight.matchIndex,0,startHLTag);
+                $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
             });
         }
 
