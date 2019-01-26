@@ -474,7 +474,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     console.log("occ :" + highlight.startChar);
                     if ( i == highlight.startChar)
                     {
-                        var highLightContent =  $scope.currentPageContent.toString().splice(result.index,0,"<span class='highlight-text'>" + result[0] + "</span>");
+                        var highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,"<span class='highlight-text'>" + result[0] + "</span>");
                         $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
                         console.log("Found result[0] : (" + i + ") " + result[0] + " | " + result.index);
                     }
