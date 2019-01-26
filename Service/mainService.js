@@ -145,4 +145,18 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
         });
     }
 
+    this.deleteHighlight = function(userSession,userID,highlightID)
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://' + urlBase + '/EReader/DeleteHighlight',
+            data : {
+                "SessionID":userSession,
+                "userID":userID,
+                "highlightID":highlightID
+                }
+
+        });
+    }
+
 }]);

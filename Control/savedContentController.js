@@ -52,6 +52,22 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
         $scope.deleteHightlight = function(highlight)
         {
             console.log("Deleting.. :" + JSON.stringify(highlight));
+
+            // Saving data
+            dataService.deleteHighlight($scope.user.userSession,
+                                        $scope.user.userID,
+                                        highlight.highlightID)
+            .then(function(response) 
+                {
+                if (response != undefined && typeof response == "object") 
+                {
+                    console.log("deletedHighlight response: " + JSON.stringify(response.data))
+                }
+                else 
+                {
+                    alert("Result is not JSON type");
+                }
+            });
         }
 
 
