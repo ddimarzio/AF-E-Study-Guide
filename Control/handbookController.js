@@ -419,7 +419,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             $scope.user.userHightlights.push(hl);
             $localstorage.setObject('user', $scope.user);
 
-            console.log("$scope.user.userHightlights :" + $scope.user.userHightlights);
+            console.log("$scope.user.userHightlights :" + JSON.stringify($scope.user.userHightlights);
 
             $scope.saveThisUserData();
             $scope.addHighlights();
