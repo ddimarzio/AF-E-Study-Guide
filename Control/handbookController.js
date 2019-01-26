@@ -456,7 +456,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.addHighlights = function()
         {
             // Remove all current highlights
-            $scope.removeAllHighlights();
+            // $scope.removeAllHighlights();
 
             //TODO move prototypes to new file.
             String.prototype.splice = function(idx, rem, str) {
