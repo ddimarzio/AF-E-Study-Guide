@@ -380,9 +380,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             // console.log("startChar :" + specNode.startChar );
             
-            // TODO - Check txt for content.  No content, inifnite loop problem!
-            $scope.addMarker(range,txt);
-
+            // No selection, inifnite loop problem!
+            if ( txt != "")
+            {
+                $scope.addMarker(range,txt);
+            }
 
             // $scope.addHighlight(txt);
 
@@ -453,6 +455,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.addHighlights = function()
         {
+            // Remove all current highlights
+            $scope.removeAllHighlights();
+
             //TODO move prototypes to new file.
             String.prototype.splice = function(idx, rem, str) {
                 return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
@@ -471,7 +476,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     {
                         var highLightContent =  $scope.currentPageContent.toString().splice(result.index,0,"<span class='highlight-text'>" + result[0] + "</span>");
                         $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
-                        // <span class="highlight-text">' + match + '</span>
                         console.log("Found result[0] : (" + i + ") " + result[0] + " | " + result.index);
                     }
                     i++;
@@ -482,6 +486,16 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             });
         }
 
+        $scope.removeAllHighlights = function()
+        {
+            var reg = new RegExp("<span class='highlight-text'>(.*)</span>","g");
+            while ( result = reg.exec($scope.currentPageContent))
+            {
+                var removedHiglighContent = $scope.currentPageContent.toString().replace(reg,result[1]);
+                $scope.currentPageContent = $sce.trustAsHtml(removedHiglighContent);
+            }
+        }
+        
         // $scope.addHighlight = function(txt)
         // {
         //     $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[$scope.currentPage].content);
