@@ -250,7 +250,7 @@
     position: absolute;
     backface-visibility: hidden ;
     -webkit-backface-visibility: hidden ;
-    -moz-backface-visibility: hidden;
+    /* -moz-backface-visibility: hidden; */
     z-index: 2;
 }
 .flip .card .front {
