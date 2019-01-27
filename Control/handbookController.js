@@ -440,11 +440,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             {
             if (response != undefined && typeof response == "object") 
             {
-                console.log("saveUserHightlight response: " + JSON.stringify(response.data))
+                console.log("saveUserHightlight2 response: " + JSON.stringify(response.data))
 
                 highlight.highlightID = response.data.highlightID;    
                 $scope.user.userHightlights.push(highlight);
                 $localstorage.setObject('user', $scope.user);
+
+
             }
             else 
             {

@@ -163,7 +163,7 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
     {
         return $http({
             method : 'POST',
-            url : 'https://' + urlBase + '/EReader/DeleteHighlight',
+            url : 'https://' + urlBase + '/EReader/CreateHighlight',
             data : {
                 "SessionID":userSession,
                 "userID":userID,
