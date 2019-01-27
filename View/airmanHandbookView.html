@@ -2,7 +2,7 @@
         ng-app="mainApp" 
         ng-controller="HandbookController">
 
-        <div class="row m-0 p-0 col-12 sticky-top sticky-offset">
+        <div class="row m-0 p-0 col-12 sticky-top sticky-offset ie11-sticky-ereaderFeatures">
                 <div class="col-3 ml-4"
                         ng-if="pageBookmarked">
                         <img src="/Assets/images/handbook/hb-bookmark.png"/>
@@ -32,10 +32,10 @@
                 </div>
         </div>
 
-        <div class="row">
+        <div class="row col-12">
                 <div class="col-1">
                                 <!-- ng-if="currentPage > 0" -->
-                        <button class="btn button-nav-left-image sticky-top sticky-navoffset" 
+                        <button class="btn button-nav-left-image ie11-sticky-ereaderNav sticky-top sticky-navoffset" 
                         ng-class="{'button-nav-prevChapter-image': prevChapterBtn}"
                         ng-if="showPrevNav"
                         type="submit"
@@ -43,17 +43,17 @@
                         ng-click="navToPage(currentPage-1)"></button>
                 </div>
 
-                <div class="col-10" id="pageContentEle" ng-bind-html="currentPageContent"></div>
+                <!-- <div class="col-10" id="pageContentEle" ng-bind-html="currentPageContent"></div> -->
 
                 <!-- Testing -->
-                <!-- <div class="col-10">
+                <div class="col-10">
                         <div class='col hb-section-title'>Section 1A—Overview</div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic1.jpg' class='col p-0'><div class='col hb-image-caption'>Flying Tiger P-40</div></div><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.1. Introduction</div></div><p class='hb-p'>As preparation for your entry into the Air Force, this section will introduce the Air Force mission and their evolution, the machines and technology associated with air and space flight and most importantly, the legacy of the men and women of the United States Air Force. By surveying the history of aviation, you will discover our heritage, appreciate Air Force traditions, and understand your role in our nation’s defense. This United States Air Force Historical Perspective is by Dr. John T. Farquhar from the United States Air Force Academy Department of History and contributing editor George W. Bradley III, the Air Force Space Command Historian. The enlisted portions of this document were provided by the Air Force Enlisted Heritage Research Institute’s historian, Mr. William I. Chivalette. Dr. John Q. Smith, Senior Air Force Historian, assisted with additional editing.</p>
                         <div class='col hb-section-title'>Section 1A—Overview</div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic1.jpg' class='col p-0'><div class='col hb-image-caption'>Flying Tiger P-40</div></div><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.1. Introduction</div></div><p class='hb-p'>As preparation for your entry into the Air Force, this section will introduce the Air Force mission and their evolution, the machines and technology associated with air and space flight and most importantly, the legacy of the men and women of the United States Air Force. By surveying the history of aviation, you will discover our heritage, appreciate Air Force traditions, and understand your role in our nation’s defense. This United States Air Force Historical Perspective is by Dr. John T. Farquhar from the United States Air Force Academy Department of History and contributing editor George W. Bradley III, the Air Force Space Command Historian. The enlisted portions of this document were provided by the Air Force Enlisted Heritage Research Institute’s historian, Mr. William I. Chivalette. Dr. John Q. Smith, Senior Air Force Historian, assisted with additional editing.</p>
-                </div> -->
+                </div>
 
                 <div class="col-1">
                                 <!-- ng-if="currentPage < (currentMaxPages-1) -->
-                        <button class="btn button-nav-right-image sticky-top sticky-navoffset"
+                        <button class="btn button-nav-right-image ie11-sticky-ereaderNav sticky-top sticky-navoffset"
                         ng-class="{'button-nav-nextChapter-image': nextChapterBtn}"
                         ng-if="showNextNav"
                         type="submit"
