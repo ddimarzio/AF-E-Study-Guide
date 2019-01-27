@@ -33,13 +33,13 @@
 #   "userID" : "46"
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "d80ade68-39e3-4cdb-8ee8-af7fea994293",
-#   "UserID" : "110"
-# }
+{
+  "SessionID" : "d80ade68-39e3-4cdb-8ee8-af7fea994293",
+  "UserID" : "110"
+}
 
   # "UserID": 46,
   # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",
@@ -189,14 +189,14 @@
 #     }
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/EReader/DeleteHighlight HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/EReader/DeleteHighlight HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "d80ade68-39e3-4cdb-8ee8-af7fea994293",
-#   "userID" : "110",
-#   "highlightID" : 140
-# }
+{
+  "SessionID" : "d80ade68-39e3-4cdb-8ee8-af7fea994293",
+  "userID" : "110",
+  "highlightID" : 148
+}
 
 POST http://powertrainafttest.azurewebsites.net/EReader/CreateHighlight HTTP/1.1
 content-type: application/json
