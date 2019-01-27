@@ -450,10 +450,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         if ( i == highlight.startChar)
                         {
                             var highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
-                            $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
                         }
                         i++;
                     }
+                    $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
                 }
             });
         }
