@@ -1045,6 +1045,9 @@ hr {
     padding-top: 40px;
   }
 
+  .ie11-sticky-offset {
+    top: 155px;
+  }
   .ie11-sticky-ereaderFeatures {
     position: fixed;
     top: 105px;
