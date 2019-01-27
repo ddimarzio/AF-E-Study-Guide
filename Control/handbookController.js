@@ -422,7 +422,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             $scope.saveUserHightlight(hl);
             // $scope.saveThisUserData();
-            $scope.addHighlights();
+
         }
 
         $scope.saveUserHightlight = function(highlight)
@@ -445,8 +445,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 highlight.highlightID = response.data.highlightID;    
                 $scope.user.userHightlights.push(highlight);
                 $localstorage.setObject('user', $scope.user);
-
-
+                
+                $scope.addHighlights();
             }
             else 
             {
