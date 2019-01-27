@@ -1044,4 +1044,15 @@ hr {
   .ie11-PaddingTop {
     padding-top: 40px;
   }
+
+  .ie11-sticky-ereaderFeatures {
+    position: fixed;
+    top: 105px;
+    max-width: 1316px;
+    z-index: 2;
+  }
+
+  .ie11-sticky-ereaderNav {
+    position: fixed;
+  }
 }
