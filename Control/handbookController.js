@@ -12,6 +12,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.getContent = function()
         {
+            $scope.user = $localstorage.getObject('user');
+            
             var whichPage = $localstorage.getObject('resourcePage');
             console.log("whichPage :" + whichPage);
             
