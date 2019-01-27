@@ -189,12 +189,25 @@ content-type: application/json
 #     }
 # }
 
-POST http://powertrainafttest.azurewebsites.net/EReader/DeleteHighlight HTTP/1.1
+# POST http://powertrainafttest.azurewebsites.net/EReader/DeleteHighlight HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "d80ade68-39e3-4cdb-8ee8-af7fea994293",
+#   "userID" : "110",
+#   "highlightID" : 140
+# }
+
+POST http://powertrainafttest.azurewebsites.net/EReader/CreateHighlight HTTP/1.1
 content-type: application/json
 
 {
   "SessionID" : "d80ade68-39e3-4cdb-8ee8-af7fea994293",
   "userID" : "110",
-  "highlightID" : 101
+  "chapterID":2,
+  "sectionID":"2A",
+  "pageNumber":74,
+  "content":"TESTEST",
+  "startChar":0,
+  "endChar":0
 }
-
