@@ -416,15 +416,42 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 hl.content = txt.toString();
                 hl.startChar = occurance;
                 hl.endChar = matchIndex;
-            $scope.user.userHightlights.push(hl);
-            $localstorage.setObject('user', $scope.user);
+
 
             console.log("$scope.user.userHightlights :" + JSON.stringify($scope.user.userHightlights));
 
-            $scope.saveThisUserData();
+            $scope.saveUserHightlight(hl);
+            // $scope.saveThisUserData();
             $scope.addHighlights();
         }
 
+        $scope.saveUserHightlight = function(highlight)
+        {
+            // Saving data
+            dataService.saveHighlight($scope.user.userSession,
+                $scope.user.userID,
+                highlight.chapterID,
+                highlight.sectionID,
+                highlight.pageNumber,
+                highlight.content,
+                highlight.startChar,
+                highlight.endChar)
+            .then(function(response) 
+            {
+            if (response != undefined && typeof response == "object") 
+            {
+                console.log("saveUserHightlight response: " + JSON.stringify(response.data))
+
+                highlight.highlightID = response.data.highlightID;    
+                $scope.user.userHightlights.push(highlight);
+                $localstorage.setObject('user', $scope.user);
+            }
+            else 
+            {
+            alert("Result is not JSON type");
+            }
+            });
+        }
         $scope.addHighlights = function()
         {
             //TODO move prototypes to new file.
