@@ -21,7 +21,7 @@
                     <div class="card" ng-class="{'flipped':flashCardisFlipped}">
 
                         <!-- FRONT -->
-                        <div class="face front">
+                        <div class="face front" id='frontCard'>
                             <div class="row flash-cards-header-background-green">
                                 <div class="col-0 mt-auto mb-auto mr-auto ml-4">
                                     <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
@@ -46,7 +46,7 @@
                         </div>
 
                         <!-- BACK -->
-                        <div class="face back">
+                        <div class="face back" id='backCard'>
                             <div class="row flash-cards-header-background ">
                                 <div class="col-0 mt-auto mb-auto mr-auto ml-4">
                                         <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"

@@ -187,9 +187,15 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         
         $scope.flipCard = function()
         {
+            var frontCard = document.getElementById( 'frontCard' );
+            var backCard = document.getElementById( 'backCard' );
+
             if ( $scope.flashCardisFlipped == false )
             {
                 $scope.flashCardisFlipped = true;
+
+                // ie 11
+                frontCard.style.visibility = false;
             }
             else 
             {
