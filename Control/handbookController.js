@@ -525,7 +525,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                      highlight.pageNumber == $scope.allPageContent[$scope.currentPage].page)
                 {
                     // Finding the occurance
-                    var matchContent = highlight.content.toString().replace(/[\(\)\;]/g, ''); // escaping
+                    var matchContent = highlight.content.toString().replace(/[()]/g, ''); // escaping
                     console.log("matchContent : " + matchContent);
 
                     var reg = new RegExp(matchContent,"g");
