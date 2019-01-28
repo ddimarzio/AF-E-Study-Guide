@@ -540,8 +540,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         i++;
                     }
 
-                    
+                    console.log("highLightContent  : " + highLightContent );
                     $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
+                    console.log("$scope.currentPageContent  : " + $scope.currentPageContent );
                 }
             });
         }
