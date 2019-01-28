@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.453";
+  $scope.version = "Version 0.454";
 
   $scope.Math = window.Math;
 
@@ -202,6 +202,9 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
 
                 $scope.getUserData();
                 $scope.getAllChaptersSections();
+
+
+                $scope.navigateToView('rankselection');
                 
               }
               else if ( response.data.status == 2) // email in use
@@ -263,7 +266,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
             $localstorage.setObject('user', $scope.user);
 
             $scope.loginLoading = false;
-            $scope.navigateToView('rankselection');
+            // $scope.navigateToView('rankselection');
           }
           else
           {
