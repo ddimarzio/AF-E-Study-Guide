@@ -528,23 +528,23 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     // Finding the occurance
                     var matchContent = $scope.removeSpecialChars(highlight.content);
 
-                    console.log("matchContent : " + matchContent);
+                    console.log("matchCont : " + matchContent);
 
-                    var reg = new RegExp(matchContent,"g");
-                    var i = 0;
-                    var highLightContent = "";
-                    while ( result = reg.exec($scope.currentPageContent))
-                    {
-                        if ( i == highlight.startChar)
-                        {
-                            highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
-                        }
-                        i++;
-                    }
+                    // var reg = new RegExp(matchContent,"g");
+                    // var i = 0;
+                    // var highLightContent = "";
+                    // while ( result = reg.exec($scope.currentPageContent))
+                    // {
+                    //     if ( i == highlight.startChar)
+                    //     {
+                    //         highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
+                    //     }
+                    //     i++;
+                    // }
 
-                    console.log("highLightContent  : " + highLightContent );
-                    $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
-                    console.log("$scope.currentPageContent  : " + $scope.currentPageContent );
+                    // console.log("highLightContent  : " + highLightContent );
+                    // $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
+                    // console.log("$scope.currentPageContent  : " + $scope.currentPageContent );
                 }
             });
         }
