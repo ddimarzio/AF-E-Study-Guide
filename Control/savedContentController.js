@@ -36,8 +36,11 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
 
         $scope.getSavedUserData = function()
         {
+            $scope.getUserData();
 
             $scope.savedHighlights = $scope.user.userHightlights;
+
+            console.log("getSavedUserData : " + JSON.stringify($scope.user));
         }
 
         $scope.openChaperSection = function(num)
