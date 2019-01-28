@@ -12,8 +12,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.getContent = function()
         {
-
-            
             var whichPage = $localstorage.getObject('resourcePage');
             console.log("whichPage :" + whichPage);
             
@@ -37,13 +35,62 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.changeHeaderText("THE AIR Force HANDBOOK 1");
                 $scope.changeSubHeaderText("Chapter " + ($scope.allPageContent[0].chapter-1) + " " + $scope.allPageContent[0].title);
 
-                $scope.setPageData($scope.currentPage);
+                $scope.getAllUserData();
+
+
 
               } 
               else 
               {
                 alert("Result is not JSON type");
               }
+            });
+        }
+
+        $scope.getAllUserData = function()
+        {
+            dataService.getUserData($scope.user.userSession,$scope.user.userID)
+            .then(function(response) 
+                {
+                if (response != undefined && typeof response == "object") 
+                {
+                    $scope.user.userName = response.data.Username;
+                    $scope.user.userRankID = response.data.userRankID;
+                    $scope.user.userRole = response.data.userRole;
+
+                    // $scope.user.userBookMarks = response.data.userBookMarks;
+                    $scope.user.userHightlights = response.data.userHightlights;
+
+                    $scope.user.userFlashCardFlagged = {};
+                    response.data.userFlashCardFlagged.forEach(function(flashcard)
+                    {
+                    $scope.user.userFlashCardFlagged[flashcard.indx] = flashcard.flagged;
+                    });
+
+                    // Notes
+                    $scope.user.userNotes = {}; 
+                    response.data.userNotes.forEach(function(noteObject)
+                    {
+                    var noteIndex = noteObject.chapterID + "." + noteObject.sectionID + "." + noteObject.pageNumber;
+                    $scope.user.userNotes[noteIndex] = noteObject.note;
+                    });
+                    
+                    // bookmarks
+                    $scope.user.userBookMarks = {}; 
+                    response.data.userBookMarks.forEach(function(bmObject)
+                    {
+                    var bmIndex = bmObject.chapterID + "." + bmObject.sectionID + "." + bmObject.pageNumber;
+                    $scope.user.userBookMarks[bmIndex] = 1;
+                    });
+
+                    $localstorage.setObject('user', $scope.user);
+
+                    $scope.setPageData($scope.currentPage);
+                }
+                else
+                {
+                    alert("Result is not JSON type");
+                }
             });
         }
 

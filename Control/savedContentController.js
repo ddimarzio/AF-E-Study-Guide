@@ -26,14 +26,11 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
             {
                 $scope.chapterSectionOpen.push(false);
             });
-
-
-
-            
         }
 
         $scope.getSavedUserData = function()
         {
+            // TODO : Change to just getting highlights
             dataService.getUserData($scope.user.userSession,$scope.user.userID)
             .then(function(response) 
                 {
