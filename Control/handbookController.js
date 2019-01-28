@@ -552,7 +552,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.removeSpecialChars = function(matchText)
         {
-             return matchText.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+             return matchText.toString().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
         }
 
         // $scope.removeAllHighlights = function()
