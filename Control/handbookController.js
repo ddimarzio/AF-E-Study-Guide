@@ -443,8 +443,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var nodeContent = range.startContainer.textContent.replace(/"/g, '&quot;');
             var contentWithMarker = $scope.currentPageContent.toString().replace(nodeContent,replacedContent);
             
+            var matchTxt = $scope.removeSpecialChars(txt);
             // Matching the txt with the marker in front
-            var reg = new RegExp("(" + $scope.marker + ")?" + txt,"g");
+            var reg = new RegExp("(" + $scope.marker + ")?" + matchTxt,"g");
             var occurance = -1;
             var i = 0;
             var matchIndex = -1;
@@ -530,21 +531,21 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
                     console.log("matchCont : " + matchContent);
 
-                    // var reg = new RegExp(matchContent,"g");
-                    // var i = 0;
-                    // var highLightContent = "";
-                    // while ( result = reg.exec($scope.currentPageContent))
-                    // {
-                    //     if ( i == highlight.startChar)
-                    //     {
-                    //         highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
-                    //     }
-                    //     i++;
-                    // }
+                    var reg = new RegExp(matchContent,"g");
+                    var i = 0;
+                    var highLightContent = "";
+                    while ( result = reg.exec($scope.currentPageContent))
+                    {
+                        if ( i == highlight.startChar)
+                        {
+                            highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
+                        }
+                        i++;
+                    }
 
-                    // console.log("highLightContent  : " + highLightContent );
-                    // $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
-                    // console.log("$scope.currentPageContent  : " + $scope.currentPageContent );
+                    console.log("highLightContent  : " + highLightContent );
+                    $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
+                    console.log("$scope.currentPageContent  : " + $scope.currentPageContent );
                 }
             });
         }
