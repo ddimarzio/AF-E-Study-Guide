@@ -527,15 +527,16 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     // Finding the occurance
                     var reg = new RegExp(highlight.content,"g");
                     var i = 0;
+                    var highLightContent = "";
                     while ( result = reg.exec($scope.currentPageContent))
                     {
                         if ( i == highlight.startChar)
                         {
-                            var highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
+                            highLightContent =  $scope.currentPageContent.toString().splice(result.index,result[0].length,startHLTag + result[0] + endHTMLTag);
                         }
                         i++;
                     }
-                    highLightContent.replace(/(?=[() ])/g, '\\'); // escaping pareth
+                    highLightContent.toString().replace(/(?=[() ])/g, '\\'); // escaping pareth
                     console.log("highLightContent.replace : " + highLightContent);
                     $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
                 }
