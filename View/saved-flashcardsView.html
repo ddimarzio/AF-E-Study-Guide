@@ -23,13 +23,13 @@
                         <!-- FRONT -->
                         <div class="face front" ng-style='ieFrontCardStyle'>
                             <div class="row flash-cards-header-background-green">
-                                <div class="col-0 mt-auto mb-auto mr-auto ml-4">
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 ie11-FlashCardTop">
                                     <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
                                     type="submit"
                                     alt="flagged"
                                     ng-click="flagFlashCard()"></button>                                   
                                 </div>
-                                <div class="col flash-cards-number mb-auto mt-auto mr-5">Question : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
+                                <div class="col flash-cards-number mb-auto mt-auto mr-5 ie11-FlashCardTop">Question : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
                                 <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
                             </div>
                             <div class="row flash-card-box pr-3 pl-3">
@@ -54,7 +54,7 @@
                                         alt="flagged"
                                         ng-click="flagFlashCard()"></button>                                   
                                 </div>
-                                <div class="col flash-cards-number mb-auto mt-auto mr-5">Answer : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
+                                <div class="col flash-cards-number mb-auto mt-auto mr-5 ie11-FlashCardTop">Answer : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
                                 <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
                             </div>
                             <div class="row flash-card-box pr-3 pl-3">
