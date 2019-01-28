@@ -8,8 +8,6 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
         {
             $scope.getSavedUserData();
 
-            $scope.user = $localstorage.getObject('user');
-
             if ( $scope.user.userLastView == 'savedBookmarks')
             {
                 $scope.changeSubHeaderText("BOOKMARKS SAVED CONTENT");
@@ -36,11 +34,50 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
 
         $scope.getSavedUserData = function()
         {
-            $scope.getUserData();
+            dataService.getUserData($scope.user.userSession,$scope.user.userID)
+            .then(function(response) 
+                {
+                if (response != undefined && typeof response == "object") 
+                {
+                    $scope.user.userName = response.data.Username;
+                    $scope.user.userRankID = response.data.userRankID;
+                    $scope.user.userRole = response.data.userRole;
 
-            $scope.savedHighlights = $scope.user.userHightlights;
+                    // $scope.user.userBookMarks = response.data.userBookMarks;
+                    $scope.user.userHightlights = response.data.userHightlights;
 
-            console.log("getSavedUserData : " + JSON.stringify($scope.user));
+                    $scope.user.userFlashCardFlagged = {};
+                    response.data.userFlashCardFlagged.forEach(function(flashcard)
+                    {
+                    $scope.user.userFlashCardFlagged[flashcard.indx] = flashcard.flagged;
+                    });
+
+                    // Notes
+                    $scope.user.userNotes = {}; 
+                    response.data.userNotes.forEach(function(noteObject)
+                    {
+                    var noteIndex = noteObject.chapterID + "." + noteObject.sectionID + "." + noteObject.pageNumber;
+                    $scope.user.userNotes[noteIndex] = noteObject.note;
+                    });
+                    
+                    // bookmarks
+                    $scope.user.userBookMarks = {}; 
+                    response.data.userBookMarks.forEach(function(bmObject)
+                    {
+                    var bmIndex = bmObject.chapterID + "." + bmObject.sectionID + "." + bmObject.pageNumber;
+                    $scope.user.userBookMarks[bmIndex] = 1;
+                    });
+
+                    $localstorage.setObject('user', $scope.user);
+
+                    $scope.savedHighlights = $scope.user.userHightlights;
+                    console.log("getSavedUserData : " + JSON.stringify($scope.user));
+                }
+                else
+                {
+                    alert("Result is not JSON type");
+                }
+            });
         }
 
         $scope.openChaperSection = function(num)
