@@ -6,8 +6,9 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
 
         $scope.init = function()
         {
+            $scope.getSavedUserData();
+
             $scope.user = $localstorage.getObject('user');
-            console.log("init : " + JSON.stringify($scope.user));
 
             if ( $scope.user.userLastView == 'savedBookmarks')
             {
@@ -27,6 +28,14 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
             {
                 $scope.chapterSectionOpen.push(false);
             });
+
+
+
+            
+        }
+
+        $scope.getSavedUserData = function()
+        {
 
             $scope.savedHighlights = $scope.user.userHightlights;
         }
