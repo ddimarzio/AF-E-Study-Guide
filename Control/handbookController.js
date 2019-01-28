@@ -535,6 +535,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         }
                         i++;
                     }
+                    highLightContent.replace(/(?=[() ])/g, '\\'); // escaping pareth
+                    console.log("highLightContent.replace : " + highLightContent);
                     $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
                 }
             });
