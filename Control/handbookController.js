@@ -518,14 +518,16 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var endHTMLTag = "</span>";
             $scope.user.userHightlights.forEach(function(highlight)
             {
-                // Determining if on correect page for highllight
+                // Determining if on correct page for highllight
                 var whichPage = $localstorage.getObject('resourcePage');
                 if ( highlight.chapterID == whichPage[1] &&
                      highlight.sectionID == whichPage[2] &&
                      highlight.pageNumber == $scope.allPageContent[$scope.currentPage].page)
                 {
+
                     // Finding the occurance
-                    var matchContent = highlight.content.toString().replace(/[()]/g, ''); // escaping
+                    var matchContent = $scope.removeSpecialChars(highlight.content);
+
                     console.log("matchContent : " + matchContent);
 
                     var reg = new RegExp(matchContent,"g");
@@ -545,6 +547,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     console.log("$scope.currentPageContent  : " + $scope.currentPageContent );
                 }
             });
+        }
+
+        $scope.removeSpecialChars = function(matchText)
+        {
+             return matchText.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
         }
 
         // $scope.removeAllHighlights = function()
