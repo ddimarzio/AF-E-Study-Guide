@@ -184,6 +184,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
         $scope.nextCard = function(num)
         {
             $scope.flashCardisFlipped = false;
+            $scope.setCardFaceVisibility();
             $scope.currentFlashcard += num;
             $scope.setFlashCardData($scope.currentFlashcard);
         }
