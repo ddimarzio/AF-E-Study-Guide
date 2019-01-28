@@ -12,7 +12,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.getContent = function()
         {
-            $scope.user = $localstorage.getObject('user');
+
             
             var whichPage = $localstorage.getObject('resourcePage');
             console.log("whichPage :" + whichPage);
@@ -159,7 +159,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
         $scope.setPageData = function(page)
         {
-
+            $scope.user = $localstorage.getObject('user');
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
          
             // highlights
