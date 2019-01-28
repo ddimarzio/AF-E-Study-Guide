@@ -525,10 +525,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                      highlight.pageNumber == $scope.allPageContent[$scope.currentPage].page)
                 {
                     // Finding the occurance
-                    highlight.content.toString().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'); // escaping
-                    console.log("highlight.content : " + highlight.content);
+                    var matchContent = highlight.content.toString().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'); // escaping
+                    console.log("matchContent : " + matchContent);
 
-                    var reg = new RegExp(highlight.content,"g");
+                    var reg = new RegExp(matchContent,"g");
                     var i = 0;
                     var highLightContent = "";
                     while ( result = reg.exec($scope.currentPageContent))
