@@ -7,7 +7,7 @@
     <div class="row col-12 p-0 m-0 justify-content-md-center">
         <div class="row col-12">
 
-                <div class="col-1 mt-auto mb-auto ml-auto">
+                <div class="col-1 mt-auto mb-auto ml-auto ie11-FlashCardNavPad">
                         <button class="btn button-nav-left-image"
                         type="submit"
                         alt="prev"
@@ -21,15 +21,15 @@
                     <div class="card" ng-class="{'flipped':flashCardisFlipped}">
 
                         <!-- FRONT -->
-                        <div class="face front">
+                        <div class="face front" id='frontCard' ng-style='ieFrontCardStyle'>
                             <div class="row flash-cards-header-background-green">
-                                <div class="col-0 mt-auto mb-auto mr-auto ml-4">
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 ie11-FlashCardTop">
                                     <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
                                     type="submit"
                                     alt="flagged"
                                     ng-click="flagFlashCard()"></button>                                   
                                 </div>
-                                <div class="col flash-cards-number mb-auto mt-auto mr-5">Question : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
+                                <div class="col flash-cards-number mb-auto mt-auto mr-5 ie11-FlashCardTop">Question : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
                                 <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
                             </div>
                             <div class="row flash-card-box pr-3 pl-3">
@@ -46,15 +46,15 @@
                         </div>
 
                         <!-- BACK -->
-                        <div class="face back">
+                        <div class="face back" id='backCard' ng-style='ieBackCardStyle'>
                             <div class="row flash-cards-header-background ">
-                                <div class="col-0 mt-auto mb-auto mr-auto ml-4">
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 ie11-FlashCardTop">
                                         <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
                                         type="submit"
                                         alt="flagged"
                                         ng-click="flagFlashCard()"></button>                                   
                                 </div>
-                                <div class="col flash-cards-number mb-auto mt-auto mr-5">Answer : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
+                                <div class="col flash-cards-number mb-auto mt-auto mr-5 ie11-FlashCardTop">Answer : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
                                 <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
                             </div>
                             <div class="row flash-card-box pr-3 pl-3">
@@ -74,7 +74,7 @@
                 </div>
                 
             </div>
-            <div class="col-1 mt-auto mb-auto mr-auto">
+            <div class="col-1 mt-auto mb-auto mr-auto ie11-FlashCardNavPad">
                     <button class="btn button-nav-right-image"
                     type="submit"
                     ng-disabled="currentFlashcard >= (user.userFlashCardsMax-1)"
@@ -83,5 +83,8 @@
                 </div>
         </div>
         <div class="flash-cards-chap-text">Ch. {{flashCards[currentFlashcard].chapter}} Para. {{flashCards[currentFlashcard].paragraph}}</div>
+        <!-- Testing -->
+        <!-- <button class="btn btn-primary"
+                ng-click="setCardFaceVisibility()">TEST</button> -->
     </div>
 </div>
