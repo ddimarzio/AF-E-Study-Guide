@@ -179,7 +179,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
             }
 
         }
-        
 
         $scope.nextCard = function(num)
         {
