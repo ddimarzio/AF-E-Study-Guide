@@ -525,6 +525,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                      highlight.pageNumber == $scope.allPageContent[$scope.currentPage].page)
                 {
                     // Finding the occurance
+                    highlight.content.toString().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'); // escaping
+                    console.log("highlight.content : " + highlight.content);
+
                     var reg = new RegExp(highlight.content,"g");
                     var i = 0;
                     var highLightContent = "";
@@ -536,8 +539,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         }
                         i++;
                     }
-                    highLightContent.toString().replace(/(?=[() ])/g, '\\'); // escaping pareth
-                    console.log("highLightContent.replace : " + highLightContent);
+
+                    
                     $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
                 }
             });
