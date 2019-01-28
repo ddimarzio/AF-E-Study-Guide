@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.476";
+  $scope.version = "Version 0.477";
 
   $scope.Math = window.Math;
 
@@ -33,6 +33,15 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     $scope.navMenuMainOpen[0] = !$scope.navMenuMainOpen[0];
     $scope.closeChapterMenu[0] = false;
     $scope.navChapterMenuOpen[0] = false;
+  }
+
+  $scope.blurMenu = function()
+  {
+    console.log("blurMenu2");
+  }
+  $scope.mouseLeave = function()
+  {
+    console.log("mouseLeave2");
   }
 
   $scope.closeMainMenu = function()

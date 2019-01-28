@@ -249,7 +249,6 @@ hr {
 }
 
 .navMenu-Main {
-  /* TODO . IE does not like the background color */
   background: rgba(14,24,45,1);
   background-color: rgba(14,24,45,1);
   width: 270px;
@@ -264,6 +263,9 @@ hr {
   overflow-x: hidden;
 }
 
+.navMenuIndex {
+  z-index: 5;
+}
 /* *********************************** */
 
 /* Internal  */
@@ -434,6 +436,7 @@ hr {
   background-position : center center;
   background-repeat:no-repeat;
   background-image : url("../Assets/images/handbook/hb-pageRightIcon.png");
+  z-index: 0;
 }
 .button-nav-right-image:hover {
   transform: scale(1.1);
@@ -448,7 +451,7 @@ hr {
   background-position : center center;
   background-repeat:no-repeat;
   background-image : url("../Assets/images/handbook/hb-pageLeftIcon.png");
-  
+  z-index: 0;
 }
 .button-nav-left-image:hover {
   transform: scale(1.1);
