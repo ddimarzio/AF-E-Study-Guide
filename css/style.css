@@ -166,24 +166,24 @@ hr {
   font-family: Arial, Helvetica, sans-serif;
 }
 .chapterMenu-category {
-  color: #000000;
+  color: #dadada;
   line-height: 1;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .chapterSubMenu-category {
-  color: #000000;
+  color: #c7a567;
   line-height: 1;
-  font-size: 11px;
+  font-size: 12px;
   text-decoration: none;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
 }
 .chapterSubMenu-category:hover {
-  color: #000000;
+  /* color: #000000; */
 }
 
 .section-title {
@@ -192,7 +192,8 @@ hr {
   padding-left: 15px;
 }
 .section-title:hover {
-  background-color: #2fc29132
+  background-color: #2fc29132;
+  border-radius: 5px;
 }
 .menu-selected {
   color: #2fc290;
@@ -222,7 +223,7 @@ hr {
   transition: all 0.1s ease-in-out;
   border-bottom: 6px solid transparent;
   border-top: 6px solid transparent;
-  border-left: 6px solid #000000;
+  border-left: 6px solid #c7a567;
   display: inline-block;
   height: 0;
   opacity: 1;
@@ -255,8 +256,11 @@ hr {
 }
 
 .navChapterMenu {
-  background: rgb(255, 255, 255);
-  background-color: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255); */
+  background: rgb(17, 30, 56);
+  background-color: rgba(17, 30, 56,1);
+  border-bottom-right-radius: 10px;
   width: 450px;
   max-height: 400px;
   overflow-y: auto;
@@ -265,6 +269,18 @@ hr {
 
 .navMenuIndex {
   z-index: 2000;
+}
+
+.divideMenuTriangle {
+  position: absolute;
+  border-bottom: 15px solid transparent;
+  border-top: 15px solid transparent;
+  border-left: 15px solid rgba(14,24,45,1);
+  display: inline-block;
+  height: 0;
+  opacity: 1;
+  vertical-align: top;
+  width: 15px;
 }
 /* *********************************** */
 
