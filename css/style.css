@@ -1058,4 +1058,11 @@ hr {
   .ie11-sticky-ereaderNav {
     position: fixed;
   }
+  .ie11-FlashCardTop {
+    top: 45px;
+    padding-top: 40px;
+  }
+  .ie11-FlashCardNavPad {
+    padding-top: 240px;
+  }
 }

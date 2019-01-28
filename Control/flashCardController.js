@@ -1,7 +1,9 @@
-mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dataService,mainModel) 
+mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$timeout,dataService,mainModel) 
     {
         //init
         $scope.currentFlashcard = 0;
+        $scope.ieFrontCardStyle = "";
+        $scope.ieBackCardStyle = {'visibility':'hidden'};
 
         // Methods
         $scope.getFlashCards = function(amount,chapters)
@@ -175,6 +177,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
             {
                 $scope.flashCardFlagged = false;
             }
+
         }
         
 
@@ -187,20 +190,30 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,dat
         
         $scope.flipCard = function()
         {
-            var frontCard = document.getElementById( 'frontCard' );
-            var backCard = document.getElementById( 'backCard' );
-
             if ( $scope.flashCardisFlipped == false )
             {
                 $scope.flashCardisFlipped = true;
-
-                // ie 11
-                frontCard.style.visibility = false;
             }
             else 
             {
                 $scope.flashCardisFlipped = false;
             }
+            $timeout(function() { $scope.setCardFaceVisibility();}, 150);
+        }
+
+        $scope.setCardFaceVisibility = function()
+        {
+                // ie 11 modification
+                if ( $scope.flashCardisFlipped )
+                {
+                    $scope.ieFrontCardStyle = {'visibility':'hidden'};
+                    $scope.ieBackCardStyle = {'visibility':'visible'};
+                }
+                else
+                {
+                    $scope.ieFrontCardStyle = {'visibility':'visible'};
+                    $scope.ieBackCardStyle = {'visibility':'hidden'};
+                }
         }
 
         $scope.shuffleFlashCards = function()
