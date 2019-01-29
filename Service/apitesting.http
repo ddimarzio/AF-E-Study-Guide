@@ -33,13 +33,13 @@
 #   "userID" : "46"
 # }
 
-POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
-  "UserID" : "110"
-}
+# {
+#   "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
+#   "UserID" : "110"
+# }
 
   # "UserID": 46,
   # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",
@@ -115,13 +115,13 @@ content-type: application/json
 #   "booktype" : 0
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
-#   "booktype" : 0
-# }
+{
+  "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
+  "booktype" : 0
+}
 
 
 # POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
