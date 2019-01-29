@@ -32,7 +32,14 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
               if (response != undefined && typeof response == "object") 
               {
                 $scope.flashCards = response.data.userFlashCardFlagged;
-                console.log("$scope.flashCards : " + JSON.stringify($scope.flashCards) );
+
+                // Setting all cards as flagged
+                $scope.flashCards.forEach(function(fCard)
+                {
+                    $scope.user.userFlashCardFlagged[fCard.ID] = 1;
+                });
+
+                // console.log("$scope.flashCards : " + JSON.stringify($scope.flashCards) );
 
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
