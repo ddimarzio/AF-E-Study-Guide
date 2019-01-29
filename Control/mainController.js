@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.488";
+  $scope.version = "Version 0.489";
 
   $scope.Math = window.Math;
 
@@ -92,6 +92,8 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
   $scope.resetPassword = function(thisUser)
   {
     // Service call then ...
+
+    
 
     $scope.alertMessageClass = "bold-success-text";
     $scope.alertMessage = "An email has been sent to the address above.";
@@ -356,6 +358,12 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     $scope.user.chaptersSelected = [];
 
     $scope.navigateToView('rankselection');
+  }
+
+  $scope.popup = function(popupType)
+  {
+    console.log("popupType : " + popupType);
+    console.log("lastView :" + $scope.user.userLastView);
   }
 
   // Spit out data to console

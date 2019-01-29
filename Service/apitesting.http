@@ -60,15 +60,15 @@
 #   "FlashcardID":"6F_23"
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "66b77acc-34be-41b1-a553-cdff0ce437be",
-#   "amount" : "25",
-#   "chapters" : [1,2],
-#   "rank" : "0"
-# }
+{
+  "SessionID" : "16f3b954-aa46-4d39-9dcf-5ca7a56e81aa",
+  "amount" : "25",
+  "chapters" : [1,2],
+  "rank" : "0"
+}
 
 # "ID": "1E_15",
 #   "Chapter": "1",
@@ -115,13 +115,13 @@
 #   "booktype" : 0
 # }
 
-POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
-  "booktype" : 0
-}
+# {
+#   "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
+#   "booktype" : 0
+# }
 
 
 # POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
@@ -212,12 +212,20 @@ content-type: application/json
 #   "endChar":0
 # }
 
-POST http://powertrainafttest.azurewebsites.net/EReader/GetUserBookmarks HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/EReader/GetUserBookmarks HTTP/1.1
+# content-type: application/json
 
-{
-  "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
-  "userID" : "110",
-  "chapterID":2,
-  "sectionID":"2A",
-}
+# {
+#   "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
+#   "userID" : "110",
+#   "chapterID":2,
+#   "sectionID":"2A",
+# }
+
+
+# POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1
+# content-type: application/json
+
+# {
+#   "email" : "ddimarzio@powertrain.com"
+# }
