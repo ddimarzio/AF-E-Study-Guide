@@ -43,32 +43,32 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
                     // $scope.user.userBookMarks = response.data.userBookMarks;
                     $scope.user.userHightlights = response.data.userHightlights;
 
+                    // Saved flash cards
                     $scope.user.userFlashCardFlagged = {};
                     response.data.userFlashCardFlagged.forEach(function(flashcard)
                     {
-                    $scope.user.userFlashCardFlagged[flashcard.indx] = flashcard.flagged;
+                        $scope.user.userFlashCardFlagged[flashcard.indx] = flashcard.flagged;
                     });
 
                     // Notes
                     $scope.user.userNotes = {}; 
                     response.data.userNotes.forEach(function(noteObject)
                     {
-                    var noteIndex = noteObject.chapterID + "." + noteObject.sectionID + "." + noteObject.pageNumber;
-                    $scope.user.userNotes[noteIndex] = noteObject.note;
+                        var noteIndex = noteObject.chapterID + "." + noteObject.sectionID + "." + noteObject.pageNumber;
+                        $scope.user.userNotes[noteIndex] = noteObject.note;
                     });
                     
                     // bookmarks
                     $scope.user.userBookMarks = {}; 
                     response.data.userBookMarks.forEach(function(bmObject)
                     {
-                    var bmIndex = bmObject.chapterID + "." + bmObject.sectionID + "." + bmObject.pageNumber;
-                    $scope.user.userBookMarks[bmIndex] = 1;
+                        var bmIndex = bmObject.chapterID + "." + bmObject.sectionID + "." + bmObject.pageNumber;
+                        $scope.user.userBookMarks[bmIndex] = 1;
                     });
 
                     $localstorage.setObject('user', $scope.user);
 
                     $scope.savedHighlights = $scope.user.userHightlights;
-                    console.log("getSavedUserData : " + JSON.stringify($scope.user));
                 }
                 else
                 {
