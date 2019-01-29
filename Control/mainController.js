@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.490";
+  $scope.version = "Version 0.491";
 
   $scope.Math = window.Math;
 
@@ -168,7 +168,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     var acronymListButton = angular.element( document.querySelector( '#acronymListButton' ) );
     acronymListButton.addClass('footerHideAconymLink');
 
-    if (viewPage =='flashcardselection' 
+    if (viewPage =='flashcards' 
         || viewPage =='handbook'
         || viewPage =='brownbook'
         || viewPage =='bluebook')
