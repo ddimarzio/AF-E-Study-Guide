@@ -1,9 +1,129 @@
-<div ng-if="user.userLoggedIn" class="row col-12 p-1">
+
+
+<div ng-if="user.userLoggedIn" class="row col-12 p-1 m-0">
         <div class="footer-text ml-3">
                 PURSUE YOUR GREATNESS  {{currentViewTitle}}
         </div>
 
-        <div class="ml-auto row-0 footer-text pr-3 clickBox"  ng-click="popup('acronymList')">
-                <span class="acronymLink">Acronym List {{user.userLastView}}</span>
+        <div class="ml-auto row-0 p-2 pr-4 clickBox acronymLink"
+                id='acronymListButton'
+                ng-click="popup('acronymList')">
+                <span>Acronym List</span>
+        </div>
+
+        <div class="row m-0 p-0 col-12 popupStyle-bottomRight popupStyleHide"
+              id="popupView">
+                <div  class="col-0 ml-auto popupStyle-acronym">
+                <span class='row acronymTitle p-2 justify-content-md-center'>Acronyms</span>
+                <ul>
+                    <li><span class='boldAcronym'>(A1)</span> Manpower and Personnel</li>
+                    <li><span class='boldAcronym'>(A1C)</span> Airman First Class</li>
+                    <li><span class='boldAcronym'>(AB)</span> Airman Basic</li>
+                    <li><span class='boldAcronym'>(ABCD)</span> Assess, Balance, Communicate, and Decide</li>
+                    <li><span class='boldAcronym'>(ABU)</span> Airman battle uniform</li>
+                    <li><span class='boldAcronym'>(ACA)</span> Airman Comprehensive Assessment</li>
+                    <li><span class='boldAcronym'>(ACC)</span> Air Combat Command</li>
+                    <li><span class='boldAcronym'>(ACE)</span> Ask, Care, and Escort</li>
+                    <li><span class='boldAcronym'>(ADL)</span> Airman Dorm Leader</li>
+                    <li><span class='boldAcronym'>(AEF)</span> American Expeditionary Force</li>
+                    <li><span class='boldAcronym'>(AETC)</span> Air Education and Training Command</li>
+                    <li><span class='boldAcronym'>(AFAUX)</span> Air Force Auxiliary</li>
+                    <li><span class='boldAcronym'>(AFGSC)</span> Air Force Global Strike Command</li>
+                    <li><span class='boldAcronym'>(AFH)</span> Air Force Handbook</li>
+                    <li><span class='boldAcronym'>(AFI)</span> Air Force Instruction</li>
+                    <li><span class='boldAcronym'>(AFIT)</span> Air Force Institute of Technology</li>
+                    <li><span class='boldAcronym'>(AFJI)</span> Air Force Joint Instruction</li>
+                    <li><span class='boldAcronym'>(AFJROTC)</span> Air Force Junior Reserve Officer Training Corps</li>
+                    <li><span class='boldAcronym'>(AFJQS)</span> Air Force Job Qualification Standard</li>
+                    <li><span class='boldAcronym'>(AFMAN)</span> Air Force Manual</li>
+                    <li><span class='boldAcronym'>(AFMC)</span> Air Force Materiel Command</li>
+                    <li><span class='boldAcronym'>(AFPAM)</span> Air Force Pamphlet</li>
+                    <li><span class='boldAcronym'>(AFPD)</span> Air Force Policy Directive</li>
+                    <li><span class='boldAcronym'>(AFRH)</span> Armed Forces Retirement Home</li>
+                    <li><span class='boldAcronym'>(API)</span> Airmen powered by innovation</li>
+                    <li><span class='boldAcronym'>(AFR)</span> Air Force Reserve</li>
+                    <li><span class='boldAcronym'>(AFRC)</span> Air Force Reserve Command</li>
+                    <li><span class='boldAcronym'>(AFSOC)</span> Air Force Special Operations Command</li>
+                    <li><span class='boldAcronym'>(AFSPC)</span> Air Force Space Command</li>
+                    <li><span class='boldAcronym'>(ALS)</span> Airman Leadership School</li>
+                    <li><span class='boldAcronym'>(AMC)</span> Air Mobility Command</li>
+                    <li><span class='boldAcronym'>(Amn)</span> Airman</li>
+                    <li><span class='boldAcronym'>(AMT)</span> Academy Military Training</li>
+                    <li><span class='boldAcronym'>(ANG)</span> Air National Guard</li>
+                    <li><span class='boldAcronym'>(APEX)</span> Adaptive Planning and Execution</li>
+                    <li><span class='boldAcronym'>(AU-ABC)</span> Air University Associate-to-Baccalaureate Cooperative Program</li>
+                    <li><span class='boldAcronym'>(B-SMART)</span> balanced, specific, measurable, attainable, results-focused, and time-bound</li>
+                    <li><span class='boldAcronym'>(CAA)</span> Career Assistance Advisor</li>
+                    <li><span class='boldAcronym'>(CAP)</span> Civil Air Patrol</li>
+                    <li><span class='boldAcronym'>(CCM)</span> Command Chief Master Sergeant</li>
+                    <li><span class='boldAcronym'>(CDC)</span> Career Development Course</li>
+                    <li><span class='boldAcronym'>(CFETP)</span> Career Field Education and Training Plan</li>
+                    <li><span class='boldAcronym'>(CGO)</span> Company Grade Officer</li>
+                    <li><span class='boldAcronym'>(CJCSM)</span> Chairman, Joint Chiefs of Staff manual</li>
+                    <li><span class='boldAcronym'>(CLEP)</span> College-Level Examination Program</li>
+                    <li><span class='boldAcronym'>(CMSAF)</span> Chief Master Sergeant of the Air Force</li>
+                    <li><span class='boldAcronym'>(CMSgt)</span> Chief Master Sergeant</li>
+                    <li><span class='boldAcronym'>(CONUS)</span> Continental United States</li>
+                    <li><span class='boldAcronym'>(CPI)</span> Continuous Process Improvement</li>
+                    <li><span class='boldAcronym'>(CSAF)</span> Chief of Staff, United States Air Force</li>
+                    <li><span class='boldAcronym'>(DANTES )</span> Defense Activity for Nontraditional Education Support</li>
+                    <li><span class='boldAcronym'>(DEROS)</span> Date Eligible for Return from Overseas</li>
+                    <li><span class='boldAcronym'>(DoD)</span> Department of Defense</li>
+                    <li><span class='boldAcronym'>(DODD)</span> Department of Defense Directive</li>
+                    <li><span class='boldAcronym'>(DODI)</span> Department of Defense Instruction</li>
+                    <li><span class='boldAcronym'>(DODM)</span> Department of Defense Manual</li>
+                    <li><span class='boldAcronym'>(DSD)</span> Developmental Special Duty</li>
+                    <li><span class='boldAcronym'>(DV)</span> Distinguished Visitor</li>
+                    <li><span class='boldAcronym'>(EES)</span> Enlisted Evaluation System</li>
+                    <li><span class='boldAcronym'>(EPR)</span> enlisted performance report</li>
+                    <li><span class='boldAcronym'>(EQUAL)</span> Enlisted Quarterly Assignments Listing</li>
+                    <li><span class='boldAcronym'>(FICA)</span> Federal Insurance Contributions Act</li>
+                    <li><span class='boldAcronym'>(FITW)</span> Federal Income Tax Withholding</li>
+                    <li><span class='boldAcronym'>(FRLD)</span> Full Range Leadership Development</li>
+                    <li><span class='boldAcronym'>(GI)</span> General Issue</li>
+                    <li><span class='boldAcronym'>(GS)</span> General Service</li>
+                    <li><span class='boldAcronym'>(IG)</span> Inspector General</li>
+                    <li><span class='boldAcronym'>(ILE)</span> Intermediate Leadership Experience</li>
+                    <li><span class='boldAcronym'>(IMT)</span> Information Management Tool</li>
+                    <li><span class='boldAcronym'>(JP)</span> Joint Publication</li>
+                    <li><span class='boldAcronym'>(MFR)</span> Memo for Record</li>
+                    <li><span class='boldAcronym'>(MKTS)</span> Military Knowledge and Testing System</li>
+                    <li><span class='boldAcronym'>(MOPP)</span> Mission-Oriented Protective Posture</li>
+                    <li><span class='boldAcronym'>(MSgt)</span> Master Sergeant</li>
+                    <li><span class='boldAcronym'>(MTI)</span> Military Training Instructor</li>
+                    <li><span class='boldAcronym'>(MTL)</span> Military Training Leader</li>
+                    <li><span class='boldAcronym'>(NATO)</span> North Atlantic Treaty Organization</li>
+                    <li><span class='boldAcronym'>(NCO)</span> Noncommissioned Officer</li>
+                    <li><span class='boldAcronym'>(NCOIC)</span> Noncommissioned Officer in Charge</li>
+                    <li><span class='boldAcronym'>(OES)</span> Officer Evaluation System</li>
+                    <li><span class='boldAcronym'>(OJT)</span> On-The-Job Training</li>
+                    <li><span class='boldAcronym'>(OPR)</span> Officer Performance Report</li>
+                    <li><span class='boldAcronym'>(PACAF)</span> Pacific Air Forces</li>
+                    <li><span class='boldAcronym'>(PACE)</span> Profession of Arms Center of Excellence</li>
+                    <li><span class='boldAcronym'>(PL)</span> Protection Level</li>
+                    <li><span class='boldAcronym'>(PME)</span> Professional Military Education</li>
+                    <li><span class='boldAcronym'>(PTSD)</span> Posttraumatic Stress Disorder</li>
+                    <li><span class='boldAcronym'>(RAP)</span> Recruiter Assistance Program</li>
+                    <li><span class='boldAcronym'>(SITW)</span> State Income Taw Withholding</li>
+                    <li><span class='boldAcronym'>(SMART)</span> Specific, Measurable, Attainable, Results-focused, and Time-bound</li>
+                    <li><span class='boldAcronym'>(SMSgt)</span> Senior Master Sergeant</li>
+                    <li><span class='boldAcronym'>(SOAR)</span> Scholarships for Outstanding Airmen to ROTC</li>
+                    <li><span class='boldAcronym'>(SrA)</span> Senior Airman</li>
+                    <li><span class='boldAcronym'>(SSgt)</span> Staff Sergeant</li>
+                    <li><span class='boldAcronym'>(TA)</span> Transactional Analysis</li>
+                    <li><span class='boldAcronym'>(TDY)</span> Temporary Duty</li>
+                    <li><span class='boldAcronym'>(TSgt)</span> Technical Sergeant</li>
+                    <li><span class='boldAcronym'>(UCMJ)</span> Uniform Code of Military Justice</li>
+                    <li><span class='boldAcronym'>(UDM)</span> Unit Deployed Manager</li>
+                    <li><span class='boldAcronym'>(UIF)</span> Unfavorable Information File</li>
+                    <li><span class='boldAcronym'>(U.S.)</span> United States</li>
+                    <li><span class='boldAcronym'>(U.S.C.)</span> United States Code</li>
+                    <li><span class='boldAcronym'>(USAF)</span> United States Air Force</li>
+                    <li><span class='boldAcronym'>(USAFE)</span> United States Air Forces in Europe</li>
+                    <li><span class='boldAcronym'>(USS)</span> United States Ship</li>
+                    <li><span class='boldAcronym'>(UTM)</span> Unit Training Manager</li>
+                    <li><span class='boldAcronym'>(WEAR)</span> We Are All Recruiters</li>
+                </ul>
+                </div>
         </div>
 </div>

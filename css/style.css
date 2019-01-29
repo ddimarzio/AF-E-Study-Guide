@@ -40,6 +40,58 @@ footer {
   background: rgba(0, 0, 0, 1);
 }
 
+.footerHideAconymLink {
+  visibility: hidden;
+}
+.acronymLink {
+  color: rgb(199,165,103);
+  line-height: 1;
+  font-weight: bold;
+  font-size: 21px;
+  text-decoration: none;
+  text-align: left;
+  font-family: 'agencyBold', sans-serif;
+}
+.acronymLink :hover {
+  color: #2fc291;
+  text-decoration: underline;
+}
+
+.popupStyle-bottomRight {
+  z-index: 1000;
+  height: 500px;
+  position: relative;
+  bottom:540px;
+}
+.popupStyle-acronym {
+  background: rgba(14,24,45,1);
+  width: 400px;
+  height: 500px;
+  overflow: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: rgb(199,165,103);
+  
+  font-size: 14px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+.boldAcronym {
+  /* font-weight: bold; */
+  font-size: 16px;
+}
+.popupStyleHide {
+  visibility: hidden;
+}
+.acronymTitle {
+  color: #2fc291;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .mainContent {
   text-align: center;
   position: relative;
