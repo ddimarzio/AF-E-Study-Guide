@@ -42,7 +42,17 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
         });
     }
 
-
+    this.resetPassword = function()
+    {
+        return $http({
+            method : 'POST',
+            url : 'https://' + urlBase + '/Account/GetData',
+            data: {
+                'SessionID' : userSession,
+                'UserID' : userID
+                }
+        });
+    }
 
     this.saveUserData = function(userSession,userID,userRank,userRole,userName,userBookMarks,userNotes,userFlashCardFlagged,userHightlights,userReadHandbook,userProgress)
     {
