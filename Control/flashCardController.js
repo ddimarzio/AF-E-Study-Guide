@@ -8,15 +8,11 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
         // Methods
         $scope.getFlashCards = function(amount,chapters)
         {
-            console.log("Get Flashcards : " + $scope.user.userSession + " | " + amount + " | " + chapters);
-
             dataService.getFlashCardStack($scope.user.userSession,amount,chapters,$scope.user.userRankID)
             .then(function(response) 
             {
               if (response != undefined && typeof response == "object") 
               {
-                console.log("Flashcards : " + JSON.stringify(response.data));
-
                 $scope.flashCards = response.data;
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
@@ -35,8 +31,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
             {
               if (response != undefined && typeof response == "object") 
               {
-                console.log("Flagged Cards : " + JSON.stringify(response.data));
-
                 $scope.flashCards = response.data.userFlashCardFlagged;
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
@@ -59,10 +53,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
         else if ( $scope.Tuser.userLastView == 'savedFlashcards' )
         {
             // Get user's flagged cards
-            console.log("Getting flagged");
-
             $scope.getFlaggedFlashCards();
-
         }
         // **********
 
@@ -136,7 +127,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
                     if (response != undefined && typeof response == "object") 
                     {
                         console.log("setFlashCardMark : " + JSON.stringify(response.data));
-                        
                     } 
                     else 
                     {
@@ -152,7 +142,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
                     if (response != undefined && typeof response == "object") 
                     {
                         console.log("deleteFlashCardMark : " + JSON.stringify(response.data));
-                        
                     } 
                     else 
                     {
@@ -218,8 +207,6 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
 
         $scope.shuffleFlashCards = function()
         {
-            console.log("Shuffling deck...");
-
             $scope.flashCards = $scope.shuffleArray($scope.flashCards);
             $scope.setFlashCardData($scope.currentFlashcard);
         }

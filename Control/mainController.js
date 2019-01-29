@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.485";
+  $scope.version = "Version 0.486";
 
   $scope.Math = window.Math;
 
@@ -54,8 +54,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
   $scope.toggleChapterMenu = function()
   {
     $scope.allChapterSections = $localstorage.getObject('allChapterSections');
-    console.log("ChaptersSections :" + JSON.stringify($scope.allChapterSections));
-
     $scope.navChapterMenuOpen[0] = !$scope.navChapterMenuOpen[0];
   }
 
@@ -123,7 +121,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
       {
           if (response != undefined && typeof response == "object") 
           {
-              // console.log("Controller : "  + JSON.stringify(response.data) );
             if ( response.data.status == 1)  //success
             {
               $scope.navigateToView('thanksForRegister');
@@ -160,7 +157,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
       // Forcing an update on an element.
       $scope.changeHeaderText($scope.viewTitles[viewPage]);// + " - " + $scope.user.userName);
       $scope.changeSubHeaderText("","");
-      // console.log("View Page = " + viewPage); // debug
     }
   }
 
@@ -186,7 +182,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     $scope.user = mainModel.resetUser();
     $scope.user.userLoggedIn = false;
     $localstorage.setObject('user', $scope.user);
-    // console.log("Logout User : " + JSON.stringify($scope.user, null, 4)); // debug
     $window.location.reload();
   }
 
@@ -402,7 +397,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
       if ( $localstorage.getObject('user') != null)
       {
         $scope.user = $localstorage.getObject('user');
-        // console.log("User : " + JSON.stringify($scope.user, null, 4)); // debug
         if ( $scope.user.userLoggedIn )
         {
           $scope.navigateToView($scope.user.userLastView);

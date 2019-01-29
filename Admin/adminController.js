@@ -49,7 +49,6 @@ mainApp.controller('AdminController', function($scope,$sce)
 
         $scope.getBookPage = function(page)
         {
-            console.log(page);
             // TODO change to switch case
             if ( page == 1 )
             {

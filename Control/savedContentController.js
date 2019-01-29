@@ -92,13 +92,11 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
 
         $scope.removeBookmark = function(num)
         {
-            console.log("Removing #" + num);
+            // console.log("Removing #" + num);
         }
         
         $scope.deleteHightlight = function(highlight,hlIndex)
         {
-            console.log("Deleting.. :" + JSON.stringify(highlight));
-
             // Delete
             dataService.deleteHighlight($scope.user.userSession,
                                         $scope.user.userID,
@@ -122,8 +120,6 @@ mainApp.controller('SavedContentController', function($scope,$localstorage,$sce,
             $scope.savedHighlights.splice(hlIndex,1);
             $scope.user.userHightlights = $scope.savedHighlights;
             $localstorage.setObject('user', $scope.user);
-
-            console.log("$scope.user.userHightlights : " + JSON.stringify($scope.user.userHightlights));
         }
 
         $scope.init();
