@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.489";
+  $scope.version = "Version 0.490";
 
   $scope.Math = window.Math;
 
@@ -84,7 +84,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
 
         $window.location.reload();
       }
-      // $scope.getContent();
   }
 
  // ********************
@@ -159,10 +158,24 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
       // Forcing an update on an element.
       $scope.changeHeaderText($scope.viewTitles[viewPage]);// + " - " + $scope.user.userName);
       $scope.changeSubHeaderText("","");
+      $scope.showAronymList(viewPage);
+      
     }
   }
 
+  $scope.showAronymList = function(viewPage)
+  {
+    var acronymListButton = angular.element( document.querySelector( '#acronymListButton' ) );
+    acronymListButton.addClass('footerHideAconymLink');
 
+    if (viewPage =='flashcardselection' 
+        || viewPage =='handbook'
+        || viewPage =='brownbook'
+        || viewPage =='bluebook')
+    {
+      acronymListButton.removeClass('footerHideAconymLink');
+    }
+  }
 
   $scope.changeHeaderText = function(text)
   {
@@ -362,8 +375,21 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
 
   $scope.popup = function(popupType)
   {
-    console.log("popupType : " + popupType);
-    console.log("lastView :" + $scope.user.userLastView);
+    // console.log('opening pop up' + popupType);
+    var popupView = angular.element( document.querySelector( '#popupView' ) );
+
+    if ( $scope.popupOpen )
+    {
+      popupView.addClass('popupStyleHide');
+    }
+    else
+    {
+      popupView.removeClass('popupStyleHide');
+    }
+    $scope.popupOpen = !$scope.popupOpen;
+        
+    $scope.user = $localstorage.getObject('user');
+    // console.log("lastView :" + $scope.user.userLastView);
   }
 
   // Spit out data to console
@@ -394,7 +420,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
       $scope.lastGreenText = 0;
       $scope.loginLoading = false;
       $scope.navChapterMenuOpen = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
-      
+      $scope.popupOpen = false;
 
       // Value Objects
       $scope.user = mainModel.getUser();
