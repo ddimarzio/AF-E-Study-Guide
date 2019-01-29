@@ -13,7 +13,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.getContent = function()
         {
             var whichPage = $localstorage.getObject('resourcePage');
-            console.log("whichPage :" + whichPage);
             
             dataService.getEReaderPages($scope.user.userSession,whichPage[0],whichPage[1],whichPage[2])
             .then(function(response) 
@@ -24,8 +23,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.allPageContent = [];
                 $scope.allPageContent = response.data;
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[0].page);
-
-                console.log("allPageContent : " + JSON.stringify($scope.allPageContent));
 
                 $scope.currentMaxPages = $scope.allPageContent.length;
                 $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[0].content);
@@ -207,7 +204,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.setPageData = function(page)
         {
             $scope.user = $localstorage.getObject('user');
-            console.log("setPageData : " + JSON.stringify($scope.user));
             
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
          
@@ -260,10 +256,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.currentPage = num;
                 page = $scope.allPageContent[num];
                 $scope.currentPageContent = $sce.trustAsHtml(page.content);
-
-                console.log("----------------------------");
-                console.log("$scope.currentPageContent :" + $scope.currentPageContent);
-                console.log("----------------------------");
 
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[num].page);
                 $scope.setPageData($scope.currentPage);
@@ -451,7 +443,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             var matchIndex = -1;
             while ( result = reg.exec(contentWithMarker))
             {
-                console.log("result[1] :(" + i +")" + result[1]);
                 if ( result[1] != undefined)
                 {
                     occurance = i;
@@ -469,12 +460,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 hl.startChar = occurance;
                 hl.endChar = matchIndex;
 
-
-            console.log("$scope.user.userHightlights :" + JSON.stringify($scope.user.userHightlights));
-
             $scope.saveUserHightlight(hl);
-            // $scope.saveThisUserData();
-
         }
 
         $scope.saveUserHightlight = function(highlight)
@@ -529,8 +515,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                     // Finding the occurance
                     var matchContent = $scope.removeSpecialChars(highlight.content);
 
-                    console.log("matchCont : " + matchContent);
-
                     var reg = new RegExp(matchContent,"g");
                     var i = 0;
                     var highLightContent = "";
@@ -543,9 +527,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                         i++;
                     }
 
-                    console.log("highLightContent  : " + highLightContent );
                     $scope.currentPageContent = $sce.trustAsHtml(highLightContent);
-                    console.log("$scope.currentPageContent  : " + $scope.currentPageContent );
                 }
             });
         }
@@ -554,62 +536,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
              return matchText.toString().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
         }
-
-        // $scope.removeAllHighlights = function()
-        // {
-        //     var reg = new RegExp("<span class='highlight-text'>(.+?)</span>","g");
-        //     while ( result = reg.exec($scope.currentPageContent))
-        //     {
-        //         var removedHiglighContent = $scope.currentPageContent.toString().replace(reg,result[1]);
-        //         $scope.currentPageContent = $sce.trustAsHtml(removedHiglighContent);
-        //     }
-        // }
-
-
-
-        // $scope.getNode = function(range,selection)
-        // {
-        //     var returnObj = {};
-
-        //     var div = document.querySelector('#pageContentEle');
-        //     var allParaNodes = div.querySelectorAll('p');
-
-        //     // Getting node index start and end
-        //     var startNodeIndex = -1;
-        //     var startContent = "";
-        //     var endNodeIndex = -1;
-        //     var endContent = "";
-        //     angular.forEach(allParaNodes, function(value,key)
-        //     {
-        //         console.log("--------------");
-        //         console.log("key : " + key);
-        //         console.log("range.startContainer.textContent : [" + range.startContainer.textContent + "]");
-        //         console.log("value.textContent : [" + value.textContent + "]");
-        //         console.log("range.startContainer : " + value.textContent.indexOf(range.startContainer.textContent));
-        //         console.log("range.endContainer : " + value.textContent.indexOf(range.endContainer.textContent));
-        //         console.log("---------------");
-                
-        //         if ( value.textContent.indexOf(range.startContainer.textContent) > -1 )
-        //         {
-        //             startNodeIndex = key;
-        //             startContent = value.textContent;
-        //         }
-        //         if ( value.textContent.indexOf(range.endContainer.textContent) > -1 )
-        //         {
-        //             endNodeIndex = key;
-        //             endContent = value.textContent;
-        //         }
-        //     });
-
-        //     returnObj.nodes = startNodeIndex + "," + endNodeIndex;
-        //     returnObj.startChar = range.startOffset
-        //     returnObj.endChar = range.endOffset;
-        //     returnObj.startContent = startContent;
-        //     returnObj.endContent = endContent;
-
-        //     return returnObj;
-        // }
-
 
         $scope.getContent();
 

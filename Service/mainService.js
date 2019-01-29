@@ -46,8 +46,6 @@ mainApp.service('dataService', ['$http', function ($http,$location) {
 
     this.saveUserData = function(userSession,userID,userRank,userRole,userName,userBookMarks,userNotes,userFlashCardFlagged,userHightlights,userReadHandbook,userProgress)
     {
-        console.log("SaveData : " + userSession + "userSession:" + userID + "userID:" + userRank + "userRankID:" + userRole + "userRole:" + userBookMarks + "userBookMarks:" + userNotes + "userNotes:" + userFlashCardFlagged + "userFlashCardFlagged:" + userHightlights + "userHightlights:" + userReadHandbook + "userReadHandbook:" + userProgress + "userProgress");
-
         return $http({
             method : 'POST',
             url : 'https://' + urlBase + '/Account/SaveData',

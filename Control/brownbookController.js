@@ -74,7 +74,6 @@ mainApp.controller('BrownbookController', function($scope,$sce,$localstorage,$wi
             {
                 $scope.user.userReadHandbook = page+1;
                 $scope.user.userProgress = $scope.user.userReadHandbook*10;
-                console.log("Progress update" + $scope.user.userProgress);
                 $localstorage.setObject('user', $scope.user);
             }
         }
