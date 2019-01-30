@@ -4,7 +4,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
         $scope.currentFlashcard = 0;
         $scope.ieFrontCardStyle = "";
         $scope.ieBackCardStyle = {'visibility':'hidden'};
-
+        $scope.selectedAllChapters = "Select";
         // Methods
         $scope.getFlashCards = function(amount,chapters)
         {
@@ -102,8 +102,20 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
             $scope.setChaptersSelected();
         }
 
-        $scope.setAllFlashCardChapters = function(check)
+        $scope.setAllFlashCardChapters = function()
         {
+            var check = false;
+            if ( $scope.selectedAllChapters == "Select")
+            {
+                check = true;
+                $scope.selectedAllChapters = "Unselect"
+            }
+            else
+            {
+                check = false;
+                $scope.selectedAllChapters = "Select"
+            }
+
             $scope.flashCardChapters.forEach(function(chapter) {
                 chapter.checked = check;
               });

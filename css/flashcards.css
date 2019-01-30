@@ -302,4 +302,19 @@
     font-size: 35px;
     font-family: 'agencyBold', sans-serif;
   }
+
+.selectAllChaptersStyle, .selectAllChaptersStyle:focus {
+    background-color:#0E182D;
+    color: #c3c3c3;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'agencyBold', sans-serif;
+}
+.selectAllChaptersStyle:hover {
+    background-color:rgb(25, 43, 82);
+    color: #ffffff;
+}
 /* ************* */
