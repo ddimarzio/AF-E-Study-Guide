@@ -2,11 +2,13 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.493";
+  $scope.version = "Version 0.494";
 
   $scope.Math = window.Math;
   $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip({
+      trigger : 'hover'
+    })  
   })
 
   // Menu system

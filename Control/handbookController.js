@@ -206,7 +206,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             $scope.user = $localstorage.getObject('user');
             
             console.log("----Page Content-----");
-            console.log(JSON.stringify($scope.currentPageContent));
+            console.log(JSON.stringify($scope.allPageContent[page].content));
             console.log("---Page Content End---");
 
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
