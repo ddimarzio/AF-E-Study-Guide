@@ -17,16 +17,17 @@
                                         alt="bookmark"
                                         data-toggle="tooltip" data-placement="bottom" title="Bookmark Page"
                                         ng-click="bookmarkThisPage()"></button>
-                                <button class="btn button-notes-image"
-                                        ng-class="{'button-notes-open-image': notesOpen}"
-                                        type="submit"
-                                        alt="shownotes"
-                                        data-toggle="collapse"
-                                        data-target="#mynotes"
-                                        aria-expanded="false"
-                                        aria-controls="mynotes"
-                                        data-toggle="tooltip" data-placement="bottom" title="Open Notes"
-                                        ng-click="openCloseNotes()"></button>
+                                <span class='m-0 pb-3' data-toggle="tooltip" data-placement="bottom" title="Open Notes">
+                                        <button class="btn button-notes-image"
+                                                ng-class="{'button-notes-open-image': notesOpen}"
+                                                type="submit"
+                                                alt="shownotes"
+                                                aria-expanded="false"
+                                                aria-controls="mynotes"
+                                                data-toggle="collapse"
+                                                data-target="#mynotes"
+                                                ng-click="openCloseNotes()"></button>
+                                </span>
                                 <button class="btn button-highlight-image"
                                         type="submit"
                                         alt="highlight"
