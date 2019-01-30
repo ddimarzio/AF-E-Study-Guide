@@ -8,6 +8,11 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
         // Methods
         $scope.getFlashCards = function(amount,chapters)
         {
+            console.log("$scope.user.userSession : " + $scope.user.userSession);
+            console.log("amount : " + amount);
+            console.log("chapters : " + chapters);
+            console.log("$scope.user.userRankID : " + $scope.user.userRankID);
+
             dataService.getFlashCardStack($scope.user.userSession,amount,chapters,$scope.user.userRankID)
             .then(function(response) 
             {
@@ -16,6 +21,8 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
                 $scope.flashCards = response.data;
                 $scope.user.userFlashCardsMax = $scope.flashCards.length;
                 $scope.setFlashCardData($scope.currentFlashcard);
+
+                console.log("getFlashCardStack : " + JSON.stringify(response.data));
               } 
               else 
               {
