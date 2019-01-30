@@ -19,7 +19,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             {
               if (response != undefined && typeof response == "object") 
               {
-                console.log("response.data : " + response.data);
+                console.log("response.data : " + JSON.stringify(response.data));
                 $scope.allPageContent = [];
                 $scope.allPageContent = response.data;
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[0].page);
