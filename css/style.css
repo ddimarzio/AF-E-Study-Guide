@@ -364,14 +364,85 @@ hr {
 }
 .blueCard
 {
-  min-height:350px;
-  max-height: 500px;
+  width: 100px;
 }
 
 .testBorder
 {
   border: 1px solid rgb(204, 0, 255);
 }
+
+/* *********Tool Tips *********** */
+/* data-toggle="tooltip" data-placement="bottom" title="Weeeee!" */
+.tooltip{
+  position:absolute;
+  z-index:1020;
+  display:block;
+  visibility:visible;
+  padding:5px;
+  font-size:13px;
+  opacity:0;
+  filter:alpha(opacity=0)
+}
+.tooltip-inner{
+  /* width:350px; */
+  /* height:30px; */
+  padding:3px 8px;
+  color:#ffd689;
+  text-align:center;
+  font-weight:900;
+  background: rgba(13, 31, 53,1);
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  border: 1px solid #314A5B;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.tooltip.top .tooltip-inner {
+  max-width:310px;
+  padding:3px 8px;
+  color:#000;
+  text-align:center;
+  background-color:red;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px
+  }
+.tooltip.bottom .tooltip-inner {
+  max-width:310px;
+  padding:3px 8px;
+  color:#fff;
+  text-align:center;
+  background-color:#735124;
+  border-radius:5px
+  }
+.tooltip.left .tooltip-inner{
+  max-width:310px;
+  padding:3px 8px;
+  color:#000;
+  text-align:center;
+  background-color:#FF9A35;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px
+  }    
+.tooltip.right .tooltip-inner{
+  max-width:310px;
+  padding:3px 8px;
+  color:#fff;
+  text-align:center;
+  background-color:#CC0000;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px
+  }
+    
+
+/* ****************************** */
 
 /* handbook */
 .hb-p {

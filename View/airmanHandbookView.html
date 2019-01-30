@@ -14,6 +14,7 @@
                                         ng-class="{'button-bookmark-marked-image': pageBookmarked}"
                                         type="submit"
                                         alt="bookmark"
+                                        data-toggle="tooltip" data-placement="top" title="Bookmark Page"
                                         ng-click="bookmarkThisPage()"></button>
                                 <button class="btn button-notes-image"
                                         ng-class="{'button-notes-open-image': notesOpen}"
@@ -23,10 +24,12 @@
                                         data-target="#mynotes"
                                         aria-expanded="false"
                                         aria-controls="mynotes"
+                                        data-toggle="tooltip" data-placement="top" title="Open Notes"
                                         ng-click="openCloseNotes()"></button>
                                 <button class="btn button-highlight-image"
                                         type="submit"
                                         alt="highlight"
+                                        data-toggle="tooltip" data-placement="top" title="Highlight Text"
                                         ng-click="getSelectedText()"></button>
                         </div>
                 </div>

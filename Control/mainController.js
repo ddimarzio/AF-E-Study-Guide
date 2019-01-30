@@ -2,9 +2,12 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.491";
+  $scope.version = "Version 0.492";
 
   $scope.Math = window.Math;
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)

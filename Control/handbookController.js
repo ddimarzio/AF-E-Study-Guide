@@ -36,8 +36,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
                 $scope.getAllUserData();
 
-
-
               } 
               else 
               {
