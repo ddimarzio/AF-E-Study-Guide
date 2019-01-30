@@ -64,10 +64,10 @@ POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
 content-type: application/json
 
 {
-  "SessionID" : "6c9f77a1-ecb2-4a9e-971f-7ca031339311",
+  "SessionID" : "34883055-9ec4-4751-bb90-441b83e165e8",
   "amount" : "25",
-  "chapters" : [1,2],
-  "rank" : "0"
+  "chapters" : [2],
+  "rank" : "2"
 }
 
 # "ID": "1E_15",
