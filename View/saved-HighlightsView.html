@@ -3,7 +3,12 @@
 	ng-controller="SavedContentController">
 
 	<div class="row col-12 p-0 m-0 justify-content-md-center">
-
+			<button class="btn button-bookmark-image" 
+			ng-class="{'button-bookmark-marked-image': pageBookmarked}"
+			type="submit"
+			alt="bookmark"
+			data-toggle="tooltip" data-placement="bottom" title="Test"
+			ng-click="bookmarkThisPage()"></button>
 		<div class="row col-12"
 			 ng-repeat="highlight in savedHighlights">
 				<div class="col">Chp:{{highlight.chapterID}}</div>

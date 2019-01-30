@@ -20,7 +20,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
               if (response != undefined && typeof response == "object") 
               {
                 
-                console.log("getEReaderPages :" + JSON.stringify(response.data));
+
                 
                 $scope.allPageContent = [];
                 $scope.allPageContent = response.data;
@@ -205,6 +205,10 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         {
             $scope.user = $localstorage.getObject('user');
             
+            console.log("----Page Content-----");
+            console.log(JSON.stringify($scope.currentPageContent));
+            console.log("---Page Content End---");
+
             var keyindex = $scope.allPageContent[page].chapter + "." + $scope.allPageContent[page].section + "." + $scope.allPageContent[page].page;
          
             // highlights
@@ -259,6 +263,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[num].page);
                 $scope.setPageData($scope.currentPage);
+
             }
             else // move chapters
             {
@@ -266,6 +271,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 var whichPage = $localstorage.getObject('resourcePage');
                 var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
 
+                                console.log("getEReaderPages :" + JSON.stringify(response.data));
                 // TODO. Not the best way to get the current section we are on.
                 var currentSectionNum = 0;
                 var i = 0;
