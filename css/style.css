@@ -57,6 +57,20 @@ footer {
   text-decoration: underline;
 }
 
+.returnChapterLink {
+  color: rgb(33, 56, 105);
+  line-height: 1;
+  font-weight: bold;
+  font-size: 21px;
+  text-decoration: none;
+  text-align: left;
+  font-family: 'agencyBold', sans-serif;
+}
+.returnChapterLink :hover {
+  /* color: #2fc291; */
+  text-decoration: underline;
+}
+
 .popupStyle-bottomRight {
   z-index: 1000;
   height: 500px;

@@ -244,5 +244,4 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
           
             return array;
           }
-        
   });
