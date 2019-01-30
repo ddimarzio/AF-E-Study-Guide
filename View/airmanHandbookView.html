@@ -10,11 +10,12 @@
                 <div class="row col-3 ml-auto m-0 p-0 pt-2">
                         <div class="hb-pageNumber col-0 ml-auto featuresBackground">{{currentPage+1}} of {{currentMaxPages}}</div>
                         <div class="col-0 m-0 featuresBackground">
+
                                 <button class="btn button-bookmark-image" 
                                         ng-class="{'button-bookmark-marked-image': pageBookmarked}"
                                         type="submit"
                                         alt="bookmark"
-                                        data-toggle="tooltip" data-placement="top" title="Bookmark Page"
+                                        data-toggle="tooltip" data-placement="bottom" title="Bookmark Page"
                                         ng-click="bookmarkThisPage()"></button>
                                 <button class="btn button-notes-image"
                                         ng-class="{'button-notes-open-image': notesOpen}"
@@ -24,12 +25,12 @@
                                         data-target="#mynotes"
                                         aria-expanded="false"
                                         aria-controls="mynotes"
-                                        data-toggle="tooltip" data-placement="top" title="Open Notes"
+                                        data-toggle="tooltip" data-placement="bottom" title="Open Notes"
                                         ng-click="openCloseNotes()"></button>
                                 <button class="btn button-highlight-image"
                                         type="submit"
                                         alt="highlight"
-                                        data-toggle="tooltip" data-placement="top" title="Highlight Text"
+                                        data-toggle="tooltip" data-placement="bottom" title="Highlight Text"
                                         ng-click="getSelectedText()"></button>
                         </div>
                 </div>
