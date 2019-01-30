@@ -104,15 +104,15 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
 
         $scope.setAllFlashCardChapters = function()
         {
-            var check = false;
+            var check = "";
             if ( $scope.selectedAllChapters == "Select")
             {
-                check = true;
+                check = "true";
                 $scope.selectedAllChapters = "Unselect"
             }
             else
             {
-                check = false;
+                check = "false";
                 $scope.selectedAllChapters = "Select"
             }
 
