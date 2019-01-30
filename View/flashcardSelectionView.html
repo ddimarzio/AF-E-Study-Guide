@@ -35,20 +35,12 @@
     
         <!-- Header -->
         <div class="row col-10 flashSelection-header">
-            <div class="col flashselection-header-text mb-auto mt-auto mr-4">Select chapters to study</div>
+            <div class="col flashselection-header-text mb-3 mr-4">Select chapters to study</div>
             <div class="col-0 pr-2 ml-auto flashselection-content-text text-nowrap" >
-                <div class="row clickBox"
-                    ng-click="setAllFlashCardChapters('true')">
-                    <button class="btn button-flashcardCapterSelection-on-image"
-                            alt="check all chapters"></button>
-                    <div class="mb-auto mt-auto pt-1">Check all chapters</div>
-                </div>
-                <div class="row clickBox"
-                    ng-click="setAllFlashCardChapters('false')">
-                    <button class="btn button-flashcardCapterSelection-off-image"
-                            alt="check all chapters"></button>
-                    <div class="mb-auto mt-auto pt-1">Uncheck all chapters</div>
-                </div>
+                   
+                <button class="mt-auto mb-3 btn btn-success p-1 selectAllChaptersStyle"
+                        id="selectAllChaptersButton"
+                        ng-click="setAllFlashCardChapters();">{{selectedAllChapters}} all chapters</button>
             </div>
         </div>
 
