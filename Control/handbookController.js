@@ -10,6 +10,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.showPrevNav = true;
         $scope.marker = "MM";
 
+        $scope.chapterPageNumber = 0;
+        $scope.chapterMaxPages = 0;
+
         $scope.getContent = function()
         {
             var whichPage = $localstorage.getObject('resourcePage');
@@ -23,6 +26,9 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.allPageContent = [];
                 $scope.allPageContent = response.data.getSectionContentResp;
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[0].page);
+
+                $scope.chapterPageNumber = response.data.pageStart;
+                $scope.chapterMaxPages = response.data.chapterPageCount;
 
                 $scope.currentMaxPages = $scope.allPageContent.length;
                 $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[0].content);
