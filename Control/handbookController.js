@@ -21,7 +21,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
               {
                 console.log("response.data : " + JSON.stringify(response.data));
                 $scope.allPageContent = [];
-                $scope.allPageContent = response.data;
+                $scope.allPageContent = response.data.getSectionContentResp;
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[0].page);
 
                 $scope.currentMaxPages = $scope.allPageContent.length;
