@@ -65,6 +65,7 @@ mainApp.controller('AdminController', function($scope,$sce)
         $scope.changePreivewSize = function(size)
         {
             var previewContentEle = document.getElementById( 'previewContentEle' );
+            
             previewContentEle.css('height',size.height);
             previewContentEle.css('width',size.width);
         }
