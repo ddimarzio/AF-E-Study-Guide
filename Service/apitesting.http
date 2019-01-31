@@ -33,13 +33,13 @@
 #   "userID" : "46"
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
-#   "UserID" : "110"
-# }
+{
+  "SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
+  "UserID" : "110"
+}
 
   # "UserID": 46,
   # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",
@@ -93,19 +93,19 @@
 # {
 # "SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
 # "bookType" : 0,
-# "chapterID" : 5,
+# "chapterID" : 1,
 # }
 
 
-POST http://powertrainafttest.azurewebsites.net/EReader/GetSectionContent HTTP/1.1
-content-type: application/json
+# POST http://powertrainafttest.azurewebsites.net/EReader/GetSectionContent HTTP/1.1
+# content-type: application/json
 
-{
-"SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
-"bookType" : 0,
-"chapterID" : 5,
-"sectionID" : "5A"
-}
+# {
+# "SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
+# "bookType" : 0,
+# "chapterID" : 1,
+# "sectionID" : "1B"
+# }
 
 # POST http://powertrainaftreview.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
 # content-type: application/json
@@ -115,34 +115,23 @@ content-type: application/json
 #   "booktype" : 0
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
-# content-type: application/json
-
-# {
-#   "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
-#   "booktype" : 0
-# }
-
 
 # POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
 # content-type: application/json
 
 # {
-#   "userSession" : "034cd8b3-8229-42cc-9edc-a799afba3d37",
-#   "UserID" : "46",
-#   "userBookMarks" : [],
+#   "userSession" : "b10de219-46b0-41de-967d-9a9341f02fa1",
+#   "UserID" : "110",
+#   "userBookMarks" : [{"chapterID":"1","sectionID":"1A-Overview","pageNumber":"1"},{"chapterID":"3","sectionID":"3B-Command Authority and Department of Defense","pageNumber":"113"},{"chapterID":"3","sectionID":"3B-Command Authority and Department of Defense","pageNumber":"114"},{"chapterID":"1","sectionID":"1B","pageNumber":"2"}],
 #   "userRankID" : 2,
 #   "userRole" : 0,
 #   "userName" : "Don",
 #   "userProgress" : 30,
 #   "userNotes" : [],
 #   "userFlashCardFlagged" : [],
-#   "userHightlights" : [{"chapterID":"2","sectionID":"2B","pageNumber":74,"content":"0,0","startChar":"139","endChar":"161"}],
-#   "userSession":"c11f8022-0188-4dd6-a5ed-615f87e061c0",
+#   "userHightlights" : [],
 #   "userReadHandbook":1,
-#   "flashCardSelectedAmount":25,
-#   "chaptersSelected":[],
-#   "userReadHandbook" : 100
+#   "userProgress":30
 # }
 
 # SessionID: "29c78358-aa96-4c2d-9feb-4ce70ec56d80"
@@ -198,19 +187,19 @@ content-type: application/json
 #   "highlightID" : 148
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/EReader/CreateHighlight HTTP/1.1
-# content-type: application/json
+POST http://powertrainafttest.azurewebsites.net/EReader/CreateHighlight HTTP/1.1
+content-type: application/json
 
-# {
-#   "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
-#   "userID" : "110",
-#   "chapterID":2,
-#   "sectionID":"2A",
-#   "pageNumber":74,
-#   "content":"TESTEST",
-#   "startChar":0,
-#   "endChar":0
-# }
+{
+  "SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
+  "userID" : "110",
+  "chapterID":2,
+  "sectionID":"2A",
+  "pageNumber":74,
+  "content":"TESTEST",
+  "startChar":0,
+  "endChar":0
+}
 
 # POST http://powertrainafttest.azurewebsites.net/EReader/GetUserBookmarks HTTP/1.1
 # content-type: application/json
