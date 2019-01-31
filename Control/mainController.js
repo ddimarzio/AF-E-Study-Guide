@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.512";
+  $scope.version = "Version 0.513";
 
   $scope.Math = window.Math;
   $(function () {
@@ -11,8 +11,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     })  
   })
 
-  $scope.user = $localstorage.getObject('user');
-  $scope.showAronymList($scope.user.userLastView);
+
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
@@ -448,6 +447,10 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
           $scope.navigateToView('login');
         }
       }
+
+      $scope.user = $localstorage.getObject('user');
+      $scope.showAronymList($scope.user.userLastView);
+
       $scope.intialized = true;
     }
 });
