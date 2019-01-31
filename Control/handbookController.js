@@ -162,6 +162,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 }
             });
 
+            console.log("bookmarksArray :" + JSON.stringify(bookmarksArray));
+            
             // Saving data
             dataService.saveUserData($scope.user.userSession,
                                         $scope.user.userID,
