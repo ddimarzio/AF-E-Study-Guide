@@ -27,8 +27,11 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 $scope.allPageContent = response.data.getSectionContentResp;
                 $scope.actualPageNumber = parseFloat($scope.allPageContent[0].page);
 
-                $scope.chapterPageNumber = response.data.pageStart;
-                $scope.chapterMaxPages = response.data.chapterPageCount;
+                $scope.chapterPageNumber = parseFloat(response.data.pageStart);
+                $scope.chapterMaxPages = parseFloat(response.data.chapterPageCount);
+
+                console.log("$scope.chapterPageNumber" + $scope.chapterPageNumber);
+                console.log("$scope.chapterMaxPages" + $scope.chapterMaxPages);
 
                 $scope.currentMaxPages = $scope.allPageContent.length;
                 $scope.currentPageContent = $sce.trustAsHtml($scope.allPageContent[0].content);
@@ -275,7 +278,6 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
                 var whichPage = $localstorage.getObject('resourcePage');
                 var totalSections = chaptSections[(whichPage[1]-1)].sections.length;
 
-                                console.log("getEReaderPages :" + JSON.stringify(response.data));
                 // TODO. Not the best way to get the current section we are on.
                 var currentSectionNum = 0;
                 var i = 0;
