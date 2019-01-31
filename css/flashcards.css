@@ -1,0 +1,320 @@
+/* Flash cards */
+
+.flash-card-chapter-box {
+    /* background-color: rgb(249, 246, 222); */
+    height:250px;
+    /* width: 660px; */
+    overflow-y: auto;
+}
+
+.corner-flip-click {
+    width: 100px;
+    height: 100px;
+}
+.button-flashcardCapterSelection-on-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 19px;
+    height: 25px;
+    display: inline-block;
+    background-color: transparent;
+    /* background-position : center center; */
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/chapterSelectionCheckmark-on.png");
+}
+.button-flashcardCapterSelection-on-imagee:hover {
+    transform: scale(1.1);
+}
+.button-flashcardCapterSelection-off-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 19px;
+    height: 25px;
+    display: inline-block;
+    background-color: transparent;
+    /* background-position : center center; */
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/chapterSelectionCheckmark-off.png");
+}
+.button-flashcardCapterSelection-off-imagee:hover {
+    transform: scale(1.1);
+}
+.flashselection-content-background {
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.flashSelection-header {
+    background: rgb(199, 165, 103);
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.flashselection-header-text {
+    color: #0c1f35;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 26px;
+    text-align: left;
+    font-family: 'agencyBold', sans-serif;
+}
+.flashselection-content-text {
+    color: #0e0e0e;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.flash-cards-chap-text {
+    color: #270EFF;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.flashCard-title-text {
+    color: #000000;
+    line-height: 1.3;
+    font-size: 23px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.flashCard-text {
+    color: #0e0e0e;
+    line-height: 1.2;
+    margin: 10px 0 0;
+    padding: 0;
+    text-align: left;
+    font-size: 23px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.fc-image-wrap-left {
+    border: 1px solid rgb(187, 187, 187);
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.fc-image-wrap-right {
+    border: 1px solid rgb(187, 187, 187);
+    float: right;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.flashCard-listed-text {
+    color: #0f0f0f;
+    line-height: 1.3;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flash-cards-number {
+    color: #f3f3f3;
+    line-height: 1;
+    margin: 10px 0 0;
+    padding: 0;
+    padding-right: 10px;
+    font-size: 32px;
+    font-family: 'agencyReg', sans-serif;
+}
+.flash-cards-header-background {
+    background: rgb(4, 0, 245);
+    background: url('../Assets/images/flashcardHeaderBackground.png');
+    background-size: contain;
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px;
+    background-position: bottom;
+    height: 115px;
+    width: 660px;
+}
+.flash-cards-header-background-green {
+    background: rgb(4, 0, 245);
+    background: url('../Assets/images/flashcardHeaderBackground-green.png');
+    background-size: contain;
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px;
+    background-position: bottom;
+    height: 115px;
+    width: 660px;
+}
+.flash-cards-background {
+    background-color: rgb(249, 246, 222);
+    background: url('../Assets/images/flashCardBackground.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+}
+.flash-card-box {
+    background-color: rgb(249, 246, 222);
+    height:270px;
+    width: 660px;
+    overflow-y: auto;
+}
+.flash-card-box-bottom {
+    background-color: rgb(249, 246, 222);
+    border-bottom-left-radius: 15px; 
+    border-bottom-right-radius: 15px; 
+    width: 660px;
+}
+.flash-card-check-box {
+    width: 660px;
+    position: absolute;
+    left: 25px;
+    margin-top : -40px;
+}
+
+.button-flash-card-checkmark {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/flashCardCheckIcon-off.png");
+}
+.button-flash-card-checkmark:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/flashCardCheckIcon-on.png");
+}
+
+.button-flashcardFlag-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/flashCardFlagIcon-off.png");
+}
+.button-flashcardFlag-image:hover {
+    transform: scale(1.1);
+}
+
+.button-flashcardFlagged-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/flashCardFlagIcon-on.png");
+}
+.button-flashcardFlagged-image:hover {
+    transform: scale(1.1);  
+}
+
+.flip {
+    perspective: 800;
+    -webkit-perspective: 800;
+    height: 360px;
+    width: 660px;
+    position: relative;
+    margin: 50px auto;
+}
+.flip .card.flipped {
+    background: transparent;
+    transform: rotatex(-180deg);
+    -webkit-transform: rotatex(-180deg);
+}
+.flip .card {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    transform-style: preserve-3d;
+    transition: 0.3s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.3s;
+}
+.flip .card .face {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* backface-visibility: hidden ; */
+    /* -webkit-backface-visibility: hidden ;
+    -moz-backface-visibility: hidden; */
+    z-index: 2;
+}
+.flip .card .front {
+    position: absolute;
+    z-index: 1;
+}
+.flip .card .back {
+    transform: rotatex(-180deg);
+    -webkit-transform: rotatex(-180deg);
+    /* -moz-transform: rotatex(-180deg);
+    -ms-transform: rotatex(-180deg); */
+}
+
+.button-flashcardSelect-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/circleIcon.png");
+}
+.button-flashcardSelect-image:hover {
+    transform: scale(1.1);
+}
+.button-flashcardSelect-selected-image {
+    transition: all 0.1s ease-in-out;
+    content: "";
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    background-color: transparent;
+    background-position : center center;
+    background-repeat:no-repeat;
+    background-image : url("../Assets/images/circleIcon-selected.png");
+}
+.button-flashcardSelect-selected-image:hover {
+    transform: scale(1.1);
+}
+
+.flashselection-text {
+    color: #e8e8e8;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: 'agencyBold', sans-serif;
+  }
+
+.selectAllChaptersStyle, .selectAllChaptersStyle:focus {
+    background-color:#0E182D;
+    color: #c3c3c3;
+    line-height: 1.1;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'agencyBold', sans-serif;
+}
+.selectAllChaptersStyle:hover {
+    background-color:rgb(25, 43, 82);
+    color: #ffffff;
+}
+/* ************* */

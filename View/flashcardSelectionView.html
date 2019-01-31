@@ -1,0 +1,83 @@
+<div class="row justify-content-md-center m-0 flash-cards-background innerWithHeader"
+    ng-app="mainApp"
+    ng-controller="FlashCardController">
+    <div class="row col-10 blueBox justify-content-md-center">
+        <div class="row flashselection-text">Select the maximum number of flashcards you want to study?</div>
+        <div class="row col-10 p-3">
+            <div class="col-1 ml-auto mr-auto">
+                <button class="btn button-flashcardSelect-image"
+                ng-class="{'button-flashcardSelect-selected-image': flashCardSelectedAmount == '25'}"
+                type="submit"
+                ng-model="amountSelected"
+                ng-value="25"
+                alt="select 25"
+                ng-click="selectFlashCardAmount(25)"><span class="flashselection-text">25</span></button>
+            </div>
+            <div class="col-1 ml-auto mr-auto">
+                <button class="btn button-flashcardSelect-image"
+                ng-class="{'button-flashcardSelect-selected-image': flashCardSelectedAmount == '50'}"
+                type="submit"
+                ng-model="amountSelected"
+                ng-value="50"
+                alt="select 50"
+                ng-click="selectFlashCardAmount(50)"><span class="flashselection-text">50</span></button>
+            </div>
+            <div class="col-1 ml-auto mr-auto">
+                <button class="btn button-flashcardSelect-image"
+                ng-class="{'button-flashcardSelect-selected-image': flashCardSelectedAmount == '100'}"
+                type="submit"
+                ng-model="amountSelected"
+                ng-value="100"
+                alt="select 100"
+                ng-click="selectFlashCardAmount(100)"><span class="flashselection-text">100</span></button>
+            </div>
+        </div>
+    
+        <!-- Header -->
+        <div class="row col-10 flashSelection-header">
+            <div class="col flashselection-header-text mb-3 mr-4">Select chapters to study</div>
+            <div class="col-0 pr-2 ml-auto flashselection-content-text text-nowrap" >
+                   
+                <button class="mt-auto mb-3 btn btn-success p-1 selectAllChaptersStyle"
+                        id="selectAllChaptersButton"
+                        ng-click="setAllFlashCardChapters();">{{selectedAllChapters}} all chapters</button>
+            </div>
+        </div>
+
+        <div class="row col-10 flashselection-content-background flashselection-content-text m-0 p-2 flash-card-chapter-box">
+                <div class="row col-12 m-0 p-1" 
+                     ng-repeat="flashchapters in flashCardChapters"
+                     ng-if="$even">
+
+                    <div class="col-6 m-0 p-0">
+                        <div class="row m-0 p-0 clickBox"
+                            ng-click="checkFlashCardChapter($index)">
+                            <button class="btn button-flashcardCapterSelection-on-image"
+                                    ng-class="{'button-flashcardCapterSelection-off-image': flashCardChapters[$index].checked != 'true'}"
+                                    alt="check all chapters"></button>
+                            <div class="col-0 pt-2">{{flashCardChapters[$index].name}}</div>
+                            <div class="col pt-2">{{flashCardChapters[$index].desc}}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 m-0 p-0"
+                        ng-if="!$last">
+                        <div class="row m-0 p-0 clickBox"
+                            ng-click="checkFlashCardChapter($index+1)">
+                            <button class="btn button-flashcardCapterSelection-on-image"
+                                    ng-class="{'button-flashcardCapterSelection-off-image': flashCardChapters[$index+1].checked != 'true'}"
+                                    alt="check all chapters"></button>
+                            <div class="col-0 mt-auto mb-auto">{{$index +1; flashCardChapters[$index+1].name}}</div>
+                            <div class="col mt-auto mb-auto">{{flashCardChapters[$index+1].desc}}</div>
+                        </div>
+                    </div>
+
+                </div>
+        </div> 
+
+        <div class="row col-10 justify-content-md-center p-3">
+            <button class="btn btn-success" style="width: 200px; background-color:#0d8071"
+                    ng-click="navigateToView('flashcards');">Submit</button>
+        </div>
+    </div>
+</div>

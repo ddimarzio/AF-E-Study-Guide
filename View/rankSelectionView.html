@@ -1,0 +1,42 @@
+<div class="row col-12 w-100 justify-content-md-center p-5">
+        <div class="row col-12 m-auto pb-3">
+            <div class="col-12">
+                <img src="Assets/images/af-logo-text.png" width="150px"/>
+            </div>
+        </div>
+        <div class="row m-auto col-12 p-1 justify-content-md-center">
+                <span class="title-text2">RANK SELECTION</span>
+        </div>
+</div>
+
+<div class="row col-12 justify-content-md-center p-0 m-0 rankSelectionWhiteBox">
+         <div class="row col-12">
+                <div ng-repeat="rank in ranks" class="m-auto pr-3" style="max-width: 220px;">
+                        <div class="col blueBox blueCard shadow justify-content-md-center " >
+                                <div class="col justify-content-md-center ">
+                                        <div class="rankTitle-box">
+                                                <div class="row-0 box-title-text">Testing to</div>
+                                                <div class="row-0 box-title-text-cap">{{rank.rankName}}</div>
+                                        </div>
+                                        <div class="row-0 rankTitle-box">
+                                                <img src="/Assets/images/{{rank.iconFile}}" width="100"/>
+                                        </div>
+                                        <div class="row-0 pt-3">
+                                                <button class="btn button-submit-small-image ml-2" 
+                                                type="submit"
+                                                alt="select rank"
+                                                ng-click="selectRank(rank.rankID)"></button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="blueBox resourceBlueBox row col-5 shadow">
+                <div class="text-nowrap m-auto p-auto">
+                        <span class="title-text4">
+                                <img src="/Assets/images/researchIcon.png" width="50px" alt="">
+                                RESOURCES ONLY
+                        </span>
+                </div>
+        </div>
+</div>

@@ -1,65 +1,95 @@
-<div class="row col-12 justify-content-md-center p-0 m-0 whiteBox"
-        ng-app="mainApp" 
-        ng-controller="FlashCardController">
-        {{testData}}
-        <div class="blueBox row col-10 justify-content-md-center shadow">
-                <div class="mr-auto justify-content-md-center ">
-                        <img src="Assets/images/Placeholder.png" width="50px;" alt="">
-                        <span class="title-text1 align-bottom pl-3">My Flash Cards</span>
+<div class="row justify-content-md-center m-0 flash-cards-background innerWithHeader"
+    ng-app="mainApp"
+    ng-controller="FlashCardController">
 
-                </div>
-                <div class="justify-content-md-center title-text1">
-                        <button class="btn btn-sm btn-primary align-bottom"
-                        ng-click="getTestData()" type="button">My Flagged</button>
-                        <img src="Assets/images/Placeholder.png" width="50px;" alt="">
-                </div>
-        </div>
+    <!-- Flash cards -->
 
-        <!-- Flash cards -->
-        
-        
-        <div class="col-10 blueBox blueCard shadow align-left" >
-                <div class="row">
-                        <div class="col-2 m-0 p-0">
-                                <img src="Assets/images/Placeholder.png" width="100px;"/>
-                        </div>
-                        <div class="col-10 p=3">
-                                <span class="row title-text1">Question :</span>
-                                <p class="row flashCardText">
-                                        {{flashCards[currentFlashcardQuestion].question}}
-                                </p>
-                                <span class="row title-text1 mt-5">Answers :</span>
+    <div class="row col-12 p-0 m-0 justify-content-md-center">
+        <div class="row col-12">
 
-                                <div ng-repeat="answer in flashCards[currentFlashcardQuestion].answers"
-                                        ng-click="FlashCardSelected(thierAnswer)">
-                                        <div class="form-check" id="flashCardAnswers">
-                                                <input class="form-check-input" 
-                                                        ng-model="thierAnswer"
-                                                        ng-value="$index+1"
-                                                        type="radio" 
-                                                        name="answerRadios" 
-                                                        id="answerRadios" 
-                                                        value="option">
-                                                <label class="form-check-label" for="exampleRadios1">
-                                                        {{answer}}
-                                                </label>
-                                        </div>
-                                </div>  
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="SubmitFlashCard(flashCards[currentFlashcardQuestion].correctAnswer)">Submit</button>
-                                <div class="row">
-                                                {{flashCards.selectionResponse}}
+                <div class="col-1 mt-auto mb-auto ml-auto ie11-FlashCardNavPad">
+                        <button class="btn button-nav-left-image"
+                        type="submit"
+                        alt="prev"
+                        ng-disabled="currentFlashcard <= 0"
+                        ng-click="nextCard(-1)"></button>
+                    </div>
+
+            <div class="row col-6 ">
+
+                <div class="flip justify-content-md-center">
+                    <div class="card" ng-class="{'flipped':flashCardisFlipped}">
+
+                        <!-- FRONT -->
+                        <div class="face front" id='frontCard' ng-style='ieFrontCardStyle'>
+                            <div class="row flash-cards-header-background-green">
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 ie11-FlashCardTop">
+                                    <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
+                                    type="submit"
+                                    alt="flagged"
+                                    ng-click="flagFlashCard()"></button>                                   
                                 </div>
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="NextFlashCard(-1)">Prev</button>
-                                <button class="btn btn-sm btn-primary m-3" 
-                                type="button"
-                                ng-click="NextFlashCard(1)">Next</button>
-                                                               
+                                <div class="col flash-cards-number mb-auto mt-auto mr-5 ie11-FlashCardTop">Question : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
+                            </div>
+                            <div class="row flash-card-box pr-3 pl-3">
+                                    <div class="flashCard-text" id="flashCardFrontContentEle" ng-bind-html="flashCardQuestionContent"></div>
+                            </div>
+                            <div class="row flash-card-box-bottom p-2"></div>
+                            <!-- <div class="row flash-card-check-box">
+                                        <button class="btn button-flash-card-checkmark ml-auto"
+                                        type="submit"
+                                        alt="check knowlege"
+                                        ng-click=""
+                                        ></button>
+                            </div> -->
                         </div>
-                        
+
+                        <!-- BACK -->
+                        <div class="face back" id='backCard' ng-style='ieBackCardStyle'>
+                            <div class="row flash-cards-header-background ">
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 ie11-FlashCardTop">
+                                        <button class="btn button-flashcardFlag-image" ng-class="{'button-flashcardFlagged-image': flashCardFlagged}"
+                                        type="submit"
+                                        alt="flagged"
+                                        ng-click="flagFlashCard()"></button>                                   
+                                </div>
+                                <div class="col flash-cards-number mb-auto mt-auto mr-5 ie11-FlashCardTop">Answer : {{currentFlashcard+1}} of {{user.userFlashCardsMax}}</div>
+                                <div class="col-0 mt-auto mb-auto mr-auto ml-4 corner-flip-click clickBox" ng-click="flipCard()"></div>
+                            </div>
+                            <div class="row flash-card-box pr-3 pl-3">
+                                    <div class="flashCard-text" id="flashCardFrontContentEle" ng-bind-html="flashCardAnswerContent"></div>
+                            </div>
+                            <div class="row flash-card-box-bottom p-2"></div>
+                            <!-- <div class="row flash-card-check-box ">
+                                        <button class="btn button-flash-card-checkmark ml-auto"
+                                        type="submit"
+                                        alt="check knowlege"
+                                        ng-click=""
+                                        ></button>
+                            </div> -->
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-1 mt-auto mb-auto mr-auto ie11-FlashCardNavPad">
+                    <button class="btn button-nav-right-image"
+                    type="submit"
+                    ng-disabled="currentFlashcard >= (user.userFlashCardsMax-1)"
+                    alt="next"
+                    ng-click="nextCard(1)"></button>
                 </div>
         </div>
+        <div class="flash-cards-chap-text">Ch. {{flashCards[currentFlashcard].chapter}} Para. {{flashCards[currentFlashcard].paragraph}}</div>
+
+
+
+  
+    </div>
+    <div class="row col-12 mr-auto pl-4 returnChapterLink">
+        <span class="pl-5 pt-5 m-0 clickBox "
+        ng-click="navigateToView('flashcardselection')">&lt; Return to Chapter Selection</span>
+    </div>
 </div>

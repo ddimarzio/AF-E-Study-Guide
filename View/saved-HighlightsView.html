@@ -1,0 +1,28 @@
+<div class="row col-12 m-0 flash-cards-background innerWithHeader"
+	ng-app="mainApp" 
+	ng-controller="SavedContentController">
+
+	<div class="row col-12 p-0 m-0 justify-content-md-center">
+			<button class="btn button-bookmark-image" 
+			ng-class="{'button-bookmark-marked-image': pageBookmarked}"
+			type="submit"
+			alt="bookmark"
+			data-toggle="tooltip" data-placement="bottom" title="Test"
+			ng-click="bookmarkThisPage()"></button>
+		<div class="row col-12"
+			 ng-repeat="highlight in savedHighlights">
+				<div class="col">Chp:{{highlight.chapterID}}</div>
+				<div class="col">Sect:{{highlight.sectionID}}</div>
+				<div class="col">Page:{{highlight.pageNumber}}</div>
+				<div class="col">Text:{{highlight.content}}</div>
+				<div class="col">
+						<button class="btn btn-sm btn-primary m-3"
+						type="submit"
+						alt="delete highlight"
+						ng-click="deleteHightlight(highlight,$index)">Delete</button>
+				</div>
+			</div>
+				
+
+	</div>
+</div>

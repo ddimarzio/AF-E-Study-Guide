@@ -1,0 +1,87 @@
+<div class="row col-12 justify-content-md-center m-0 contentWhiteBox innerWithHeader"
+        ng-app="mainApp" 
+        ng-controller="HandbookController">
+
+        <div class="row m-0 p-0 col-12 sticky-top sticky-offset ie11-sticky-ereaderFeatures">
+                <div class="col-3 ml-4"
+                        ng-if="pageBookmarked">
+                        <img src="/Assets/images/handbook/hb-bookmark.png"/>
+                </div>
+                <div class="row col-3 ml-auto m-0 p-0 pt-2">
+                        <div class="hb-pageNumber col-0 ml-auto featuresBackground">{{(chapterPageNumber + currentPage)}} of {{chapterMaxPages}}</div>
+                        <div class="col-0 m-0 featuresBackground">
+
+                                <button class="btn button-bookmark-image" 
+                                        ng-class="{'button-bookmark-marked-image': pageBookmarked}"
+                                        type="submit"
+                                        alt="bookmark"
+                                        data-toggle="tooltip" data-placement="bottom" title="Bookmark Page"
+                                        ng-click="bookmarkThisPage()"></button>
+                                <span class='m-0 pb-3' data-toggle="tooltip" data-placement="bottom" title="Open Notes">
+                                        <button class="btn button-notes-image"
+                                                ng-class="{'button-notes-open-image': notesOpen}"
+                                                type="submit"
+                                                alt="shownotes"
+                                                aria-expanded="false"
+                                                aria-controls="mynotes"
+                                                data-toggle="collapse"
+                                                data-target="#mynotes"
+                                                ng-click="openCloseNotes()"></button>
+                                </span>
+                                <button class="btn button-highlight-image"
+                                        type="submit"
+                                        alt="highlight"
+                                        data-toggle="tooltip" data-placement="bottom" title="Highlight Text"
+                                        ng-click="getSelectedText()"></button>
+                        </div>
+                </div>
+        </div>
+
+        <div class="row col-12">
+                <div class="col-1">
+                        <button class="btn button-nav-left-image ie11-sticky-ereaderNav sticky-top sticky-navoffset" 
+                        ng-class="{'button-nav-prevChapter-image': prevChapterBtn}"
+                        ng-if="showPrevNav"
+                        type="submit"
+                        alt="logout"
+                        ng-click="navToPage(currentPage-1)"></button>
+                </div>
+
+                <div class="col-10 ie11-sticky-offset" id="pageContentEle" ng-bind-html="currentPageContent"></div>
+
+                <!-- Testing -->
+                <!-- <div class="col-10">
+                        <div class='col hb-section-title'>Section 1A—Overview</div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic1.jpg' class='col p-0'><div class='col hb-image-caption'>Flying Tiger P-40</div></div><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.1. Introduction</div></div><p class='hb-p'>As preparation for your entry into the Air Force, this section will introduce the Air Force mission and their evolution, the machines and technology associated with air and space flight and most importantly, the legacy of the men and women of the United States Air Force. By surveying the history of aviation, you will discover our heritage, appreciate Air Force traditions, and understand your role in our nation’s defense. This United States Air Force Historical Perspective is by Dr. John T. Farquhar from the United States Air Force Academy Department of History and contributing editor George W. Bradley III, the Air Force Space Command Historian. The enlisted portions of this document were provided by the Air Force Enlisted Heritage Research Institute’s historian, Mr. William I. Chivalette. Dr. John Q. Smith, Senior Air Force Historian, assisted with additional editing.</p>
+                        <div class='col hb-section-title'>Section 1A—Overview</div><div class='hb-image-wrap-left shadow'><img src='/Assets/images/handbook/handbook-pic1.jpg' class='col p-0'><div class='col hb-image-caption'>Flying Tiger P-40</div></div><div class='row hb-title-container'><div class='col-0 hb-title-square'></div><div class='col hb-title'>1.1. Introduction</div></div><p class='hb-p'>As preparation for your entry into the Air Force, this section will introduce the Air Force mission and their evolution, the machines and technology associated with air and space flight and most importantly, the legacy of the men and women of the United States Air Force. By surveying the history of aviation, you will discover our heritage, appreciate Air Force traditions, and understand your role in our nation’s defense. This United States Air Force Historical Perspective is by Dr. John T. Farquhar from the United States Air Force Academy Department of History and contributing editor George W. Bradley III, the Air Force Space Command Historian. The enlisted portions of this document were provided by the Air Force Enlisted Heritage Research Institute’s historian, Mr. William I. Chivalette. Dr. John Q. Smith, Senior Air Force Historian, assisted with additional editing.</p>
+                </div> -->
+
+                <div class="col-1">
+                                <!-- ng-if="currentPage < (currentMaxPages-1) -->
+                        <button class="btn button-nav-right-image ie11-sticky-ereaderNav sticky-top sticky-navoffset"
+                        ng-class="{'button-nav-nextChapter-image': nextChapterBtn}"
+                        ng-if="showNextNav"
+                        type="submit"
+                        alt="logout"
+                        ng-click="navToPage(currentPage+1)"></button>
+                </div>
+                
+        </div>
+        <div class="row form-group col-10 collapse notes-card-box shadow" id="mynotes">
+                <textarea class="form-notes-textarea" 
+                          id="notesinput" 
+                          placeholder="Add notes here" 
+                          rows="3" 
+                          ng-model="pageNotes"
+                          ng-change="pageNotesSaved = false"></textarea>
+                <div class="row justify-content-md-center m-0 ml-auto">
+                        <div class="title-black-text3 text-nowrap"  ng-if="!pageNotesSaved">
+                                <span class="">Save</span><button class="btn button-submit-small-black-image" 
+                                type="submit"
+                                alt="save notes"
+                                ng-click="addPageNotes(pageNotes)"
+                                ng-disabled="pageNotesSaved"
+                                ></button>
+                        </div>
+                </div>
+        </div>
+</div>

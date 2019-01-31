@@ -1,74 +1,61 @@
-<div class="row col-12 justify-content-md-center p-0 m-0 whiteBox">
-
-        <div class="blueBox row col-10 p-3 justify-content-md-center shadow">
-                <div class="mr-auto justify-content-md-center">
-                        <img src="Assets/images/Placeholder.png" width="50px;" alt="">
-                        <span class="title-text1 align-bottom pl-3">My Progress</span>
-                        <span class="title-text1 align-bottom pl-3 pr-1">||||||||||||||</span>
-                        <span class="title-text1 align-bottom">75%</span>
+<div class="row col-12 justify-content-md-center m-0 whiteBox innerWithHeader ie11-headerPaddingTop">
+        <div class="blueBox row col-10 p-0 shadow progress-box mt-auto mb-auto">
+                <div class="col-6 mr-auto text-nowrap p-0 ">
+                        <div class="row m-auto title-text4">
+                                <img src="/Assets/images/planeIcon.png" alt="">
+                                <div class="col-0 mt-auto mb-auto pr-2 ie11-PaddingTop">My Progress</div>
+                                <div class="mt-auto mb-auto progressBar-green" 
+                                     ng-repeat="n in [] | range:(user.userProgress/10)">
+                                        |
+                                </div>
+                                <div class="mt-auto mb-auto progressBar-white ie11-PaddingTop"
+                                     ng-repeat="n in [] | range:((100-user.userProgress)/10)">
+                                        |
+                                </div>                   
+                                <div class="mt-auto mb-auto pl-1 ie11-PaddingTop">{{user.userProgress}}%</div>
+                        </div>
                 </div>
-                <div class="justify-content-md-center">
-                        <span class="pr-3 title-text1 align-bottom">Continue Where I left off</span>
-                        <img src="Assets/images/Placeholder.png" width="50px;" alt="">
+                <div class="col-5 ie11-PaddingTop justify-content-md-center ml-auto mt-auto mb-auto title-text4 text-nowrap">
+                        AFH 1 - continue where you left off
+                        <button class="btn button-submit-small-image ml-2" 
+                        type="submit"
+                        alt="Continue"
+                        ng-click=""></button>
                 </div>
         </div>
 
-        <div class="row col-12">
-                <div class="col blueBox blueCard shadow" >
-                        <div class="col">
-                                <div class="row-0">
-                                        <img src="Assets/images/Placeholder.png" width="100"/>
+
+        <div class="row col-12 mb-auto p-0">
+                <div class="col-2 blueBox blueCard shadow clickBox m-auto"
+                        ng-click="navigateToView('learningtools')">
+                        <div class="col-0">
+                                <div class="row-0 m-auto">
+                                        <img src="/Assets/images/learningToolsIcon.png" width="100"/>
                                 </div>
-                                <div class="row-0 box-title-text">
-                                        Tools</div>
-                                <div class="row title-text1 justify-content-md-center">
-                                        <ul>
-                                                <li><a href="" ng-click="navigateToView('flashcards')">Flash Cards</a></li>
-                                                <li>Test</li>
-                                                <li>Game</li>
-                                        </ul>
-                                </div>
+                                <div class="row-0 col-0 box-title-text">Learning Tools</div>
                         </div>
                 </div>
-                <div class="col blueBox blueCard shadow" >
+                <div class="col-2 blueBox blueCard shadow m-auto" >
                         <div class="col">
                                 <div class="row-0">
-                                        <img src="Assets/images/Placeholder.png" width="100"/>
+                                        <img src="/Assets/images/savedContentIcon.png" width="100"/>
                                 </div>
                                 <div class="row-0 box-title-text">
                                         Saved Content</div>
-                                <div class="row title-text1 justify-content-md-center">
-                                        <ul>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                        </ul>
-                                </div>
                         </div>
                 </div>
-                <div class="col blueBox blueCard shadow" >
+                <div class="col-2 blueBox blueCard shadow clickBox m-auto"
+                        ng-click="">
                         <div class="col">
                                 <div class="row-0">
-                                        <img src="Assets/images/Placeholder.png" width="100"/>
+                                        <img src="/Assets/images/researchIcon.png" width="100"/>
                                 </div>
                                 <div class="row-0 box-title-text">
                                         Resources</div>
-                                <div class="row title-text1 justify-content-md-center">
-                                        <ul>
-                                                <li></li>
-                                                <li></li>
-                                                <li></li>
-                                        </ul>
-                                </div>
+
                         </div>
         
                 </div>
 
         </div>
-        <div class="col-12">
-        <p>Lorem ipsum dolor sit amet, id nunc vestibulum tristique justo, velit aliquet pretium aliquam molestie ante praesent, ornare proin dis id, integer id, eu non. Sem elit luctus vitae mauris sed sagittis, arcu tristique, accumsan ultricies, purus sem orci ornare soluta, ac consequat odio. Metus et orci ac, non at sed, risus ultrices in mattis leo faucibus, malesuada dolor ante urna nec libero aliquam. Senectus nec dui quam dictum, phasellus tincidunt rhoncus tellus, aenean quam rhoncus dolor nam. Nulla lacus consequat purus luctus eu.
-
-                Donec est erat ac, justo mattis adipiscing magnis, dui cras. Ullamcorper ullamcorper, duis ut tellus metus, leo nulla dolor ultrices ligula, ipsum integer duis ipsum maecenas. Aliquam arcu vestibulum, in wisi interdum velit. Velit arcu, wisi nulla libero accusamus orci aptent maecenas, amet vitae, pharetra enim, quis placerat sed. Aliquam elementum vestibulum dolor amet consectetuer. Nam luctus nunc dapibus vulputate pellentesque, cursus mattis varius enim metus integer, rutrum pede sapien. Aliquam a magna at neque felis, urna phasellus donec. Eget imperdiet id, sociosqu ut eu integer, sollicitudin dictum quam, lorem felis mauris erat, auctor dolor hendrerit dolor.</p>  
-        </div>
-
 </div>

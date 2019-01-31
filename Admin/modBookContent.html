@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <title>Admin - AF-E-Study-Guide</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css'>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="p-3" ng-app="mainApp" 
+            ng-controller="AdminController">
+        <a class="btn btn-primary" href="index.html" role="button">Back</a>
+        <div class="title-text2">Add/Modify Book content : {{version}}</div>
+
+        <div class="form-group-admin">
+            <span class="subtitle-text">Select content book:</span>
+            <select class="form-control-admin" id="selcontbook">
+                <option>Airforce Handbook</option>
+                <option>Little Blue Book</option>
+                <option>Little Brown Book</option>
+            </select>
+            <div class="">
+                <span class="subtitle-text">Select chapter:</span>
+                <select class="form-control-admin" id="selcontchapter">
+                    <option value="0">1</option>
+                    <option value="1">2</option>
+                    <option value="2">3</option>
+                </select>
+            <div>
+            <div class="">
+                <span class="subtitle-text">Select page:</span>
+                <select class="form-control-admin" id="selcontpage"
+                    ng-model="selectedPage"
+                    ng-change="getBookPage(selectedPage)">
+                    <option value="0">Add new page</option>
+                    <option value="1">Air Force Handbook - page 1</option>
+                    <option value="2">Air Force Handbook - page 2</option>
+                </select>
+            <div>
+
+            <div class="subtitle-text pt-3">HTML Content</div>
+                <textarea class="form-control-admin" style="width: 1000px;" 
+                    ng-model="textAreaData"
+                    ng-change="setPreview(textAreaData)"
+                    id="textAreaID"
+                    rows="15"></textarea>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-secondary"
+                ng-click="addHTMLTage('title')">Add Title</button>
+                <button type="button" class="btn btn-secondary"
+                ng-click="addHTMLTage('subtitle')">Add Sub-title</button>
+                <button type="button" class="btn btn-secondary"
+                ng-click="addHTMLTage('image')">Add Image</button>
+                <button type="button" class="btn btn-secondary"
+                ng-click="addHTMLTage('paragraph')">Add Paragraph</button>
+
+            </div>
+                
+            <hr>
+            <div class="row">
+                <span class="subtitle-text">Width : </span>
+                <input id="widthInput" ng-model="size.width" value="1366">
+                <span class="subtitle-text">Height : </span>
+                <input id="heightInput" ng-model="size.height" value="800">
+                <button type="button" class="btn btn-primary"
+                ng-click="changePreivewSize(size)">Adjust Size</button>
+            </div>
+            <div class="row p-3">
+                <span class="subtitle-text">Preview page:</span>
+            </div>
+            <div class="col-10 whiteBox-admin" id="previewContentEle" ng-bind-html="previewContent"></div>
+        </div>
+        <div class="p-2">
+            <a class="btn btn-primary" href="" role="button">Save</a>
+        </div>
+    </div>
+
+
+
+    <!-- JS libraries -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
+<script src='https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-route.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-animate.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/floatthead/1.3.2/jquery.floatThead.min.js'></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+<script src="/Admin/adminController.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+.chapter-box {
+    width: 285px;
+}
+.section-box {
+    border: 2px solid #000000;
+    width: 285px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.horLine {
+    border: 1px solid #9B9B9B;
+}
+.chapter-title {
+    color: black;
+    font-size: 22px;
+    text-decoration: none;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.chapter-subtitle {
+    color: #9FA0A0;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+.section-text {
+    color: #0E182D;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.chapter-triangle {
+    transition: all 0.1s ease-in-out;
+    border-bottom: 7px solid transparent;
+    border-top: 7px solid transparent;
+    border-left: 11px solid #000000;
+    display: inline-block;
+    height: 0;
+    opacity: 1;
+    vertical-align: top;
+    width: 10px;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  .chapter-triangle-down {
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+.section-box.ng-hide {
+opacity: 0;
+}
+.section-box.ng-hide-add,
+.section-box.ng-hide-remove {
+  transition: all linear 0.2s;
+}

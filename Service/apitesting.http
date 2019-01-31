@@ -1,0 +1,231 @@
+
+# POST https://powertrainafttest.azurewebsites.net/Account/Register HTTP/1.1
+# content-type: application/json
+
+# {
+#   "email":"ddimarzio@powertrain.com",
+#   "username":"ddimarzio",
+#   "password":"test2"
+# }
+
+
+# POST https://powertrainafttest.azurewebsites.net/Account/Login HTTP/1.1
+# content-type: application/json
+
+# {
+#   "username":"ddimarzio@powertrain.com",
+#   "password":"test"
+# }
+
+# POST https://powertrainafttest.azurewebsites.net/FlashCard/DeleteFlashcardBookmark   HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID":"38eef89c-7693-4f5c-9687-9986a9004216",
+#   "FlashcardID":"4E_18"
+# }
+
+# POST https://powertrainafttest.azurewebsites.net/Flashcard/GetUserFlagged HTTP/1.1
+
+# content-type: application/json
+# {
+#   "SessionID" : "f7fff9f0-d275-4e69-8dc0-115513eac281",
+#   "userID" : "46"
+# }
+
+# POST http://powertrainafttest.azurewebsites.net/Account/GetData HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
+#   "UserID" : "110"
+# }
+
+  # "UserID": 46,
+  # "SessionID": "35894622-d0ad-427c-9940-1ae957f27106",
+  # "Username": "Don",
+  # "Rank": "TestRank",
+  # "Role": "User",
+  # "Notes": [],
+  # "Bookmarks": [],
+  # "userLoggedIn": true
+
+ 
+# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetFlashcard  HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "7c978aca-2593-438b-bacf-4c0137e4c0e3",
+#   "UserID" : "46",
+#   "FlashcardID":"6F_23"
+# }
+
+# POST http://powertrainafttest.azurewebsites.net/Flashcard/GetStack HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
+#   "amount" : "25",
+#   "chapters" : [2],
+#   "rank" : "0"
+# }
+
+# "ID": "1E_15",
+#   "Chapter": "1",
+#   "RankID": 3,
+#   "Question": "Describe the mutually assured destruction doctrine.",
+#   "Answer": "This doctrine is based on the theory that superpower strategic nuclear forces could be seized and protected to survive a nuclear attack in order to retaliate with sufficient force to destroy the other side.",
+#   "Level": "B",
+#   "Importance": 2,
+#   "Category": "A"
+
+
+# POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1
+# content-type: application/json
+
+# {
+#   "email" : "ddimarzio@powertrain.com"
+# }
+
+# POST http://powertrainafttest.azurewebsites.net/AdminEReader/GetPageContent HTTP/1.1
+# content-type: application/json
+
+# {
+# "SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
+# "bookType" : 0,
+# "chapterID" : 5,
+# }
+
+
+POST http://powertrainafttest.azurewebsites.net/EReader/GetSectionContent HTTP/1.1
+content-type: application/json
+
+{
+"SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
+"bookType" : 0,
+"chapterID" : 5,
+"sectionID" : "5A"
+}
+
+# POST http://powertrainaftreview.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "34883055-9ec4-4751-bb90-441b83e165e8",
+#   "booktype" : 0
+# }
+
+# POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
+#   "booktype" : 0
+# }
+
+
+# POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
+# content-type: application/json
+
+# {
+#   "userSession" : "034cd8b3-8229-42cc-9edc-a799afba3d37",
+#   "UserID" : "46",
+#   "userBookMarks" : [],
+#   "userRankID" : 2,
+#   "userRole" : 0,
+#   "userName" : "Don",
+#   "userProgress" : 30,
+#   "userNotes" : [],
+#   "userFlashCardFlagged" : [],
+#   "userHightlights" : [{"chapterID":"2","sectionID":"2B","pageNumber":74,"content":"0,0","startChar":"139","endChar":"161"}],
+#   "userSession":"c11f8022-0188-4dd6-a5ed-615f87e061c0",
+#   "userReadHandbook":1,
+#   "flashCardSelectedAmount":25,
+#   "chaptersSelected":[],
+#   "userReadHandbook" : 100
+# }
+
+# SessionID: "29c78358-aa96-4c2d-9feb-4ce70ec56d80"
+# UserID: "46"
+# userBookMarks: []
+# userFlashCardFlagged: []
+# userHightlights: []
+# userName: ""
+# userNotes: []
+# userProgress: 10
+# userRankID: 1
+# userReadHandbook: 1
+# userRole: 0
+
+# {"SessionID":"7631fe60-2b4d-43e0-858b-1b63fbc0a0e0",
+# "UserID":"58",
+# "userRankID":4,
+# "userRole":0,
+# "userName":"JamesBlackaa",
+# "userBookMarks":[
+#     {
+#     "chapterID":1,
+#     "sectionID":"1A",
+#     "pageNumber":1
+#     }],
+#     "userNotes": [
+#     {
+#     "chapterID":1,
+#     "sectionID":"1A",
+#     "pageNumber":1,
+#     "note":"est"
+#     }],
+#     "userFlashCardFlagged":[],
+#     "userHightlights":[
+#         {
+#         "chapterID":1,
+#         "sectionID":"1A",
+#         "pageNumber":1,
+#         "content":"TESTEST",
+#         "startChar":0,
+#         "endChar":0} ],
+#     "userReadHandbook":0,
+#     "userProgress":0
+#     }
+# }
+
+# POST http://powertrainafttest.azurewebsites.net/EReader/DeleteHighlight HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "d80ade68-39e3-4cdb-8ee8-af7fea994293",
+#   "userID" : "110",
+#   "highlightID" : 148
+# }
+
+# POST http://powertrainafttest.azurewebsites.net/EReader/CreateHighlight HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
+#   "userID" : "110",
+#   "chapterID":2,
+#   "sectionID":"2A",
+#   "pageNumber":74,
+#   "content":"TESTEST",
+#   "startChar":0,
+#   "endChar":0
+# }
+
+# POST http://powertrainafttest.azurewebsites.net/EReader/GetUserBookmarks HTTP/1.1
+# content-type: application/json
+
+# {
+#   "SessionID" : "880c5d81-3c22-4866-a6fd-bc168ae9f76f",
+#   "userID" : "110",
+#   "chapterID":2,
+#   "sectionID":"2A",
+# }
+
+
+# POST http://powertrainafttest.azurewebsites.net/Account/RequestPassword HTTP/1.1
+# content-type: application/json
+
+# {
+#   "email" : "ddimarzio@powertrain.com"
+# }
