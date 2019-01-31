@@ -93,7 +93,7 @@ content-type: application/json
 # {
 # "SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
 # "bookType" : 0,
-# "chapterID" : 5,
+# "chapterID" : 1,
 # }
 
 
@@ -103,8 +103,8 @@ content-type: application/json
 # {
 # "SessionID" : "b10de219-46b0-41de-967d-9a9341f02fa1",
 # "bookType" : 0,
-# "chapterID" : 5,
-# "sectionID" : "5A"
+# "chapterID" : 1,
+# "sectionID" : "1B"
 # }
 
 # POST http://powertrainaftreview.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
@@ -115,14 +115,6 @@ content-type: application/json
 #   "booktype" : 0
 # }
 
-# POST http://powertrainafttest.azurewebsites.net/EReader/GetChapterSectionTitles HTTP/1.1
-# content-type: application/json
-
-# {
-#   "SessionID" : "362a033e-e4e0-4e7e-a3af-dee4c309aee3",
-#   "booktype" : 0
-# }
-
 
 # POST http://powertrainafttest.azurewebsites.net/Account/SaveData HTTP/1.1
 # content-type: application/json
@@ -130,7 +122,7 @@ content-type: application/json
 # {
 #   "userSession" : "b10de219-46b0-41de-967d-9a9341f02fa1",
 #   "UserID" : "110",
-#   "userBookMarks" : [],
+#   "userBookMarks" : [{"chapterID":"1","sectionID":"1A-Overview","pageNumber":"1"},{"chapterID":"3","sectionID":"3B-Command Authority and Department of Defense","pageNumber":"113"},{"chapterID":"3","sectionID":"3B-Command Authority and Department of Defense","pageNumber":"114"},{"chapterID":"1","sectionID":"1B","pageNumber":"2"}],
 #   "userRankID" : 2,
 #   "userRole" : 0,
 #   "userName" : "Don",
