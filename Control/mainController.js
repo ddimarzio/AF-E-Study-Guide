@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.510";
+  $scope.version = "Version 0.511";
 
   $scope.Math = window.Math;
   $(function () {
@@ -10,6 +10,8 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
       trigger : 'hover'
     })  
   })
+
+  $scope.showAronymList($scope.user.userLastView);
 
   // Menu system
   $scope.navMainMenuSelect = function(menuitem)
