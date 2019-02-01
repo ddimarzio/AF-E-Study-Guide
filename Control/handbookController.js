@@ -13,8 +13,12 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
         $scope.chapterPageNumber = 0;
         $scope.chapterMaxPages = 0;
 
+        $scope.loadingPage = false;
+
         $scope.getContent = function()
         {
+            $scope.loadingPage = false;
+
             var whichPage = $localstorage.getObject('resourcePage');
             
             dataService.getEReaderPages($scope.user.userSession,whichPage[0],whichPage[1],whichPage[2])
@@ -43,6 +47,7 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
                 $scope.getAllUserData();
 
+                $scope.loadingPage = true;
               } 
               else 
               {
@@ -260,10 +265,13 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
             }
 
             $scope.setNavButtons();
+            $scope.loadingPage = false;
         }
 
         $scope.navToPage = function(num)
         {
+            $scope.loadingPage = true;
+
             if ( num > -1 && num < $scope.currentMaxPages)
             {
                 $scope.currentPage = num;

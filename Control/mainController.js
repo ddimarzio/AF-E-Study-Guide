@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.513";
+  $scope.version = "Version 0.515";
 
   $scope.Math = window.Math;
   $(function () {
@@ -448,7 +448,7 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
         }
       }
 
-      $scope.user = $localstorage.getObject('user');
+      console.log('init :' + JSON.stringify($scope.user.userLastView));
       $scope.showAronymList($scope.user.userLastView);
 
       $scope.intialized = true;
