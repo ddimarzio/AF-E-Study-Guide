@@ -21,6 +21,8 @@ mainApp.controller('HandbookController', function($scope,$sce,$localstorage,$win
 
             var whichPage = $localstorage.getObject('resourcePage');
             
+            console.log("whichPage : " + JSON.stringify(whichPage));
+
             dataService.getEReaderPages($scope.user.userSession,whichPage[0],whichPage[1],whichPage[2])
             .then(function(response) 
             {

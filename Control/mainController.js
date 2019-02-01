@@ -2,7 +2,7 @@ var mainApp = angular.module('mainApp', ['ngRoute','ngAnimate'] );
 
 mainApp.controller('MainController', function($scope,$sce,$location,$window,$localstorage,$document,mainModel,dataService) {
  
-  $scope.version = "Version 0.517";
+  $scope.version = "Version 0.518";
 
   $scope.Math = window.Math;
   $(function () {
@@ -149,8 +149,6 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
             alert("Result is not JSON type");
           }
       });
-
-
     }
   }
 
@@ -160,6 +158,10 @@ mainApp.controller('MainController', function($scope,$sce,$location,$window,$loc
     {
       $scope.user.userLastView = viewPage;
       $localstorage.setObject('user', $scope.user);
+
+      // var whichPage = []
+      // $localstorage.setObject('resourcePage',whichPage);
+
       $location.path(viewPage);
 
       // Forcing an update on an element.
