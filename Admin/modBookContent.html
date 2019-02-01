@@ -67,18 +67,32 @@
             </div>
                 
             <hr>
-            <div class="row">
+            <!-- <div class="row">
                 <span class="subtitle-text">Width : </span>
                 <input id="widthInput" ng-model="size.width" value="1366">
                 <span class="subtitle-text">Height : </span>
                 <input id="heightInput" ng-model="size.height" value="800">
                 <button type="button" class="btn btn-primary"
                 ng-click="changePreivewSize(size)">Adjust Size</button>
-            </div>
+            </div> -->
             <div class="row p-3">
                 <span class="subtitle-text">Preview page:</span>
             </div>
-            <div class="col-10 whiteBox-admin" id="previewContentEle" ng-bind-html="previewContent"></div>
+            <div class="row col-12 whiteBox-admin">
+                <div class="col-1">
+                    <button class="btn button-nav-left-image ie11-sticky-ereaderNav sticky-top sticky-navoffset" 
+                    type="submit"></button>
+                </div>
+
+                <div class="col-10" id="previewContentEle" ng-bind-html="previewContent"></div>
+
+                <div class="col-1">
+                    <button class="btn button-nav-right-image ie11-sticky-ereaderNav sticky-top sticky-navoffset"
+                     type="submit"></button>
+                </div>
+            </div>
+        
+        
         </div>
         <div class="p-2">
             <a class="btn btn-primary" href="" role="button">Save</a>
