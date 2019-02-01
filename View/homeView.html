@@ -1,61 +1,62 @@
 <div class="row col-12 justify-content-md-center m-0 whiteBox innerWithHeader ie11-headerPaddingTop">
-        <div class="blueBox row col-10 p-0 shadow progress-box mt-auto mb-auto">
-                <div class="col-6 mr-auto text-nowrap p-0 ">
-                        <div class="row m-auto title-text4">
-                                <img src="/Assets/images/planeIcon.png" alt="">
-                                <div class="col-0 mt-auto mb-auto pr-2 ie11-PaddingTop">My Progress</div>
-                                <div class="mt-auto mb-auto progressBar-green" 
-                                     ng-repeat="n in [] | range:(user.userProgress/10)">
-                                        |
-                                </div>
-                                <div class="mt-auto mb-auto progressBar-white ie11-PaddingTop"
-                                     ng-repeat="n in [] | range:((100-user.userProgress)/10)">
-                                        |
-                                </div>                   
-                                <div class="mt-auto mb-auto pl-1 ie11-PaddingTop">{{user.userProgress}}%</div>
-                        </div>
+    <div class="blueBox row col-10 p-0 shadow progress-box mt-auto mb-auto">
+        <div class="col-6 mr-auto text-nowrap p-0 ">
+            <div class="row m-auto title-text4">
+                <img src="/Assets/images/planeIcon.png" alt="">
+                <div class="col-0 mt-auto mb-auto pr-2 ie11-PaddingTop">My Progress</div>
+                <div class="mt-auto mb-auto progressBar-green" 
+                    ng-repeat="n in [] | range:(user.userProgress/10)">
+                    |
                 </div>
-                <div class="col-5 ie11-PaddingTop justify-content-md-center ml-auto mt-auto mb-auto title-text4 text-nowrap">
-                        AFH 1 - continue where you left off
-                        <button class="btn button-submit-small-image ml-2" 
-                        type="submit"
-                        alt="Continue"
-                        ng-click=""></button>
-                </div>
+                <div class="mt-auto mb-auto progressBar-white ie11-PaddingTop"
+                    ng-repeat="n in [] | range:((100-user.userProgress)/10)">
+                    |
+                </div>                   
+                <div class="mt-auto mb-auto pl-1 ie11-PaddingTop">{{user.userProgress}}%</div>
+            </div>
         </div>
+        <div class="col-5 ie11-PaddingTop justify-content-md-center ml-auto mt-auto mb-auto title-text4 text-nowrap">
+                AFH 1 - continue where you left off
+                <button class="btn button-submit-small-image ml-2" 
+                type="submit"
+                alt="Continue"
+                ng-click=""></button>
+        </div>
+    </div>
 
 
-        <div class="row col-12 mb-auto p-0">
-                <div class="col-2 blueBox blueCard shadow clickBox m-auto"
-                        ng-click="navigateToView('learningtools')">
-                        <div class="col-0">
-                                <div class="row-0 m-auto">
-                                        <img src="/Assets/images/learningToolsIcon.png" width="100"/>
-                                </div>
-                                <div class="row-0 col-0 box-title-text">Learning Tools</div>
-                        </div>
+    <div class="row col-12 mb-auto p-0">
+        <div class="col-12 blueBox blueCard shadow m-auto">
+            
+            <!-- Learning tools -->
+            <span>*Caution.  Under Construction.  Watch your step*</span>
+            <div class="row col-12">
+                <div class="col-0 mt-auto mb-auto pr-5">
+                    <div class="col-0"><img src="/Assets/images/learningToolsIcon.png"></div>
+                    <div class="col-0">Learning Tools</div>
                 </div>
-                <div class="col-2 blueBox blueCard shadow m-auto" >
-                        <div class="col">
-                                <div class="row-0">
-                                        <img src="/Assets/images/savedContentIcon.png" width="100"/>
-                                </div>
-                                <div class="row-0 box-title-text">
-                                        Saved Content</div>
-                        </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/studyIcon.png"></div>
+                    <div class="col-0">Study Guide</div>
                 </div>
-                <div class="col-2 blueBox blueCard shadow clickBox m-auto"
-                        ng-click="">
-                        <div class="col">
-                                <div class="row-0">
-                                        <img src="/Assets/images/researchIcon.png" width="100"/>
-                                </div>
-                                <div class="row-0 box-title-text">
-                                        Resources</div>
-
-                        </div>
-        
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/audioIcon.png"></div>
+                    <div class="col-0">Audio Book</div>
                 </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/flashcardIcons.png"></div>
+                    <div class="col-0">Flashcards</div>
+                </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/practIcon.png"></div>
+                    <div class="col-0">Practice Test</div>
+                </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/gameIcon.png"></div>
+                    <div class="col-0">Game</div>
+                </div>
+            </div>
 
         </div>
+    </div>
 </div>

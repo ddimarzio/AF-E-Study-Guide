@@ -44,6 +44,7 @@
                         ng-if="showPrevNav"
                         type="submit"
                         alt="logout"
+                        ng-disabled="loadingPage"
                         ng-click="navToPage(currentPage-1)"></button>
                 </div>
 
@@ -62,6 +63,7 @@
                         ng-if="showNextNav"
                         type="submit"
                         alt="logout"
+                        ng-disabled="loadingPage"
                         ng-click="navToPage(currentPage+1)"></button>
                 </div>
                 

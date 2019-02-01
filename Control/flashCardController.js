@@ -5,6 +5,7 @@ mainApp.controller('FlashCardController', function($scope,$localstorage,$sce,$ti
         $scope.ieFrontCardStyle = "";
         $scope.ieBackCardStyle = {'visibility':'hidden'};
         $scope.selectedAllChapters = "Select";
+        
         // Methods
         $scope.getFlashCards = function(amount,chapters)
         {
