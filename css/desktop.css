@@ -2,6 +2,39 @@
     padding-right: 60px;
 }
 
+.deskCategoryTitle {
+    color: #e8e8e8;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'agencyBold', sans-serif;
+    width: 120px;
+}
+
+.deskSubTitle {
+    color: #e8e8e8;
+    margin: 10px 0 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'agencyBold', sans-serif; 
+}
+
+/* #c7a567 */
+.desktopTriangle {
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ffffff;
+    display: inline-block;
+    height: 0;
+    opacity: 1;
+    vertical-align: top;
+    width: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 /* IE 10+ only */
 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) 
 {  

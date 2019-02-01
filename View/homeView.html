@@ -25,38 +25,97 @@
     </div>
 
 
-    <div class="row col-12 mb-auto p-0">
-        <div class="col-12 blueBox blueCard shadow m-auto">
-            
+    <div class="row col-10 mb-auto p-0 justify-content-md-center">
+        < class="col-10 blueBox blueCard shadow m-0 p-0">
             <!-- Learning tools -->
-            <span>*Caution.  Under Construction.  Watch your step*</span>
-            <div class="row col-12">
-                <div class="col-0 mt-auto mb-auto pr-5">
+            
+            <div class="row col-12 m-0 p-0">
+                <div class="col-0 mt-auto mb-auto pl-5">
                     <div class="col-0"><img src="/Assets/images/learningToolsIcon.png"></div>
-                    <div class="col-0">Learning Tools</div>
+                    <div class="col-0 deskCategoryTitle">Learning Tools</div>
                 </div>
+                <div class="desktopTriangle mt-auto mb-auto"></div>
                 <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
                     <div class="col-0"><img src="/Assets/images/desktop/studyIcon.png"></div>
-                    <div class="col-0">Study Guide</div>
+                    <div class="col-0 deskSubTitle">Study Guide</div>
                 </div>
                 <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
                     <div class="col-0"><img src="/Assets/images/desktop/audioIcon.png"></div>
-                    <div class="col-0">Audio Book</div>
+                    <div class="col-0 deskSubTitle">Audio Book</div>
                 </div>
-                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem clickBox"
+                    ng-click="navigateToView('flashcardselection')">
                     <div class="col-0"><img src="/Assets/images/desktop/flashcardIcons.png"></div>
-                    <div class="col-0">Flashcards</div>
+                    <div class="col-0 deskSubTitle">Flashcards</div>
                 </div>
-                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem clickBox"
+                        ng-click="navigateToView('practicetest')">
                     <div class="col-0"><img src="/Assets/images/desktop/practIcon.png"></div>
-                    <div class="col-0">Practice Test</div>
+                    <div class="col-0 deskSubTitle">Practice Test</div>
                 </div>
                 <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
                     <div class="col-0"><img src="/Assets/images/desktop/gameIcon.png"></div>
-                    <div class="col-0">Game</div>
+                    <div class="col-0 deskSubTitle">Game</div>
                 </div>
             </div>
 
+            <div class="m-0 ml-2 mr-2 p-0"><hr></div>
+
+            <!-- Saved Content -->
+            <div class="row col-12 m-0 p-0">
+                <div class="col-0 mt-auto mb-auto pl-5">
+                    <div class="col-0"><img src="/Assets/images/savedContentIcon.png"></div>
+                    <div class="col-0 deskCategoryTitle">Saved Content</div>
+                </div>
+                <div class="desktopTriangle mt-auto mb-auto"></div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem "
+                    ng-click="">
+                    <div class="col-0"><img src="/Assets/images/desktop/bookmarkIcon.png"></div>
+                    <div class="col-0 deskSubTitle">Bookmarks</div>
+                </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/notesIcon.png"></div>
+                    <div class="col-0 deskSubTitle">Notes</div>
+                </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem clickBox"
+                    ng-click="navigateToView('savedHighlights')">
+                    <div class="col-0"><img src="/Assets/images/desktop/highlightIcon.png"></div>
+                    <div class="col-0 deskSubTitle">Highlights</div>
+                </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem clickBox"
+                    ng-click="navigateToView('savedFlashcards')">
+                    <div class="col-0"><img src="/Assets/images/desktop/flashcardIcons.png"></div>
+                    <div class="col-0 deskSubTitle">Flashcards</div>
+                </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/practIcon.png"></div>
+                    <div class="col-0 deskSubTitle">Saved Tests</div>
+                </div>
+            </div>
+
+            <div class="m-0 ml-2 mr-2 p-0"><hr></div>
+
+            <!-- Resources -->
+            <div class="row col-12 m-0 p-0">
+                <div class="col-0 mt-auto mb-auto pl-5">
+                    <div class="col-0"><img src="/Assets/images/researchIcon.png"></div>
+                    <div class="col-0 deskCategoryTitle">Resources</div>
+                </div>
+                <div class="desktopTriangle mt-auto mb-auto"></div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem clickBox"
+                    ng-click="navigateToView('handbook')">
+                    <div class="col-0"><img src="/Assets/images/desktop/handbookIcon.png"></div>
+                    <div class="col-0 deskSubTitle">Air Force Handbook</div>
+                </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/brownBookIcon.png"></div>
+                    <div class="col-0 deskSubTitle">Little Brown Book</div>
+                </div>
+                <div class="col-0 mt-auto mb-auto ie11-iconPaddingTop menuItem">
+                    <div class="col-0"><img src="/Assets/images/desktop/blueBookIcon.png"></div>
+                    <div class="col-0 deskSubTitle">Little Blue Book</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
