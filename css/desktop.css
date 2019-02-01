@@ -1,7 +1,16 @@
 .menuItem {
+    transition: all 0.1s ease-in-out;
     padding-right: 60px;
 }
 
+.disabledMenuItem {
+    opacity: 0.5;
+    padding-right: 60px;
+}
+
+.menuItem:hover {
+    transform: scale(1.1);
+}
 .deskCategoryTitle {
     color: #e8e8e8;
     margin: 10px 0 0;
